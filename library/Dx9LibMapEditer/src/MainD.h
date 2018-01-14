@@ -1,43 +1,43 @@
 /******************************************************************************/
-//	ƒ}ƒbƒvƒGƒfƒBƒ^[
-//		ƒwƒbƒ_ƒtƒ@ƒCƒ‹
+//	ãƒžãƒƒãƒ—ã‚¨ãƒ‡ã‚£ã‚¿ãƒ¼
+//		ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒfƒtƒ@ƒCƒ“
+//	ãƒ‡ãƒ•ã‚¡ã‚¤ãƒ³
 //----------------------------------------------------------------------------//
 
 /////////////////////////////////////
-//	”Ô†
+//	ç•ªå·
 
-//	ƒeƒNƒXƒ`ƒƒ
-#define	TEX_SYSTEM	0		//	ƒVƒXƒeƒ€
-#define	TEX_BMP		5		//	bmpƒtƒ@ƒCƒ‹
+//	ãƒ†ã‚¯ã‚¹ãƒãƒ£
+#define	TEX_SYSTEM	0		//	ã‚·ã‚¹ãƒ†ãƒ 
+#define	TEX_BMP		5		//	bmpãƒ•ã‚¡ã‚¤ãƒ«
 
-//	ƒpƒ^[ƒ“
-#define	PAT_MENU	0		//	ƒƒjƒ…[
-#define	PAT_FRM		1		//	ƒtƒŒ[ƒ€
-#define	PAT_CURSOR	5		//	ƒJ[ƒ\ƒ‹
-#define	PAT_BMP		10		//	bmpƒtƒ@ƒCƒ‹
-#define	PAT_CHIP	12		//	ƒ`ƒbƒv
-#define	PAT_MARU	15		//	›
-#define	PAT_BATU	16		//	~
-#define	PAT_BRUSH	18		//	ƒuƒ‰ƒV
-#define	PAT_MAP		20		//	ƒ}ƒbƒv
+//	ãƒ‘ã‚¿ãƒ¼ãƒ³
+#define	PAT_MENU	0		//	ãƒ¡ãƒ‹ãƒ¥ãƒ¼
+#define	PAT_FRM		1		//	ãƒ•ãƒ¬ãƒ¼ãƒ 
+#define	PAT_CURSOR	5		//	ã‚«ãƒ¼ã‚½ãƒ«
+#define	PAT_BMP		10		//	bmpãƒ•ã‚¡ã‚¤ãƒ«
+#define	PAT_CHIP	12		//	ãƒãƒƒãƒ—
+#define	PAT_MARU	15		//	â—‹
+#define	PAT_BATU	16		//	Ã—
+#define	PAT_BRUSH	18		//	ãƒ–ãƒ©ã‚·
+#define	PAT_MAP		20		//	ãƒžãƒƒãƒ—
 
-//	ƒ|ƒŠƒSƒ“
-#define	POL_MENU	0		//	ƒƒjƒ…[
-#define	POL_FRM		1		//	ƒtƒŒ[ƒ€
-#define	POL_CURSOR	5		//	ƒJ[ƒ\ƒ‹
-#define	POL_SEL		6		//	ƒJ[ƒ\ƒ‹iƒƒjƒ…[j
-#define	POL_BG		10		//	”wŒi
-#define	POL_BMP		15		//	bmpƒtƒ@ƒCƒ‹
-#define	POL_BRUSH	20		//	ƒuƒ‰ƒV
-#define	POL_GRID	30		//	ƒOƒŠƒbƒh
-#define	POL_HIT		20		//	›E~
-#define	POL_MAP		125		//	ƒ}ƒbƒv
+//	ãƒãƒªã‚´ãƒ³
+#define	POL_MENU	0		//	ãƒ¡ãƒ‹ãƒ¥ãƒ¼
+#define	POL_FRM		1		//	ãƒ•ãƒ¬ãƒ¼ãƒ 
+#define	POL_CURSOR	5		//	ã‚«ãƒ¼ã‚½ãƒ«
+#define	POL_SEL		6		//	ã‚«ãƒ¼ã‚½ãƒ«ï¼ˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ï¼‰
+#define	POL_BG		10		//	èƒŒæ™¯
+#define	POL_BMP		15		//	bmpãƒ•ã‚¡ã‚¤ãƒ«
+#define	POL_BRUSH	20		//	ãƒ–ãƒ©ã‚·
+#define	POL_GRID	30		//	ã‚°ãƒªãƒƒãƒ‰
+#define	POL_HIT		20		//	â—‹ãƒ»Ã—
+#define	POL_MAP		125		//	ãƒžãƒƒãƒ—
 
-//	ƒeƒLƒXƒg
+//	ãƒ†ã‚­ã‚¹ãƒˆ
 enum
 {
 	TXT_MOUSE = 0,
@@ -47,29 +47,29 @@ enum
 };
 
 /////////////////////////////////////
-//	‚»‚Ì‘¼
+//	ãã®ä»–
 
-//	ƒ`ƒbƒvƒTƒCƒY
+//	ãƒãƒƒãƒ—ã‚µã‚¤ã‚º
 #define	CHIP_SIZE		16
 #define	CHIP_W_NUM_MAX	6
 #define	CHIP_H_NUM_MAX	12
 #define	CHIP_NUM_MAX	(CHIP_W_NUM_MAX*CHIP_H_NUM_MAX)
 
-//	ƒ}ƒbƒv‚ÌÅ‘å”(ƒ`ƒbƒv”)
+//	ãƒžãƒƒãƒ—ã®æœ€å¤§æ•°(ãƒãƒƒãƒ—æ•°)
 #define	MAP_W_MAX		300
 #define	MAP_H_MAX		300
 
-//	“Ç‚Ýž‚ÞbmpƒTƒCƒY
+//	èª­ã¿è¾¼ã‚€bmpã‚µã‚¤ã‚º
 #define	BMP_SIZE		384
 
-//	bmpƒpƒ^[ƒ“ƒTƒCƒY
+//	bmpãƒ‘ã‚¿ãƒ¼ãƒ³ã‚µã‚¤ã‚º
 #define	BMP_PAT_SIZE_W	(CHIP_SIZE*CHIP_W_NUM_MAX)	//	96
 #define	BMP_PAT_SIZE_H	(CHIP_SIZE*CHIP_H_NUM_MAX)	//	192
 
-//	ƒy[ƒWÅ‘å”
+//	ãƒšãƒ¼ã‚¸æœ€å¤§æ•°
 #define	PAGE_MAX		8
 
-//	ƒ`ƒbƒvƒEƒCƒ“ƒhƒEƒTƒCƒY
+//	ãƒãƒƒãƒ—ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚º
 #define	CHIP_WINDOW_X	CHIP_SIZE
 #define	CHIP_WINDOW_Y	164
 #define	CHIP_WINDOW_W	112
@@ -79,11 +79,11 @@ enum
 
 enum
 {
-	LAYER_1 = 0,	//	0	ƒŒƒCƒ„[1
-	LAYER_2,		//	1	ƒŒƒCƒ„[2
-	LAYER_3,		//	2	ƒŒƒCƒ„[3
-	LAYER_HIT,		//	3	“–‚è”»’è
-	LAYER_MAX		//	4	Å‘å”
+	LAYER_1 = 0,	//	0	ãƒ¬ã‚¤ãƒ¤ãƒ¼1
+	LAYER_2,		//	1	ãƒ¬ã‚¤ãƒ¤ãƒ¼2
+	LAYER_3,		//	2	ãƒ¬ã‚¤ãƒ¤ãƒ¼3
+	LAYER_HIT,		//	3	å½“ã‚Šåˆ¤å®š
+	LAYER_MAX		//	4	æœ€å¤§æ•°
 };
 
 #define	MAP_INDEX_LAYER1	0
@@ -91,90 +91,90 @@ enum
 #define	MAP_INDEX_LAYER3	20
 #define	MAP_INDEX_HIT		30
 
-//	ƒfƒoƒbƒOƒXƒCƒbƒ`
+//	ãƒ‡ãƒãƒƒã‚°ã‚¹ã‚¤ãƒƒãƒ
 //#define	__DEBUG__
 #ifdef	__DEBUG__
 #define	DB_MS			100
 #endif
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 
-//	ƒ_ƒCƒAƒƒO—p
+//	ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ç”¨
 char	Dialog[][128]=
 {
-	"ƒ}ƒbƒvƒtƒ@ƒCƒ‹(*.map)\0*.map\0\0",
-	"‰æ‘œƒtƒ@ƒCƒ‹(*.bmp *.img)\0*.bmp\0*.img\0",
+	"ãƒžãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«(*.map)\0*.map\0\0",
+	"ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«(*.bmp *.img)\0*.bmp\0*.img\0",
 	"*.map",
 	"*.bmp *.img",
-	"ƒ[ƒh‚·‚éƒtƒ@ƒCƒ‹–¼‚ðŽw’è‚µ‚Ä‚­‚¾‚³‚¢B",
-	"ƒZ[ƒu‚·‚éƒtƒ@ƒCƒ‹–¼‚ðŽw’è‚µ‚Ä‚­‚¾‚³‚¢",
+	"ãƒ­ãƒ¼ãƒ‰ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«åã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚",
+	"ã‚»ãƒ¼ãƒ–ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«åã‚’æŒ‡å®šã—ã¦ãã ã•ã„",
 };
 
-//	ƒpƒ^[ƒ“À•W
+//	ãƒ‘ã‚¿ãƒ¼ãƒ³åº§æ¨™
 short	PatDat[][4] =
 {
-	0,0,128,416,	//	ƒƒjƒ…[‚P
-	128,0,16,16,	//	ƒJ[ƒ\ƒ‹
-	128,16,40,16,	//	ƒXƒCƒbƒ`˜g
-	128,32,16,16,	//	›
-	144,32,16,16,	//	~
-	160,0,16,16,	//	ƒuƒ‰ƒV
-	192,0,128,208,	//	ƒƒjƒ…[‚Q
+	0,0,128,416,	//	ãƒ¡ãƒ‹ãƒ¥ãƒ¼ï¼‘
+	128,0,16,16,	//	ã‚«ãƒ¼ã‚½ãƒ«
+	128,16,40,16,	//	ã‚¹ã‚¤ãƒƒãƒæž 
+	128,32,16,16,	//	â—‹
+	144,32,16,16,	//	Ã—
+	160,0,16,16,	//	ãƒ–ãƒ©ã‚·
+	192,0,128,208,	//	ãƒ¡ãƒ‹ãƒ¥ãƒ¼ï¼’
 };
 
-//	ƒ|ƒŠƒSƒ“•\Ž¦À•W
+//	ãƒãƒªã‚´ãƒ³è¡¨ç¤ºåº§æ¨™
 double	PolDisp[][3] =
 {
-	0,0,0.6,	//	ƒƒjƒ…[
-	0,0,0.5,	//	ƒJ[ƒ\ƒ‹
-	20,368,0.8,	//	ƒXƒCƒbƒ`˜g
-	16,164,0.8,	//	ƒJ[ƒ\ƒ‹iƒƒjƒ…[j
+	0,0,0.6,	//	ãƒ¡ãƒ‹ãƒ¥ãƒ¼
+	0,0,0.5,	//	ã‚«ãƒ¼ã‚½ãƒ«
+	20,368,0.8,	//	ã‚¹ã‚¤ãƒƒãƒæž 
+	16,164,0.8,	//	ã‚«ãƒ¼ã‚½ãƒ«ï¼ˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ï¼‰
 };
 
-//	ƒf[ƒ^‚Ì“–‚½‚è”»’è(MapEdit)
-#define	DAT_HIT_MAX	13	//	ƒf[ƒ^‚ÌÅ‘å”
+//	ãƒ‡ãƒ¼ã‚¿ã®å½“ãŸã‚Šåˆ¤å®š(MapEdit)
+#define	DAT_HIT_MAX	13	//	ãƒ‡ãƒ¼ã‚¿ã®æœ€å¤§æ•°
 short	DatHit[DAT_HIT_MAX][4] =
 {
 	8,32,32,16,		//	save
 	48,32,32,16,	//	load
 	88,32,32,16,	//	bmp
 
-	100,104,12,8,	//	•£
-	100,112,12,8,	//	•¥
+	100,104,12,8,	//	å¹…â–²
+	100,112,12,8,	//	å¹…â–¼
 
-	100,124,12,8,	//	‚‚³£
-	100,132,12,8,	//	‚‚³¥
+	100,124,12,8,	//	é«˜ã•â–²
+	100,132,12,8,	//	é«˜ã•â–¼
 
-	20,368,40,16,	//	ƒŒƒCƒ„[‚PƒXƒCƒbƒ`
-	68,368,40,16,	//	ƒŒƒCƒ„[‚QƒXƒCƒbƒ`
-	20,388,40,16,	//	ƒŒƒCƒ„[‚RƒXƒCƒbƒ`
-	68,388,40,16,	//	“–‚½‚è”»’èƒXƒCƒbƒ`
+	20,368,40,16,	//	ãƒ¬ã‚¤ãƒ¤ãƒ¼ï¼‘ã‚¹ã‚¤ãƒƒãƒ
+	68,368,40,16,	//	ãƒ¬ã‚¤ãƒ¤ãƒ¼ï¼’ã‚¹ã‚¤ãƒƒãƒ
+	20,388,40,16,	//	ãƒ¬ã‚¤ãƒ¤ãƒ¼ï¼“ã‚¹ã‚¤ãƒƒãƒ
+	68,388,40,16,	//	å½“ãŸã‚Šåˆ¤å®šã‚¹ã‚¤ãƒƒãƒ
 
-	12,152,8,8,		//	©
-	108,152,8,8,	//	¨
+	12,152,8,8,		//	â†
+	108,152,8,8,	//	â†’
 };
 
-//	ƒf[ƒ^‚Ì“–‚½‚è”»’è(MapAnmEdit)
+//	ãƒ‡ãƒ¼ã‚¿ã®å½“ãŸã‚Šåˆ¤å®š(MapAnmEdit)
 short	AnmHit[][4] =
 {
 	272,32,32,16,	//	load
-	272,128,12,8,	//	ƒAƒjƒ£
-	272,136,12,8,	//	ƒAƒjƒ¥
+	272,128,12,8,	//	ã‚¢ãƒ‹ãƒ¡â–²
+	272,136,12,8,	//	ã‚¢ãƒ‹ãƒ¡â–¼
 };
 
-//	ƒtƒHƒ“ƒg‚Ì•\Ž¦À•W
-#define	FONT_MAX	4	//	ƒtƒHƒ“ƒg‚ÌÅ‘å”
+//	ãƒ•ã‚©ãƒ³ãƒˆã®è¡¨ç¤ºåº§æ¨™
+#define	FONT_MAX	4	//	ãƒ•ã‚©ãƒ³ãƒˆã®æœ€å¤§æ•°
 short	Font[FONT_MAX][2] =
 {
-	40,8,	//	ƒ}ƒEƒXÀ•W
-	12,80,	//	ƒtƒ@ƒCƒ‹–¼
-	72,106,	//	‚‚³
-	72,126,	//	•
+	40,8,	//	ãƒžã‚¦ã‚¹åº§æ¨™
+	12,80,	//	ãƒ•ã‚¡ã‚¤ãƒ«å
+	72,106,	//	é«˜ã•
+	72,126,	//	å¹…
 };
 
-//	ƒ`ƒbƒvƒpƒ^[ƒ“ƒf[ƒ^
+//	ãƒãƒƒãƒ—ãƒ‘ã‚¿ãƒ¼ãƒ³ãƒ‡ãƒ¼ã‚¿
 short	ChipPatDat[][2] =
 {
 	0,0,		//	0
@@ -188,32 +188,32 @@ short	ChipPatDat[][2] =
 };
 
 //----------------------------------------------------------------------------//
-//	\‘¢‘Ì
+//	æ§‹é€ ä½“
 //----------------------------------------------------------------------------//
 
-//	ƒtƒ‰ƒO—p\‘¢‘Ì
+//	ãƒ•ãƒ©ã‚°ç”¨æ§‹é€ ä½“
 typedef	struct
 {
-	long	Page;		//	ƒy[ƒW
-	long	Layer;		//	ƒŒƒCƒ„[i0:ƒŒƒCƒ„[1A1:ƒŒƒCƒ„[2A2:ƒŒƒCƒ„[3A3:“–‚½‚è”»’èj
-	long	Chip;		//	ƒ`ƒbƒv”Ô†
-	long	ChipBk;		//	ƒ`ƒbƒv”Ô†iƒoƒbƒNƒAƒbƒvj
-	UChar	HitMenu;	//	ƒƒjƒ…[‚½‚Ì“–‚½‚è”»’èi0:‚È‚µA1:‚ ‚½‚èj
-	UChar	HitChipWin;	//	ƒ`ƒbƒvƒEƒCƒ“ƒhƒE‚Æ‚Ì“–‚½‚è”»’èi0:‚È‚µA1:‚ ‚½‚èj
-	UChar	DispMap;	//	ƒ}ƒbƒv•\Ž¦ƒtƒ‰ƒOi0:•Ï‰»‚È‚µA1:•Ï‰»‚ ‚èj
-	UChar	LoadBmp;	//	‰æ‘œƒtƒ@ƒCƒ‹“Ç‚Ýž‚Ýƒtƒ‰ƒO
-	UChar	DispGrid;	//	ƒOƒŠƒbƒh•\Ž¦ƒtƒ‰ƒOi0:”ñ•\Ž¦A1:•\Ž¦j
-	UChar	Brush;		//	ƒuƒ‰ƒVi0:ƒm[ƒ}ƒ‹A1:“h‚è‚Â‚Ô‚µj
+	long	Page;		//	ãƒšãƒ¼ã‚¸
+	long	Layer;		//	ãƒ¬ã‚¤ãƒ¤ãƒ¼ï¼ˆ0:ãƒ¬ã‚¤ãƒ¤ãƒ¼1ã€1:ãƒ¬ã‚¤ãƒ¤ãƒ¼2ã€2:ãƒ¬ã‚¤ãƒ¤ãƒ¼3ã€3:å½“ãŸã‚Šåˆ¤å®šï¼‰
+	long	Chip;		//	ãƒãƒƒãƒ—ç•ªå·
+	long	ChipBk;		//	ãƒãƒƒãƒ—ç•ªå·ï¼ˆãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ï¼‰
+	UChar	HitMenu;	//	ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãŸã®å½“ãŸã‚Šåˆ¤å®šï¼ˆ0:ãªã—ã€1:ã‚ãŸã‚Šï¼‰
+	UChar	HitChipWin;	//	ãƒãƒƒãƒ—ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã¨ã®å½“ãŸã‚Šåˆ¤å®šï¼ˆ0:ãªã—ã€1:ã‚ãŸã‚Šï¼‰
+	UChar	DispMap;	//	ãƒžãƒƒãƒ—è¡¨ç¤ºãƒ•ãƒ©ã‚°ï¼ˆ0:å¤‰åŒ–ãªã—ã€1:å¤‰åŒ–ã‚ã‚Šï¼‰
+	UChar	LoadBmp;	//	ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿ãƒ•ãƒ©ã‚°
+	UChar	DispGrid;	//	ã‚°ãƒªãƒƒãƒ‰è¡¨ç¤ºãƒ•ãƒ©ã‚°ï¼ˆ0:éžè¡¨ç¤ºã€1:è¡¨ç¤ºï¼‰
+	UChar	Brush;		//	ãƒ–ãƒ©ã‚·ï¼ˆ0:ãƒŽãƒ¼ãƒžãƒ«ã€1:å¡—ã‚Šã¤ã¶ã—ï¼‰
 }FLAG_TBL;
 
-//	ƒ}ƒbƒv\‘¢‘Ì
+//	ãƒžãƒƒãƒ—æ§‹é€ ä½“
 typedef	struct
 {
 	long	Use;
 	long	Width;
-	long	Height;	//	ƒ}ƒbƒv‚ÌƒTƒCƒY
+	long	Height;	//	ãƒžãƒƒãƒ—ã®ã‚µã‚¤ã‚º
 	struct	LAYER_TBL
 	{
-		long	Chip[MAP_H_MAX][MAP_W_MAX];	//	ƒpƒ^[ƒ“”Ô†
+		long	Chip[MAP_H_MAX][MAP_W_MAX];	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
 	}Layer[LAYER_MAX];
 }MAP_TBL;

@@ -1,26 +1,26 @@
 /******************************************************************************/
-//	DirectX9ƒ‰ƒCƒuƒ‰ƒŠ
-//		ƒ‰ƒCƒ“
+//	DirectX9ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+//		ãƒ©ã‚¤ãƒ³
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #include	"./Dx9Lib.h"
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 ST_LineInfo	LINE[LINE_MAX];
 
 
 
 /******************************************************************************/
-//	–¼‘O	F	ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-//	à–¾	F	‚È‚µ
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+//	èª¬æ˜Ž	ï¼š	ãªã—
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 CDx9LibLine::CDx9LibLine()
 {
@@ -28,11 +28,11 @@ CDx9LibLine::CDx9LibLine()
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒfƒXƒgƒ‰ƒNƒ^
-//	à–¾	F	‚È‚µ
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+//	èª¬æ˜Ž	ï¼š	ãªã—
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 CDx9LibLine::~CDx9LibLine()
 {
@@ -40,11 +40,11 @@ CDx9LibLine::~CDx9LibLine()
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ‰ƒCƒ“—pƒfƒoƒCƒXì¬
-//	à–¾	F	ƒ‰ƒCƒ“—pƒfƒoƒCƒX‚Ìì¬‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ©ã‚¤ãƒ³ç”¨ãƒ‡ãƒã‚¤ã‚¹ä½œæˆ
+//	èª¬æ˜Ž	ï¼š	ãƒ©ã‚¤ãƒ³ç”¨ãƒ‡ãƒã‚¤ã‚¹ã®ä½œæˆã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibLine::CreateDevice( void )
 {
@@ -52,11 +52,11 @@ void	CDx9LibLine::CreateDevice( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ‰ƒCƒ“—p\‘¢‘Ì‰Šú‰»
-//	à–¾	F	ƒ‰ƒCƒ“—p\‘¢‘Ì‚Ì‰Šú‰»‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	No		ƒ‰ƒCƒ“”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ©ã‚¤ãƒ³ç”¨æ§‹é€ ä½“åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ãƒ©ã‚¤ãƒ³ç”¨æ§‹é€ ä½“ã®åˆæœŸåŒ–ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	No		ãƒ©ã‚¤ãƒ³ç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibLine::Init( long No )
 {
@@ -65,28 +65,28 @@ void	CDx9LibLine::Init( long No )
 		return;
 	}
 
-	//	ƒtƒ‰ƒOOFF
+	//	ãƒ•ãƒ©ã‚°OFF
 	LINE[ No ].Use		= OFF;
 	LINE[ No ].Disp		= OFF;
 
-	//	Žn“_
+	//	å§‹ç‚¹
 	LINE[ No ].StartX	= 0.0;
 	LINE[ No ].StartY	= 0.0;
 
-	//	I“_
+	//	çµ‚ç‚¹
 	LINE[ No ].EndX		= 0.0;
 	LINE[ No ].EndY		= 0.0;
 
-	//	ƒAƒgƒŠƒrƒ…[ƒg
+	//	ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 	LINE[ No ].Atr		= ATR_NONE;
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ‰ƒCƒ“—p\‘¢‘Ì‘S‰Šú‰»
-//	à–¾	F	ƒ‰ƒCƒ“—p\‘¢‘Ì‚Ì‘S‰Šú‰»‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ©ã‚¤ãƒ³ç”¨æ§‹é€ ä½“å…¨åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ãƒ©ã‚¤ãƒ³ç”¨æ§‹é€ ä½“ã®å…¨åˆæœŸåŒ–ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibLine::InitAll( void )
 {
@@ -97,16 +97,16 @@ void	CDx9LibLine::InitAll( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ‰ƒCƒ“ƒZƒbƒg
-//	à–¾	F	ƒ‰ƒCƒ“î•ñ‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	No		ƒ‰ƒCƒ“”Ô†
-//				[IN]double	StartX	ŠJŽnÀ•WX
-//				[IN]double	StartY	ŠJŽnÀ•WY
-//				[IN]double	EndX	I—¹À•WX
-//				[IN]double	EndY	I—¹À•WY
-//				[IN]UShort	Atr		ƒAƒgƒŠƒrƒ…[ƒg
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ©ã‚¤ãƒ³ã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ãƒ©ã‚¤ãƒ³æƒ…å ±ã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	No		ãƒ©ã‚¤ãƒ³ç•ªå·
+//				[IN]double	StartX	é–‹å§‹åº§æ¨™X
+//				[IN]double	StartY	é–‹å§‹åº§æ¨™Y
+//				[IN]double	EndX	çµ‚äº†åº§æ¨™X
+//				[IN]double	EndY	çµ‚äº†åº§æ¨™Y
+//				[IN]UShort	Atr		ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibLine::Set(
 						 long No,
@@ -120,11 +120,11 @@ void	CDx9LibLine::Set(
 	}
 
 	/////////////////////////////////////
-	//	Šeƒƒ“ƒo‚Ì‰Šú‰»
-	LINE[ No ].Use	= ON;		//	Žg—pƒtƒ‰ƒO‚n‚m
-	LINE[ No ].Disp	= ON;		//	•\Ž¦ƒtƒ‰ƒO‚n‚m
+	//	å„ãƒ¡ãƒ³ãƒã®åˆæœŸåŒ–
+	LINE[ No ].Use	= ON;		//	ä½¿ç”¨ãƒ•ãƒ©ã‚°ï¼¯ï¼®
+	LINE[ No ].Disp	= ON;		//	è¡¨ç¤ºãƒ•ãƒ©ã‚°ï¼¯ï¼®
 
-	//	•\Ž¦À•W
+	//	è¡¨ç¤ºåº§æ¨™
 	LINE[ No ].StartX	= StartX;
 	LINE[ No ].StartY	= StartY;
 
@@ -140,15 +140,15 @@ void	CDx9LibLine::Set(
 }
 
 /******************************************************************************/
-//	–¼‘O	F	FÝ’è
-//	à–¾	F	ƒfƒtƒ…[ƒYF‚ð•ÏX‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	No		ƒ‰ƒCƒ“”Ô†
-//				[IN]UChar	A		ƒAƒ‹ƒtƒ@
-//				[IN]UChar	R		Ô¬•ª
-//				[IN]UChar	G		—Î¬•ª
-//				[IN]UChar	B		Â¬•ª
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	è‰²è¨­å®š
+//	èª¬æ˜Ž	ï¼š	ãƒ‡ãƒ•ãƒ¥ãƒ¼ã‚ºè‰²ã‚’å¤‰æ›´ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	No		ãƒ©ã‚¤ãƒ³ç•ªå·
+//				[IN]UChar	A		ã‚¢ãƒ«ãƒ•ã‚¡
+//				[IN]UChar	R		èµ¤æˆåˆ†
+//				[IN]UChar	G		ç·‘æˆåˆ†
+//				[IN]UChar	B		é’æˆåˆ†
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibLine::SetColor( long No, UChar A, UChar R, UChar G, UChar B )
 {
@@ -159,12 +159,12 @@ void	CDx9LibLine::SetColor( long No, UChar A, UChar R, UChar G, UChar B )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ‰ƒCƒ“‹ó‚«”Ô†Žæ“¾
-//	à–¾	F	ƒ‰ƒCƒ“\‘¢‘Ì‚Ì’†‚Å–¢Žg—p‚Ì”Ô†‚ðŽæ“¾‚·‚é
-//	–ß‚è’l	F	long	ˆ—Œ‹‰Ê	-1(‹ó‚«”Ô†‚È‚µ)
-//									-1ˆÈŠO(‹ó‚«”Ô†)
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ©ã‚¤ãƒ³ç©ºãç•ªå·å–å¾—
+//	èª¬æ˜Ž	ï¼š	ãƒ©ã‚¤ãƒ³æ§‹é€ ä½“ã®ä¸­ã§æœªä½¿ç”¨ã®ç•ªå·ã‚’å–å¾—ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	long	å‡¦ç†çµæžœ	-1(ç©ºãç•ªå·ãªã—)
+//									-1ä»¥å¤–(ç©ºãç•ªå·)
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 short	CDx9LibLine::GetNo( void )
 {
@@ -180,11 +180,11 @@ short	CDx9LibLine::GetNo( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ‰ƒCƒ“•`‰æ
-//	à–¾	F	ƒ‰ƒCƒ“‚ð•`‰æ‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	No		ƒ‰ƒCƒ“”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ©ã‚¤ãƒ³æç”»
+//	èª¬æ˜Ž	ï¼š	ãƒ©ã‚¤ãƒ³ã‚’æç”»ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	No		ãƒ©ã‚¤ãƒ³ç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibLine::DrawLine( long No )
 {
@@ -197,35 +197,35 @@ void	CDx9LibLine::DrawLine( long No )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	‹éŒ`•`‰æ
-//	à–¾	F	‹éŒ`‚ð•`‰æ‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	No		ƒ‰ƒCƒ“”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	çŸ©å½¢æç”»
+//	èª¬æ˜Ž	ï¼š	çŸ©å½¢ã‚’æç”»ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	No		ãƒ©ã‚¤ãƒ³ç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibLine::DrawBox( long No )
 {
 	D3DXVECTOR2	vec[2];
 
-	//	ã
+	//	ä¸Š
 	vec[0] = D3DXVECTOR2( (float)LINE[No].StartX, (float)LINE[No].StartY );
 	vec[1] = D3DXVECTOR2( (float)LINE[No].EndX, (float)LINE[No].StartY);
 	m_lpLine->Draw( vec,2,
 		D3DCOLOR_ARGB( LINE[No].A, LINE[No].R, LINE[No].G, LINE[No].B ) );
 
-	//	‰º
+	//	ä¸‹
 	vec[0] = D3DXVECTOR2( (float)LINE[No].StartX, (float)LINE[No].EndY );
 	vec[1] = D3DXVECTOR2( (float)LINE[No].EndX, (float)LINE[No].EndY);
 	m_lpLine->Draw( vec,2,
 		D3DCOLOR_ARGB( LINE[No].A, LINE[No].R, LINE[No].G, LINE[No].B ) );
 
-	//	¶
+	//	å·¦
 	vec[0] = D3DXVECTOR2( (float)LINE[No].StartX, (float)LINE[No].StartY );
 	vec[1] = D3DXVECTOR2( (float)LINE[No].StartX, (float)LINE[No].EndY);
 	m_lpLine->Draw( vec,2,
 		D3DCOLOR_ARGB( LINE[No].A, LINE[No].R, LINE[No].G, LINE[No].B ) );
 
-	//	‰E
+	//	å³
 	vec[0] = D3DXVECTOR2( (float)LINE[No].EndX, (float)LINE[No].StartY );
 	vec[1] = D3DXVECTOR2( (float)LINE[No].EndX, (float)LINE[No].EndY);
 	m_lpLine->Draw( vec,2,
@@ -233,15 +233,15 @@ void	CDx9LibLine::DrawBox( long No )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ‰ƒCƒ“‘S•`‰æ
-//	à–¾	F	ƒ‰ƒCƒ“‘S‚Ä•`‰æ‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ©ã‚¤ãƒ³å…¨æç”»
+//	èª¬æ˜Ž	ï¼š	ãƒ©ã‚¤ãƒ³å…¨ã¦æç”»ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibLine::DispAll( void )
 {
-	//	•`‰æŠJŽn
+	//	æç”»é–‹å§‹
 	m_lpLine->Begin();
 
 	for( int i=0; i<LINE_MAX; i++ )
@@ -261,17 +261,17 @@ void	CDx9LibLine::DispAll( void )
 		}
 	}
 
-	//	•`‰æI—¹
+	//	æç”»çµ‚äº†
 	m_lpLine->End();
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ‰ƒCƒ“•\Ž¦•ÏX
-//	à–¾	F	ƒ‰ƒCƒ“‚Ì•\Ž¦‚ðØ‚è‘Ö‚¦‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]UChar		Flag	•\Ž¦ó‘Ô
-//	”õl	F	Flag‚ÌÝ’è’l	ON		•\Ž¦
-//								OFF		”ñ•\Ž¦
+//	åå‰	ï¼š	ãƒ©ã‚¤ãƒ³è¡¨ç¤ºå¤‰æ›´
+//	èª¬æ˜Ž	ï¼š	ãƒ©ã‚¤ãƒ³ã®è¡¨ç¤ºã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]UChar		Flag	è¡¨ç¤ºçŠ¶æ…‹
+//	å‚™è€ƒ	ï¼š	Flagã®è¨­å®šå€¤	ON		è¡¨ç¤º
+//								OFF		éžè¡¨ç¤º
 /******************************************************************************/
 void	CDx9LibLine::DispChange( UChar Flag )
 {
@@ -285,11 +285,11 @@ void	CDx9LibLine::DispChange( UChar Flag )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ‰ƒCƒ“ƒIƒuƒWƒFƒNƒgŠJ•ú
-//	à–¾	F	ƒ‰ƒCƒ“ƒIƒuƒWƒFƒNƒg‚ðŠJ•ú‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ©ã‚¤ãƒ³ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆé–‹æ”¾
+//	èª¬æ˜Ž	ï¼š	ãƒ©ã‚¤ãƒ³ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’é–‹æ”¾ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibLine::ReleaseDevice( void )
 {

@@ -1,10 +1,10 @@
 /******************************************************************************/
-//	ƒVƒ‡ƒbƒgƒƒCƒ“
-//		ƒ\[ƒXƒtƒ@ƒCƒ‹
+//	ã‚·ãƒ§ãƒƒãƒˆãƒ¡ã‚¤ãƒ³
+//		ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #include	"./Dx9Lib/Dx9Lib.h"
 #include	"./Dx9LibAnm.h"
@@ -16,13 +16,13 @@
 #include	"./CharControl.h"
 
 //----------------------------------------------------------------------------//
-//	ƒvƒƒgƒ^ƒCƒvéŒ¾
+//	ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 //----------------------------------------------------------------------------//
-void	ShotInitAll( void );			//	ƒVƒ‡ƒbƒg‰Šú‰»i‘S‘Ìj
-void	ShotLoop( void );				//	ƒVƒ‡ƒbƒgƒ‹[ƒv
-void	ShotMain( long no );			//	ƒVƒ‡ƒbƒgƒƒCƒ“
-short	ShotHitChk( ST_ObjectInfo Info );			//	ƒVƒ‡ƒbƒg‚Ì“–‚½‚è”»’è
-void	ShotDirSet( long no );			//	Šp“x•â³
+void	ShotInitAll( void );			//	ã‚·ãƒ§ãƒƒãƒˆåˆæœŸåŒ–ï¼ˆå…¨ä½“ï¼‰
+void	ShotLoop( void );				//	ã‚·ãƒ§ãƒƒãƒˆãƒ«ãƒ¼ãƒ—
+void	ShotMain( long no );			//	ã‚·ãƒ§ãƒƒãƒˆãƒ¡ã‚¤ãƒ³
+short	ShotHitChk( ST_ObjectInfo Info );			//	ã‚·ãƒ§ãƒƒãƒˆã®å½“ãŸã‚Šåˆ¤å®š
+void	ShotDirSet( long no );			//	è§’åº¦è£œæ­£
 void	ShotSet( double x, double y, double rot, double speed, ULong atr, short chara, long pat );
 void	ShotSetNormalDef( long obj1, double speed, ULong atr, double rev, short chr, long pat );
 void	ShotSetNormal( long obj1, long obj2, double speed, ULong atr, double rev, short chr, long pat );
@@ -46,11 +46,11 @@ void	ExtraShot2( void );
 
 
 /******************************************************************************/
-//	ƒVƒ‡ƒbƒg‰Šú‰»i‘S‘Ìj
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ã‚·ãƒ§ãƒƒãƒˆåˆæœŸåŒ–ï¼ˆå…¨ä½“ï¼‰
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	ShotInitAll( void )
 {
@@ -58,11 +58,11 @@ void	ShotInitAll( void )
 }
 
 /******************************************************************************/
-//	ƒVƒ‡ƒbƒgƒ‹[ƒv
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ã‚·ãƒ§ãƒƒãƒˆãƒ«ãƒ¼ãƒ—
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	ShotLoop( void )
 {
@@ -89,7 +89,7 @@ void	ShotLoop( void )
 			}
 
 #ifdef	_DEBUG
-			//	ƒVƒ‡ƒbƒg‚Ì‹OÕ‚ð•`‰æ
+			//	ã‚·ãƒ§ãƒƒãƒˆã®è»Œè·¡ã‚’æç”»
 			//double EndX = List[i].PosX;
 			//double EndY = List[i].PosY;
 			//EndX += GetMoveX( WIDTH*2, List[i].RotRad );
@@ -104,11 +104,11 @@ void	ShotLoop( void )
 }
 
 /******************************************************************************/
-//	ƒVƒ‡ƒbƒgƒƒCƒ“
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				no		ƒIƒuƒWƒFƒNƒg”Ô†
+//	ã‚·ãƒ§ãƒƒãƒˆãƒ¡ã‚¤ãƒ³
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				no		ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç•ªå·
 /******************************************************************************/
 void	ShotMain( long no )
 {
@@ -136,17 +136,17 @@ void	ShotMain( long no )
 	ATR = Obj.GetObjectInfo(no).Atr & ( OBJ_ATR_SHOT_TYPE );
 	switch( ATR )
 	{
-		//	ƒz[ƒ~ƒ“ƒO
+		//	ãƒ›ãƒ¼ãƒŸãƒ³ã‚°
 		case	OBJ_ATR_SHOT_HOMING:
 			ShotLoopHoming( no );
 			break;
 
-		//	Ý’uŽ®
+		//	è¨­ç½®å¼
 		case	OBJ_ATR_SHOT_SET_UP:
 			ShotLoopSetUp( no );
 			break;
 
-		//	ƒXƒvƒ‰ƒCƒ“
+		//	ã‚¹ãƒ—ãƒ©ã‚¤ãƒ³
 		case	OBJ_ATR_SHOT_SPLINE:
 			ShotLoopSpline( no );
 			break;
@@ -162,25 +162,25 @@ void	ShotMain( long no )
 			break;
 	}
 
-	//	”Ä—pƒJƒEƒ“ƒ^‰ÁŽZ
+	//	æ±Žç”¨ã‚«ã‚¦ãƒ³ã‚¿åŠ ç®—
 	ST_ObjectInfo Info = Obj.GetObjectInfo(no);
 	Info.DispCt ++;
 	Obj.SetObjectInfo( no, Info );
 }
 
 /******************************************************************************/
-//	ƒVƒ‡ƒbƒg“–‚½‚è”»’è
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				no		ƒIƒuƒWƒFƒNƒg”Ô†
+//	ã‚·ãƒ§ãƒƒãƒˆå½“ãŸã‚Šåˆ¤å®š
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				no		ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç•ªå·
 /******************************************************************************/
 short	ShotHitChk( ST_ObjectInfo Info )
 {
 	short	Ret = OFF;
 	CObjectMng	&Obj = CObjectMng::GetInstance();
 
-	//	ƒvƒŒƒCƒ„[”»’è
+	//	ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼åˆ¤å®š
 	long	chara;
 	if( ( Info.Atr & OBJ_ATR_ENEMY ) == OBJ_ATR_ENEMY )
 	{
@@ -193,7 +193,7 @@ short	ShotHitChk( ST_ObjectInfo Info )
 
 	ST_ObjectInfo MyInfo = Obj.GetObjectInfo( chara );
 
-	//	“–‚½‚è”»’è
+	//	å½“ãŸã‚Šåˆ¤å®š
 	if( HitCheck( Info.PosX,Info.PosY,Info.HitRect, MyInfo.PosX,MyInfo.PosY,MyInfo.HitRect  ) )
 	{
 		Ret = ON;
@@ -212,16 +212,16 @@ short	ShotHitChk( ST_ObjectInfo Info )
 }
 
 /******************************************************************************/
-//	Šp“x•â³
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				no		ƒIƒuƒWƒFƒNƒg”Ô†
+//	è§’åº¦è£œæ­£
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				no		ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç•ªå·
 /******************************************************************************/
 void	ShotDirSet( long no )
 {
 	CObjectMng	&Obj = CObjectMng::GetInstance();
-	//	ˆÚ“®—ÊŽæ“¾
+	//	ç§»å‹•é‡å–å¾—
 	ST_ObjectInfo Info = Obj.GetObjectInfo(no);
 	Info.MoveX = GetMoveX( Info.Speed, Info.RotRad );
 	Info.MoveY = GetMoveY( Info.Speed, Info.RotRad );
@@ -229,16 +229,16 @@ void	ShotDirSet( long no )
 }
 
 /******************************************************************************/
-//	ƒVƒ‡ƒbƒgƒZƒbƒg
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				x,y			À•W
-//				rot			Šp“x
-//				speed		’e‘¬
-//				atr			ƒAƒgƒŠƒrƒ…[ƒg
-//				chara		ƒLƒƒƒ‰”Ô†
-//				pat			ƒpƒ^[ƒ“”Ô†
+//	ã‚·ãƒ§ãƒƒãƒˆã‚»ãƒƒãƒˆ
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				x,y			åº§æ¨™
+//				rot			è§’åº¦
+//				speed		å¼¾é€Ÿ
+//				atr			ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
+//				chara		ã‚­ãƒ£ãƒ©ç•ªå·
+//				pat			ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
 /******************************************************************************/
 void	ShotSet( double x, double y, double rot,
 				double speed, ULong atr, short chara, long pat )
@@ -250,7 +250,7 @@ void	ShotSet( double x, double y, double rot,
 		return;
 	}
 
-	//	Šp“x•â³
+	//	è§’åº¦è£œæ­£
 	if( rot > 360 )
 	{
 		rot -= 360;
@@ -271,7 +271,7 @@ void	ShotSet( double x, double y, double rot,
 	Obj.SetObjectInfo( ObjNo, Info );
 
 	/////////////////////////////////////////////////
-	//	’†SÀ•W‚ÌƒZƒbƒg
+	//	ä¸­å¿ƒåº§æ¨™ã®ã‚»ãƒƒãƒˆ
 	switch( pat - PAT_GAME_SHOT )
 	{
 		case	0:
@@ -321,20 +321,20 @@ void	ShotSet( double x, double y, double rot,
 }
 
 /******************************************************************************/
-//	ƒm[ƒ}ƒ‹ƒVƒ‡ƒbƒgƒZƒbƒg
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				obj1		Ž©•ª‚Ì”Ô†
-//				speed		’e‘¬
-//				atr			ƒAƒgƒŠƒrƒ…[ƒg
-//				chr			ƒLƒƒƒ‰ƒNƒ^[”Ô†
-//				pat			ƒpƒ^[ƒ“”Ô†
+//	ãƒŽãƒ¼ãƒžãƒ«ã‚·ãƒ§ãƒƒãƒˆã‚»ãƒƒãƒˆ
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				obj1		è‡ªåˆ†ã®ç•ªå·
+//				speed		å¼¾é€Ÿ
+//				atr			ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
+//				chr			ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ç•ªå·
+//				pat			ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
 /******************************************************************************/
 void	ShotSetNormalDef( long obj1, double speed,
 						 ULong atr, double rev, short chr, long pat )
 {
-	//	ƒVƒ‡ƒbƒg”­¶
+	//	ã‚·ãƒ§ãƒƒãƒˆç™ºç”Ÿ
 	ST_ObjectInfo Info = CObjectMng::GetInstance().GetObjectInfo(obj1);
 	double x = Info.PosX;
 	double y = Info.PosY;
@@ -342,16 +342,16 @@ void	ShotSetNormalDef( long obj1, double speed,
 }
 
 /******************************************************************************/
-//	ƒm[ƒ}ƒ‹ƒVƒ‡ƒbƒgƒZƒbƒg
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				obj1		Ž©•ª‚Ì”Ô†
-//				obj2		‘ŠŽè‚Ì”Ô†
-//				speed		’e‘¬
-//				atr			ƒAƒgƒŠƒrƒ…[ƒg
-//				chr			ƒLƒƒƒ‰ƒNƒ^[”Ô†
-//				pat			ƒpƒ^[ƒ“”Ô†
+//	ãƒŽãƒ¼ãƒžãƒ«ã‚·ãƒ§ãƒƒãƒˆã‚»ãƒƒãƒˆ
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				obj1		è‡ªåˆ†ã®ç•ªå·
+//				obj2		ç›¸æ‰‹ã®ç•ªå·
+//				speed		å¼¾é€Ÿ
+//				atr			ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
+//				chr			ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ç•ªå·
+//				pat			ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
 /******************************************************************************/
 void	ShotSetNormal( long obj1, long obj2, double speed,
 					  ULong atr, double rev, short chr, long pat )
@@ -360,28 +360,28 @@ void	ShotSetNormal( long obj1, long obj2, double speed,
 	ST_ObjectInfo Info1 = Obj.GetObjectInfo(obj1);
 	ST_ObjectInfo Info2 = Obj.GetObjectInfo(obj2);
 
-	//	Šp“x
+	//	è§’åº¦
 	double rot = GetRot(Info1.PosX,Info1.PosY, Info2.PosX,Info2.PosY );
 	rot += DegToRad( rev );
 
-	//	ƒVƒ‡ƒbƒg”­¶
+	//	ã‚·ãƒ§ãƒƒãƒˆç™ºç”Ÿ
 	double x = Info1.PosX + cos( rot );
 	double y = Info1.PosY - sin( rot );
 	ShotSet( x,y, RadToDeg(rot), speed, atr, chr, pat );
 }
 
 /******************************************************************************/
-//	ŠgŽUƒVƒ‡ƒbƒg
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				obj1		Ž©•ª‚Ì”Ô†
-//				speed		’e‘¬
-//				atr			ƒAƒgƒŠƒrƒ…[ƒg
-//				way			ŠgŽU”
-//				ret_rev		•â³Šp“x
-//				chr			ƒLƒƒƒ‰ƒNƒ^[”Ô†
-//				pat			ƒpƒ^[ƒ“”Ô†
+//	æ‹¡æ•£ã‚·ãƒ§ãƒƒãƒˆ
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				obj1		è‡ªåˆ†ã®ç•ªå·
+//				speed		å¼¾é€Ÿ
+//				atr			ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
+//				way			æ‹¡æ•£æ•°
+//				ret_rev		è£œæ­£è§’åº¦
+//				chr			ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ç•ªå·
+//				pat			ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
 /******************************************************************************/
 void	ShotSetWideDef( long obj1, double speed, ULong atr,
 					   long way, double rot_rev, short chr, long pat )
@@ -391,13 +391,13 @@ void	ShotSetWideDef( long obj1, double speed, ULong atr,
 
 	ST_ObjectInfo Info = Obj.GetObjectInfo(obj1);
 
-	//	Šp“x
+	//	è§’åº¦
 	rot = -90 + DegToRad( rot_rev+11 );
 
-	// ’e”­¶
+	// å¼¾ç™ºç”Ÿ
 	if( (way & 1) == 1 )
 	{
-		// Šï”‚v‚`‚x
+		// å¥‡æ•°ï¼·ï¼¡ï¼¹
 		x = Info.PosX + cos( rot );
 		y = Info.PosY - sin( rot );
 		ShotSet( x, y, RadToDeg(rot), speed, atr, chr, pat );
@@ -406,7 +406,7 @@ void	ShotSetWideDef( long obj1, double speed, ULong atr,
 	}
 	else
 	{
-		// ‹ô”‚v‚`‚x
+		// å¶æ•°ï¼·ï¼¡ï¼¹
 		i_rot = DegToRad( (360 / way) / 2 );
 	}
 
@@ -426,18 +426,18 @@ void	ShotSetWideDef( long obj1, double speed, ULong atr,
 }
 
 /******************************************************************************/
-//	ŠgŽUƒVƒ‡ƒbƒg
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				obj1		Ž©•ª‚Ì”Ô†
-//				obj2		‘ŠŽè‚Ì”Ô†
-//				speed		’e‘¬
-//				atr			ƒAƒgƒŠƒrƒ…[ƒg
-//				way			ŠgŽU”
-//				ret_rev		•â³Šp“x
-//				chr			ƒLƒƒƒ‰ƒNƒ^[”Ô†
-//				pat			ƒpƒ^[ƒ“”Ô†
+//	æ‹¡æ•£ã‚·ãƒ§ãƒƒãƒˆ
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				obj1		è‡ªåˆ†ã®ç•ªå·
+//				obj2		ç›¸æ‰‹ã®ç•ªå·
+//				speed		å¼¾é€Ÿ
+//				atr			ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
+//				way			æ‹¡æ•£æ•°
+//				ret_rev		è£œæ­£è§’åº¦
+//				chr			ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ç•ªå·
+//				pat			ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
 /******************************************************************************/
 void	ShotSetWide( long obj1, long obj2,
 					double speed, ULong atr,
@@ -448,14 +448,14 @@ void	ShotSetWide( long obj1, long obj2,
 	ST_ObjectInfo Info1 = Obj.GetObjectInfo(obj1);
 	ST_ObjectInfo Info2 = Obj.GetObjectInfo(obj2);
 
-	//	Šp“x
+	//	è§’åº¦
 	double rot = GetRot( Info1.PosX,Info1.PosY, Info2.PosX,Info2.PosY );
 	rot += DegToRad( rot_rev+11 );
 
-	// ’e”­¶
+	// å¼¾ç™ºç”Ÿ
 	if( (way & 1) == 1 )
 	{
-		// Šï”‚v‚`‚x
+		// å¥‡æ•°ï¼·ï¼¡ï¼¹
 		x = Info1.PosX + cos( rot );
 		y = Info1.PosY - sin( rot );
 		ShotSet( x, y, RadToDeg(rot), speed, atr, chr, pat );
@@ -464,7 +464,7 @@ void	ShotSetWide( long obj1, long obj2,
 	}
 	else
 	{
-		// ‹ô”‚v‚`‚x
+		// å¶æ•°ï¼·ï¼¡ï¼¹
 		i_rot = DegToRad( (360 / way) / 2 );
 	}
 
@@ -484,16 +484,16 @@ void	ShotSetWide( long obj1, long obj2,
 }
 
 /******************************************************************************/
-//	Ý’uŽ®‚ÌƒVƒ‡ƒbƒg
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				obj1	Ž©•ª‚Ì”Ô†
-//				obj2	‘ŠŽè‚Ì”Ô†
-//				speed	’e‘¬
-//				atr		ƒAƒgƒŠƒrƒ…[ƒg
-//				chr		ƒLƒƒƒ‰ƒNƒ^[”Ô†
-//				pat		ƒpƒ^[ƒ“”Ô†
+//	è¨­ç½®å¼ã®ã‚·ãƒ§ãƒƒãƒˆ
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				obj1	è‡ªåˆ†ã®ç•ªå·
+//				obj2	ç›¸æ‰‹ã®ç•ªå·
+//				speed	å¼¾é€Ÿ
+//				atr		ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
+//				chr		ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ç•ªå·
+//				pat		ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
 /******************************************************************************/
 void	ShotSetCreate( long obj1, long obj2,
 					  double speed, ULong atr, short chr, long pat )
@@ -502,7 +502,7 @@ void	ShotSetCreate( long obj1, long obj2,
 	ST_ObjectInfo Info1 = Obj.GetObjectInfo(obj1);
 	ST_ObjectInfo Info2 = Obj.GetObjectInfo(obj2);
 
-	//	Šp“x
+	//	è§’åº¦
 	double rot = GetRot( Info1.PosX,Info1.PosY, Info2.PosX,Info2.PosY );
 
 	double x = Obj.GetObjectInfo(UNIT.ObjectNo).PosX;
@@ -511,18 +511,18 @@ void	ShotSetCreate( long obj1, long obj2,
 }
 
 /******************************************************************************/
-//	ƒXƒvƒ‰ƒCƒ“ƒVƒ‡ƒbƒg
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				obj1		Ž©•ª‚Ì”Ô†
-//				obj2		‘ŠŽè‚Ì”Ô†
-//				speed		’e‘¬
-//				atr			ƒAƒgƒŠƒrƒ…[ƒg
-//				rot_add		Šp“x‰ÁŽZ’l
-//				rev			•â³
-//				chr			ƒLƒƒƒ‰ƒNƒ^[”Ô†
-//				pat			ƒpƒ^[ƒ“”Ô†
+//	ã‚¹ãƒ—ãƒ©ã‚¤ãƒ³ã‚·ãƒ§ãƒƒãƒˆ
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				obj1		è‡ªåˆ†ã®ç•ªå·
+//				obj2		ç›¸æ‰‹ã®ç•ªå·
+//				speed		å¼¾é€Ÿ
+//				atr			ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
+//				rot_add		è§’åº¦åŠ ç®—å€¤
+//				rev			è£œæ­£
+//				chr			ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ç•ªå·
+//				pat			ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
 /******************************************************************************/
 void	ShotSetSpline( long obj1, long obj2, double speed,
 					  ULong atr, double rot_add, double rev, short chr, long pat )
@@ -531,7 +531,7 @@ void	ShotSetSpline( long obj1, long obj2, double speed,
 	ST_ObjectInfo Info1 = Obj.GetObjectInfo(obj1);
 	ST_ObjectInfo Info2 = Obj.GetObjectInfo(obj2);
 
-	//	Šp“x
+	//	è§’åº¦
 	double rot = GetRot( Info1.PosX,Info1.PosY, Info2.PosX,Info2.PosY );
 	rot += DegToRad( rev );
 
@@ -541,17 +541,17 @@ void	ShotSetSpline( long obj1, long obj2, double speed,
 }
 
 /******************************************************************************/
-//	ƒz[ƒ~ƒ“ƒOƒVƒ‡ƒbƒg
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				obj1	Ž©•ª‚Ì”Ô†
-//				obj2	‘ŠŽè‚Ì”Ô†
-//				speed	’e‘¬
-//				atr		ƒAƒgƒŠƒrƒ…[ƒg
-//				rev		•â³Šp“x
-//				chr		ƒLƒƒƒ‰ƒNƒ^[”Ô†
-//				pat		ƒpƒ^[ƒ“”Ô†
+//	ãƒ›ãƒ¼ãƒŸãƒ³ã‚°ã‚·ãƒ§ãƒƒãƒˆ
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				obj1	è‡ªåˆ†ã®ç•ªå·
+//				obj2	ç›¸æ‰‹ã®ç•ªå·
+//				speed	å¼¾é€Ÿ
+//				atr		ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
+//				rev		è£œæ­£è§’åº¦
+//				chr		ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ç•ªå·
+//				pat		ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
 /******************************************************************************/
 void	ShotSetHoming( long obj1, long obj2, double speed,
 					  ULong atr, double rev, short chr, long pat )
@@ -560,7 +560,7 @@ void	ShotSetHoming( long obj1, long obj2, double speed,
 	ST_ObjectInfo Info1 = Obj.GetObjectInfo(obj1);
 	ST_ObjectInfo Info2 = Obj.GetObjectInfo(obj2);
 
-	//	Šp“x
+	//	è§’åº¦
 	double rot = GetRot( Info1.PosX,Info1.PosY, Info2.PosX,Info2.PosY );
 	rot += DegToRad( rev );
 
@@ -571,11 +571,11 @@ void	ShotSetHoming( long obj1, long obj2, double speed,
 }
 
 /******************************************************************************/
-//	ƒVƒ‡ƒbƒgƒ‹[ƒviÝ’uŽ®j
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				no		ƒIƒuƒWƒFƒNƒg”Ô†
+//	ã‚·ãƒ§ãƒƒãƒˆãƒ«ãƒ¼ãƒ—ï¼ˆè¨­ç½®å¼ï¼‰
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				no		ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç•ªå·
 /******************************************************************************/
 void	ShotLoopSetUp( long no )
 {
@@ -598,11 +598,11 @@ void	ShotLoopSetUp( long no )
 }
 
 /******************************************************************************/
-//	ƒVƒ‡ƒbƒgƒ‹[ƒviƒz[ƒ~ƒ“ƒOj
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				no		ƒIƒuƒWƒFƒNƒg”Ô†
+//	ã‚·ãƒ§ãƒƒãƒˆãƒ«ãƒ¼ãƒ—ï¼ˆãƒ›ãƒ¼ãƒŸãƒ³ã‚°ï¼‰
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				no		ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç•ªå·
 /******************************************************************************/
 void	ShotLoopHoming( long no )
 {
@@ -617,7 +617,7 @@ void	ShotLoopHoming( long no )
 	Info1 = Obj.GetObjectInfo(no);
 	Info2 = Obj.GetObjectInfo(ObjNo);
 
-	//	ƒVƒ‡ƒbƒg‚Æ‘ÎÛ‚ÌŠp“x‚ðŽæ“¾
+	//	ã‚·ãƒ§ãƒƒãƒˆã¨å¯¾è±¡ã®è§’åº¦ã‚’å–å¾—
 	double rot = GetRot( Info1.PosX,Info1.PosY, Info2.PosX,Info2.PosY );
 	rot = RadToDeg( rot );
 	if( rot >= 360 )
@@ -629,7 +629,7 @@ void	ShotLoopHoming( long no )
 		rot += 360;
 	}
 
-	//	Šeƒz[ƒ~ƒ“ƒOƒ^ƒCƒv
+	//	å„ãƒ›ãƒ¼ãƒŸãƒ³ã‚°ã‚¿ã‚¤ãƒ—
 	if( ( Info1.Atr & OBJ_ATR_SHOT_HOMING1 ) == OBJ_ATR_SHOT_HOMING1 )
 	{
 		type = 0;
@@ -651,7 +651,7 @@ void	ShotLoopHoming( long no )
 		type = 4;
 	}
 
-	//	ŽÀˆ—
+	//	å®Ÿå‡¦ç†
 	if( Info1.DispCt >= ct[ type ] )
 	{
 		rot -= Info1.RotDeg;
@@ -679,11 +679,11 @@ void	ShotLoopHoming( long no )
 
 		Info1.DispCt = 0;
 
-		//	™X‚É‰Á‘¬
+		//	å¾ã€…ã«åŠ é€Ÿ
 		Info1.Speed += 0.1;
 	}
 
-	//	90ƒtƒŒ[ƒ€Œãƒz[ƒ~ƒ“ƒO‚µ‚È‚­‚È‚é
+	//	90ãƒ•ãƒ¬ãƒ¼ãƒ å¾Œãƒ›ãƒ¼ãƒŸãƒ³ã‚°ã—ãªããªã‚‹
 	double Dis = GetDistance(
 		Info1.PosX, Info1.PosY,
 		Info2.PosX, Info2.PosY ); 
@@ -719,22 +719,22 @@ void	ShotLoopHoming( long no )
 }
 
 /******************************************************************************/
-//	ƒVƒ‡ƒbƒgƒ‹[ƒviƒXƒvƒ‰ƒCƒ“j
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				no		ƒIƒuƒWƒFƒNƒg”Ô†
+//	ã‚·ãƒ§ãƒƒãƒˆãƒ«ãƒ¼ãƒ—ï¼ˆã‚¹ãƒ—ãƒ©ã‚¤ãƒ³ï¼‰
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				no		ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç•ªå·
 /******************************************************************************/
 void	ShotLoopSpline( long no )
 {
 }
 
 /******************************************************************************/
-//	ƒVƒ‡ƒbƒg‚ÌŒŸõ
-//		–ß‚è’lF
-//				‚PF‚ ‚éA‚OF‚È‚¢
-//		ˆø”F
-//				ƒAƒgƒŠƒrƒ…[ƒg
+//	ã‚·ãƒ§ãƒƒãƒˆã®æ¤œç´¢
+//		æˆ»ã‚Šå€¤ï¼š
+//				ï¼‘ï¼šã‚ã‚‹ã€ï¼ï¼šãªã„
+//		å¼•æ•°ï¼š
+//				ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 /******************************************************************************/
 //short	ShotSearch( u_long atr )
 //{
@@ -752,11 +752,11 @@ void	ShotLoopSpline( long no )
 //}
 
 /******************************************************************************/
-//	ƒm[ƒ}ƒ‹ƒVƒ‡ƒbƒg
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ãƒŽãƒ¼ãƒžãƒ«ã‚·ãƒ§ãƒƒãƒˆ
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	NormarlShot( void )
 {
@@ -802,11 +802,11 @@ void	NormarlShot( void )
 }
 
 /******************************************************************************/
-//	ƒm[ƒ}ƒ‹ƒVƒ‡ƒbƒgƒvƒbƒVƒ…
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ãƒŽãƒ¼ãƒžãƒ«ã‚·ãƒ§ãƒƒãƒˆãƒ—ãƒƒã‚·ãƒ¥
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	NormarlShotPush( void )
 {
@@ -836,11 +836,11 @@ void	NormarlShotPush( void )
 }
 
 /******************************************************************************/
-//	“ÁŽêƒVƒ‡ƒbƒg
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ç‰¹æ®Šã‚·ãƒ§ãƒƒãƒˆ
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	SpecialShot( void )
 {
@@ -864,11 +864,11 @@ void	SpecialShotLoop( void )
 }
 
 /******************************************************************************/
-//	“ÁŽêƒVƒ‡ƒbƒgƒvƒbƒVƒ…
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ç‰¹æ®Šã‚·ãƒ§ãƒƒãƒˆãƒ—ãƒƒã‚·ãƒ¥
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	SpecialShotPush( void )
 {
@@ -895,11 +895,11 @@ void	SpecialShotPush( void )
 }
 
 /******************************************************************************/
-//	‚d‚wƒVƒ‡ƒbƒg‚P
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ï¼¥ï¼¸ã‚·ãƒ§ãƒƒãƒˆï¼‘
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	ExtraShot1( void )
 {
@@ -966,11 +966,11 @@ void	ExtraShot1( void )
 
 
 /******************************************************************************/
-//	‚d‚wƒVƒ‡ƒbƒg‚Q
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ï¼¥ï¼¸ã‚·ãƒ§ãƒƒãƒˆï¼’
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	ExtraShot2( void )
 {

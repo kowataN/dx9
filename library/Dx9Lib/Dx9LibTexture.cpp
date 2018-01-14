@@ -1,26 +1,26 @@
 /******************************************************************************/
-//	DirectX9ƒ‰ƒCƒuƒ‰ƒŠ
-//		ƒeƒNƒXƒ`ƒƒ
+//	DirectX9ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+//		ãƒ†ã‚¯ã‚¹ãƒãƒ£
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #include	"./Dx9Lib.h"
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
-ST_TextureInfo		TEX[TEX_MAX];	//	ƒeƒNƒXƒ`ƒƒ
+ST_TextureInfo		TEX[TEX_MAX];	//	ãƒ†ã‚¯ã‚¹ãƒãƒ£
 
 
 
 /******************************************************************************/
-//	–¼‘O	F	ƒeƒNƒXƒ`ƒƒ‰Šú‰»
-//	à–¾	F	ƒeƒNƒXƒ`ƒƒ\‘¢‘Ì‚Ì‰Šú‰»‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	TexNo		ƒeƒNƒXƒ`ƒƒ”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ†ã‚¯ã‚¹ãƒãƒ£åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ãƒ†ã‚¯ã‚¹ãƒãƒ£æ§‹é€ ä½“ã®åˆæœŸåŒ–ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	TexNo		ãƒ†ã‚¯ã‚¹ãƒãƒ£ç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	InitTexture( long TexNo )
 {
@@ -41,11 +41,11 @@ void	InitTexture( long TexNo )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒeƒNƒXƒ`ƒƒ‘S‰Šú‰»
-//	à–¾	F	ƒeƒNƒXƒ`ƒƒ\‘¢‘Ì‚Ì‘S‰Šú‰»‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ†ã‚¯ã‚¹ãƒãƒ£å…¨åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ãƒ†ã‚¯ã‚¹ãƒãƒ£æ§‹é€ ä½“ã®å…¨åˆæœŸåŒ–ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	InitTextureAll( void )
 {
@@ -56,11 +56,11 @@ void	InitTextureAll( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒeƒNƒXƒ`ƒƒÀ•WŽæ“¾
-//	à–¾	F	ƒeƒNƒXƒ`ƒƒÀ•W‚ÌŽæ“¾‚ðs‚¤
-//	–ß‚è’l	F	long		ƒeƒNƒXƒ`ƒƒÀ•W
-//	ˆø”	F	[IN]long	TexSize		ƒeƒNƒXƒ`ƒƒ‚ÌƒTƒCƒY
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ†ã‚¯ã‚¹ãƒãƒ£åº§æ¨™å–å¾—
+//	èª¬æ˜Ž	ï¼š	ãƒ†ã‚¯ã‚¹ãƒãƒ£åº§æ¨™ã®å–å¾—ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	long		ãƒ†ã‚¯ã‚¹ãƒãƒ£åº§æ¨™
+//	å¼•æ•°	ï¼š	[IN]long	TexSize		ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®ã‚µã‚¤ã‚º
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 long	GetTexPos( long TexSize )
 {
@@ -110,13 +110,13 @@ long	GetTexPos( long TexSize )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒeƒNƒXƒ`ƒƒƒ[ƒh
-//	à–¾	F	‰æ‘œƒtƒ@ƒCƒ‹‚Ì“Ç‚Ýž‚Ý‚ðs‚¤
-//	–ß‚è’l	F	bool		ˆ—Œ‹‰Ê	true(¬Œ÷)
-//										false(Ž¸”s)
-//	ˆø”	F	[IN]long	TexNo		ƒeƒNƒXƒ`ƒƒ”Ô†
-//				[IN]char	*FileName	ƒtƒ@ƒCƒ‹–¼
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ­ãƒ¼ãƒ‰
+//	èª¬æ˜Ž	ï¼š	ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿è¾¼ã¿ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	bool		å‡¦ç†çµæžœ	true(æˆåŠŸ)
+//										false(å¤±æ•—)
+//	å¼•æ•°	ï¼š	[IN]long	TexNo		ãƒ†ã‚¯ã‚¹ãƒãƒ£ç•ªå·
+//				[IN]char	*FileName	ãƒ•ã‚¡ã‚¤ãƒ«å
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 bool	LoadTexture( long TexNo, char *FileName )
 {
@@ -128,7 +128,7 @@ bool	LoadTexture( long TexNo, char *FileName )
 		return false;
 	}
 
-	//	Žg—pƒtƒ‰ƒO
+	//	ä½¿ç”¨ãƒ•ãƒ©ã‚°
 	TEX[ TexNo ].Use = ON;
 
 	PathToOpt( FileName, str );
@@ -141,11 +141,11 @@ bool	LoadTexture( long TexNo, char *FileName )
 		return false;
 	}
 
-	//	ƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠEƒoƒbƒNƒAƒbƒv
+	//	ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãƒ»ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—
 	char	name[MAX_PATH];
 	GetCurrentDirectory( MAX_PATH, name );
 
-	//	ˆÃ†ƒtƒ@ƒCƒ‹‚©‚Ç‚¤‚©Ž¯•Ê
+	//	æš—å·ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã©ã†ã‹è­˜åˆ¥
 	if( strcmp( "img", string ) == 0 )
 	{
 		size = AntiSecret( FileName, g_FreeWork );
@@ -157,7 +157,7 @@ bool	LoadTexture( long TexNo, char *FileName )
 
 	if( size < 0 )
 	{
-		//	“Ç‚Ýž‚ÝŽ¸”s
+		//	èª­ã¿è¾¼ã¿å¤±æ•—
 		SAFE_DELETE(string);
 		return false;
 	}
@@ -165,24 +165,24 @@ bool	LoadTexture( long TexNo, char *FileName )
 	BITMAPINFOHEADER	*bmp_info;
 	bmp_info = (BITMAPINFOHEADER *)&g_FreeWork[sizeof(BITMAPFILEHEADER)];
 
-	//	ƒƒ‚ƒŠ[‚©‚çƒeƒNƒXƒ`ƒƒ“Ç‚Ýž‚Ý
+	//	ãƒ¡ãƒ¢ãƒªãƒ¼ã‹ã‚‰ãƒ†ã‚¯ã‚¹ãƒãƒ£èª­ã¿è¾¼ã¿
 	D3DXCreateTextureFromFileInMemoryEx(
-		g_lpD3DDev,			//	DirectX9ƒfƒoƒCƒX
-		g_FreeWork,			//	ƒƒ‚ƒŠ“à‚Ìƒ|ƒCƒ“ƒ^
-		size,				//	ƒƒ‚ƒŠ“à‚Ìƒtƒ@ƒCƒ‹ƒTƒCƒY
-		D3DX_DEFAULT,		//	•
-		D3DX_DEFAULT,		//	‚‚³
-		//D3DX_DEFAULT,		//	ƒ~ƒbƒvƒ}ƒbƒvƒŒƒxƒ‹”
-		1,					//	ƒ~ƒbƒvƒ}ƒbƒvƒŒƒxƒ‹”
-		0,					//	—p–@
-		D3DFMT_A8R8G8B8,	//	ƒsƒNƒZƒ‹ƒtƒH[ƒ}ƒbƒg
-		D3DPOOL_MANAGED,	//	ƒeƒNƒXƒ`ƒƒ”z’uæ
-		D3DX_FILTER_NONE,	//	ƒtƒBƒ‹ƒ^ƒŠƒ“ƒO
-		D3DX_FILTER_NONE,	//	ƒtƒBƒ‹ƒ^ƒŠƒ“ƒOiƒ~ƒbƒvƒ}ƒbƒvj
-		TRANS,				//	“§–¾F
-		NULL,				//	ƒCƒ[ƒWî•ñ
-		NULL,				//	ƒpƒŒƒbƒg
-		&TEX[ TexNo ].lpTex	//	ƒeƒNƒXƒ`ƒƒƒIƒuƒWƒFƒNƒg
+		g_lpD3DDev,			//	DirectX9ãƒ‡ãƒã‚¤ã‚¹
+		g_FreeWork,			//	ãƒ¡ãƒ¢ãƒªå†…ã®ãƒã‚¤ãƒ³ã‚¿
+		size,				//	ãƒ¡ãƒ¢ãƒªå†…ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚µã‚¤ã‚º
+		D3DX_DEFAULT,		//	å¹…
+		D3DX_DEFAULT,		//	é«˜ã•
+		//D3DX_DEFAULT,		//	ãƒŸãƒƒãƒ—ãƒžãƒƒãƒ—ãƒ¬ãƒ™ãƒ«æ•°
+		1,					//	ãƒŸãƒƒãƒ—ãƒžãƒƒãƒ—ãƒ¬ãƒ™ãƒ«æ•°
+		0,					//	ç”¨æ³•
+		D3DFMT_A8R8G8B8,	//	ãƒ”ã‚¯ã‚»ãƒ«ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆ
+		D3DPOOL_MANAGED,	//	ãƒ†ã‚¯ã‚¹ãƒãƒ£é…ç½®å…ˆ
+		D3DX_FILTER_NONE,	//	ãƒ•ã‚£ãƒ«ã‚¿ãƒªãƒ³ã‚°
+		D3DX_FILTER_NONE,	//	ãƒ•ã‚£ãƒ«ã‚¿ãƒªãƒ³ã‚°ï¼ˆãƒŸãƒƒãƒ—ãƒžãƒƒãƒ—ï¼‰
+		TRANS,				//	é€æ˜Žè‰²
+		NULL,				//	ã‚¤ãƒ¡ãƒ¼ã‚¸æƒ…å ±
+		NULL,				//	ãƒ‘ãƒ¬ãƒƒãƒˆ
+		&TEX[ TexNo ].lpTex	//	ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 		);
 
 	D3DSURFACE_DESC	Desc;
@@ -191,7 +191,7 @@ bool	LoadTexture( long TexNo, char *FileName )
 	//D3DXIMAGE_INFO	Info;
 	//D3DXGetImageInfoFromFile(FileName, &Info );
 
-		//	ƒTƒCƒYŽæ“¾
+		//	ã‚µã‚¤ã‚ºå–å¾—
 	//TEX[ TexNo ].Width = GetTexPos( Info->biWidth );
 	//TEX[ TexNo ].Height = GetTexPos( bmp_info->biHeight );
 	TEX[ TexNo ].Width = Desc.Width;
@@ -202,11 +202,11 @@ bool	LoadTexture( long TexNo, char *FileName )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒIƒuƒWƒFƒNƒg‰ð•ú
-//	à–¾	F	ƒIƒuƒWƒFƒNƒg‚Ì‰ð•ú‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	G	‚È‚µ
+//	åå‰	ï¼š	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆè§£æ”¾
+//	èª¬æ˜Ž	ï¼š	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®è§£æ”¾ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼›	ãªã—
 /******************************************************************************/
 void	ReleaseTexture( void )
 {

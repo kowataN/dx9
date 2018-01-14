@@ -1,10 +1,10 @@
 /******************************************************************************/
-//	DirectX9ƒ‰ƒCƒuƒ‰ƒŠ
-//		ŠO•”éŒ¾—pƒwƒbƒ_ƒtƒ@ƒCƒ‹
+//	DirectX9ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+//		å¤–éƒ¨å®£è¨€ç”¨ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #ifdef	_DEBUG
 #define	_CRTDBG_MAP_ALLOC
@@ -34,7 +34,7 @@ using namespace std;
 #include	<dxerr9.h>
 #include	<dmusici.h>
 
-//	ƒ‰ƒCƒuƒ‰ƒŠ‚Ìƒwƒbƒ_
+//	ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®ãƒ˜ãƒƒãƒ€
 #include	"Dx9LibDefine.h"
 #include	"Dx9LibInput.h"
 #include	"Dx9LibTexture.h"
@@ -52,17 +52,17 @@ using namespace std;
 #include	"Dx9LibLog.h"
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 
-//	ƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹
+//	ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
 extern	HWND				g_hWnd;
 extern	int					g_WindowWidth;
 extern	int					g_WindowHeight;
 extern	int					g_ScreenMode;
 extern	int					g_ShowCursor;
 
-//	‰æ–ÊƒNƒŠƒAƒJƒ‰[
+//	ç”»é¢ã‚¯ãƒªã‚¢ã‚«ãƒ©ãƒ¼
 extern	ULong				g_ColorR;
 extern	ULong				g_ColorG;
 extern	ULong				g_ColorB;
@@ -71,12 +71,12 @@ extern	LPDIRECT3D9			g_lpD3D;
 extern	LPDIRECT3DDEVICE9	g_lpD3DDev;
 extern	CDx9LibInput		g_LibInput;
 
-//	”Ä—p
+//	æ±ç”¨
 extern	char				g_FreeWork[FREE_WORK_SIZE];
 extern	char				g_ExePath[MAX_PATH];
 
 //----------------------------------------------------------------------------//
-//	ŠÖ”‚ÌŠO•”éŒ¾
+//	é–¢æ•°ã®å¤–éƒ¨å®£è¨€
 //----------------------------------------------------------------------------//
 extern	void	MainLoop( void );
 extern	void	Dx9LibInit( void );

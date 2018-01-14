@@ -1,92 +1,92 @@
 /******************************************************************************/
-//	DirectX9ƒ‰ƒCƒuƒ‰ƒŠ
-//		ƒCƒ“ƒvƒbƒg
+//	DirectX9ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+//		ã‚¤ãƒ³ãƒ—ãƒƒãƒˆ
 /******************************************************************************/
 
 #ifndef	__Dx9LibInput_H__
 #define	__Dx9LibInput_H__
 
 //----------------------------------------------------------------------------//
-//	’è‹`
+//	å®šç¾©
 //----------------------------------------------------------------------------//
 enum
 {
-	//	ƒ}ƒEƒX
-	MOUSE_LEFT = 0,	//	¶
-	MOUSE_RIGHT,	//	‰E
-	MOUSE_CENTER,	//	ƒZƒ“ƒ^[
+	//	ãƒžã‚¦ã‚¹
+	MOUSE_LEFT = 0,	//	å·¦
+	MOUSE_RIGHT,	//	å³
+	MOUSE_CENTER,	//	ã‚»ãƒ³ã‚¿ãƒ¼
 
-	//	ƒWƒ‡ƒCƒXƒeƒBƒbƒN
-	JOY_UP = 0,		//	ã
-	JOY_DOWN,		//	‰º
-	JOY_LEFT,		//	¶
-	JOY_RIGHT,		//	‰E
-	JOY_BUT1,		//	ƒ{ƒ^ƒ“‚P
-	JOY_BUT2,		//	ƒ{ƒ^ƒ“‚Q
-	JOY_BUT3,		//	ƒ{ƒ^ƒ“‚R
-	JOY_BUT4,		//	ƒ{ƒ^ƒ“‚S
-	JOY_BUT5,		//	ƒ{ƒ^ƒ“‚T
-	JOY_BUT6,		//	ƒ{ƒ^ƒ“‚U
-	JOY_BUT7,		//	ƒ{ƒ^ƒ“‚V
-	JOY_BUT8,		//	ƒ{ƒ^ƒ“‚W
-	JOY_BUT9,		//	ƒ{ƒ^ƒ“‚X
-	JOY_BUT10,		//	ƒ{ƒ^ƒ“‚P‚O
-	JOY_BUT11,		//	ƒ{ƒ^ƒ“‚P‚P
-	JOY_BUT12,		//	ƒ{ƒ^ƒ“‚P‚Q
-	JOY_BUT_MAX,	//	Å‘å’l
+	//	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯
+	JOY_UP = 0,		//	ä¸Š
+	JOY_DOWN,		//	ä¸‹
+	JOY_LEFT,		//	å·¦
+	JOY_RIGHT,		//	å³
+	JOY_BUT1,		//	ãƒœã‚¿ãƒ³ï¼‘
+	JOY_BUT2,		//	ãƒœã‚¿ãƒ³ï¼’
+	JOY_BUT3,		//	ãƒœã‚¿ãƒ³ï¼“
+	JOY_BUT4,		//	ãƒœã‚¿ãƒ³ï¼”
+	JOY_BUT5,		//	ãƒœã‚¿ãƒ³ï¼•
+	JOY_BUT6,		//	ãƒœã‚¿ãƒ³ï¼–
+	JOY_BUT7,		//	ãƒœã‚¿ãƒ³ï¼—
+	JOY_BUT8,		//	ãƒœã‚¿ãƒ³ï¼˜
+	JOY_BUT9,		//	ãƒœã‚¿ãƒ³ï¼™
+	JOY_BUT10,		//	ãƒœã‚¿ãƒ³ï¼‘ï¼
+	JOY_BUT11,		//	ãƒœã‚¿ãƒ³ï¼‘ï¼‘
+	JOY_BUT12,		//	ãƒœã‚¿ãƒ³ï¼‘ï¼’
+	JOY_BUT_MAX,	//	æœ€å¤§å€¤
 };
 
 //----------------------------------------------------------------------------//
-//	\‘¢‘Ì
+//	æ§‹é€ ä½“
 //----------------------------------------------------------------------------//
 
 ////////////////////////////////////////
-//	ƒ}ƒEƒX—p\‘¢‘Ì
+//	ãƒžã‚¦ã‚¹ç”¨æ§‹é€ ä½“
 typedef	struct
 {
-	long	PosX,PosY;					//	À•W
-	long	PosXBk,PosYBk;				//	ƒoƒbƒNƒAƒbƒvÀ•W
-	long	MoveX,MoveY;				//	ˆÚ“®—Ê
-	UChar	Trg[3];						//	ƒgƒŠƒK
-	UChar	Push[3];					//	ƒvƒbƒVƒ…
-	long	Count[3];					//	ƒvƒbƒVƒ…ƒJƒEƒ“ƒg
-	UChar	WheelUp,WheelDown;			//	ƒzƒC[ƒ‹
-	UChar	WheelUpCt,WheelDownCt;		//	ƒzƒC[ƒ‹ƒJƒEƒ“ƒg
-	RECT	Rect;						//	—Ìˆæ
+	long	PosX,PosY;					//	åº§æ¨™
+	long	PosXBk,PosYBk;				//	ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—åº§æ¨™
+	long	MoveX,MoveY;				//	ç§»å‹•é‡
+	UChar	Trg[3];						//	ãƒˆãƒªã‚¬
+	UChar	Push[3];					//	ãƒ—ãƒƒã‚·ãƒ¥
+	long	Count[3];					//	ãƒ—ãƒƒã‚·ãƒ¥ã‚«ã‚¦ãƒ³ãƒˆ
+	UChar	WheelUp,WheelDown;			//	ãƒ›ã‚¤ãƒ¼ãƒ«
+	UChar	WheelUpCt,WheelDownCt;		//	ãƒ›ã‚¤ãƒ¼ãƒ«ã‚«ã‚¦ãƒ³ãƒˆ
+	RECT	Rect;						//	é ˜åŸŸ
 }ST_MouseInfo;
 
 ////////////////////////////////////////
-//	ƒL[ƒ{[ƒh—p\‘¢‘Ì
+//	ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ç”¨æ§‹é€ ä½“
 typedef	struct
 {
-	UChar	Flag;						//	ƒtƒ‰ƒO
-	UChar	Trg[256];					//	ƒgƒŠƒK
-	UChar	Push[256];					//	ƒvƒbƒVƒ…
-	long	Count[256];					//	ƒvƒbƒVƒ…ƒJƒEƒ“ƒg
+	UChar	Flag;						//	ãƒ•ãƒ©ã‚°
+	UChar	Trg[256];					//	ãƒˆãƒªã‚¬
+	UChar	Push[256];					//	ãƒ—ãƒƒã‚·ãƒ¥
+	long	Count[256];					//	ãƒ—ãƒƒã‚·ãƒ¥ã‚«ã‚¦ãƒ³ãƒˆ
 }ST_KeybordInfo;
 
 ////////////////////////////////////////
-//	ƒWƒ‡ƒCƒXƒeƒBƒbƒN—p\‘¢‘Ì
+//	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ç”¨æ§‹é€ ä½“
 typedef	struct
 {
-	UChar	Use;						//	Žg—pƒtƒ‰ƒO
-	UChar	Trg[BUTTON_MAX];			//	ƒgƒŠƒK
-	UChar	Push[BUTTON_MAX];			//	ƒvƒbƒVƒ…
-	long	Count[BUTTON_MAX];			//	ƒvƒbƒVƒ…ƒJƒEƒ“ƒg
+	UChar	Use;						//	ä½¿ç”¨ãƒ•ãƒ©ã‚°
+	UChar	Trg[BUTTON_MAX];			//	ãƒˆãƒªã‚¬
+	UChar	Push[BUTTON_MAX];			//	ãƒ—ãƒƒã‚·ãƒ¥
+	long	Count[BUTTON_MAX];			//	ãƒ—ãƒƒã‚·ãƒ¥ã‚«ã‚¦ãƒ³ãƒˆ
 	long	ButtonMax;
 }ST_JoystickInfo;
 
 //----------------------------------------------------------------------------//
-//	ƒNƒ‰ƒX
+//	ã‚¯ãƒ©ã‚¹
 //----------------------------------------------------------------------------//
 class	CDx9LibInput
 {
 private:
-	LPDIRECTINPUTDEVICE8	m_DIDevMs;				//	ƒ}ƒEƒX—pƒfƒoƒCƒX
-	LPDIRECTINPUTDEVICE8	m_DIDevKey;				//	ƒL[ƒ{[ƒh—pƒfƒoƒCƒX
-	POINT					m_MousePoint;			//	ƒ}ƒEƒX‚ÌÀ•W
-	DIDEVCAPS				m_DICaps;				//	ƒfƒoƒCƒX”\—Í
-	long					m_JoyFlag;				//	ƒWƒ‡ƒCƒXƒeƒBƒbƒN‚ÌŽg—pƒtƒ‰ƒO
+	LPDIRECTINPUTDEVICE8	m_DIDevMs;				//	ãƒžã‚¦ã‚¹ç”¨ãƒ‡ãƒã‚¤ã‚¹
+	LPDIRECTINPUTDEVICE8	m_DIDevKey;				//	ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ç”¨ãƒ‡ãƒã‚¤ã‚¹
+	POINT					m_MousePoint;			//	ãƒžã‚¦ã‚¹ã®åº§æ¨™
+	DIDEVCAPS				m_DICaps;				//	ãƒ‡ãƒã‚¤ã‚¹èƒ½åŠ›
+	long					m_JoyFlag;				//	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã®ä½¿ç”¨ãƒ•ãƒ©ã‚°
 
 public:
 	CDx9LibInput();
@@ -117,8 +117,8 @@ private:
 #endif	//	__Dx9LibInput_H__
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
-extern	ST_MouseInfo	MOUSE;			//	ƒ}ƒEƒX
-extern	ST_KeybordInfo	KEY;			//	ƒL[ƒ{[ƒh
-extern	ST_JoystickInfo JOY[JOY_MAX];	//	ƒWƒ‡ƒCƒXƒeƒBƒbƒN
+extern	ST_MouseInfo	MOUSE;			//	ãƒžã‚¦ã‚¹
+extern	ST_KeybordInfo	KEY;			//	ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰
+extern	ST_JoystickInfo JOY[JOY_MAX];	//	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯

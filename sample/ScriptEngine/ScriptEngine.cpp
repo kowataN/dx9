@@ -1,10 +1,10 @@
 /******************************************************************************/
-//	ƒXƒNƒŠƒvƒg
-//		ƒ\[ƒXƒtƒ@ƒCƒ‹
+//	ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
+//		ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #include	"./Dx9Lib/Dx9Lib.h"
 #include	"./Dx9Lib/Dx9Lib.h"
@@ -12,50 +12,50 @@
 #include	"./ScriptEngine.h"
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 
-//	ƒXƒNƒŠƒvƒgƒRƒ}ƒ“ƒh•¶Žš—ñ
+//	ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚³ãƒžãƒ³ãƒ‰æ–‡å­—åˆ—
 char	ScriptCmdStr[CommandMax][32] =
 {
-	"text",			//	0	•¶Žš—ñ•\Ž¦
-	"end",			//	1	I—¹
-	"jump",			//	2	ƒ‰ƒxƒ‹ƒWƒƒƒ“ƒv
-	"sel",			//	3	‘I‘ðŽˆ
-	"flag_on",		//	4	ƒtƒ‰ƒOON
-	"flag_off",		//	5	ƒtƒ‰ƒOOFF
-	"flag_chk",		//	6	ƒtƒ‰ƒOƒ`ƒFƒbƒN
-	"black_out",	//	7	ƒtƒF[ƒhƒAƒEƒgiƒuƒ‰ƒbƒNƒAƒEƒgj
-	"black_in",		//	8	ƒtƒF[ƒhƒCƒ“iƒuƒ‰ƒbƒNƒCƒ“j
-	"white_out",	//	9	ƒtƒF[ƒhƒAƒEƒgiƒzƒƒCƒgƒAƒEƒgj
-	"white_in",		//	10	ƒtƒF[ƒhƒCƒ“iƒzƒƒCƒgƒCƒ“j
-	"cursor_blink",	//	11	ƒJ[ƒ\ƒ‹ƒuƒŠƒ“ƒN
-	"wait",			//	12	’x‰„
-	"scr_change",	//	13	ƒXƒNƒŠƒvƒgƒtƒ@ƒCƒ‹•ÏX
-	"text_input",	//	14	•¶Žš—ñ“ü—Í
-	"set_str",		//	15	•¶Žš—ñ‚ðƒZƒbƒg
-	"save_point",	//	16	ƒZ[ƒuƒ|ƒCƒ“ƒg
-	"shake",		//	17	‰æ–Ê‚ð—h‚ç‚·
-	"load_tex",		//	18	ƒeƒNƒXƒ`ƒƒ‰æ‘œ“Ç‚Ýž‚Ý
-	"set_pat",		//	19	ƒpƒ^[ƒ“ƒZƒbƒg
-	"set_pol",		//	20	ƒ|ƒŠƒSƒ“ƒZƒbƒg
-	"load_bg",		//	21	”wŒi“Ç‚Ýž‚Ý
-	"disp_bg",		//	22	”wŒi•\Ž¦E”ñ•\Ž¦
-	"wipe",			//	23	ƒƒCƒv
-	"play_bgm",		//	24	BGMÄ¶
-	"stop_bgm",		//	25	BGM’âŽ~
-	"play_se",		//	26	SEÄ¶
-	"init_str",		//	27	ƒZƒbƒg•¶Žš—ñ‰Šú‰»
+	"text",			//	0	æ–‡å­—åˆ—è¡¨ç¤º
+	"end",			//	1	çµ‚äº†
+	"jump",			//	2	ãƒ©ãƒ™ãƒ«ã‚¸ãƒ£ãƒ³ãƒ—
+	"sel",			//	3	é¸æŠžè‚¢
+	"flag_on",		//	4	ãƒ•ãƒ©ã‚°ON
+	"flag_off",		//	5	ãƒ•ãƒ©ã‚°OFF
+	"flag_chk",		//	6	ãƒ•ãƒ©ã‚°ãƒã‚§ãƒƒã‚¯
+	"black_out",	//	7	ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆï¼ˆãƒ–ãƒ©ãƒƒã‚¯ã‚¢ã‚¦ãƒˆï¼‰
+	"black_in",		//	8	ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ³ï¼ˆãƒ–ãƒ©ãƒƒã‚¯ã‚¤ãƒ³ï¼‰
+	"white_out",	//	9	ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆï¼ˆãƒ›ãƒ¯ã‚¤ãƒˆã‚¢ã‚¦ãƒˆï¼‰
+	"white_in",		//	10	ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ³ï¼ˆãƒ›ãƒ¯ã‚¤ãƒˆã‚¤ãƒ³ï¼‰
+	"cursor_blink",	//	11	ã‚«ãƒ¼ã‚½ãƒ«ãƒ–ãƒªãƒ³ã‚¯
+	"wait",			//	12	é…å»¶
+	"scr_change",	//	13	ã‚¹ã‚¯ãƒªãƒ—ãƒˆãƒ•ã‚¡ã‚¤ãƒ«å¤‰æ›´
+	"text_input",	//	14	æ–‡å­—åˆ—å…¥åŠ›
+	"set_str",		//	15	æ–‡å­—åˆ—ã‚’ã‚»ãƒƒãƒˆ
+	"save_point",	//	16	ã‚»ãƒ¼ãƒ–ãƒã‚¤ãƒ³ãƒˆ
+	"shake",		//	17	ç”»é¢ã‚’æºã‚‰ã™
+	"load_tex",		//	18	ãƒ†ã‚¯ã‚¹ãƒãƒ£ç”»åƒèª­ã¿è¾¼ã¿
+	"set_pat",		//	19	ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚»ãƒƒãƒˆ
+	"set_pol",		//	20	ãƒãƒªã‚´ãƒ³ã‚»ãƒƒãƒˆ
+	"load_bg",		//	21	èƒŒæ™¯èª­ã¿è¾¼ã¿
+	"disp_bg",		//	22	èƒŒæ™¯è¡¨ç¤ºãƒ»éžè¡¨ç¤º
+	"wipe",			//	23	ãƒ¯ã‚¤ãƒ—
+	"play_bgm",		//	24	BGMå†ç”Ÿ
+	"stop_bgm",		//	25	BGMåœæ­¢
+	"play_se",		//	26	SEå†ç”Ÿ
+	"init_str",		//	27	ã‚»ãƒƒãƒˆæ–‡å­—åˆ—åˆæœŸåŒ–
 };
 
 
 
 /******************************************************************************/
-//	–¼‘O	F	ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-//	à–¾	F	‚È‚µ
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+//	èª¬æ˜Ž	ï¼š	ãªã—
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 CScriptEngine::CScriptEngine()
 : m_UseTextureNo(TEX_SCRIPT_BG),
@@ -69,16 +69,16 @@ m_Wipe(NULL)
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-//	à–¾	F	‚È‚µ
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	TextureNo	Žg—p‚·‚éƒeƒNƒXƒ`ƒƒ”Ô†
-//				[IN]long	PatNo		Žg—p‚·‚éƒpƒ^[ƒ“”Ô†
-//				[IN]long	PolNo		Žg—p‚·‚éƒ|ƒŠƒSƒ“”Ô†
-//				[IN]long	TextNo		Žg—p‚·‚éƒeƒLƒXƒg”Ô†
-//				[IN]long	BGMno		Žg—p‚·‚éBGM”Ô†
-//				[IN]long	SENo		Žg—p‚·‚éSE”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+//	èª¬æ˜Ž	ï¼š	ãªã—
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	TextureNo	ä½¿ç”¨ã™ã‚‹ãƒ†ã‚¯ã‚¹ãƒãƒ£ç•ªå·
+//				[IN]long	PatNo		ä½¿ç”¨ã™ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
+//				[IN]long	PolNo		ä½¿ç”¨ã™ã‚‹ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]long	TextNo		ä½¿ç”¨ã™ã‚‹ãƒ†ã‚­ã‚¹ãƒˆç•ªå·
+//				[IN]long	BGMno		ä½¿ç”¨ã™ã‚‹BGMç•ªå·
+//				[IN]long	SENo		ä½¿ç”¨ã™ã‚‹SEç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 CScriptEngine::CScriptEngine(long TextureNo,
 							 long PatNo,
@@ -121,11 +121,11 @@ m_Wipe(NULL)
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒfƒXƒgƒ‰ƒNƒ^
-//	à–¾	F	‚È‚µ
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+//	èª¬æ˜Ž	ï¼š	ãªã—
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 CScriptEngine::~CScriptEngine()
 {
@@ -133,23 +133,23 @@ CScriptEngine::~CScriptEngine()
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒXƒNƒŠƒvƒgƒGƒ“ƒWƒ“‰Šú‰»
-//	à–¾	F	ƒXƒNƒŠƒvƒgƒtƒ@ƒCƒ‹‚Ì¢‚àž‚Ý‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]char	*FileName	“Ç‚Ýž‚ÞƒXƒNƒŠƒvƒgƒtƒ@ƒCƒ‹
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚¨ãƒ³ã‚¸ãƒ³åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ã‚¹ã‚¯ãƒªãƒ—ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã®ä¸–ã‚‚è¾¼ã¿ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]char	*FileName	èª­ã¿è¾¼ã‚€ã‚¹ã‚¯ãƒªãƒ—ãƒˆãƒ•ã‚¡ã‚¤ãƒ«
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CScriptEngine::Init( char *FileName )
 {
-	//	\‘¢‘Ì‰Šú‰»
-	m_SCR.Mode = 0;				//	ƒZƒbƒgƒ‚[ƒh
-	m_SCR.Addr = m_ScrDat;		//	æ“ªƒAƒhƒŒƒXƒZƒbƒg
-	m_SCR.WaitFlag = OFF;		//	’x‰„
-	m_SCR.BlinkCursor = OFF;	//	ƒJ[ƒ\ƒ‹“_–Å
-	m_SCR.CmdNo = 0;			//	ƒRƒ}ƒ“ƒh”Ô†
-	m_SCR.SelectNo = 0;			//	‘I‘ðŽˆ”Ô†
+	//	æ§‹é€ ä½“åˆæœŸåŒ–
+	m_SCR.Mode = 0;				//	ã‚»ãƒƒãƒˆãƒ¢ãƒ¼ãƒ‰
+	m_SCR.Addr = m_ScrDat;		//	å…ˆé ­ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚»ãƒƒãƒˆ
+	m_SCR.WaitFlag = OFF;		//	é…å»¶
+	m_SCR.BlinkCursor = OFF;	//	ã‚«ãƒ¼ã‚½ãƒ«ç‚¹æ»…
+	m_SCR.CmdNo = 0;			//	ã‚³ãƒžãƒ³ãƒ‰ç•ªå·
+	m_SCR.SelectNo = 0;			//	é¸æŠžè‚¢ç•ªå·
 
-	//	‚»‚Ì‘¼‰Šú‰»
+	//	ãã®ä»–åˆæœŸåŒ–
 	ZeroMemory( &m_SCR.JumpStr, sizeof(m_SCR.JumpStr) );
 	ZeroMemory( &m_SCR.EventFlag, sizeof(m_SCR.EventFlag) );
 	ZeroMemory( &m_SCR.SET, sizeof(m_SCR.SET) );
@@ -160,7 +160,7 @@ void	CScriptEngine::Init( char *FileName )
 	IniMng.Initialize("ScriptSetup.ini");
 	int GetData = IniMng.GetValueInt( "System", "UseSystem" );
 
-	//	ƒXƒNƒŠƒvƒgƒtƒ@ƒCƒ‹“Ç‚Ýž‚Ý
+	//	ã‚¹ã‚¯ãƒªãƒ—ãƒˆãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿
 	LoadFile( FileName, m_ScrDat );
 
 	long	SysTexNo = m_UseTextureNo + TEX_SCRIPT_SYS;
@@ -169,7 +169,7 @@ void	CScriptEngine::Init( char *FileName )
 	long	CurPolNo = POL_SCRIPT_BG + POL_SCRIPT_CUR;
 	long	TextFldPolNo = POL_SCRIPT_BG + POL_SCRIPT_TEXT_FLD;
 
-	//	ƒVƒXƒeƒ€ƒtƒ@ƒCƒ‹“Ç‚Ýž‚Ý
+	//	ã‚·ã‚¹ãƒ†ãƒ ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿
 	LoadTexture( SysTexNo, "data\\system.bmp" );
 
 	SetPattern( CurPatNo, SysTexNo, 0,0, 24,24 );
@@ -184,149 +184,149 @@ void	CScriptEngine::Init( char *FileName )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒXƒNƒŠƒvƒgƒGƒ“ƒWƒ“ƒƒCƒ“
-//	à–¾	F	ƒXƒNƒŠƒvƒgƒGƒ“ƒWƒ“‚ÌƒƒCƒ“ˆ—‚ðs‚¤
-//	ˆø”	F	‚È‚µ
-//	–ß‚è’l	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚¨ãƒ³ã‚¸ãƒ³ãƒ¡ã‚¤ãƒ³
+//	èª¬æ˜Ž	ï¼š	ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚¨ãƒ³ã‚¸ãƒ³ã®ãƒ¡ã‚¤ãƒ³å‡¦ç†ã‚’è¡Œã†
+//	å¼•æ•°	ï¼š	ãªã—
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CScriptEngine::Main( void )
 {
 	if( m_SCR.Mode == 0 )
 	{
-		Set();	//	ƒZƒbƒgƒ‚[ƒh
+		Set();	//	ã‚»ãƒƒãƒˆãƒ¢ãƒ¼ãƒ‰
 	}
 	else if( m_SCR.Mode )
 	{
-		Loop();	//	ƒ‹[ƒvƒ‚[ƒh
+		Loop();	//	ãƒ«ãƒ¼ãƒ—ãƒ¢ãƒ¼ãƒ‰
 		DispTextLoop();
 	}
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒXƒNƒŠƒvƒgƒZƒbƒg
-//	à–¾	F	ƒXƒNƒŠƒvƒg‚ÌÝ’è‚ðs‚¤
-//	ˆø”	F	‚È‚µ
-//	–ß‚è’l	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ã‚¹ã‚¯ãƒªãƒ—ãƒˆã®è¨­å®šã‚’è¡Œã†
+//	å¼•æ•°	ï¼š	ãªã—
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CScriptEngine::Set( void )
 {
 	while( m_SCR.Mode == 0 )
 	{
-		//	ŽŸ‚ÌƒRƒ}ƒ“ƒhŽæ“¾
+		//	æ¬¡ã®ã‚³ãƒžãƒ³ãƒ‰å–å¾—
 		m_SCR.CmdNo = GetNextCommand();
 		switch( m_SCR.CmdNo )
 		{
-			//	ƒeƒLƒXƒgƒRƒ}ƒ“ƒhEƒZƒbƒg
+			//	ãƒ†ã‚­ã‚¹ãƒˆã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 			case	Command_text:
 				CommandTextSet();
 				break;
-			//	I—¹ƒRƒ}ƒ“ƒhEƒZƒbƒg
+			//	çµ‚äº†ã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 			case	Command_end:
 				CommandEndSet();
 				break;
-			//	ƒWƒƒƒ“ƒvƒRƒ}ƒ“ƒhEƒZƒbƒg
+			//	ã‚¸ãƒ£ãƒ³ãƒ—ã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 			case	Command_jump:
 				CommandJumpSet();
 				break;
-			//	‘I‘ðŽˆƒRƒ}ƒ“ƒhEƒZƒbƒg
+			//	é¸æŠžè‚¢ã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 			case	Command_sel:
 				CommandSelSet();
 				break;
-			//	ƒtƒ‰ƒOONƒRƒ}ƒ“ƒhEƒZƒbƒg
+			//	ãƒ•ãƒ©ã‚°ONã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 			case	Command_flag_on:
 				CommandFlagOnSet();
 				break;
-			//	ƒtƒ‰ƒOOFFƒRƒ}ƒ“ƒhEƒZƒbƒg
+			//	ãƒ•ãƒ©ã‚°OFFã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 			case	Command_flag_off:
 				CommandFlagOffSet();
 				break;
-			//	ƒtƒ‰ƒOƒ`ƒFƒbƒNƒRƒ}ƒ“ƒhEƒZƒbƒg
+			//	ãƒ•ãƒ©ã‚°ãƒã‚§ãƒƒã‚¯ã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 			case	Command_flag_chk:
 				CommandFlagChkSet();
 				break;
-			//	ƒuƒ‰ƒbƒNƒAƒEƒgƒRƒ}ƒ“ƒhEƒZƒbƒg
+			//	ãƒ–ãƒ©ãƒƒã‚¯ã‚¢ã‚¦ãƒˆã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 			case	Command_black_out:
 				CommandBlackOutSet();
 				break;
-			//	ƒuƒ‰ƒbƒNƒCƒ“ƒRƒ}ƒ“ƒhEƒZƒbƒg
+			//	ãƒ–ãƒ©ãƒƒã‚¯ã‚¤ãƒ³ã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 			case	Command_black_in:
 				CommandBlackInSet();
 				break;
-			//	ƒzƒƒCƒgƒAƒEƒgƒRƒ}ƒ“ƒhEƒZƒbƒg
+			//	ãƒ›ãƒ¯ã‚¤ãƒˆã‚¢ã‚¦ãƒˆã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 			case	Command_white_out:
 				CommandWhiteOutSet();
 				break;
-			//	ƒzƒƒCƒgƒCƒ“ƒRƒ}ƒ“ƒhEƒZƒbƒg
+			//	ãƒ›ãƒ¯ã‚¤ãƒˆã‚¤ãƒ³ã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 			case	Command_white_in:
 				CommandWhiteInSet();
 				break;
-			//	ƒJ[ƒ\ƒ‹“_–ÅƒRƒ}ƒ“ƒhEƒZƒbƒg
+			//	ã‚«ãƒ¼ã‚½ãƒ«ç‚¹æ»…ã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 			case	Command_cursor_blink:
 				CommandCursorBlinkSet();
 				break;
-			//	’x‰„ƒRƒ}ƒ“ƒhEƒZƒbƒg
+			//	é…å»¶ã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 			case	Command_wait:
 				CommandWaitSet();
 				break;
-			//	ƒXƒNƒŠƒvƒgƒtƒ@ƒCƒ‹•ÏXƒRƒ}ƒ“ƒhEƒZƒbƒg
+			//	ã‚¹ã‚¯ãƒªãƒ—ãƒˆãƒ•ã‚¡ã‚¤ãƒ«å¤‰æ›´ã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 			case	Command_scr_change:
 				CommandScriptChangeSet();
 				break;
-			//	ƒeƒLƒXƒg“ü—ÍƒRƒ}ƒ“ƒhEƒZƒbƒg
+			//	ãƒ†ã‚­ã‚¹ãƒˆå…¥åŠ›ã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 			case	Command_text_input:
 				CommandTextInputSet();
 				break;
-			//	•¶Žš—ñƒZƒbƒgƒRƒ}ƒ“ƒhEƒZƒbƒg
+			//	æ–‡å­—åˆ—ã‚»ãƒƒãƒˆã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 			case	Command_set_str:
 				CommandSetStrSet();
 				break;
-			//	ƒZ[ƒuƒ|ƒCƒ“ƒgƒRƒ}ƒ“ƒhEƒZƒbƒg
+			//	ã‚»ãƒ¼ãƒ–ãƒã‚¤ãƒ³ãƒˆã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 			case	Command_save_point:
 				CommandSavePointSet();
 				break;
-			//	‰æ–Ê—h‚ç‚·ƒRƒ}ƒ“ƒhEƒZƒbƒg
+			//	ç”»é¢æºã‚‰ã™ã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 			case	Command_shake:
 				CommandShakeSet();
 				break;
-			//	ƒeƒNƒXƒ`ƒƒ‰æ‘œ“Ç‚Ýž‚Ý
+			//	ãƒ†ã‚¯ã‚¹ãƒãƒ£ç”»åƒèª­ã¿è¾¼ã¿
 			case	Command_load_tex:
 				CommandLoadTex();
 				break;
-			//	ƒpƒ^[ƒ“ƒZƒbƒg
+			//	ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚»ãƒƒãƒˆ
 			case	Command_set_pat:
 				CommandSetPat();
 				break;
-			//	ƒ|ƒŠƒSƒ“ƒZƒbƒg
+			//	ãƒãƒªã‚´ãƒ³ã‚»ãƒƒãƒˆ
 			case	Command_set_pol:
 				CommandSetPol();
 				break;
-			//	”wŒi“Ç‚Ýž‚Ý
+			//	èƒŒæ™¯èª­ã¿è¾¼ã¿
 			case	Command_load_bg:
 				CommandLoadBg();
 				break;
-			//	”wŒi•\Ž¦E”ñ•\Ž¦
+			//	èƒŒæ™¯è¡¨ç¤ºãƒ»éžè¡¨ç¤º
 			case	Command_disp_bg:
 				CommandDispBg();
 				break;
-			//	ƒƒCƒv
+			//	ãƒ¯ã‚¤ãƒ—
 			case	Command_wipe:
 				CommandWipe();
 				break;
-			//	BGMÄ¶
+			//	BGMå†ç”Ÿ
 			case	Command_play_bgm:
 				CommandPlayBGM();
 				break;
-			//	BGM’âŽ~
+			//	BGMåœæ­¢
 			case	Command_stop_bgm:
 				CommandStopBGM();
 				break;
-			//	SEÄ¶
+			//	SEå†ç”Ÿ
 			case	Command_play_se:
 				CommandPlaySE();
 				break;
-			//	ƒZƒbƒg•¶Žš—ñ‰Šú‰»
+			//	ã‚»ãƒƒãƒˆæ–‡å­—åˆ—åˆæœŸåŒ–
 			case	Command_init_str:
 				CommandInitStr();
 				break;
@@ -335,50 +335,50 @@ void	CScriptEngine::Set( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒXƒNƒŠƒvƒgƒ‹[ƒv
-//	à–¾	F	ƒXƒNƒŠƒvƒg‚Ìƒ‹[ƒvˆ—‚ðs‚¤
-//	ˆø”	F	‚È‚µ
-//	–ß‚è’l	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¹ã‚¯ãƒªãƒ—ãƒˆãƒ«ãƒ¼ãƒ—
+//	èª¬æ˜Ž	ï¼š	ã‚¹ã‚¯ãƒªãƒ—ãƒˆã®ãƒ«ãƒ¼ãƒ—å‡¦ç†ã‚’è¡Œã†
+//	å¼•æ•°	ï¼š	ãªã—
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CScriptEngine::Loop( void )
 {
-	//	ŠeƒRƒ}ƒ“ƒh‚Ìƒ‹[ƒvˆ—
+	//	å„ã‚³ãƒžãƒ³ãƒ‰ã®ãƒ«ãƒ¼ãƒ—å‡¦ç†
 	switch( m_SCR.CmdNo )
 	{
-		//	ƒeƒLƒXƒgƒRƒ}ƒ“ƒhEƒ‹[ƒv
+		//	ãƒ†ã‚­ã‚¹ãƒˆã‚³ãƒžãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
 		case	Command_text:
 			CommandTextLoop();
 			break;
-		//	‘I‘ðŽˆƒRƒ}ƒ“ƒhEƒ‹[ƒv
+		//	é¸æŠžè‚¢ã‚³ãƒžãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
 		case	Command_sel:
 			CommandSelLoop();
 			break;
-		//	ƒuƒ‰ƒbƒNƒAƒEƒgƒRƒ}ƒ“ƒhEƒ‹[ƒv
+		//	ãƒ–ãƒ©ãƒƒã‚¯ã‚¢ã‚¦ãƒˆã‚³ãƒžãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
 		case	Command_black_out:
 			CommandBlackOutLoop();
 			break;
-		//	ƒuƒ‰ƒbƒNƒCƒ“ƒRƒ}ƒ“ƒhEƒ‹[ƒv
+		//	ãƒ–ãƒ©ãƒƒã‚¯ã‚¤ãƒ³ã‚³ãƒžãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
 		case	Command_black_in:
 			CommandBlackInLoop();
 			break;
-		//	ƒzƒƒCƒgƒAƒEƒgƒRƒ}ƒ“ƒhEƒ‹[ƒv
+		//	ãƒ›ãƒ¯ã‚¤ãƒˆã‚¢ã‚¦ãƒˆã‚³ãƒžãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
 		case	Command_white_out:
 			CommandWhiteOutLoop();
 			break;
-		//	ƒzƒƒCƒgƒCƒ“ƒRƒ}ƒ“ƒhEƒ‹[ƒv
+		//	ãƒ›ãƒ¯ã‚¤ãƒˆã‚¤ãƒ³ã‚³ãƒžãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
 		case	Command_white_in:
 			CommandWhiteInLoop();
 			break;
-		//	ƒJ[ƒ\ƒ‹“_–ÅƒRƒ}ƒ“ƒhEƒ‹[ƒv
+		//	ã‚«ãƒ¼ã‚½ãƒ«ç‚¹æ»…ã‚³ãƒžãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
 		case	Command_cursor_blink:
 			CommandCursorBlinkLoop();
 			break;
-		//	‰æ–Ê—h‚ç‚·ƒRƒ}ƒ“ƒhEƒ‹[ƒv
+		//	ç”»é¢æºã‚‰ã™ã‚³ãƒžãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
 		case	Command_shake:
 			CommandShakeLoop();
 			break;
-		//	ƒƒCƒv
+		//	ãƒ¯ã‚¤ãƒ—
 		case	Command_wipe:
 			if( !m_Wipe->Loop() )
 			{
@@ -390,17 +390,17 @@ void	CScriptEngine::Loop( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ŽŸ‚ÌƒRƒ}ƒ“ƒhŽæ“¾
-//	à–¾	F	ŽŸ‚ÌƒRƒ}ƒ“ƒh‚ðŽæ“¾‚·‚é
-//	–ß‚è’l	F	long	ƒRƒ}ƒ“ƒh”Ô†
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	æ¬¡ã®ã‚³ãƒžãƒ³ãƒ‰å–å¾—
+//	èª¬æ˜Ž	ï¼š	æ¬¡ã®ã‚³ãƒžãƒ³ãƒ‰ã‚’å–å¾—ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	long	ã‚³ãƒžãƒ³ãƒ‰ç•ªå·
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 long	CScriptEngine::GetNextCommand( void )
 {
 	long	ret;
 
-	//	ŽŸ‚Ìu*v‚ðŒŸõ
+	//	æ¬¡ã®ã€Œ*ã€ã‚’æ¤œç´¢
 	m_SCR.Addr = ScriptSearchChar( m_SCR.Addr, '*' );
 
 	ret = 1000;
@@ -409,10 +409,10 @@ long	CScriptEngine::GetNextCommand( void )
 	{
 		if( ScriptStrComp( m_SCR.Addr, ScriptCmdStr[i] ) == 1 )
 		{
-			//	ƒRƒ}ƒ“ƒh”­Œ©
+			//	ã‚³ãƒžãƒ³ãƒ‰ç™ºè¦‹
 			ret = i;
 
-			//	ƒAƒhƒŒƒX‚ðƒRƒ}ƒ“ƒh–¼‚ÌŒã‚ë‚ÉˆÚ“®
+			//	ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’ã‚³ãƒžãƒ³ãƒ‰åã®å¾Œã‚ã«ç§»å‹•
 			m_SCR.Addr = ScriptSkipStr( m_SCR.Addr );
 
 			break;
@@ -423,27 +423,27 @@ long	CScriptEngine::GetNextCommand( void )
 }
 
 /******************************************************************************/
-//	•¶Žš—ñ•\Ž¦
-//		ˆø”F
-//				‚È‚µ
-//		–ß‚è’lF
-//				‚È‚µ
+//	æ–‡å­—åˆ—è¡¨ç¤º
+//		å¼•æ•°ï¼š
+//				ãªã—
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
 /******************************************************************************/
 void	CScriptEngine::DispTextLoop( void )
 {
-	//	ƒeƒLƒXƒg“o˜^
+	//	ãƒ†ã‚­ã‚¹ãƒˆç™»éŒ²
 	for( int i=0; i<SCR_TEXT_LINE_MAX; i++ )
 	{
-		//	•¶Žš—ñ‚ÌF
+		//	æ–‡å­—åˆ—ã®è‰²
 		switch( m_TEXT.SST[i].TextColor )
 		{
-			case	SETextColor::Normal:	//	’Êí
+			case	SETextColor::Normal:	//	é€šå¸¸
 				g_LibText.SetColor( m_UseTextNo+i, 255,255,255,255 );
 				break;
-			case	SETextColor::Select:	//	‘I‘ð
+			case	SETextColor::Select:	//	é¸æŠž
 				g_LibText.SetColor( m_UseTextNo+i, 255,200,230,255 );
 				break;
-			case	SETextColor::NotSelect:	//	”ñ‘I‘ð
+			case	SETextColor::NotSelect:	//	éžé¸æŠž
 				g_LibText.SetColor( m_UseTextNo+i, 255,120,120,120 );
 				break;
 		}
@@ -451,32 +451,32 @@ void	CScriptEngine::DispTextLoop( void )
 }
 
 /******************************************************************************/
-//	ƒeƒLƒXƒgƒZƒbƒg
-//		ˆø”F
-//				‚È‚µ
-//		–ß‚è’lF
-//				‚È‚µ
+//	ãƒ†ã‚­ã‚¹ãƒˆã‚»ãƒƒãƒˆ
+//		å¼•æ•°ï¼š
+//				ãªã—
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
 /******************************************************************************/
 void	CScriptEngine::CommandTextSet( void )
 {
 	int i;
 
-	//	TEXT_LINE_MAX•ªƒ‹[ƒv
+	//	TEXT_LINE_MAXåˆ†ãƒ«ãƒ¼ãƒ—
 	for( i=0; i<SCR_TEXT_LINE_MAX; i++ )
 	{
-		//	u"v“à‚Ì•¶Žš—ñ‚ð’Šo
+		//	ã€Œ"ã€å†…ã®æ–‡å­—åˆ—ã‚’æŠ½å‡º
 		m_SCR.Addr = ScriptGetStrDouble( m_SCR.Addr, m_TEXT.SST[i].Text );
 
-		//	ŽŸ‚Ìs‚Í‚ ‚é‚Ì‚©”»’è
+		//	æ¬¡ã®è¡Œã¯ã‚ã‚‹ã®ã‹åˆ¤å®š
 		m_SCR.Addr = ScriptSkipSpace( m_SCR.Addr );
 
-		//	•¶Žš—ñ‚ÌFÝ’è
+		//	æ–‡å­—åˆ—ã®è‰²è¨­å®š
 		m_TEXT.SST[i].TextColor = SETextColor::Normal;
 
-		//	ƒZƒbƒg‚µ‚½•¶Žš—ñ‚ª‚ ‚é‚©”»’è
+		//	ã‚»ãƒƒãƒˆã—ãŸæ–‡å­—åˆ—ãŒã‚ã‚‹ã‹åˆ¤å®š
 		if( strstr( m_TEXT.SST[i].Text, "STR" ) != NULL )
 		{
-			//	‘¶Ý‚·‚é
+			//	å­˜åœ¨ã™ã‚‹
 			SwapStr( m_TEXT.SST[i].Text );
 		}
 
@@ -487,7 +487,7 @@ void	CScriptEngine::CommandTextSet( void )
 		TXT[ m_UseTextNo+i ].Disp = OFF;
 
 
-		//	ŽŸ‚Ì•¶Žš‚ªu"v‚©‚Ç‚¤‚©
+		//	æ¬¡ã®æ–‡å­—ãŒã€Œ"ã€ã‹ã©ã†ã‹
 		if( *m_SCR.Addr != '"' )
 		{
 			break;
@@ -504,11 +504,11 @@ void	CScriptEngine::CommandTextSet( void )
 }
 
 /******************************************************************************/
-//	I—¹EƒZƒbƒg
-//		ˆø”F
-//				‚È‚µ
-//		–ß‚è’lF
-//				‚È‚µ
+//	çµ‚äº†ãƒ»ã‚»ãƒƒãƒˆ
+//		å¼•æ•°ï¼š
+//				ãªã—
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
 /******************************************************************************/
 void	CScriptEngine::CommandEndSet( void )
 {
@@ -517,46 +517,46 @@ void	CScriptEngine::CommandEndSet( void )
 }
 
 /******************************************************************************/
-//	ƒ‰ƒxƒ‹ƒWƒƒƒ“ƒv
-//		ˆø”F
-//				‚È‚µ
-//		–ß‚è’lF
-//				‚È‚µ
+//	ãƒ©ãƒ™ãƒ«ã‚¸ãƒ£ãƒ³ãƒ—
+//		å¼•æ•°ï¼š
+//				ãªã—
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
 /******************************************************************************/
 void	CScriptEngine::CommandJumpSet( void )
 {
-	//	ƒ‰ƒxƒ‹‚Ü‚ÅƒXƒLƒbƒv
+	//	ãƒ©ãƒ™ãƒ«ã¾ã§ã‚¹ã‚­ãƒƒãƒ—
 	m_SCR.Addr = ScriptSkipSpace( m_SCR.Addr );
 
-	//	ƒ‰ƒxƒ‹’Šo
-	m_SCR.JumpStr[0][0] = '#';	//	ƒ‰ƒxƒ‹—p‹L†
+	//	ãƒ©ãƒ™ãƒ«æŠ½å‡º
+	m_SCR.JumpStr[0][0] = '#';	//	ãƒ©ãƒ™ãƒ«ç”¨è¨˜å·
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, &m_SCR.JumpStr[0][1] );
 
-	//	ƒ‰ƒxƒ‹ƒWƒƒƒ“ƒv
+	//	ãƒ©ãƒ™ãƒ«ã‚¸ãƒ£ãƒ³ãƒ—
 	m_SCR.Addr = ScriptLabelJump( m_ScrDat, m_SCR.JumpStr[0] );
 }
 
 /******************************************************************************/
-//	‘I‘ðŽˆƒRƒ}ƒ“ƒhEƒZƒbƒg
-//		ˆø”F
-//				‚È‚µ
-//		–ß‚è’lF
-//				‚È‚µ
+//	é¸æŠžè‚¢ã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
+//		å¼•æ•°ï¼š
+//				ãªã—
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
 /******************************************************************************/
 void	CScriptEngine::CommandSelSet( void )
 {
 	long	i;
 
-	//	s”ƒ‹[ƒv
+	//	è¡Œæ•°ãƒ«ãƒ¼ãƒ—
 	for( i=0; i<SCR_TEXT_LINE_MAX; i++ )
 	{
-		//	‹ó”’•¶Žš—ñ’Šo
+		//	ç©ºç™½æ–‡å­—åˆ—æŠ½å‡º
 		m_SCR.JumpStr[i][0] = '#';
 		m_SCR.Addr = ScriptGetStr( m_SCR.Addr, &m_SCR.JumpStr[i][1] );
 
 		m_SCR.Addr = ScriptSkipSpace( m_SCR.Addr );
 
-		//	ŽŸ‚ªu"v‚©”»’è
+		//	æ¬¡ãŒã€Œ"ã€ã‹åˆ¤å®š
 		if( *m_SCR.Addr == '"' )
 		{
 			m_TEXT.MaxLine = i + 1;
@@ -564,17 +564,17 @@ void	CScriptEngine::CommandSelSet( void )
 		}
 	}
 
-	//	‘I‘ðŽˆ‚Ì”•ªƒ‹[ƒv
+	//	é¸æŠžè‚¢ã®æ•°åˆ†ãƒ«ãƒ¼ãƒ—
 	for( i=0; i<m_TEXT.MaxLine; i++ )
 	{
-		//	u"v“à‚Ì•¶Žš—ñ’Šo
+		//	ã€Œ"ã€å†…ã®æ–‡å­—åˆ—æŠ½å‡º
 		m_SCR.Addr = ScriptGetStrDouble( m_SCR.Addr, m_TEXT.SST[i].Text );
 
-		//	ŽŸ‚Ìs‚Í‚ ‚é‚Ì‚©”»’è
+		//	æ¬¡ã®è¡Œã¯ã‚ã‚‹ã®ã‹åˆ¤å®š
 		m_SCR.Addr = ScriptSkipSpace( m_SCR.Addr );
 
-		//	ŽŸ‚Ì•¶Žš—ñ‚ÌF‚ð”»’è
-		m_TEXT.SST[i].TextColor = SETextColor::NotSelect;	//	”ñ‘I‘ð
+		//	æ¬¡ã®æ–‡å­—åˆ—ã®è‰²ã‚’åˆ¤å®š
+		m_TEXT.SST[i].TextColor = SETextColor::NotSelect;	//	éžé¸æŠž
 
 		g_LibText.Set( m_UseTextNo+i,
 			TEXT_DISP_X,
@@ -587,86 +587,86 @@ void	CScriptEngine::CommandSelSet( void )
 		}
 	}
 
-	//	‘I‘ðŽˆ”Ô†‰Šú‰»
+	//	é¸æŠžè‚¢ç•ªå·åˆæœŸåŒ–
 	m_SCR.SelectNo = 0;
 
-	//	ƒ‹[ƒv
+	//	ãƒ«ãƒ¼ãƒ—
 	m_SCR.Mode = 1;
 }
 
 /******************************************************************************/
-//	ƒtƒ‰ƒOƒRƒ}ƒ“ƒhONEƒZƒbƒg
+//	ãƒ•ãƒ©ã‚°ã‚³ãƒžãƒ³ãƒ‰ONãƒ»ã‚»ãƒƒãƒˆ
 /******************************************************************************/
 void	CScriptEngine::CommandFlagOnSet( void )
 {
 	char	GetStr[MAX_PATH];
 	ZeroMemory( &GetStr, sizeof(GetStr) );
 
-	//	ƒtƒ‰ƒO”Ô†•¶Žš—ñ‚Ì’Šo
+	//	ãƒ•ãƒ©ã‚°ç•ªå·æ–‡å­—åˆ—ã®æŠ½å‡º
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
-	//	”Žš‚Ì•¶Žš—ñ‚ð”’l‚Ö•ÏŠ·
+	//	æ•°å­—ã®æ–‡å­—åˆ—ã‚’æ•°å€¤ã¸å¤‰æ›
 	long no = atol( GetStr );
 	if( no >= SCR_FLAG_MAX || no < 0 )
 	{
 		return;
 	}
 
-	//	ƒtƒ‰ƒOON
+	//	ãƒ•ãƒ©ã‚°ON
 	m_SCR.EventFlag[ no ] = ON;
 }
 
 /******************************************************************************/
-//	ƒtƒ‰ƒOƒRƒ}ƒ“ƒhOFFEƒZƒbƒg
+//	ãƒ•ãƒ©ã‚°ã‚³ãƒžãƒ³ãƒ‰OFFãƒ»ã‚»ãƒƒãƒˆ
 /******************************************************************************/
 void	CScriptEngine::CommandFlagOffSet( void )
 {
 	char	GetStr[MAX_PATH];
 	ZeroMemory( &GetStr, sizeof(GetStr) );
 
-	//	ƒtƒ‰ƒO”Ô†•¶Žš—ñ‚Ì’Šo
+	//	ãƒ•ãƒ©ã‚°ç•ªå·æ–‡å­—åˆ—ã®æŠ½å‡º
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
-	//	”Žš‚Ì•¶Žš—ñ‚ð”’l‚Ö•ÏŠ·
+	//	æ•°å­—ã®æ–‡å­—åˆ—ã‚’æ•°å€¤ã¸å¤‰æ›
 	long no = atol( GetStr );
 
-	//	ƒtƒ‰ƒOON
+	//	ãƒ•ãƒ©ã‚°ON
 	m_SCR.EventFlag[ no ] = OFF;
 }
 
 /******************************************************************************/
-//	ƒtƒ‰ƒOƒRƒ}ƒ“ƒhƒ`ƒFƒbƒNEƒZƒbƒg
+//	ãƒ•ãƒ©ã‚°ã‚³ãƒžãƒ³ãƒ‰ãƒã‚§ãƒƒã‚¯ãƒ»ã‚»ãƒƒãƒˆ
 /******************************************************************************/
 void	CScriptEngine::CommandFlagChkSet( void )
 {
-	//	ƒtƒ‰ƒO”Ô†•¶Žš—ñ‚Ì’Šo
+	//	ãƒ•ãƒ©ã‚°ç•ªå·æ–‡å­—åˆ—ã®æŠ½å‡º
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, m_SCR.JumpStr[0] );
-	//	”Žš‚Ì•¶Žš—ñ‚ð”’l‚Ö•ÏŠ·
+	//	æ•°å­—ã®æ–‡å­—åˆ—ã‚’æ•°å€¤ã¸å¤‰æ›
 	long no = atol( m_SCR.JumpStr[0] );
 	if( no >= SCR_FLAG_MAX || no < 0 )
 	{
 		return;
 	}
 
-	//	”ò‚Ñæ‚Ìƒ‰ƒxƒ‹‚Ì’Šo
+	//	é£›ã³å…ˆã®ãƒ©ãƒ™ãƒ«ã®æŠ½å‡º
 	m_SCR.JumpStr[1][0] = '#';
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, &m_SCR.JumpStr[1][1] );
 
-	//	ƒtƒ‰ƒO”»’è
+	//	ãƒ•ãƒ©ã‚°åˆ¤å®š
 	if( m_SCR.EventFlag[ no ] )
 	{
-		//	ƒ‰ƒxƒ‹ƒWƒƒƒ“ƒv
+		//	ãƒ©ãƒ™ãƒ«ã‚¸ãƒ£ãƒ³ãƒ—
 		m_SCR.Addr = ScriptLabelJump( m_ScrDat, m_SCR.JumpStr[1] );
 	}
 }
 
 /******************************************************************************/
-//	ƒuƒ‰ƒbƒNƒAƒEƒgƒRƒ}ƒ“ƒhEƒZƒbƒg
+//	ãƒ–ãƒ©ãƒƒã‚¯ã‚¢ã‚¦ãƒˆã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 /******************************************************************************/
 void	CScriptEngine::CommandBlackOutSet( void )
 {
 	char	GetStr[MAX_PATH];
 	ZeroMemory( &GetStr, sizeof(GetStr) );
 
-	//	ŽžŠÔŽæ“¾
+	//	æ™‚é–“å–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	long Time = atol(GetStr);
 
@@ -675,14 +675,14 @@ void	CScriptEngine::CommandBlackOutSet( void )
 }
 
 /******************************************************************************/
-//	ƒuƒ‰ƒbƒNƒCƒ“ƒRƒ}ƒ“ƒhEƒZƒbƒg
+//	ãƒ–ãƒ©ãƒƒã‚¯ã‚¤ãƒ³ã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 /******************************************************************************/
 void	CScriptEngine::CommandBlackInSet( void )
 {
 	char	GetStr[MAX_PATH];
 	ZeroMemory( &GetStr, sizeof(GetStr) );
 
-	//	ŽžŠÔŽæ“¾
+	//	æ™‚é–“å–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	long Time = atol(GetStr);
 
@@ -691,14 +691,14 @@ void	CScriptEngine::CommandBlackInSet( void )
 }
 
 /******************************************************************************/
-//	ƒzƒƒCƒgƒAƒEƒgƒRƒ}ƒ“ƒhEƒZƒbƒg
+//	ãƒ›ãƒ¯ã‚¤ãƒˆã‚¢ã‚¦ãƒˆã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 /******************************************************************************/
 void	CScriptEngine::CommandWhiteOutSet( void )
 {
 	char	GetStr[MAX_PATH];
 	ZeroMemory( &GetStr, sizeof(GetStr) );
 
-	//	ŽžŠÔŽæ“¾
+	//	æ™‚é–“å–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	long Time = atol(GetStr);
 
@@ -707,14 +707,14 @@ void	CScriptEngine::CommandWhiteOutSet( void )
 }
 
 /******************************************************************************/
-//	ƒzƒƒCƒgƒCƒ“ƒRƒ}ƒ“ƒhEƒZƒbƒg
+//	ãƒ›ãƒ¯ã‚¤ãƒˆã‚¤ãƒ³ã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 /******************************************************************************/
 void	CScriptEngine::CommandWhiteInSet( void )
 {
 	char	GetStr[MAX_PATH];
 	ZeroMemory( &GetStr, sizeof(GetStr) );
 
-	//	ŽžŠÔŽæ“¾
+	//	æ™‚é–“å–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	long Time = atol(GetStr);
 
@@ -723,32 +723,32 @@ void	CScriptEngine::CommandWhiteInSet( void )
 }
 
 /******************************************************************************/
-//	ƒJ[ƒ\ƒ‹“_–ÅƒRƒ}ƒ“ƒhEƒZƒbƒg
+//	ã‚«ãƒ¼ã‚½ãƒ«ç‚¹æ»…ã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 /******************************************************************************/
 void	CScriptEngine::CommandCursorBlinkSet( void )
 {
-	//	ƒeƒLƒXƒg•\Ž¦‰ðœ
+	//	ãƒ†ã‚­ã‚¹ãƒˆè¡¨ç¤ºè§£é™¤
 	m_TEXT.DispFlag = OFF;
 
-	//	ƒJ[ƒ\ƒ‹“_–ÅŠJŽn
+	//	ã‚«ãƒ¼ã‚½ãƒ«ç‚¹æ»…é–‹å§‹
 	m_SCR.BlinkCursor = ON;
 
-	//	ƒ‚[ƒh•ÏX
+	//	ãƒ¢ãƒ¼ãƒ‰å¤‰æ›´
 	m_SCR.Mode = 1;
 
-	//	ƒJ[ƒ\ƒ‹•\Ž¦
+	//	ã‚«ãƒ¼ã‚½ãƒ«è¡¨ç¤º
 	g_LibPol.ChangeDisp( m_UsePolNo + POL_SCRIPT_CUR, ON );
 }
 
 /******************************************************************************/
-//	’x‰„ƒRƒ}ƒ“ƒhEƒZƒbƒg
+//	é…å»¶ã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 /******************************************************************************/
 void	CScriptEngine::CommandWaitSet( void )
 {
 	char	GetStr[MAX_PATH];
 	ZeroMemory( &GetStr, sizeof(GetStr) );
 
-	//	ŽžŠÔŽæ“¾
+	//	æ™‚é–“å–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	long Time = atol( GetStr );
 
@@ -756,14 +756,14 @@ void	CScriptEngine::CommandWaitSet( void )
 }
 
 /******************************************************************************/
-//	ƒXƒNƒŠƒvƒgƒtƒ@ƒCƒ‹•ÏXƒRƒ}ƒ“ƒhEƒZƒbƒg
+//	ã‚¹ã‚¯ãƒªãƒ—ãƒˆãƒ•ã‚¡ã‚¤ãƒ«å¤‰æ›´ã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 /******************************************************************************/
 void	CScriptEngine::CommandScriptChangeSet( void )
 {
 }
 
 /******************************************************************************/
-//	ƒeƒLƒXƒg“ü—ÍƒRƒ}ƒ“ƒhEƒZƒbƒg
+//	ãƒ†ã‚­ã‚¹ãƒˆå…¥åŠ›ã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 /******************************************************************************/
 void	CScriptEngine::CommandTextInputSet( void )
 {
@@ -771,14 +771,14 @@ void	CScriptEngine::CommandTextInputSet( void )
 }
 
 /******************************************************************************/
-//	•¶Žš—ñƒZƒbƒgƒRƒ}ƒ“ƒhEƒZƒbƒg
+//	æ–‡å­—åˆ—ã‚»ãƒƒãƒˆã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 /******************************************************************************/
 void	CScriptEngine::CommandSetStrSet( void )
 {
 	char	GetStr[MAX_PATH];
 	ZeroMemory( &GetStr, sizeof(GetStr) );
 
-	//	”Ô†Žæ“¾
+	//	ç•ªå·å–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	long StrNo = atol( GetStr );
 	ZeroMemory( &GetStr, sizeof(GetStr) );
@@ -788,35 +788,35 @@ void	CScriptEngine::CommandSetStrSet( void )
 		return;
 	}
 
-	//	–¼‘OŽæ“¾
+	//	åå‰å–å¾—
 	ZeroMemory( &m_SCR.SET[StrNo], sizeof(m_SCR.SET[StrNo]) );
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, m_SCR.SET[StrNo].Text );
 }
 
 /******************************************************************************/
-//	ƒZ[ƒuƒ|ƒCƒ“ƒgƒRƒ}ƒ“ƒhEƒZƒbƒg
+//	ã‚»ãƒ¼ãƒ–ãƒã‚¤ãƒ³ãƒˆã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 /******************************************************************************/
 void	CScriptEngine::CommandSavePointSet( void )
 {
 }
 
 /******************************************************************************/
-//	‰æ–Ê—h‚ç‚·ƒRƒ}ƒ“ƒhEƒZƒbƒg
+//	ç”»é¢æºã‚‰ã™ã‚³ãƒžãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
 /******************************************************************************/
 void	CScriptEngine::CommandShakeSet( void )
 {
 	char	GetStr[MAX_PATH];
 	ZeroMemory( &GetStr, sizeof(GetStr) );
 
-	//	‹­‚³Žæ“¾
+	//	å¼·ã•å–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	m_SCR.SHAKE.Value = atol( GetStr );
 	ZeroMemory( &GetStr, sizeof(GetStr) );
-	//	ŽžŠÔŽæ“¾
+	//	æ™‚é–“å–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	m_SCR.SHAKE.Time = atol( GetStr );
 	ZeroMemory( &GetStr, sizeof(GetStr) );
-	//	‘®«Žæ“¾
+	//	å±žæ€§å–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	m_SCR.SHAKE.Atr = 0;
 	if( strcmp( GetStr, "XY" ) == 0 )
@@ -832,92 +832,92 @@ void	CScriptEngine::CommandShakeSet( void )
 		m_SCR.SHAKE.Atr = SHAKAE_ATR_Y;
 	}
 
-	//	ƒeƒLƒXƒg•\Ž¦‰ðœ
+	//	ãƒ†ã‚­ã‚¹ãƒˆè¡¨ç¤ºè§£é™¤
 	m_TEXT.DispFlag = OFF;
-	//	ƒ‚[ƒh•ÏX
+	//	ãƒ¢ãƒ¼ãƒ‰å¤‰æ›´
 	m_SCR.Mode = 1;
-	//	ƒJƒEƒ“ƒ^‰Šú‰»
+	//	ã‚«ã‚¦ãƒ³ã‚¿åˆæœŸåŒ–
 	m_SCR.SHAKE.Count = 0;
-	//	ó‘Ô‰Šú‰»
+	//	çŠ¶æ…‹åˆæœŸåŒ–
 	m_SCR.SHAKE.State = 0;
 }
 
 /******************************************************************************/
-//	ƒeƒNƒXƒ`ƒƒ‰æ‘œ“Ç‚Ýž‚Ý
+//	ãƒ†ã‚¯ã‚¹ãƒãƒ£ç”»åƒèª­ã¿è¾¼ã¿
 /******************************************************************************/
 void	CScriptEngine::CommandLoadTex( void )
 {
 	char	GetStr[MAX_PATH];
 	ZeroMemory( &GetStr, sizeof(GetStr) );
 
-	//	ƒeƒNƒXƒ`ƒƒ”Ô†Žæ“¾
+	//	ãƒ†ã‚¯ã‚¹ãƒãƒ£ç•ªå·å–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	long TexNo = atol( GetStr );
 	ZeroMemory( &GetStr, sizeof(GetStr) );
-	//	ƒtƒ@ƒCƒ‹–¼Žæ“¾
+	//	ãƒ•ã‚¡ã‚¤ãƒ«åå–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 
-	//	ƒeƒNƒXƒ`ƒƒ“Ç‚Ýž‚Ý
+	//	ãƒ†ã‚¯ã‚¹ãƒãƒ£èª­ã¿è¾¼ã¿
 	LoadTexture( TexNo, GetStr );
 }
 
 /******************************************************************************/
-//	ƒpƒ^[ƒ“ƒZƒbƒg
+//	ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚»ãƒƒãƒˆ
 /******************************************************************************/
 void	CScriptEngine::CommandSetPat( void )
 {
 	char	GetStr[MAX_PATH];
 	ZeroMemory( &GetStr, sizeof(GetStr) );
 
-	//	ƒpƒ^[ƒ“”Ô†Žæ“¾
+	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·å–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	long PatNo = atol( GetStr );
 	ZeroMemory( &GetStr, sizeof(GetStr) );
-	//	ƒeƒNƒXƒ`ƒƒ”Ô†Žæ“¾
+	//	ãƒ†ã‚¯ã‚¹ãƒãƒ£ç•ªå·å–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	long TexNo = atol( GetStr );
-	//	ŠJŽnÀ•WXŽæ“¾
+	//	é–‹å§‹åº§æ¨™Xå–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	long PosX = atol( GetStr );
-	//	ŠJŽnÀ•WYŽæ“¾
+	//	é–‹å§‹åº§æ¨™Yå–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	long PosY = atol( GetStr );
-	//	‰¡ƒTƒCƒYŽæ“¾
+	//	æ¨ªã‚µã‚¤ã‚ºå–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	long Width = atol( GetStr );
-	//	cƒTƒCƒYŽæ“¾
+	//	ç¸¦ã‚µã‚¤ã‚ºå–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	long Height = atol( GetStr );
 
-	//	ƒpƒ^[ƒ“ƒZƒbƒg
+	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚»ãƒƒãƒˆ
 	SetPattern( PatNo, TexNo, PosX,PosY, Width,Height );
 }
 
 /******************************************************************************/
-//	ƒ|ƒŠƒSƒ“ƒZƒbƒg
+//	ãƒãƒªã‚´ãƒ³ã‚»ãƒƒãƒˆ
 /******************************************************************************/
 void	CScriptEngine::CommandSetPol( void )
 {
 	char	GetStr[MAX_PATH];
 	ZeroMemory( &GetStr, sizeof(GetStr) );
 
-	//	ƒ|ƒŠƒSƒ“”Ô†Žæ“¾
+	//	ãƒãƒªã‚´ãƒ³ç•ªå·å–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	long PolNo = atol( GetStr );
 	ZeroMemory( &GetStr, sizeof(GetStr) );
-	//	ƒpƒ^[ƒ“”Ô†Žæ“¾
+	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·å–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	long PatNo = atol( GetStr );
-	//	•\Ž¦À•WXŽæ“¾
+	//	è¡¨ç¤ºåº§æ¨™Xå–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	double PosX = atof( GetStr );
-	//	•\Ž¦À•WYŽæ“¾
+	//	è¡¨ç¤ºåº§æ¨™Yå–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	double PosY = atof( GetStr );
-	//	•\Ž¦À•WZŽæ“¾
+	//	è¡¨ç¤ºåº§æ¨™Zå–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	double PosZ = atof( GetStr );
-	//	ƒAƒgƒŠƒrƒ…[ƒgŽæ“¾
+	//	ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆå–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	UShort Atr = ATR_NONE;
 	if( strcmp( GetStr, "ATR_REV_W" ) == 0 )
@@ -933,27 +933,27 @@ void	CScriptEngine::CommandSetPol( void )
 		Atr = ATR_ALL;
 	}
 
-	//	ƒ|ƒŠƒSƒ“ƒZƒbƒg
+	//	ãƒãƒªã‚´ãƒ³ã‚»ãƒƒãƒˆ
 	g_LibPol.SetPat( PolNo, PatNo, PosX,PosY,PosZ, Atr );
 }
 
 /******************************************************************************/
-//	”wŒi“Ç‚Ýž‚Ý
+//	èƒŒæ™¯èª­ã¿è¾¼ã¿
 /******************************************************************************/
 void	CScriptEngine::CommandLoadBg( void )
 {
 	char	GetStr[MAX_PATH];
 	ZeroMemory( &GetStr, sizeof(GetStr) );
 
-	//	”wŒi”Ô†Žæ“¾
+	//	èƒŒæ™¯ç•ªå·å–å¾—
 	//m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	//long BgNo = atol( GetStr );
 	//ZeroMemory( &GetStr, sizeof(GetStr) );
 
-	//	ƒtƒ@ƒCƒ‹–¼Žæ“¾
+	//	ãƒ•ã‚¡ã‚¤ãƒ«åå–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 
-	//	ƒeƒNƒXƒ`ƒƒ“Ç‚Ýž‚Ý
+	//	ãƒ†ã‚¯ã‚¹ãƒãƒ£èª­ã¿è¾¼ã¿
 	LoadTexture( m_UseTextureNo, GetStr );
 	SetPattern( m_UsePatNo,
 		m_UseTextureNo,
@@ -966,19 +966,19 @@ void	CScriptEngine::CommandLoadBg( void )
 }
 	
 /******************************************************************************/
-//	”wŒi•\Ž¦E”ñ•\Ž¦
+//	èƒŒæ™¯è¡¨ç¤ºãƒ»éžè¡¨ç¤º
 /******************************************************************************/
 void	CScriptEngine::CommandDispBg( void )
 {
 	char	GetStr[MAX_PATH];
 	ZeroMemory( &GetStr, sizeof(GetStr) );
 
-	//	”wŒi”Ô†Žæ“¾
+	//	èƒŒæ™¯ç•ªå·å–å¾—
 	//m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	//long BgNo = atol( GetStr );
 	//ZeroMemory( &GetStr, sizeof(GetStr) );
 
-	//	ó‘ÔŽæ“¾
+	//	çŠ¶æ…‹å–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	UChar Flag = ON;
 	if( strcmp( GetStr, "ON" ) == 0 )
@@ -994,23 +994,23 @@ void	CScriptEngine::CommandDispBg( void )
 }
 
 /******************************************************************************/
-//	ƒƒCƒv
+//	ãƒ¯ã‚¤ãƒ—
 /******************************************************************************/
 void	CScriptEngine::CommandWipe( void )
 {
 	char	GetStr[MAX_PATH];
 	ZeroMemory( &GetStr, sizeof(GetStr) );
 
-	//	ƒƒCƒv”Ô†Žæ“¾
+	//	ãƒ¯ã‚¤ãƒ—ç•ªå·å–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	long	WipeNo = atol( GetStr );
 	ZeroMemory( &GetStr, sizeof(GetStr) );
-	//	ŽžŠÔŽæ“¾
+	//	æ™‚é–“å–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	long	Time = atol( GetStr );
 	ZeroMemory( &GetStr, sizeof(GetStr) );
 
-	//	ƒtƒ@ƒCƒ‹–¼Žæ“¾
+	//	ãƒ•ã‚¡ã‚¤ãƒ«åå–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 
 	SAFE_DELETE(m_Wipe);
@@ -1021,14 +1021,14 @@ void	CScriptEngine::CommandWipe( void )
 }
 
 /******************************************************************************/
-//	BGMÄ¶
+//	BGMå†ç”Ÿ
 /******************************************************************************/
 void	CScriptEngine::CommandPlayBGM( void )
 {
 	char	GetStr[MAX_PATH];
 	ZeroMemory( &GetStr, sizeof(GetStr) );
 
-	//	ƒtƒ@ƒCƒ‹–¼Žæ“¾
+	//	ãƒ•ã‚¡ã‚¤ãƒ«åå–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 
 	g_LibMusic.Load( m_UseBGMNo, GetStr );
@@ -1036,7 +1036,7 @@ void	CScriptEngine::CommandPlayBGM( void )
 }
 
 /******************************************************************************/
-//	BGM’âŽ~
+//	BGMåœæ­¢
 /******************************************************************************/
 void	CScriptEngine::CommandStopBGM( void )
 {
@@ -1044,14 +1044,14 @@ void	CScriptEngine::CommandStopBGM( void )
 }
 
 /******************************************************************************/
-//	SEÄ¶
+//	SEå†ç”Ÿ
 /******************************************************************************/
 void	CScriptEngine::CommandPlaySE( void )
 {
 	char	GetStr[MAX_PATH];
 	ZeroMemory( &GetStr, sizeof(GetStr) );
 
-	//	ƒtƒ@ƒCƒ‹–¼Žæ“¾
+	//	ãƒ•ã‚¡ã‚¤ãƒ«åå–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 
 	g_LibMusic.Load( m_UseSENo, GetStr );
@@ -1059,14 +1059,14 @@ void	CScriptEngine::CommandPlaySE( void )
 }
 
 /******************************************************************************/
-//	ƒZƒbƒg•¶Žš—ñ‰Šú‰»
+//	ã‚»ãƒƒãƒˆæ–‡å­—åˆ—åˆæœŸåŒ–
 /******************************************************************************/
 void	CScriptEngine::CommandInitStr( void )
 {
 	char	GetStr[MAX_PATH];
 	ZeroMemory( &GetStr, sizeof(GetStr) );
 
-	//	”Ô†Žæ“¾
+	//	ç•ªå·å–å¾—
 	m_SCR.Addr = ScriptGetStr( m_SCR.Addr, GetStr );
 	long	StrNo = atol( GetStr );
 	if( StrNo >= STR_SET_MAX )
@@ -1078,7 +1078,7 @@ void	CScriptEngine::CommandInitStr( void )
 }
 
 /******************************************************************************/
-//	ƒeƒLƒXƒgƒRƒ}ƒ“ƒhEƒ‹[ƒv
+//	ãƒ†ã‚­ã‚¹ãƒˆã‚³ãƒžãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
 /******************************************************************************/
 void	CScriptEngine::CommandTextLoop( void )
 {
@@ -1107,20 +1107,20 @@ void	CScriptEngine::CommandTextLoop( void )
 }
 
 /******************************************************************************/
-//	‘I‘ðŽˆEƒ‹[ƒv
-//		ˆø”F
-//				‚È‚µ
-//		–ß‚è’lF
-//				‚È‚µ
+//	é¸æŠžè‚¢ãƒ»ãƒ«ãƒ¼ãƒ—
+//		å¼•æ•°ï¼š
+//				ãªã—
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
 /******************************************************************************/
 void	CScriptEngine::CommandSelLoop( void )
 {
 	long	i;
 
-	//	“ü—Í”»’èE‘I‘ðƒL[
+	//	å…¥åŠ›åˆ¤å®šãƒ»é¸æŠžã‚­ãƒ¼
 	if( KEY.Trg[ DIK_UP ] )
 	{
-		//	ã
+		//	ä¸Š
 		if( m_SCR.SelectNo > 0 )
 		{
 			m_SCR.SelectNo --;
@@ -1128,14 +1128,14 @@ void	CScriptEngine::CommandSelLoop( void )
 	}
 	else if( KEY.Trg[ DIK_DOWN ] )
 	{
-		//	‰º
+		//	ä¸‹
 		if( m_SCR.SelectNo < m_TEXT.MaxLine-1 )
 		{
 			m_SCR.SelectNo ++;
 		}
 	}
 
-	//	•¶Žš—ñ‚ÌFÝ’è
+	//	æ–‡å­—åˆ—ã®è‰²è¨­å®š
 	for( i=0; i<m_TEXT.MaxLine; i++ )
 	{
 		if( m_SCR.SelectNo == i )
@@ -1148,22 +1148,22 @@ void	CScriptEngine::CommandSelLoop( void )
 		}
 	}
 
-	//	‘I‘ð”»’èEŒˆ’è‚«[
+	//	é¸æŠžåˆ¤å®šãƒ»æ±ºå®šããƒ¼
 	if( KEY.Trg[ DIK_SPACE ] || MOUSE.Trg[ MOUSE_LEFT ] )
 	{
-		//	ƒ‰ƒxƒ‹ƒWƒƒƒ“ƒv
+		//	ãƒ©ãƒ™ãƒ«ã‚¸ãƒ£ãƒ³ãƒ—
 		m_SCR.Addr = ScriptLabelJump( m_ScrDat, m_SCR.JumpStr[m_SCR.SelectNo] );
 
-		//	•¶Žš—ñƒNƒŠƒA
+		//	æ–‡å­—åˆ—ã‚¯ãƒªã‚¢
 		ZeroMemory( &m_TEXT.SST, sizeof(m_TEXT.SST) );
 
-		//	ƒZƒbƒg
+		//	ã‚»ãƒƒãƒˆ
 		m_SCR.Mode = 0;
 	}
 }
 
 /******************************************************************************/
-//	ƒuƒ‰ƒbƒNƒAƒEƒgƒRƒ}ƒ“ƒhEƒ‹[ƒv
+//	ãƒ–ãƒ©ãƒƒã‚¯ã‚¢ã‚¦ãƒˆã‚³ãƒžãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
 /******************************************************************************/
 void	CScriptEngine::CommandBlackOutLoop( void )
 {
@@ -1175,7 +1175,7 @@ void	CScriptEngine::CommandBlackOutLoop( void )
 }
 
 /******************************************************************************/
-//	ƒuƒ‰ƒbƒNƒCƒ“ƒRƒ}ƒ“ƒhEƒ‹[ƒv
+//	ãƒ–ãƒ©ãƒƒã‚¯ã‚¤ãƒ³ã‚³ãƒžãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
 /******************************************************************************/
 void	CScriptEngine::CommandBlackInLoop( void )
 {
@@ -1187,7 +1187,7 @@ void	CScriptEngine::CommandBlackInLoop( void )
 }
 
 /******************************************************************************/
-//	ƒzƒƒCƒgƒAƒEƒgƒRƒ}ƒ“ƒhEƒ‹[ƒv
+//	ãƒ›ãƒ¯ã‚¤ãƒˆã‚¢ã‚¦ãƒˆã‚³ãƒžãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
 /******************************************************************************/
 void	CScriptEngine::CommandWhiteOutLoop( void )
 {
@@ -1199,7 +1199,7 @@ void	CScriptEngine::CommandWhiteOutLoop( void )
 }
 
 /******************************************************************************/
-//	ƒzƒƒCƒgƒCƒ“ƒRƒ}ƒ“ƒhEƒ‹[ƒv
+//	ãƒ›ãƒ¯ã‚¤ãƒˆã‚¤ãƒ³ã‚³ãƒžãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
 /******************************************************************************/
 void	CScriptEngine::CommandWhiteInLoop( void )
 {
@@ -1211,7 +1211,7 @@ void	CScriptEngine::CommandWhiteInLoop( void )
 }
 
 /******************************************************************************/
-//	ƒJ[ƒ\ƒ‹“_–ÅƒRƒ}ƒ“ƒhEƒ‹[ƒv
+//	ã‚«ãƒ¼ã‚½ãƒ«ç‚¹æ»…ã‚³ãƒžãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
 /******************************************************************************/
 void	CScriptEngine::CommandCursorBlinkLoop( void )
 {
@@ -1247,28 +1247,28 @@ void	CScriptEngine::CommandCursorBlinkLoop( void )
 		return;
 	}
 
-	//	ƒeƒLƒXƒg•\Ž¦ŠJŽn
+	//	ãƒ†ã‚­ã‚¹ãƒˆè¡¨ç¤ºé–‹å§‹
 	m_TEXT.DispFlag = ON;
 
-	//	ƒJ[ƒ\ƒ‹“_–Å‰ðœ
+	//	ã‚«ãƒ¼ã‚½ãƒ«ç‚¹æ»…è§£é™¤
 	m_SCR.BlinkCursor = OFF;
 
-	//	ƒ‚[ƒh•ÏX
+	//	ãƒ¢ãƒ¼ãƒ‰å¤‰æ›´
 	m_SCR.Mode = 0;
 
-	//	•¶Žš—ñƒNƒŠƒA
+	//	æ–‡å­—åˆ—ã‚¯ãƒªã‚¢
 	for( i=0; i<SCR_TEXT_LINE_MAX; i++ )
 	{
 		ZeroMemory( &m_TEXT.SST[i].Text, sizeof(m_TEXT.SST[i].Text) );
 		g_LibText.Init( m_UseTextNo + i );
 	}
 
-	//	ƒJ[ƒ\ƒ‹”ñ•\Ž¦
+	//	ã‚«ãƒ¼ã‚½ãƒ«éžè¡¨ç¤º
 	g_LibPol.ChangeDisp( m_UsePolNo + POL_SCRIPT_CUR, OFF );
 }
 
 /******************************************************************************/
-//	‰æ–Ê—h‚ç‚·ƒRƒ}ƒ“ƒhEƒ‹[ƒv
+//	ç”»é¢æºã‚‰ã™ã‚³ãƒžãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
 /******************************************************************************/
 void	CScriptEngine::CommandShakeLoop( void )
 {
@@ -1314,7 +1314,7 @@ void	CScriptEngine::CommandShakeLoop( void )
 	{
 		g_LibPol.SetPos( PolNo, 0, 0 );
 
-		//	ƒ‚[ƒh•ÏX
+		//	ãƒ¢ãƒ¼ãƒ‰å¤‰æ›´
 		m_SCR.Mode = 0;
 	}
 
@@ -1322,12 +1322,12 @@ void	CScriptEngine::CommandShakeLoop( void )
 }
 
 /******************************************************************************/
-//	•¶ŽšŒŸõ
-//		ˆø”F
-//				*pt		•¶Žš—ñƒ|ƒCƒ“ƒ^
-//				ch		ŒŸõ‚·‚é•¶Žš
-//		–ß‚è’lF
-//				‚È‚µ
+//	æ–‡å­—æ¤œç´¢
+//		å¼•æ•°ï¼š
+//				*pt		æ–‡å­—åˆ—ãƒã‚¤ãƒ³ã‚¿
+//				ch		æ¤œç´¢ã™ã‚‹æ–‡å­—
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
 /******************************************************************************/
 char	*CScriptEngine::ScriptSearchChar( char *pt, char ch )
 {
@@ -1335,7 +1335,7 @@ char	*CScriptEngine::ScriptSearchChar( char *pt, char ch )
 
 	while( 1 )
 	{
-		//	ƒRƒƒ“ƒgƒXƒLƒbƒv
+		//	ã‚³ãƒ¡ãƒ³ãƒˆã‚¹ã‚­ãƒƒãƒ—
 		pt = ScriptSkipComment( pt );
 
 		if( *pt == ch )
@@ -1347,11 +1347,11 @@ char	*CScriptEngine::ScriptSearchChar( char *pt, char ch )
 
 		if( (uc<128) || (uc>=160) )
 		{
-			pt ++;		//	”¼Šp
+			pt ++;		//	åŠè§’
 		}
 		else
 		{
-			pt += 2;	//	‘SŠp
+			pt += 2;	//	å…¨è§’
 		}
 	}
 
@@ -1360,12 +1360,12 @@ char	*CScriptEngine::ScriptSearchChar( char *pt, char ch )
 }
 
 /******************************************************************************/
-//	ŽŸ‚Ì•¶Žš—ñ‚Ü‚Å‚Ì‹ó”’‚ÌƒXƒLƒbƒv
-//		iƒXƒy[ƒXAƒ^ƒuA‰üsAƒJƒ“ƒ}ANULLˆÈŠO‚Ü‚Åj
-//		ˆø”F
-//				*pt		•¶Žš—ñƒ|ƒCƒ“ƒ^
-//		–ß‚è’lF
-//				•ÏXŒã‚Ì•¶Žš—ñƒ|ƒCƒ“ƒ^
+//	æ¬¡ã®æ–‡å­—åˆ—ã¾ã§ã®ç©ºç™½ã®ã‚¹ã‚­ãƒƒãƒ—
+//		ï¼ˆã‚¹ãƒšãƒ¼ã‚¹ã€ã‚¿ãƒ–ã€æ”¹è¡Œã€ã‚«ãƒ³ãƒžã€NULLä»¥å¤–ã¾ã§ï¼‰
+//		å¼•æ•°ï¼š
+//				*pt		æ–‡å­—åˆ—ãƒã‚¤ãƒ³ã‚¿
+//		æˆ»ã‚Šå€¤ï¼š
+//				å¤‰æ›´å¾Œã®æ–‡å­—åˆ—ãƒã‚¤ãƒ³ã‚¿
 /******************************************************************************/
 char	*CScriptEngine::ScriptSkipSpace( char *pt )
 {
@@ -1373,12 +1373,12 @@ char	*CScriptEngine::ScriptSkipSpace( char *pt )
 
 	while( 1 )
 	{
-		//	ƒRƒƒ“ƒgƒXƒLƒbƒv
+		//	ã‚³ãƒ¡ãƒ³ãƒˆã‚¹ã‚­ãƒƒãƒ—
 		pt = ScriptSkipComment( pt );
 
 		c = *pt;
 
-		//	ƒXƒy[ƒXAƒ^ƒuA‰üsAƒJƒ“ƒ}”»’è
+		//	ã‚¹ãƒšãƒ¼ã‚¹ã€ã‚¿ãƒ–ã€æ”¹è¡Œã€ã‚«ãƒ³ãƒžåˆ¤å®š
 		if( (c!=' ') && (c!=0x09) && (c!=0x0d) && (c!=0x0a) && (c!=',') && (c!=0) )
 		{
 			break;
@@ -1391,12 +1391,12 @@ char	*CScriptEngine::ScriptSkipSpace( char *pt )
 }
 
 /******************************************************************************/
-//	ŽŸ‚Ì‹ó”’‚Ü‚Å‚Ì•¶Žš—ñ‚ðƒXƒLƒbƒv
-//		iƒXƒy[ƒXAƒ^ƒuA‰üsAƒJƒ“ƒ}ANULL‚Ü‚Åj
-//		ˆø”F
-//				*pt		•¶Žš—ñƒ|ƒCƒ“ƒ^
-//		–ß‚è’lF
-//				•ÏXŒã‚Ì•¶Žš—ñƒ|ƒCƒ“ƒ^
+//	æ¬¡ã®ç©ºç™½ã¾ã§ã®æ–‡å­—åˆ—ã‚’ã‚¹ã‚­ãƒƒãƒ—
+//		ï¼ˆã‚¹ãƒšãƒ¼ã‚¹ã€ã‚¿ãƒ–ã€æ”¹è¡Œã€ã‚«ãƒ³ãƒžã€NULLã¾ã§ï¼‰
+//		å¼•æ•°ï¼š
+//				*pt		æ–‡å­—åˆ—ãƒã‚¤ãƒ³ã‚¿
+//		æˆ»ã‚Šå€¤ï¼š
+//				å¤‰æ›´å¾Œã®æ–‡å­—åˆ—ãƒã‚¤ãƒ³ã‚¿
 /******************************************************************************/
 char	*CScriptEngine::ScriptSkipStr( char *pt )
 {
@@ -1404,25 +1404,25 @@ char	*CScriptEngine::ScriptSkipStr( char *pt )
 
 	while( 1 )
 	{
-		//	ƒRƒƒ“ƒgƒXƒLƒbƒv
+		//	ã‚³ãƒ¡ãƒ³ãƒˆã‚¹ã‚­ãƒƒãƒ—
 		pt = ScriptSkipComment( pt );
 
 		uc = (UChar)*pt;
 
 		if( (uc<128) || (uc>=160) )
 		{
-			// ƒXƒy[ƒXAƒ^ƒuA‰üsAƒJƒ“ƒ}”»’è
+			// ã‚¹ãƒšãƒ¼ã‚¹ã€ã‚¿ãƒ–ã€æ”¹è¡Œã€ã‚«ãƒ³ãƒžåˆ¤å®š
 			if( (uc==' ') || (uc==0x09) || (uc==0x0d) || (uc==0x0a) || (uc==',') || (uc==0) )
 			{
 				break;
 			}
 
-			//	”¼Šp•ªi‚ß‚é
+			//	åŠè§’åˆ†é€²ã‚ã‚‹
 			pt ++;
 		}
 		else
 		{
-			//	‘SŠp•ªi‚ß‚é
+			//	å…¨è§’åˆ†é€²ã‚ã‚‹
 			pt += 2;
 		}
 	}
@@ -1431,82 +1431,82 @@ char	*CScriptEngine::ScriptSkipStr( char *pt )
 }
 
 /******************************************************************************/
-//	‹ó”’‚Å‚­‚­‚ç‚ê‚½•¶Žš—ñ‚Ì’Šo
-//		iƒXƒy[ƒXAƒ^ƒuA‰üsAƒJƒ“ƒ}ANULL‚Ü‚Åj
-//		ˆø”F
-//				pt		•¶Žš—ñƒ|ƒCƒ“ƒ^
-//				str		•¶Žš—ñŠi”[ƒAƒhƒŒƒX
-//		–ß‚è’lF
-//				•ÏXŒã‚Ì•¶Žš—ñƒ|ƒCƒ“ƒ^
+//	ç©ºç™½ã§ããã‚‰ã‚ŒãŸæ–‡å­—åˆ—ã®æŠ½å‡º
+//		ï¼ˆã‚¹ãƒšãƒ¼ã‚¹ã€ã‚¿ãƒ–ã€æ”¹è¡Œã€ã‚«ãƒ³ãƒžã€NULLã¾ã§ï¼‰
+//		å¼•æ•°ï¼š
+//				pt		æ–‡å­—åˆ—ãƒã‚¤ãƒ³ã‚¿
+//				str		æ–‡å­—åˆ—æ ¼ç´ã‚¢ãƒ‰ãƒ¬ã‚¹
+//		æˆ»ã‚Šå€¤ï¼š
+//				å¤‰æ›´å¾Œã®æ–‡å­—åˆ—ãƒã‚¤ãƒ³ã‚¿
 /******************************************************************************/
 char	*CScriptEngine::ScriptGetStr( char *pt, char *str )
 {
 	char	c;
 
-	//	‹ó”’ƒXƒLƒbƒv
+	//	ç©ºç™½ã‚¹ã‚­ãƒƒãƒ—
 	pt = ScriptSkipSpace( pt );
 
 	while( 1 )
 	{
 		c = *pt;
 
-		// ƒXƒy[ƒXAƒ^ƒuA‰üsAƒJƒ“ƒ}”»’è
+		// ã‚¹ãƒšãƒ¼ã‚¹ã€ã‚¿ãƒ–ã€æ”¹è¡Œã€ã‚«ãƒ³ãƒžåˆ¤å®š
 		if( (c == ' ') || (c == 0x09) || (c == 0x0d) || (c == 0x0a) || (c == ',') || (c == 0) )
 		{
 			break;
 		}
 
-		//	•¶Žš—ñ‚Ì“o˜^
+		//	æ–‡å­—åˆ—ã®ç™»éŒ²
 		*str = c;
 
-		//	ƒAƒhƒŒƒX‰ÁŽZ
+		//	ã‚¢ãƒ‰ãƒ¬ã‚¹åŠ ç®—
 		str ++;
 		pt ++;
 	}
 
-	//	ƒkƒ‹ƒR[ƒh’Ç‰Á
+	//	ãƒŒãƒ«ã‚³ãƒ¼ãƒ‰è¿½åŠ 
 	*str = 0;
 
 	return pt;
 }
 
 /******************************************************************************/
-//	u"v‚Å‚­‚­‚ç‚ê‚½•¶Žš—ñ‚Ì’Šo
-//		ˆø”F
-//				*pt		•¶Žš—ñƒ|ƒCƒ“ƒ^
-//				*str	•¶Žš—ñŠi”[ƒAƒhƒŒƒX
-//		–ß‚è’lF
-//				’ŠoŒã‚Ì•¶Žš—ñƒ|ƒCƒ“ƒ^
+//	ã€Œ"ã€ã§ããã‚‰ã‚ŒãŸæ–‡å­—åˆ—ã®æŠ½å‡º
+//		å¼•æ•°ï¼š
+//				*pt		æ–‡å­—åˆ—ãƒã‚¤ãƒ³ã‚¿
+//				*str	æ–‡å­—åˆ—æ ¼ç´ã‚¢ãƒ‰ãƒ¬ã‚¹
+//		æˆ»ã‚Šå€¤ï¼š
+//				æŠ½å‡ºå¾Œã®æ–‡å­—åˆ—ãƒã‚¤ãƒ³ã‚¿
 /******************************************************************************/
 char	*CScriptEngine::ScriptGetStrDouble( char *pt, char *str )
 {
 	long	i;
 	UChar	uc;
 
-	//	u"v‚Ü‚ÅƒXƒLƒbƒv
+	//	ã€Œ"ã€ã¾ã§ã‚¹ã‚­ãƒƒãƒ—
 	pt = ScriptSearchChar( pt, '"' );
 
 	while( 1 )
 	{
-		//	u"v‚Ì”»’è
+		//	ã€Œ"ã€ã®åˆ¤å®š
 		if( *pt == '"' )
 		{
-			pt ++;	//	u"v‚ÌŽŸ‚ÉˆÚ“®
+			pt ++;	//	ã€Œ"ã€ã®æ¬¡ã«ç§»å‹•
 			break;
 		}
 
-		//•¶Žš—ñ‚Ì“o˜^
+		//æ–‡å­—åˆ—ã®ç™»éŒ²
 		uc = *pt;
 		if( (uc<128) || (uc>=160) )
 		{
-			//	”¼Šp•¶ŽšƒRƒs[
+			//	åŠè§’æ–‡å­—ã‚³ãƒ”ãƒ¼
 			*str = *pt;
 			pt ++;
 			str ++;
 		}
 		else
 		{
-			//	‘SŠp•¶ŽšƒRƒs[
+			//	å…¨è§’æ–‡å­—ã‚³ãƒ”ãƒ¼
 			for( i=0; i<2; i++ )
 			{
 				*str = *pt;
@@ -1516,28 +1516,28 @@ char	*CScriptEngine::ScriptGetStrDouble( char *pt, char *str )
 		}
 	}
 
-	//	ƒkƒ‹ƒR[ƒh’Ç‰Á
+	//	ãƒŒãƒ«ã‚³ãƒ¼ãƒ‰è¿½åŠ 
 	*str = 0;
 
 	return pt;
 }
 
 /******************************************************************************/
-//	“Á’è•¶Žš—ñ‚Ö‚Ìƒ‰ƒxƒ‹ƒWƒƒƒ“ƒv
-//		ˆø”F
-//				addr	ŒŸõŠJŽnƒAƒhƒŒƒX
-//				str		ƒ‰ƒxƒ‹•¶Žš—ñ
-//		–ß‚è’lF
-//				ŒŸõŒãƒAƒhƒŒƒX
+//	ç‰¹å®šæ–‡å­—åˆ—ã¸ã®ãƒ©ãƒ™ãƒ«ã‚¸ãƒ£ãƒ³ãƒ—
+//		å¼•æ•°ï¼š
+//				addr	æ¤œç´¢é–‹å§‹ã‚¢ãƒ‰ãƒ¬ã‚¹
+//				str		ãƒ©ãƒ™ãƒ«æ–‡å­—åˆ—
+//		æˆ»ã‚Šå€¤ï¼š
+//				æ¤œç´¢å¾Œã‚¢ãƒ‰ãƒ¬ã‚¹
 /******************************************************************************/
 char	*CScriptEngine::ScriptLabelJump( char *addr, char *str )
 {
-	//	Œ©‚Â‚©‚é‚Ü‚Åƒ‹[ƒv
+	//	è¦‹ã¤ã‹ã‚‹ã¾ã§ãƒ«ãƒ¼ãƒ—
 	while( 1 )
 	{
 		if( ScriptStrComp( addr, str ) )
 		{
-			break;	//	”­Œ©
+			break;	//	ç™ºè¦‹
 		}
 
 		addr ++;
@@ -1547,14 +1547,14 @@ char	*CScriptEngine::ScriptLabelJump( char *addr, char *str )
 }
 
 /******************************************************************************/
-//	•¶Žš—ñ”äŠr
-//	iI’[‚ÍAƒXƒy[ƒXAƒ^ƒuA‰üsAƒJƒ“ƒ}ANULL‚Å”»’èj
-//	ˆø”F
-//			str1	•¶Žš—ñ‚P
-//			str2	•¶Žš—ñ‚Q
+//	æ–‡å­—åˆ—æ¯”è¼ƒ
+//	ï¼ˆçµ‚ç«¯ã¯ã€ã‚¹ãƒšãƒ¼ã‚¹ã€ã‚¿ãƒ–ã€æ”¹è¡Œã€ã‚«ãƒ³ãƒžã€NULLã§åˆ¤å®šï¼‰
+//	å¼•æ•°ï¼š
+//			str1	æ–‡å­—åˆ—ï¼‘
+//			str2	æ–‡å­—åˆ—ï¼’
 //
-//	–ß‚è’lF
-//			0:Æ‡Ž¸”sA1:Æ‡¬Œ÷
+//	æˆ»ã‚Šå€¤ï¼š
+//			0:ç…§åˆå¤±æ•—ã€1:ç…§åˆæˆåŠŸ
 /******************************************************************************/
 long	CScriptEngine::ScriptStrComp( char *str1, char *str2 )
 {
@@ -1566,7 +1566,7 @@ long	CScriptEngine::ScriptStrComp( char *str1, char *str2 )
 		a = *str1;
 		b = *str2;
 
-		//	ƒRƒƒ“ƒgƒXƒLƒbƒv
+		//	ã‚³ãƒ¡ãƒ³ãƒˆã‚¹ã‚­ãƒƒãƒ—
 		str1 = ScriptSkipComment( str1 );
 		str2 = ScriptSkipComment( str2 );
 
@@ -1574,14 +1574,14 @@ long	CScriptEngine::ScriptStrComp( char *str1, char *str2 )
 		{
 			if( (b==' ') || (b==0x09) || (b==0x0d) || (b==0x0a) || (b==',') || (b==0) )
 			{
-				ret = 1;	//	Æ‡¬Œ÷
+				ret = 1;	//	ç…§åˆæˆåŠŸ
 			}
 			break;
 		}
 
 		if ( a != b )
 		{
-			break;	//	Æ‡Ž¸”s
+			break;	//	ç…§åˆå¤±æ•—
 		}
 
 		str1 ++;
@@ -1592,7 +1592,7 @@ long	CScriptEngine::ScriptStrComp( char *str1, char *str2 )
 }
 
 /******************************************************************************/
-//	ƒRƒƒ“ƒgƒXƒLƒbƒv
+//	ã‚³ãƒ¡ãƒ³ãƒˆã‚¹ã‚­ãƒƒãƒ—
 /******************************************************************************/
 char	*CScriptEngine::ScriptSkipComment( char *pt )
 {
@@ -1602,14 +1602,14 @@ char	*CScriptEngine::ScriptSkipComment( char *pt )
 
 	while( 1 )
 	{
-		//	‚P•¶Žš–Úƒ`ƒFƒbƒN
+		//	ï¼‘æ–‡å­—ç›®ãƒã‚§ãƒƒã‚¯
 		if( *pt != '/' )
 		{
-			//	ƒRƒƒ“ƒg‚Å‚Í‚È‚¢
+			//	ã‚³ãƒ¡ãƒ³ãƒˆã§ã¯ãªã„
 			break;
 		}
 
-		//	‚Q•¶Žš–Úƒ`ƒFƒbƒN
+		//	ï¼’æ–‡å­—ç›®ãƒã‚§ãƒƒã‚¯
 		if( *(pt+1) == '/' )
 		{
 			mode = 0;
@@ -1625,23 +1625,23 @@ char	*CScriptEngine::ScriptSkipComment( char *pt )
 
 		if( mode == 0 )
 		{
-			//	ƒRƒƒ“ƒgI’[‚Í‰üsƒR[ƒh
+			//	ã‚³ãƒ¡ãƒ³ãƒˆçµ‚ç«¯ã¯æ”¹è¡Œã‚³ãƒ¼ãƒ‰
 			ch1 = 0x0d;
 			ch2 = 0x0a;
 		}
 		else
 		{
-			//	ƒRƒƒ“ƒgI’[‚Íu*/v
+			//	ã‚³ãƒ¡ãƒ³ãƒˆçµ‚ç«¯ã¯ã€Œ*/ã€
 			ch1 = '*';
 			ch2 = '/';
 		}
 
-		//	ƒRƒƒ“ƒgI’[‚Ü‚ÅƒXƒLƒbƒv
+		//	ã‚³ãƒ¡ãƒ³ãƒˆçµ‚ç«¯ã¾ã§ã‚¹ã‚­ãƒƒãƒ—
 		while( 1 )
 		{
 			if( (*pt==ch1) && (*(pt+1)==ch2) )
 			{
-				//	ŽŸ‚Ì•¶Žš‚Ö
+				//	æ¬¡ã®æ–‡å­—ã¸
 				pt += 2;
 				break;
 			}
@@ -1649,12 +1649,12 @@ char	*CScriptEngine::ScriptSkipComment( char *pt )
 			uc = *pt;
 			if( (uc<128) || (uc>=160) )
 			{
-				//	”¼Šp•ªi‚ß‚é
+				//	åŠè§’åˆ†é€²ã‚ã‚‹
 				pt ++;
 			}
 			else
 			{
-				//	‘SŠp•ªi‚ß‚é
+				//	å…¨è§’åˆ†é€²ã‚ã‚‹
 				pt += 2;
 			}
 		}
@@ -1664,7 +1664,7 @@ char	*CScriptEngine::ScriptSkipComment( char *pt )
 }
 
 /******************************************************************************/
-//	ƒZƒbƒg•¶Žš—ñ•ÏX
+//	ã‚»ãƒƒãƒˆæ–‡å­—åˆ—å¤‰æ›´
 /******************************************************************************/
 void	CScriptEngine::SwapStr( char *Str )
 {

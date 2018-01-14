@@ -1,40 +1,40 @@
 /******************************************************************************/
-//	DirectX9ƒ‰ƒCƒuƒ‰ƒŠ
-//		ƒvƒŒƒC
+//	DirectX9ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+//		ãƒ—ãƒ¬ã‚¤
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #include	"./Dx9Lib.h"
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
-IDirectPlay8Peer		*lpDPlayPeer = NULL;		// @ƒsƒAƒc[ƒsƒA—p
-LPDIRECTPLAY8ADDRESS	lpDPlayDeviceInfo = NULL;	//	ƒAƒhƒŒƒXƒIƒuƒWƒFƒNƒg
+IDirectPlay8Peer		*lpDPlayPeer = NULL;		// ã€€ãƒ”ã‚¢ãƒ„ãƒ¼ãƒ”ã‚¢ç”¨
+LPDIRECTPLAY8ADDRESS	lpDPlayDeviceInfo = NULL;	//	ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 
 
 
 /******************************************************************************/
-//	ƒƒbƒZ[ƒWˆ——pƒR[ƒ‹ƒoƒbƒNŠÖ”
-//	ˆø”F	pvUserContext	InitalizeŠÖ”‚Ì‘æˆêˆø”
-//			dwMessageType	ƒƒbƒZ[ƒW‚Ìí—Ş
-//			pMessage		ƒƒbƒZ[ƒW‚É•t‚·‚éƒf[ƒ^
+//	ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å‡¦ç†ç”¨ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯é–¢æ•°
+//	å¼•æ•°ï¼š	pvUserContext	Initalizeé–¢æ•°ã®ç¬¬ä¸€å¼•æ•°
+//			dwMessageType	ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ç¨®é¡
+//			pMessage		ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã«ä»˜éšã™ã‚‹ãƒ‡ãƒ¼ã‚¿
 /******************************************************************************/
 HRESULT	CALLBACK	MessageHandler( PVOID pvUserContext, DWORD dwMessageType, PVOID pMessage )
 {
 	switch( dwMessageType )
 	{
-		//	ƒvƒŒƒCƒ„[‚ªƒZƒbƒVƒ‡ƒ“‚ÉQ‰Á
+		//	ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒã‚»ãƒƒã‚·ãƒ§ãƒ³ã«å‚åŠ 
 		case	DPN_MSGID_CREATE_PLAYER:
 			return DPN_OK;
 
-		//	ƒvƒŒƒCƒ„[‚ªƒZƒbƒVƒ‡ƒ“‚©‚çØ’f
+		//	ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒã‚»ãƒƒã‚·ãƒ§ãƒ³ã‹ã‚‰åˆ‡æ–­
 		case	DPN_MSGID_DESTROY_PLAYER:
 			return DPN_OK;
 
-		//	ƒvƒŒƒCƒ„[‚©‚çƒƒbƒZ[ƒWóM
+		//	ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‹ã‚‰ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å—ä¿¡
 		case	DPN_MSGID_RECEIVE:
 			return DPN_OK;
 	}
@@ -43,47 +43,47 @@ HRESULT	CALLBACK	MessageHandler( PVOID pvUserContext, DWORD dwMessageType, PVOID
 }
 
 /******************************************************************************/
-//	ƒfƒoƒCƒXì¬
+//	ãƒ‡ãƒã‚¤ã‚¹ä½œæˆ
 /******************************************************************************/
 void	CreatePlayDevice( void )
 {
 	HRESULT hr;
 
-	//	ƒIƒuƒWƒFƒNƒgì¬
+	//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆä½œæˆ
 	hr = CoCreateInstance( CLSID_DirectPlay8Peer, NULL, CLSCTX_INPROC_SERVER,
 		IID_IDirectPlay8Peer, (void **)&lpDPlayPeer );
 	if( FAILED(hr) )
 	{
-		DXTRACE_ERR( "IDirectPlay8Peer‚Ìì¬‚É¸”s", hr );
+		DXTRACE_ERR( "IDirectPlay8Peerã®ä½œæˆã«å¤±æ•—", hr );
 		return;
 	}
 
-	//	ƒIƒuƒWƒFƒNƒg‰Šú‰»
+	//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆåˆæœŸåŒ–
 	hr = lpDPlayPeer->Initialize( NULL, &MessageHandler, 0 );
 	if( FAILED(hr) )
 	{
-		DXTRACE_ERR( "IDirectPlay8Peer‚Ì‰Šú‰»‚É¸”s", hr );
+		DXTRACE_ERR( "IDirectPlay8Peerã®åˆæœŸåŒ–ã«å¤±æ•—", hr );
 		return;
 	}
 
-	//	ƒAƒhƒŒƒXƒIƒuƒWƒFƒNƒgì¬
+	//	ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆä½œæˆ
 	hr = CoCreateInstance( CLSID_DirectPlay8Address, NULL, CLSCTX_INPROC_SERVER,
 		IID_IDirectPlay8Address, (void **)&lpDPlayDeviceInfo );
 	if( FAILED(hr) )
 	{
-		DXTRACE_ERR( "lpDPlayDeviceInfo‚Ì‰Šú‰»‚É¸”s", hr );
+		DXTRACE_ERR( "lpDPlayDeviceInfoã®åˆæœŸåŒ–ã«å¤±æ•—", hr );
 		return;
 	}
 
-	//	ƒT[ƒrƒXEƒvƒƒoƒCƒ_‚Ìİ’è
+	//	ã‚µãƒ¼ãƒ“ã‚¹ãƒ»ãƒ—ãƒ­ãƒã‚¤ãƒ€ã®è¨­å®š
 	hr = lpDPlayDeviceInfo->SetSP( &CLSID_DP8SP_TCPIP );
 	if( FAILED(hr) )
 	{
-		DXTRACE_ERR( "ƒT[ƒrƒXEƒvƒƒoƒCƒ_‚Ìİ’è‚É¸”s", hr );
+		DXTRACE_ERR( "ã‚µãƒ¼ãƒ“ã‚¹ãƒ»ãƒ—ãƒ­ãƒã‚¤ãƒ€ã®è¨­å®šã«å¤±æ•—", hr );
 		return;
 	}
 
-	//	ƒzƒXƒg–¼‚Ìİ’è
+	//	ãƒ›ã‚¹ãƒˆåã®è¨­å®š
 	char *HostName = CONNECT_IP;
 	hr = lpDPlayDeviceInfo->AddComponent(
 		DPNA_KEY_HOSTNAME,
@@ -93,11 +93,11 @@ void	CreatePlayDevice( void )
 		);
 	if( FAILED(hr) )
 	{
-		DXTRACE_ERR( "ƒzƒXƒg‚Ìİ’è‚É¸”s", hr );
+		DXTRACE_ERR( "ãƒ›ã‚¹ãƒˆã®è¨­å®šã«å¤±æ•—", hr );
 		return;
 	}
 
-	//	ƒ|[ƒg‚Ìİ’è
+	//	ãƒãƒ¼ãƒˆã®è¨­å®š
 	DWORD	Port = CONNECT_PORT;
 	hr = lpDPlayDeviceInfo->AddComponent(
 		DPNA_KEY_PORT,
@@ -107,7 +107,7 @@ void	CreatePlayDevice( void )
 		);
 	if( FAILED(hr) )
 	{
-		DXTRACE_ERR( "ƒ|[ƒg‚Ìİ’è‚É¸”s", hr );
+		DXTRACE_ERR( "ãƒãƒ¼ãƒˆã®è¨­å®šã«å¤±æ•—", hr );
 		return;
 	}
 

@@ -1,10 +1,10 @@
 /******************************************************************************/
-//	ƒLƒƒƒ‰ƒNƒ^[§Œä
-//		ƒ\[ƒXƒtƒ@ƒCƒ‹
+//	ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼åˆ¶å¾¡
+//		ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #include	"./Dx9Lib/Dx9Lib.h"
 #include	"./Dx9LibANm.h"
@@ -16,62 +16,62 @@
 #include	"./Shot.h"
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 
-//	ƒLƒƒƒ‰ƒNƒ^[ƒpƒ^[ƒ“
+//	ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ãƒ‘ã‚¿ãƒ¼ãƒ³
 UNIT_TBL	UNIT[2];
 
 UNIT_TBL	UNIT_INIT[4] =
 {
-	//	obj, ƒTƒCƒY,      ’†SÀ•W, HIT, ƒoƒYƒŠ, ÚG, ƒXƒs[ƒh, ƒVƒ‡ƒbƒg”Ô†
-	{	NOT, 64,0,48,40,  24,17,    2,   30,     64,   4,        0,0,0,0,0 },	//	ƒ†ƒjƒbƒg0
-	{	NOT, 56,48,40,24, 20,11,    2,   30,     64,   5,        1,1,1,1,1 },	//	ƒ†ƒjƒbƒg1
-	{	NOT, 0,0,64,48,   32,29,    2,   30,     64,   4,        2,2,2,2,2 },	//	ƒ†ƒjƒbƒg2
-	{	NOT, 0,48,56,32,  28,15,    2,   30,     64,   3,        3,3,3,3,3 },	//	ƒ†ƒjƒbƒg3
+	//	obj, ã‚µã‚¤ã‚º,      ä¸­å¿ƒåº§æ¨™, HIT, ãƒã‚ºãƒª, æŽ¥è§¦, ã‚¹ãƒ”ãƒ¼ãƒ‰, ã‚·ãƒ§ãƒƒãƒˆç•ªå·
+	{	NOT, 64,0,48,40,  24,17,    2,   30,     64,   4,        0,0,0,0,0 },	//	ãƒ¦ãƒ‹ãƒƒãƒˆ0
+	{	NOT, 56,48,40,24, 20,11,    2,   30,     64,   5,        1,1,1,1,1 },	//	ãƒ¦ãƒ‹ãƒƒãƒˆ1
+	{	NOT, 0,0,64,48,   32,29,    2,   30,     64,   4,        2,2,2,2,2 },	//	ãƒ¦ãƒ‹ãƒƒãƒˆ2
+	{	NOT, 0,48,56,32,  28,15,    2,   30,     64,   3,        3,3,3,3,3 },	//	ãƒ¦ãƒ‹ãƒƒãƒˆ3
 
 };
 
 //----------------------------------------------------------------------------//
-//	ƒvƒƒgƒ^ƒCƒvéŒ¾
+//	ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 //----------------------------------------------------------------------------//
-//	ƒLƒƒƒ‰ƒNƒ^[‰Šú‰»
+//	ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼åˆæœŸåŒ–
 void	CharInit( short char_no, short unit_no );
-//	ƒLƒƒƒ‰ƒNƒ^[ƒƒCƒ“ƒ‹[ƒv
+//	ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒ—
 void	CharMainLoop( void );
-//	ƒLƒƒƒ‰ƒNƒ^[ˆÚ“®ˆ—
+//	ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ç§»å‹•å‡¦ç†
 void	CharMove( void );
-//	ƒLƒƒƒ‰ƒNƒ^[ƒ‰ƒCƒtƒ`ƒFƒbƒN
+//	ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ãƒ©ã‚¤ãƒ•ãƒã‚§ãƒƒã‚¯
 void	CharLifeChk( void );
-//	ƒLƒƒƒ‰ƒNƒ^[“¯Žm‚Ì“–‚½‚è”»’è
+//	ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼åŒå£«ã®å½“ãŸã‚Šåˆ¤å®š
 void	CharHitChk( void );
-//	Œü‚«”»’è
+//	å‘ãåˆ¤å®š
 void	CharTurn( OBJ_TBL *obj1, OBJ_TBL *obj2 );
-//	ƒVƒ‡ƒbƒg
+//	ã‚·ãƒ§ãƒƒãƒˆ
 void	ChrShotLoop( void );
 void	ChrShotMain( short no );
 
 
 
 /******************************************************************************/
-//	ƒLƒƒƒ‰ƒNƒ^[‰Šú‰»
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				char_no		ƒLƒƒƒ‰ƒNƒ^[”Ô†
-//				unit_no		ƒ†ƒjƒbƒg”Ô†
+//	ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼åˆæœŸåŒ–
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				char_no		ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ç•ªå·
+//				unit_no		ãƒ¦ãƒ‹ãƒƒãƒˆç•ªå·
 /******************************************************************************/
 void	CharInit( short char_no, short unit_no )
 {
-	//	”Ô†iƒIƒuƒWƒFƒNƒgAƒpƒ^[ƒ“j
+	//	ç•ªå·ï¼ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€ãƒ‘ã‚¿ãƒ¼ãƒ³ï¼‰
 	long obj = UNIT[ char_no ].obj_no = OBJ_GAME_UNIT + char_no;
 	UNIT[ char_no ].pat = UNIT_INIT[ unit_no ].pat;
 
-	//	’†SÀ•W
+	//	ä¸­å¿ƒåº§æ¨™
 	UNIT[ char_no ].cx = UNIT_INIT[ unit_no ].cx;
 	UNIT[ char_no ].cy = UNIT_INIT[ unit_no ].cy;
 
-	//	‚»‚Ì‘¼
+	//	ãã®ä»–
 	UNIT[ char_no ].hit_rect = UNIT_INIT[ unit_no ].hit_rect;
 	UNIT[ char_no ].buzz_rect = UNIT_INIT[ unit_no ].buzz_rect;
 	UNIT[ char_no ].touch = UNIT_INIT[ unit_no ].touch;
@@ -102,36 +102,36 @@ void	CharInit( short char_no, short unit_no )
 }
 
 /******************************************************************************/
-//	ƒLƒƒƒ‰ƒNƒ^[ƒƒCƒ“ƒ‹[ƒv
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒ—
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	CharMainLoop( void )
 {
-	//	Œü‚«ƒ`ƒFƒbƒN
+	//	å‘ããƒã‚§ãƒƒã‚¯
 	CharTurn( &OBJ[OBJ_GAME_UNIT+0], &OBJ[OBJ_GAME_UNIT+1] );
 
-	//	ƒLƒƒƒ‰ˆÚ“®
+	//	ã‚­ãƒ£ãƒ©ç§»å‹•
 	CharMove();
 
-	//	ƒ‰ƒCƒtƒ`ƒFƒbƒN
+	//	ãƒ©ã‚¤ãƒ•ãƒã‚§ãƒƒã‚¯
 	CharLifeChk();
 
-	//	ƒLƒƒƒ‰“¯Žm‚Ì‚ ‚½‚è”»’è
+	//	ã‚­ãƒ£ãƒ©åŒå£«ã®ã‚ãŸã‚Šåˆ¤å®š
 	CharHitChk();
 
-	//	ƒVƒ‡ƒbƒg
+	//	ã‚·ãƒ§ãƒƒãƒˆ
 	ChrShotLoop();
 }
 
 /******************************************************************************/
-//	ƒLƒƒƒ‰ƒNƒ^[ˆÚ“®ˆ—
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ç§»å‹•å‡¦ç†
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	CharMove( void )
 {
@@ -148,11 +148,11 @@ void	CharMove( void )
 		}
 
 		/////////////////////////////////////////////////
-		//	ã
+		//	ä¸Š
 		if( PAD[ i ].Push[ PAD_UP ] )
 		{
 			/////////////////////////////////////////////////
-			//	¶ã
+			//	å·¦ä¸Š
 			if( PAD[ i ].Push[ PAD_LEFT ] )
 			{
 				OBJ[ OBJ_GAME_UNIT + i ].mx = -UNIT[ i ].speed * 0.701;
@@ -163,7 +163,7 @@ void	CharMove( void )
 				if( PAD[ i ].Push[ PAD_RIGHT ] )
 				{
 					/////////////////////////////////////////////////
-					//	‰Eã
+					//	å³ä¸Š
 					OBJ[ OBJ_GAME_UNIT + i ].mx = UNIT[ i ].speed * 0.701;
 					OBJ[ OBJ_GAME_UNIT + i ].my = -UNIT[ i ].speed * 0.701;
 				}
@@ -177,11 +177,11 @@ void	CharMove( void )
 		else
 		{
 			/////////////////////////////////////////////////
-			//	‰º
+			//	ä¸‹
 			if( PAD[ i ].Push[ PAD_DOWN ] )
 			{
 				/////////////////////////////////////////////////
-				//	¶‰º
+				//	å·¦ä¸‹
 				if( PAD[ i ].Push[ PAD_LEFT ] )
 				{
 					OBJ[ OBJ_GAME_UNIT + i ].mx = -UNIT[ i ].speed * 0.701;
@@ -192,7 +192,7 @@ void	CharMove( void )
 					if( PAD[ i ].Push[ PAD_RIGHT ] )
 					{
 						/////////////////////////////////////////////////
-						//	‰E‰º
+						//	å³ä¸‹
 						OBJ[ OBJ_GAME_UNIT + i ].mx = UNIT[ i ].speed * 0.701;
 						OBJ[ OBJ_GAME_UNIT + i ].my = UNIT[ i ].speed * 0.701;
 					}
@@ -206,7 +206,7 @@ void	CharMove( void )
 			else
 			{
 				/////////////////////////////////////////////////
-				//	¶
+				//	å·¦
 				if( PAD[ i ].Push[ PAD_LEFT ] )
 				{
 					OBJ[ OBJ_GAME_UNIT + i ].mx = -UNIT[ i ].speed;
@@ -215,7 +215,7 @@ void	CharMove( void )
 				else
 				{
 					/////////////////////////////////////////////////
-					//	‰E
+					//	å³
 					if( PAD[ i ].Push[ PAD_RIGHT ] )
 					{
 						OBJ[ OBJ_GAME_UNIT + i ].mx = UNIT[ i ].speed;
@@ -233,11 +233,11 @@ void	CharMove( void )
 }
 
 /******************************************************************************/
-//	ƒLƒƒƒ‰ƒNƒ^[ƒ‰ƒCƒtƒ`ƒFƒbƒN
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ãƒ©ã‚¤ãƒ•ãƒã‚§ãƒƒã‚¯
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	CharLifeChk( void )
 {
@@ -248,7 +248,7 @@ void	CharLifeChk( void )
 	{
 		if( UNIT[i].life <= 0 )
 		{
-//	ƒfƒoƒbƒO
+//	ãƒ‡ãƒãƒƒã‚°
 #ifdef	__DEBUG__
 			UNIT[i].life = 1000;
 			break;
@@ -281,11 +281,11 @@ void	CharLifeChk( void )
 
 
 /******************************************************************************/
-//	ƒLƒƒƒ‰ƒNƒ^[“¯Žm‚Ì“–‚½‚è”»’è
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼åŒå£«ã®å½“ãŸã‚Šåˆ¤å®š
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	CharHitChk( void )
 {
@@ -297,7 +297,7 @@ void	CharHitChk( void )
 	x2 = OBJ[ OBJ_GAME_UNIT+1 ].px;
 	y2 = OBJ[ OBJ_GAME_UNIT+1 ].py;
 
-	//	‰¡
+	//	æ¨ª
 	if( x1 > x2 )
 	{
 		w = x1 - x2;
@@ -307,7 +307,7 @@ void	CharHitChk( void )
 		w = x2 - x1;
 	}
 
-	//	c
+	//	ç¸¦
 	if( y1 > y2 )
 	{
 		h = y1 - y2;
@@ -317,7 +317,7 @@ void	CharHitChk( void )
 		h = y2 - y1;
 	}
 
-	//	‹——£
+	//	è·é›¢
 	len = ( w * w ) + ( h * h );
 
 	if( len < (64*64) )
@@ -359,16 +359,16 @@ void	CharHitChk( void )
 }
 
 /******************************************************************************/
-//	Œü‚«”»’è
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				*obj1	ƒIƒuƒWƒFƒNƒg‚ÌƒAƒhƒŒƒXiŽ©•ªj
-//				*obj2	ƒIƒuƒWƒFƒNƒg‚ÌƒAƒhƒŒƒXi‘ŠŽèj
+//	å‘ãåˆ¤å®š
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				*obj1	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¢ãƒ‰ãƒ¬ã‚¹ï¼ˆè‡ªåˆ†ï¼‰
+//				*obj2	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¢ãƒ‰ãƒ¬ã‚¹ï¼ˆç›¸æ‰‹ï¼‰
 /******************************************************************************/
 void	CharTurn( OBJ_TBL *obj1, OBJ_TBL *obj2 )
 {
-	//	ˆêŽžŠi”[—p
+	//	ä¸€æ™‚æ ¼ç´ç”¨
 	double	x1,y1,x2,y2;
 
 	x1 = obj1->px;
@@ -386,11 +386,11 @@ void	CharTurn( OBJ_TBL *obj1, OBJ_TBL *obj2 )
 }
 
 /******************************************************************************/
-//	ƒVƒ‡ƒbƒg
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ã‚·ãƒ§ãƒƒãƒˆ
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	ChrShotLoop( void )
 {
@@ -401,11 +401,11 @@ void	ChrShotLoop( void )
 }
 
 /******************************************************************************/
-//	ƒVƒ‡ƒbƒgŠÇ—
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				no		ƒIƒuƒWƒFƒNƒg”Ô†
+//	ã‚·ãƒ§ãƒƒãƒˆç®¡ç†
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				no		ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç•ªå·
 /******************************************************************************/
 void	ChrShotMain( short no )
 {
@@ -414,7 +414,7 @@ void	ChrShotMain( short no )
 
 	ret = NOT;
 
-	//	ƒm[ƒ}ƒ‹ƒVƒ‡ƒbƒg
+	//	ãƒŽãƒ¼ãƒžãƒ«ã‚·ãƒ§ãƒƒãƒˆ
 	if( PAD[ no ].Trg[ PAD_BUT1 ] )
 	{
 		ret = 0;
@@ -424,7 +424,7 @@ void	ChrShotMain( short no )
 		ret = 1;
 	}
 
-	//	ƒXƒyƒVƒƒƒ‹ƒVƒ‡ƒbƒg‚P
+	//	ã‚¹ãƒšã‚·ãƒ£ãƒ«ã‚·ãƒ§ãƒƒãƒˆï¼‘
 	if( PAD[ no ].Trg[ PAD_BUT2 ] )
 	{
 		if( UNIT[ no ].gage >= 20 )
@@ -447,7 +447,7 @@ void	ChrShotMain( short no )
 	}
 	else if( PAD[ no ].Trg[ PAD_BUT3 ] )
 	{
-		//	ƒXƒyƒVƒƒƒ‹ƒVƒ‡ƒbƒg‚Q
+		//	ã‚¹ãƒšã‚·ãƒ£ãƒ«ã‚·ãƒ§ãƒƒãƒˆï¼’
 		if( UNIT[ no ].gage >= 60 )
 		{
 			ret = 3;
@@ -468,7 +468,7 @@ void	ChrShotMain( short no )
 	}
 	else if( PAD[ no ].Trg[ PAD_BUT4 ] )
 	{
-		//	EXƒVƒ‡ƒbƒg‚P
+		//	EXã‚·ãƒ§ãƒƒãƒˆï¼‘
 		if( UNIT[ no ].gage >= 80 )
 		{
 			ret = 4;
@@ -489,7 +489,7 @@ void	ChrShotMain( short no )
 	}
 	else if( PAD[ no ].Trg[ PAD_BUT5 ] )
 	{
-		////	EXƒVƒ‡ƒbƒg‚Q
+		////	EXã‚·ãƒ§ãƒƒãƒˆï¼’
 		//if( UNIT[ no ].gage >= 160 )
 		//{
 		//	ret = 5;

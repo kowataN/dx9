@@ -1,10 +1,10 @@
 /******************************************************************************/
-//	ƒGƒ“ƒhƒƒCƒ“
-//		ƒ\[ƒXƒtƒ@ƒCƒ‹
+//	ã‚¨ãƒ³ãƒ‰ãƒ¡ã‚¤ãƒ³
+//		ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #include	"./Dx9Lib/Dx9Lib.h"
 #include	"./Dx9LibAnm.h"
@@ -16,28 +16,28 @@
 #include	"./End.h"
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«
 //----------------------------------------------------------------------------//
 
 /////////////////////////////////////////////////
-//	ƒGƒ“ƒhƒ‚[ƒhƒtƒ‰ƒO
+//	ã‚¨ãƒ³ãƒ‰ãƒ¢ãƒ¼ãƒ‰ãƒ•ãƒ©ã‚°
 long	EndFlag;
 long	EndIconPos;
 
 //----------------------------------------------------------------------------//
-//	ƒvƒƒgƒ^ƒCƒvéŒ¾
+//	ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 //----------------------------------------------------------------------------//
-void	EndInit( void );	//	ƒGƒ“ƒh‰Šú‰»
-void	EndMain( void );	//	ƒGƒ“ƒhƒƒCƒ“
+void	EndInit( void );	//	ã‚¨ãƒ³ãƒ‰åˆæœŸåŒ–
+void	EndMain( void );	//	ã‚¨ãƒ³ãƒ‰ãƒ¡ã‚¤ãƒ³
 
 
 
 /******************************************************************************/
-//	ƒGƒ“ƒh‰Šú‰»
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ã‚¨ãƒ³ãƒ‰åˆæœŸåŒ–
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	EndInit( void )
 {
@@ -47,37 +47,37 @@ void	EndInit( void )
 	EndIconPos = 0;
 
 	/////////////////////////////////////////////////
-	//	‰æ‘œ“Ç‚Ýž‚Ý
+	//	ç”»åƒèª­ã¿è¾¼ã¿
 	LoadTexture( TEX_GAME_END_TEXT, "img\\sys\\win.img" );
 	LoadTexture( TEX_GAME_END_ICON, "img\\sys\\system.img" );
 
 	/////////////////////////////////////////////////
-	//	ƒpƒ^[ƒ“ƒJƒbƒg
-	SetPattern( PAT_GAME_END_TEXT+0, TEX_GAME_END_TEXT, 0,0,256,32 );	//	uwinnerv
-	SetPattern( PAT_GAME_END_TEXT+1, TEX_GAME_END_TEXT, 0,32,256,48 );	//	uplayerv
-	SetPattern( PAT_GAME_END_TEXT+2, TEX_GAME_END_TEXT, 0,80,192,32 );	//	udrowv
-	SetPattern( PAT_GAME_END_TEXT+3, TEX_GAME_END_TEXT, 0,112,56,40 );	//	u‚Pv
-	SetPattern( PAT_GAME_END_TEXT+4, TEX_GAME_END_TEXT, 56,112,56,40 );	//	u‚Qv
-	SetPattern( PAT_GAME_END_TEXT+5, TEX_GAME_END_TEXT, 0,152,144,24 );	//	uƒ^ƒCƒgƒ‹‚É–ß‚év
-	SetPattern( PAT_GAME_END_TEXT+6, TEX_GAME_END_TEXT, 0,176,120,24 );	//	uƒQ[ƒ€ÄŠJv
-	SetPattern( PAT_GAME_END_ICON,   TEX_GAME_END_ICON, 136,56,8,8 );	//	ƒAƒCƒRƒ“
+	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚«ãƒƒãƒˆ
+	SetPattern( PAT_GAME_END_TEXT+0, TEX_GAME_END_TEXT, 0,0,256,32 );	//	ã€Œwinnerã€
+	SetPattern( PAT_GAME_END_TEXT+1, TEX_GAME_END_TEXT, 0,32,256,48 );	//	ã€Œplayerã€
+	SetPattern( PAT_GAME_END_TEXT+2, TEX_GAME_END_TEXT, 0,80,192,32 );	//	ã€Œdrowã€
+	SetPattern( PAT_GAME_END_TEXT+3, TEX_GAME_END_TEXT, 0,112,56,40 );	//	ã€Œï¼‘ã€
+	SetPattern( PAT_GAME_END_TEXT+4, TEX_GAME_END_TEXT, 56,112,56,40 );	//	ã€Œï¼’ã€
+	SetPattern( PAT_GAME_END_TEXT+5, TEX_GAME_END_TEXT, 0,152,144,24 );	//	ã€Œã‚¿ã‚¤ãƒˆãƒ«ã«æˆ»ã‚‹ã€
+	SetPattern( PAT_GAME_END_TEXT+6, TEX_GAME_END_TEXT, 0,176,120,24 );	//	ã€Œã‚²ãƒ¼ãƒ å†é–‹ã€
+	SetPattern( PAT_GAME_END_ICON,   TEX_GAME_END_ICON, 136,56,8,8 );	//	ã‚¢ã‚¤ã‚³ãƒ³
 
 	/////////////////////////////////////////////////
-	//	ƒIƒuƒWƒFƒNƒg
+	//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 	ObjSet( OBJ_GAME_END_TEXT+0, POL_GAME_END_TEXT+0, PAT_GAME_END_TEXT, 56,88,1.0, OBJ_TYPE_BG, ATR_NONE );	//	winner
-	ObjSet( OBJ_GAME_END_TEXT+5, POL_GAME_END_TEXT+5, PAT_GAME_END_TEXT+5, 248,344,1.0, OBJ_TYPE_BG, ATR_NONE );	//	uƒ^ƒCƒgƒ‹‚É–ß‚év
-	ObjSet( OBJ_GAME_END_TEXT+6, POL_GAME_END_TEXT+6, PAT_GAME_END_TEXT+6, 264,392,1.0, OBJ_TYPE_BG, ATR_NONE );	//	uƒQ[ƒ€ÄŠJv
-	ObjSet( OBJ_GAME_END_ICON,	 POL_GAME_END_ICON,	  PAT_GAME_END_ICON, 232,352,1.0, OBJ_TYPE_BG, ATR_NONE );		//	ƒAƒCƒRƒ“
+	ObjSet( OBJ_GAME_END_TEXT+5, POL_GAME_END_TEXT+5, PAT_GAME_END_TEXT+5, 248,344,1.0, OBJ_TYPE_BG, ATR_NONE );	//	ã€Œã‚¿ã‚¤ãƒˆãƒ«ã«æˆ»ã‚‹ã€
+	ObjSet( OBJ_GAME_END_TEXT+6, POL_GAME_END_TEXT+6, PAT_GAME_END_TEXT+6, 264,392,1.0, OBJ_TYPE_BG, ATR_NONE );	//	ã€Œã‚²ãƒ¼ãƒ å†é–‹ã€
+	ObjSet( OBJ_GAME_END_ICON,	 POL_GAME_END_ICON,	  PAT_GAME_END_ICON, 232,352,1.0, OBJ_TYPE_BG, ATR_NONE );		//	ã‚¢ã‚¤ã‚³ãƒ³
 
 	if( SYS.win == 0 )
 	{
-		//	‚P‚oŸ
+		//	ï¼‘ï¼°å‹
 		ObjSet( OBJ_GAME_END_TEXT+1, POL_GAME_END_TEXT+1, PAT_GAME_END_TEXT+3, 240,184,1.0, OBJ_TYPE_BG, ATR_NONE );	//	1
 		ObjSet( OBJ_GAME_END_TEXT+2, POL_GAME_END_TEXT+2, PAT_GAME_END_TEXT+1, 320,176,1.0, OBJ_TYPE_BG, ATR_NONE );	//	player
 	}
 	else if( SYS.win == 1 )
 	{
-		//	‚P‚oŸ‚¿
+		//	ï¼‘ï¼°å‹ã¡
 		ObjSet( OBJ_GAME_END_TEXT+1, POL_GAME_END_TEXT+1, PAT_GAME_END_TEXT+4, 240,184,1.0, OBJ_TYPE_BG, ATR_NONE );	//	2
 		ObjSet( OBJ_GAME_END_TEXT+2, POL_GAME_END_TEXT+2, PAT_GAME_END_TEXT+1, 320,176,1.0, OBJ_TYPE_BG, ATR_NONE );	//	player
 	}
@@ -89,7 +89,7 @@ void	EndInit( void )
 	}
 
 	/////////////////////////////////////////////////
-	//	SE‚Ì“Ç‚Ýž‚Ý
+	//	SEã®èª­ã¿è¾¼ã¿
 	g_LibMusic.Load( SE_CURSOR, "se\\se_cursor.wav" );
 	g_LibMusic.Load( SE_BUT, "se\\se_button00.wav" );
 	g_LibMusic.Load( SE_START, "se\\se_button01.wav" );
@@ -97,11 +97,11 @@ void	EndInit( void )
 }
 
 /******************************************************************************/
-//	ƒ^ƒCƒgƒ‹ƒƒCƒ“
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ã‚¿ã‚¤ãƒˆãƒ«ãƒ¡ã‚¤ãƒ³
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	EndMain( void )
 {
@@ -114,7 +114,7 @@ void	EndMain( void )
 	switch( EndFlag )
 	{
 		/////////////////////////////////////////////////
-		//	ƒL[“ü—Í‘Ò‚¿
+		//	ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
 		case	0:
 			if( PAD[0].Trg[ PAD_UP ] || PAD[0].Trg[ PAD_DOWN ] 
 			|| PAD[1].Trg[ PAD_UP ] || PAD[1].Trg[ PAD_DOWN ] )

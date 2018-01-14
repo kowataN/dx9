@@ -1,32 +1,32 @@
 /******************************************************************************/
-//	ƒAƒjƒƒ‰ƒCƒuƒ‰ƒŠ
-//		ƒƒCƒ“ƒ\[ƒX
+//	ã‚¢ãƒ‹ãƒ¡ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+//		ãƒ¡ã‚¤ãƒ³ã‚½ãƒ¼ã‚¹
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #include	"./Dx9Lib/Dx9Lib.h"
 #include	"./Dx9LibAnm.h"
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 
-//	ƒAƒjƒƒeƒNƒXƒ`ƒƒƒf[ƒ^
+//	ã‚¢ãƒ‹ãƒ¡ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ‡ãƒ¼ã‚¿
 ST_AnmTexture	ATT[ANM_MAX];
 
-//	ƒAƒjƒƒf[ƒ^
+//	ã‚¢ãƒ‹ãƒ¡ãƒ‡ãƒ¼ã‚¿
 ST_AnmData		ANM[ANM_MAX];
 
 
 
 /******************************************************************************/
-//	–¼‘O	F	ƒAƒjƒ\‘¢‘Ì‰Šú‰»
-//	à–¾	F	ƒAƒjƒ\‘¢‘Ì‚Ì‰Šú‰»‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	AnmNo	ƒAƒjƒ”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¢ãƒ‹ãƒ¡æ§‹é€ ä½“åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ã‚¢ãƒ‹ãƒ¡æ§‹é€ ä½“ã®åˆæœŸåŒ–ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	AnmNo	ã‚¢ãƒ‹ãƒ¡ç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	InitAnm( long AnmNo )
 {
@@ -36,44 +36,44 @@ void	InitAnm( long AnmNo )
 	}
 
 	////////////////////////////////////
-	//	ƒtƒ‰ƒO
+	//	ãƒ•ãƒ©ã‚°
 
-	//	Žg—pƒtƒ‰ƒOOFF
+	//	ä½¿ç”¨ãƒ•ãƒ©ã‚°OFF
 	ANM[ AnmNo ].Use = OFF;
 
 	////////////////////////////////////
-	//	”Ô†
+	//	ç•ªå·
 
-	//	ƒtƒ@ƒCƒ‹”Ô†
+	//	ãƒ•ã‚¡ã‚¤ãƒ«ç•ªå·
 	ANM[ AnmNo ].FileNo = 0;
-	//	ƒtƒŒ[ƒ€”Ô†
+	//	ãƒ•ãƒ¬ãƒ¼ãƒ ç•ªå·
 	ANM[ AnmNo ].FrmNo = 0;
-	//	ƒf[ƒ^”Ô†
+	//	ãƒ‡ãƒ¼ã‚¿ç•ªå·
 	ANM[ AnmNo ].DataNo = 0;
-	//	ƒ|ƒŠƒSƒ“”Ô†
+	//	ãƒãƒªã‚´ãƒ³ç•ªå·
 	ANM[ AnmNo ].PolygonNo = 0;
-	//	ƒpƒ^[ƒ“”Ô†
+	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
 	ANM[ AnmNo ].PatNo = 0;
 
 	////////////////////////////////////
-	//	‚»‚Ì‘¼
+	//	ãã®ä»–
 
-	//	ƒ^ƒCƒ€ƒJƒEƒ“ƒ^
+	//	ã‚¿ã‚¤ãƒ ã‚«ã‚¦ãƒ³ã‚¿
 	ANM[ AnmNo ].TimeCt = 0;
-	//	ƒAƒgƒŠƒrƒ…[ƒg
+	//	ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 	ANM[ AnmNo ].Atr = ATR_NONE;
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒAƒjƒ\‘¢‘Ì‘S‰Šú‰»
-//	à–¾	F	ƒAƒjƒ\‘¢‘Ì‚Ì‘S‰Šú‰»‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¢ãƒ‹ãƒ¡æ§‹é€ ä½“å…¨åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ã‚¢ãƒ‹ãƒ¡æ§‹é€ ä½“ã®å…¨åˆæœŸåŒ–ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	InitAnmAll( void )
 {
-	//	\‘¢‘Ì‰Šú‰»
+	//	æ§‹é€ ä½“åˆæœŸåŒ–
 	for( long i=0; i<ANM_MAX; i++ )
 	{
 		InitAnm( i );
@@ -81,14 +81,14 @@ void	InitAnmAll( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒAƒjƒƒtƒ@ƒCƒ‹“Ç‚Ýž‚Ý
-//	à–¾	F	ƒAƒjƒƒtƒ@ƒCƒ‹‚Ì“Ç‚Ýž‚Ý‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	FileNo		ƒtƒ@ƒCƒ‹”Ô†
-//				[IN]char	*FileName	“Ç‚Ýž‚ÞƒAƒjƒƒtƒ@ƒCƒ‹
-//				[IN]char	*Buf		“Ç‚Ýž‚Ýæ‚Ìƒoƒbƒtƒ@
-//				[IN]long	TextureNo	ƒeƒNƒXƒ`ƒƒ”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¢ãƒ‹ãƒ¡ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿
+//	èª¬æ˜Ž	ï¼š	ã‚¢ãƒ‹ãƒ¡ãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿è¾¼ã¿ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	FileNo		ãƒ•ã‚¡ã‚¤ãƒ«ç•ªå·
+//				[IN]char	*FileName	èª­ã¿è¾¼ã‚€ã‚¢ãƒ‹ãƒ¡ãƒ•ã‚¡ã‚¤ãƒ«
+//				[IN]char	*Buf		èª­ã¿è¾¼ã¿å…ˆã®ãƒãƒƒãƒ•ã‚¡
+//				[IN]long	TextureNo	ãƒ†ã‚¯ã‚¹ãƒãƒ£ç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	LoadAnm( long FileNo, char *FileName, char *Buf, long TextureNo )
 {
@@ -101,14 +101,14 @@ void	LoadAnm( long FileNo, char *FileName, char *Buf, long TextureNo )
 	char	*pt,file_path[MAX_PATH];
 
 	/////////////////////////////////////////////////
-	//	anmƒtƒ@ƒCƒ‹“Ç‚Ýž‚Ý
+	//	anmãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿
 	if( LoadFile( FileName, Buf ) < 0 )
 	{
 		return;
 	}
 
 	/////////////////////////////////////////////////
-	//	anmƒtƒ@ƒCƒ‹‚©Ž¯•Ê
+	//	anmãƒ•ã‚¡ã‚¤ãƒ«ã‹è­˜åˆ¥
 	if( !( Buf[0] == 'A' && Buf[1] == 'N' && Buf[2] == 'M' ) )
 	{
 		return;
@@ -118,13 +118,13 @@ void	LoadAnm( long FileNo, char *FileName, char *Buf, long TextureNo )
 	pt += 3;
 
 	/////////////////////////////////////////////////
-	//	ƒtƒ@ƒCƒ‹–¼Žæ“¾
+	//	ãƒ•ã‚¡ã‚¤ãƒ«åå–å¾—
 
-	//	ƒtƒ@ƒCƒ‹‚Ì’·‚³
+	//	ãƒ•ã‚¡ã‚¤ãƒ«ã®é•·ã•
 	long file_len = GetLong( pt );
 	pt += 4;
 
-	//	ƒtƒ@ƒCƒ‹–¼
+	//	ãƒ•ã‚¡ã‚¤ãƒ«å
 	for( i=0; i<file_len; i++ )
 	{
 		ATT[ FileNo ].FileName[ i ] = *pt;
@@ -132,35 +132,35 @@ void	LoadAnm( long FileNo, char *FileName, char *Buf, long TextureNo )
 	}
 
 	/////////////////////////////////////////////////
-	//	ƒfƒBƒŒƒNƒgƒŠ•ÏX
+	//	ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå¤‰æ›´
 
 	char	DirStr[MAX_PATH];
 	PathToDir( FileName, DirStr );
 	PathChange( DirStr, file_path );
-	//	ƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠEƒoƒbƒNƒAƒbƒv
+	//	ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãƒ»ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—
 	char	name[MAX_PATH];
 	GetCurrentDirectory( MAX_PATH, name );
 
 	/////////////////////////////////////////////////
-	//	ƒeƒNƒXƒ`ƒƒ“Ç‚Ýž‚Ý
+	//	ãƒ†ã‚¯ã‚¹ãƒãƒ£èª­ã¿è¾¼ã¿
 	LoadTexture( TextureNo, ATT[ FileNo ].FileName );
 
 	ATT[ FileNo ].TextureNo = TextureNo;
 
-	//	Œ³‚ÌƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠ‚É–ß‚·
+	//	å…ƒã®ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«æˆ»ã™
 	_chdir( file_path );
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒAƒjƒƒZƒbƒg
-//	à–¾	F	ƒAƒjƒ‚ÌÝ’è‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	AnmNo		ƒZƒbƒg‚·‚éƒAƒjƒ”Ô†
-//				[IN]long	FileNo		ƒtƒ@ƒCƒ‹”Ô†
-//				[IN]long	DataNo		“Ç‚Ýž‚ñ‚¾ƒtƒ@ƒCƒ‹‚ÌƒAƒjƒ”Ô†
-//				[IN]long	PatNo		“o˜^‚·‚éƒpƒ^[ƒ“‚Ì”Ô†
-//				[IN]char	*AnmAddr	ƒAƒjƒƒtƒ@ƒCƒ‹‚ÌƒAƒhƒŒƒX
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¢ãƒ‹ãƒ¡ã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ã‚¢ãƒ‹ãƒ¡ã®è¨­å®šã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	AnmNo		ã‚»ãƒƒãƒˆã™ã‚‹ã‚¢ãƒ‹ãƒ¡ç•ªå·
+//				[IN]long	FileNo		ãƒ•ã‚¡ã‚¤ãƒ«ç•ªå·
+//				[IN]long	DataNo		èª­ã¿è¾¼ã‚“ã ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¢ãƒ‹ãƒ¡ç•ªå·
+//				[IN]long	PatNo		ç™»éŒ²ã™ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ç•ªå·
+//				[IN]char	*AnmAddr	ã‚¢ãƒ‹ãƒ¡ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	SetAnm( long AnmNo, long FileNo, long DataNo, long PatNo, char *AnmAddr )
 {
@@ -175,11 +175,11 @@ void	SetAnm( long AnmNo, long FileNo, long DataNo, long PatNo, char *AnmAddr )
 	char	*pt;
 
 	/////////////////////////////////////////////////
-	//	Žg—pƒtƒ‰ƒOON
+	//	ä½¿ç”¨ãƒ•ãƒ©ã‚°ON
 	ANM[ AnmNo ].Use	  = ON;
 
 	/////////////////////////////////////////////////
-	//	”Ô†
+	//	ç•ªå·
 	ANM[ AnmNo ].PatNo  = PatNo;
 	ANM[ AnmNo ].DataNo = DataNo;
 
@@ -187,29 +187,29 @@ void	SetAnm( long AnmNo, long FileNo, long DataNo, long PatNo, char *AnmAddr )
 	ANM[ AnmNo ].AnmAddr = pt;
 
 	/////////////////////////////////////////////////
-	//	Ž¯•ÊŽqƒXƒLƒbƒv
+	//	è­˜åˆ¥å­ã‚¹ã‚­ãƒƒãƒ—
 	pt += 3;
 
 	/////////////////////////////////////////////////
-	//	bmpƒtƒ@ƒCƒ‹–¼‚Ì’·‚³Žæ“¾
+	//	bmpãƒ•ã‚¡ã‚¤ãƒ«åã®é•·ã•å–å¾—
 	FileSize = GetLong( pt );
 	pt += 4;
 
 	/////////////////////////////////////////////////
-	//	bmpƒtƒ@ƒCƒ‹–¼‚Ì’·‚³•ªƒAƒhƒŒƒX‰ÁŽZ
+	//	bmpãƒ•ã‚¡ã‚¤ãƒ«åã®é•·ã•åˆ†ã‚¢ãƒ‰ãƒ¬ã‚¹åŠ ç®—
 	pt += FileSize;
 
 	/////////////////////////////////////////////////
-	//	ŠeÅ‘å”
-	PatMax = GetLong( pt );	//	ƒpƒ^[ƒ“
+	//	å„æœ€å¤§æ•°
+	PatMax = GetLong( pt );	//	ãƒ‘ã‚¿ãƒ¼ãƒ³
 	pt += 4;
-	AnmMax = GetLong( pt );	//	ƒAƒjƒ
+	AnmMax = GetLong( pt );	//	ã‚¢ãƒ‹ãƒ¡
 	pt += 4;
-	HitMax = GetLong( pt );	//	ƒqƒbƒg
+	HitMax = GetLong( pt );	//	ãƒ’ãƒƒãƒˆ
 	pt += 4;
 
 	/////////////////////////////////////////////////
-	//	Šeƒf[ƒ^‚Ìæ“ªƒAƒhƒŒƒX
+	//	å„ãƒ‡ãƒ¼ã‚¿ã®å…ˆé ­ã‚¢ãƒ‰ãƒ¬ã‚¹
 	Index[0] = GetLong( pt );
 	pt += 4;
 	Index[1] = GetLong( pt );
@@ -218,9 +218,9 @@ void	SetAnm( long AnmNo, long FileNo, long DataNo, long PatNo, char *AnmAddr )
 	pt += 4;
 
 	/////////////////////////////////////////////////
-	//	ƒAƒjƒƒf[ƒ^
+	//	ã‚¢ãƒ‹ãƒ¡ãƒ‡ãƒ¼ã‚¿
 
-	//	ƒAƒjƒƒf[ƒ^‚Ìæ“ªƒAƒhƒŒƒX
+	//	ã‚¢ãƒ‹ãƒ¡ãƒ‡ãƒ¼ã‚¿ã®å…ˆé ­ã‚¢ãƒ‰ãƒ¬ã‚¹
 	pt = (char *)AnmAddr;
 	pt += Index[1];
 
@@ -231,45 +231,45 @@ void	SetAnm( long AnmNo, long FileNo, long DataNo, long PatNo, char *AnmAddr )
 
 	for( i=0; i<DataNo; i++ )
 	{
-		//	ƒtƒŒ[ƒ€Å‘å”
+		//	ãƒ•ãƒ¬ãƒ¼ãƒ æœ€å¤§æ•°
 		long FrmMax = GetLong( pt );
 		pt += 4;
 		pt += FrmMax * ANM_INDEX_SIZE;
 	}
 
-	//	ƒtƒŒ[ƒ€Å‘å”
+	//	ãƒ•ãƒ¬ãƒ¼ãƒ æœ€å¤§æ•°
 	ANM[ AnmNo ].FrameMax = GetLong( pt );
 	pt += 4;
 
-	//	ƒpƒ^[ƒ“”Ô†
+	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
 	ANM[ AnmNo ].FRM.PatNo = GetLong( pt );
 	pt += 4;
 
-	//	•â³À•W
+	//	è£œæ­£åº§æ¨™
 	ANM[ AnmNo ].FRM.CorrectX = GetDouble( pt );
 	pt +=8;
 	ANM[ AnmNo ].FRM.CorrectY = GetDouble( pt );
 	pt +=8;
 
-	//	Šg‘å—¦
+	//	æ‹¡å¤§çŽ‡
 	ANM[ AnmNo ].FRM.ScaleX = GetDouble( pt );
 	pt +=8;
 	ANM[ AnmNo ].FRM.ScaleY = GetDouble( pt );
 	pt +=8;
 
-	//	Šp“x
+	//	è§’åº¦
 	ANM[ AnmNo ].FRM.Rot = GetDouble( pt );
 	pt +=8;
 
-	//	•\Ž¦ŽžŠÔ
+	//	è¡¨ç¤ºæ™‚é–“
 	ANM[ AnmNo ].FRM.Time = GetLong( pt );
 	pt +=4;
 
-	//	•s“§–¾“x
+	//	ä¸é€æ˜Žåº¦
 	ANM[ AnmNo ].FRM.A = GetDouble( pt );
 	pt +=8;
 
-	//	ŠeF¬•ª
+	//	å„è‰²æˆåˆ†
 	ANM[ AnmNo ].FRM.R = GetDouble( pt );
 	pt +=8;
 	ANM[ AnmNo ].FRM.G = GetDouble( pt );
@@ -277,14 +277,14 @@ void	SetAnm( long AnmNo, long FileNo, long DataNo, long PatNo, char *AnmAddr )
 	ANM[ AnmNo ].FRM.B = GetDouble( pt );
 	pt +=8;
 
-	//	ƒAƒgƒŠƒrƒ…[ƒg
+	//	ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 	ANM[ AnmNo ].FRM.Rev = GetShort( pt );
 	pt +=2;
 
 	/////////////////////////////////////////////////
-	//	ƒpƒ^[ƒ“ƒf[ƒ^
+	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ãƒ‡ãƒ¼ã‚¿
 
-	//	ƒAƒhƒŒƒX
+	//	ã‚¢ãƒ‰ãƒ¬ã‚¹
 	pt = (char *)AnmAddr;
 	pt += Index[0];
 
@@ -305,16 +305,16 @@ void	SetAnm( long AnmNo, long FileNo, long DataNo, long PatNo, char *AnmAddr )
 	h = GetShort( pt );
 	pt += 2;
 
-	//	ƒpƒ^[ƒ“ì¬
+	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ä½œæˆ
 	SetPattern( PatNo, ATT[FileNo].TextureNo,  x, y, w, h );
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒAƒjƒƒf[ƒ^‚ÌƒZƒbƒg
-//	à–¾	F	ƒAƒjƒƒf[ƒ^‚ÌÝ’è‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	AnmNo		ƒAƒjƒ”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¢ãƒ‹ãƒ¡ãƒ‡ãƒ¼ã‚¿ã®ã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ã‚¢ãƒ‹ãƒ¡ãƒ‡ãƒ¼ã‚¿ã®è¨­å®šã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	AnmNo		ã‚¢ãƒ‹ãƒ¡ç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	SetAnmData( long AnmNo )
 {
@@ -327,81 +327,81 @@ void	SetAnmData( long AnmNo )
 	pt += 3;
 
 	/////////////////////////////////////////////////
-	//	bmpƒtƒ@ƒCƒ‹–¼‚Ì’·‚³Žæ“¾
+	//	bmpãƒ•ã‚¡ã‚¤ãƒ«åã®é•·ã•å–å¾—
 	file_size = GetLong( pt );
 	pt += 4;
 
 	/////////////////////////////////////////////////
-	//	bmpƒtƒ@ƒCƒ‹–¼‚Ì’·‚³•ªƒAƒhƒŒƒX‰ÁŽZ
+	//	bmpãƒ•ã‚¡ã‚¤ãƒ«åã®é•·ã•åˆ†ã‚¢ãƒ‰ãƒ¬ã‚¹åŠ ç®—
 	pt += file_size;
 
 	/////////////////////////////////////////////////
-	//	Šeƒf[ƒ^‚ÌÅ‘å”
-	pat_max = GetLong( pt );	//	ƒpƒ^[ƒ“
+	//	å„ãƒ‡ãƒ¼ã‚¿ã®æœ€å¤§æ•°
+	pat_max = GetLong( pt );	//	ãƒ‘ã‚¿ãƒ¼ãƒ³
 	pt += 4;
-	anm_max = GetLong( pt );	//	ƒAƒjƒ
+	anm_max = GetLong( pt );	//	ã‚¢ãƒ‹ãƒ¡
 	pt += 4;
-	hit_max = GetLong( pt );	//	ƒqƒbƒg
-	pt += 4;
-
-	/////////////////////////////////////////////////
-	//	Šeƒf[ƒ^‚Ìæ“ªƒAƒhƒŒƒX
-	index[0] = GetLong( pt );	//	ƒpƒ^[ƒ“
-	pt += 4;
-	index[1] = GetLong( pt );	//	ƒAƒjƒ
-	pt += 4;
-	index[2] = GetLong( pt );	//	ƒqƒbƒg
+	hit_max = GetLong( pt );	//	ãƒ’ãƒƒãƒˆ
 	pt += 4;
 
 	/////////////////////////////////////////////////
-	//	ƒAƒjƒƒf[ƒ^
+	//	å„ãƒ‡ãƒ¼ã‚¿ã®å…ˆé ­ã‚¢ãƒ‰ãƒ¬ã‚¹
+	index[0] = GetLong( pt );	//	ãƒ‘ã‚¿ãƒ¼ãƒ³
+	pt += 4;
+	index[1] = GetLong( pt );	//	ã‚¢ãƒ‹ãƒ¡
+	pt += 4;
+	index[2] = GetLong( pt );	//	ãƒ’ãƒƒãƒˆ
+	pt += 4;
 
-	//	ƒAƒjƒƒf[ƒ^‚Ìæ“ªƒAƒhƒŒƒX
+	/////////////////////////////////////////////////
+	//	ã‚¢ãƒ‹ãƒ¡ãƒ‡ãƒ¼ã‚¿
+
+	//	ã‚¢ãƒ‹ãƒ¡ãƒ‡ãƒ¼ã‚¿ã®å…ˆé ­ã‚¢ãƒ‰ãƒ¬ã‚¹
 	pt = (char *)ANM[ AnmNo ].AnmAddr;
 	pt += index[1];
 
 	for( i=0; i<ANM[AnmNo].DataNo; i++ )
 	{
-		//	ƒtƒŒ[ƒ€Å‘å”
+		//	ãƒ•ãƒ¬ãƒ¼ãƒ æœ€å¤§æ•°
 		long frm_max = GetLong( pt );
 		pt += 4;
 		pt += frm_max * ANM_INDEX_SIZE;
 	}
 
-	//	ƒtƒŒ[ƒ€Å‘å”
+	//	ãƒ•ãƒ¬ãƒ¼ãƒ æœ€å¤§æ•°
 	ANM[ AnmNo ].FrameMax = GetLong( pt );
 	pt += 4;
 	pt += ANM_INDEX_SIZE * ANM[ AnmNo ].FrmNo;
 
-	//	ƒpƒ^[ƒ“”Ô†
+	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
 	ANM[ AnmNo ].FRM.PatNo = GetLong( pt );
 	pt += 4;
 
-	//	•â³À•W
+	//	è£œæ­£åº§æ¨™
 	ANM[ AnmNo ].FRM.CorrectX = GetDouble( pt );
 	pt +=8;
 	ANM[ AnmNo ].FRM.CorrectY = GetDouble( pt );
 	pt +=8;
 
-	//	Šg‘å—¦
+	//	æ‹¡å¤§çŽ‡
 	ANM[ AnmNo ].FRM.ScaleX = GetDouble( pt );
 	pt +=8;
 	ANM[ AnmNo ].FRM.ScaleY = GetDouble( pt );
 	pt +=8;
 
-	//	Šp“x
+	//	è§’åº¦
 	ANM[ AnmNo ].FRM.Rot = GetDouble( pt );
 	pt +=8;
 
-	//	•\Ž¦ŽžŠÔ
+	//	è¡¨ç¤ºæ™‚é–“
 	ANM[ AnmNo ].FRM.Time = GetLong( pt );
 	pt +=4;
 
-	//	•s“§–¾“x
+	//	ä¸é€æ˜Žåº¦
 	ANM[ AnmNo ].FRM.A = GetDouble( pt );
 	pt +=8;
 
-	//	ŠeF¬•ª
+	//	å„è‰²æˆåˆ†
 	ANM[ AnmNo ].FRM.R = GetDouble( pt );
 	pt +=8;
 	ANM[ AnmNo ].FRM.G = GetDouble( pt );
@@ -409,14 +409,14 @@ void	SetAnmData( long AnmNo )
 	ANM[ AnmNo ].FRM.B = GetDouble( pt );
 	pt +=8;
 
-	//	ƒAƒgƒŠƒrƒ…[ƒg
+	//	ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 	ANM[ AnmNo ].FRM.Rev = GetShort( pt );
 	pt +=2;
 
 	/////////////////////////////////////////////////
-	//	ƒpƒ^[ƒ“ƒf[ƒ^
+	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ãƒ‡ãƒ¼ã‚¿
 
-	//	ƒAƒhƒŒƒX
+	//	ã‚¢ãƒ‰ãƒ¬ã‚¹
 	pt = (char *)ANM[ AnmNo ].AnmAddr;
 	pt += index[0];
 
@@ -446,11 +446,11 @@ void	SetAnmData( long AnmNo )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒAƒjƒ‚Ìƒ‹[ƒvÄ¶
-//	à–¾	F	ƒAƒjƒ‚Ì’P‘Ì‚Å‚ÌÄ¶
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	AnmNo		ƒAƒjƒ[ƒVƒ‡ƒ“‚·‚éƒAƒjƒ”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¢ãƒ‹ãƒ¡ã®ãƒ«ãƒ¼ãƒ—å†ç”Ÿ
+//	èª¬æ˜Ž	ï¼š	ã‚¢ãƒ‹ãƒ¡ã®å˜ä½“ã§ã®å†ç”Ÿ
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	AnmNo		ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã™ã‚‹ã‚¢ãƒ‹ãƒ¡ç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	LoopAnmOne( long AnmNo )
 {
@@ -463,28 +463,28 @@ void	LoopAnmOne( long AnmNo )
 
 	if( ANM[ AnmNo ].TimeCt >= ANM[ AnmNo ].FRM.Time )
 	{
-		//	ƒ^ƒCƒ€ƒJƒEƒ“ƒ^‰Šú‰»
+		//	ã‚¿ã‚¤ãƒ ã‚«ã‚¦ãƒ³ã‚¿åˆæœŸåŒ–
 		ANM[ AnmNo ].TimeCt = 0;
 
-		//	ŽŸ‚ÌƒtƒŒ[ƒ€
+		//	æ¬¡ã®ãƒ•ãƒ¬ãƒ¼ãƒ 
 		ANM[ AnmNo ].FrmNo ++;
 		if( ANM[ AnmNo ].FrmNo >= ANM[ AnmNo ].FrameMax )
 		{
 			switch( ANM[ AnmNo ].Flag )
 			{
-				//	ƒ‹[ƒv
+				//	ãƒ«ãƒ¼ãƒ—
 				case	ANM_LOOP:
 					ANM[ AnmNo ].State = 1;
 					ANM[ AnmNo ].FrmNo = 0;
 					break;
 
-				//	’âŽ~
+				//	åœæ­¢
 				case	ANM_STOP:
 					ANM[ AnmNo ].State = 0;
 					ANM[ AnmNo ].FrmNo = ANM[ AnmNo ].FrameMax - 1;
 					break;
 
-				//	I—¹
+				//	çµ‚äº†
 				case	ANM_END:
 					ANM[ AnmNo ].State = 0;
 					g_LibPol.ChangeDisp( ANM[ AnmNo ].PolygonNo, OFF );
@@ -497,18 +497,18 @@ void	LoopAnmOne( long AnmNo )
 	else
 	{
 		/////////////////////////////////////
-		//	Šg‘åE‰ñ“]EF¬•ªE•â³À•W
+		//	æ‹¡å¤§ãƒ»å›žè»¢ãƒ»è‰²æˆåˆ†ãƒ»è£œæ­£åº§æ¨™
 		double	sx1,sx2,sy1,sy2;
 		double rot1,rot2;
 		double	a1,r1,g1,b1;
 		double	a2,r2,g2,b2;
 
-		//	Šg‘åE‰ñ“]
+		//	æ‹¡å¤§ãƒ»å›žè»¢
 		sx1 = ANM[ AnmNo ].FRM.ScaleX;
 		sy1 = ANM[ AnmNo ].FRM.ScaleY;
 		rot1 = ANM[ AnmNo ].FRM.Rot;
 
-		//	•s“§–¾“xEŠeF¬•ª
+		//	ä¸é€æ˜Žåº¦ãƒ»å„è‰²æˆåˆ†
 		a1 = ANM[ AnmNo ].FRM.A;
 		r1 = ANM[ AnmNo ].FRM.R;
 		g1 = ANM[ AnmNo ].FRM.G;
@@ -516,7 +516,7 @@ void	LoopAnmOne( long AnmNo )
 
 		if( ANM[ AnmNo ].FrmNo + 1 >= ANM[ AnmNo ].FrameMax )
 		{
-			//	Œ»ƒtƒŒ[ƒ€ƒf[ƒ^‚ÌƒRƒs[
+			//	ç¾ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ‡ãƒ¼ã‚¿ã®ã‚³ãƒ”ãƒ¼
 			sx2 = sx1;
 			sy2 = sy1;
 			rot2 = rot1;
@@ -528,21 +528,21 @@ void	LoopAnmOne( long AnmNo )
 		else
 		{
 			pt = ANM[ AnmNo ].AnmAddr;
-			pt += 3;	//	Ž¯•Ê
-			pt += GetLong( pt );	pt += 4;	//	bmpƒtƒ@ƒCƒ‹–¼‚Ì’·‚³Žæ“¾
-			pt += 4 * 3;	//	Šeƒf[ƒ^‚ÌÅ‘å”
-			pt += 4;	//	ƒpƒ^[ƒ“ƒf[ƒ^æ“ªƒAƒhƒŒƒX
-			long	index = GetLong( pt );	pt += 4;	//	ƒAƒjƒƒf[ƒ^æ“ªƒAƒhƒŒƒX
-			pt += 4;	//	ƒqƒbƒgƒf[ƒ^æ“ªƒAƒhƒŒƒX
+			pt += 3;	//	è­˜åˆ¥
+			pt += GetLong( pt );	pt += 4;	//	bmpãƒ•ã‚¡ã‚¤ãƒ«åã®é•·ã•å–å¾—
+			pt += 4 * 3;	//	å„ãƒ‡ãƒ¼ã‚¿ã®æœ€å¤§æ•°
+			pt += 4;	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ãƒ‡ãƒ¼ã‚¿å…ˆé ­ã‚¢ãƒ‰ãƒ¬ã‚¹
+			long	index = GetLong( pt );	pt += 4;	//	ã‚¢ãƒ‹ãƒ¡ãƒ‡ãƒ¼ã‚¿å…ˆé ­ã‚¢ãƒ‰ãƒ¬ã‚¹
+			pt += 4;	//	ãƒ’ãƒƒãƒˆãƒ‡ãƒ¼ã‚¿å…ˆé ­ã‚¢ãƒ‰ãƒ¬ã‚¹
 
 			/////////////////////////////////////////////////
-			//	ƒAƒjƒƒf[ƒ^‚Ìæ“ªƒAƒhƒŒƒX
+			//	ã‚¢ãƒ‹ãƒ¡ãƒ‡ãƒ¼ã‚¿ã®å…ˆé ­ã‚¢ãƒ‰ãƒ¬ã‚¹
 			pt = (char *)ANM[ AnmNo ].AnmAddr;
 			pt += index;
 
 			for( int i=0; i<ANM[ AnmNo ].DataNo; i++ )
 			{
-				//	ƒtƒŒ[ƒ€Å‘å”
+				//	ãƒ•ãƒ¬ãƒ¼ãƒ æœ€å¤§æ•°
 				long frm_max = GetLong( pt );pt += 4;
 				pt += frm_max * ANM_INDEX_SIZE;
 			}
@@ -550,7 +550,7 @@ void	LoopAnmOne( long AnmNo )
 			pt += ANM_INDEX_SIZE * (ANM[ AnmNo ].FrmNo+1);
 			pt += 4+4+16;
 
-			//	ŽŸ‚ÌƒtƒŒ[ƒ€ƒf[ƒ^‚ÌƒRƒs[
+			//	æ¬¡ã®ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ‡ãƒ¼ã‚¿ã®ã‚³ãƒ”ãƒ¼
 			sx2 = GetDouble( pt );	pt += 8;
 			sy2 = GetDouble( pt );	pt += 8;
 			rot2 = GetDouble( pt );	pt += 8+4;
@@ -560,50 +560,50 @@ void	LoopAnmOne( long AnmNo )
 			b2 = GetDouble( pt );	pt += 8;
 		}
 
-		//	Œ©‚â‚·‚¢‚æ‚¤‚É‘ã“ü
+		//	è¦‹ã‚„ã™ã„ã‚ˆã†ã«ä»£å…¥
 		ST_PolygonInfo Info = g_LibPol.GetInfo( ANM[ AnmNo ].PolygonNo );
 
-		//	”½“]
+		//	åè»¢
 		ANM[ AnmNo ].Atr = ANM[ AnmNo ].FRM.Rev;
 		Info.Atr |= ANM[ AnmNo ].Atr;
 
-		//	Šg‘å—¦
+		//	æ‹¡å¤§çŽ‡
 		Info.ScaleX += ( sx2 - sx1 ) / ANM[ AnmNo ].FRM.Time;
 		Info.ScaleY += ( sy2 - sy1 ) / ANM[ AnmNo ].FRM.Time;
 
-		//	‰ñ“]Šp“x
+		//	å›žè»¢è§’åº¦
 		Info.RotZ += ( rot2 - rot1 ) / ANM[ AnmNo ].FRM.Time;
 
-		//	•s“§–¾“x
+		//	ä¸é€æ˜Žåº¦
 		Info.A += (UShort)( ( a2 - a1 ) / ANM[ AnmNo ].FRM.Time );
 
-		//	ŠeF¬•ª
+		//	å„è‰²æˆåˆ†
 		Info.R += (UShort)( ( r2 - r1 ) / ANM[ AnmNo ].FRM.Time );
 		Info.G += (UShort)( ( g2 - g1 ) / ANM[ AnmNo ].FRM.Time );
 		Info.B += (UShort)( ( b2 - b1 ) / ANM[ AnmNo ].FRM.Time );
 
-		//	•â³À•W
+		//	è£œæ­£åº§æ¨™
 		Info.CenterX = (short)ANM[ AnmNo ].FRM.CorrectX;
 		Info.CenterY = (short)ANM[ AnmNo ].FRM.CorrectY;
 
 		g_LibPol.SetInfo( ANM[ AnmNo ].PolygonNo, Info );
 	}
 
-	//	ƒJƒEƒ“ƒ^‰ÁŽZ
+	//	ã‚«ã‚¦ãƒ³ã‚¿åŠ ç®—
 	ANM[ AnmNo ].TimeCt ++;
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒAƒjƒƒ|ƒŠƒSƒ“‚ÉƒZƒbƒg
-//	à–¾	F	ƒAƒjƒ‚ðƒ|ƒŠƒSƒ“‚ÉÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]long	AnmNo		ƒAƒjƒ”Ô†
-//				[IN]double	PosX		XÀ•W
-//				[IN]double	PosY		YÀ•W
-//				[IN]double	PosZ		ZÀ•W
-//				[IN]UChar	Flag		Ä¶ƒtƒ‰ƒO
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¢ãƒ‹ãƒ¡ãƒãƒªã‚´ãƒ³ã«ã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ã‚¢ãƒ‹ãƒ¡ã‚’ãƒãƒªã‚´ãƒ³ã«è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]long	AnmNo		ã‚¢ãƒ‹ãƒ¡ç•ªå·
+//				[IN]double	PosX		Xåº§æ¨™
+//				[IN]double	PosY		Yåº§æ¨™
+//				[IN]double	PosZ		Zåº§æ¨™
+//				[IN]UChar	Flag		å†ç”Ÿãƒ•ãƒ©ã‚°
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	SetAnmPolygon(long PolNo,
 					  long AnmNo,
@@ -617,46 +617,46 @@ void	SetAnmPolygon(long PolNo,
 
 	long	pat;
 
-	//	ƒ|ƒŠƒSƒ“”Ô†
+	//	ãƒãƒªã‚´ãƒ³ç•ªå·
 	ANM[ AnmNo ].PolygonNo = PolNo;
 
-	//	ƒpƒ^[ƒ“”Ô†
+	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
 	pat = ANM[ AnmNo ].PatNo;
 
-	//	ƒAƒgƒŠƒrƒ…[ƒg
+	//	ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 	ANM[ AnmNo ].Atr = ANM[ AnmNo ].FRM.Rev;
 
-	//	ƒ|ƒŠƒSƒ“ƒZƒbƒg
+	//	ãƒãƒªã‚´ãƒ³ã‚»ãƒƒãƒˆ
 	g_LibPol.SetPat( PolNo, pat, PosX, PosY, PosZ, ANM[ AnmNo ].Atr );
-	//	’†SÀ•W
+	//	ä¸­å¿ƒåº§æ¨™
 	g_LibPol.SetCenter( PolNo, (short)ANM[ AnmNo ].FRM.CorrectX, (short)ANM[ AnmNo ].FRM.CorrectY );
-	//	Šg‘å
+	//	æ‹¡å¤§
 	g_LibPol.SetScale( PolNo, ANM[ AnmNo ].FRM.ScaleX );
-	//	‰ñ“]
+	//	å›žè»¢
 	g_LibPol.SetRotZ( PolNo, ANM[ AnmNo ].FRM.Rot );
-	//	•s“§–¾“x
+	//	ä¸é€æ˜Žåº¦
 	g_LibPol.SetColor( PolNo,
 		(UChar)ANM[ AnmNo ].FRM.A,
 		(UChar)ANM[ AnmNo ].FRM.R,
 		(UChar)ANM[ AnmNo ].FRM.G,
 		(UChar)ANM[ AnmNo ].FRM.B );
 
-	//	ƒtƒ‰ƒO
+	//	ãƒ•ãƒ©ã‚°
 	ANM[ AnmNo ].Flag = Flag;
 
-	//	ó‘Ô
+	//	çŠ¶æ…‹
 	ANM[ AnmNo ].State = 1;
 
-	//	ƒAƒjƒƒ‹[ƒv’P‘Ì
+	//	ã‚¢ãƒ‹ãƒ¡ãƒ«ãƒ¼ãƒ—å˜ä½“
 	LoopAnmOne( AnmNo );
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒAƒjƒ‚Ì‘Sƒ‹[ƒvÄ¶
-//	à–¾	F	ƒAƒjƒ‚ÌÄ¶
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¢ãƒ‹ãƒ¡ã®å…¨ãƒ«ãƒ¼ãƒ—å†ç”Ÿ
+//	èª¬æ˜Ž	ï¼š	ã‚¢ãƒ‹ãƒ¡ã®å†ç”Ÿ
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	LoopAnm( void )
 {
@@ -671,11 +671,11 @@ void	LoopAnm( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒAƒjƒƒf[ƒ^ƒRƒs[
-//	à–¾	F	ƒAƒjƒƒf[ƒ^‚ÌƒRƒs[‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	AnmNo		ƒRƒs[æƒAƒjƒ”Ô†
-//				[IN]long	CopyAnmNo	ƒRƒs[Œ³ƒAƒjƒ”Ô†
+//	åå‰	ï¼š	ã‚¢ãƒ‹ãƒ¡ãƒ‡ãƒ¼ã‚¿ã‚³ãƒ”ãƒ¼
+//	èª¬æ˜Ž	ï¼š	ã‚¢ãƒ‹ãƒ¡ãƒ‡ãƒ¼ã‚¿ã®ã‚³ãƒ”ãƒ¼ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	AnmNo		ã‚³ãƒ”ãƒ¼å…ˆã‚¢ãƒ‹ãƒ¡ç•ªå·
+//				[IN]long	CopyAnmNo	ã‚³ãƒ”ãƒ¼å…ƒã‚¢ãƒ‹ãƒ¡ç•ªå·
 /******************************************************************************/
 void	CopyAnmData( long AnmNo, long CopyAnmNo )
 {

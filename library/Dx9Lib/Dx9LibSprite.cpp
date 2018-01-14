@@ -1,40 +1,40 @@
 /******************************************************************************/
-//	DirectX9ƒ‰ƒCƒuƒ‰ƒŠ
-//		ƒXƒvƒ‰ƒCƒg
+//	DirectX9ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+//		ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆ
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #include	"./Dx9Lib.h"
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
-ST_SpriteInfo	SP[SP_MAX];	//	ƒXƒvƒ‰ƒCƒg
-LPD3DXSPRITE	lpSprite;	//	ƒXƒvƒ‰ƒCƒgƒIƒuƒWƒFƒNƒg
+ST_SpriteInfo	SP[SP_MAX];	//	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆ
+LPD3DXSPRITE	lpSprite;	//	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 
 
 
 /******************************************************************************/
-//	–¼‘O	F	ƒfƒoƒCƒXì¬
-//	à–¾	F	ƒfƒoƒCƒX‚Ìì¬‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ‡ãƒã‚¤ã‚¹ä½œæˆ
+//	èª¬æ˜Ž	ï¼š	ãƒ‡ãƒã‚¤ã‚¹ã®ä½œæˆã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CreateSpriteDevice( void )
 {
-	//	ƒXƒvƒ‰ƒCƒgì¬
+	//	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆä½œæˆ
 	D3DXCreateSprite( g_lpD3DDev, &lpSprite );
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒXƒvƒ‰ƒCƒg‰Šú‰»
-//	à–¾	F	ƒXƒvƒ‰ƒCƒg\‘¢‘Ì‚Ì‰Šú‰»‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	SpriteNo	ƒXƒvƒ‰ƒCƒg”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆåˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆæ§‹é€ ä½“ã®åˆæœŸåŒ–ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	SpriteNo	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	InitSprite( long SpriteNo )
 {
@@ -43,42 +43,42 @@ void	InitSprite( long SpriteNo )
 		return;
 	}
 
-	//	ƒtƒ‰ƒOOFF
+	//	ãƒ•ãƒ©ã‚°OFF
 	SP[ SpriteNo ].Use		= OFF;
 	SP[ SpriteNo ].Disp		= OFF;
 
-	//	ƒpƒ^[ƒ“”Ô†
+	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
 	SP[ SpriteNo ].PatNo	= 0;
 
-	//	ƒAƒgƒŠƒrƒ…[ƒg‰Šú‰»
+	//	ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆåˆæœŸåŒ–
 	SP[ SpriteNo ].Atr		= ATR_NONE;
 
-	//	•\Ž¦À•W
+	//	è¡¨ç¤ºåº§æ¨™
 	SP[ SpriteNo ].PosX		= 0.0;
 	SP[ SpriteNo ].PosY		= 0.0;
 	SP[ SpriteNo ].PosZ		= 1.0;
 
-	//	ˆÚ“®—Ê
+	//	ç§»å‹•é‡
 	SP[ SpriteNo ].MoveX	= 0;
 	SP[ SpriteNo ].MoveY	= 0;
 
-	//	ƒoƒbƒNƒAƒbƒvÀ•W
+	//	ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—åº§æ¨™
 	SP[ SpriteNo ].PosXBk	= 0;
 	SP[ SpriteNo ].PosYBk	= 0;
 
-	//	’†SÀ•W
+	//	ä¸­å¿ƒåº§æ¨™
 	SP[ SpriteNo ].CenterX	= 0;
 	SP[ SpriteNo ].CenterY	= 0;
 
-	//	ƒXƒP[ƒŠƒ“ƒO
+	//	ã‚¹ã‚±ãƒ¼ãƒªãƒ³ã‚°
 	SP[ SpriteNo ].ScaleX	= 1;
 	SP[ SpriteNo ].ScaleY	= 1;
 
-	//	ƒTƒCƒY
+	//	ã‚µã‚¤ã‚º
 	SP[ SpriteNo ].Width	= 0;
 	SP[ SpriteNo ].Height	= 0;
 
-	//	ŠeF¬•ª
+	//	å„è‰²æˆåˆ†
 	SP[ SpriteNo ].A		= 255;
 	SP[ SpriteNo ].R		= 255;
 	SP[ SpriteNo ].G		= 255;
@@ -86,11 +86,11 @@ void	InitSprite( long SpriteNo )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒXƒvƒ‰ƒCƒg‘S‰Šú‰»
-//	à–¾	F	ƒXƒvƒ‰ƒCƒg\‘¢‘Ì‚Ì‘S‰Šú‰»‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆå…¨åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆæ§‹é€ ä½“ã®å…¨åˆæœŸåŒ–ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	InitSpriteAll( void )
 {
@@ -101,19 +101,19 @@ void	InitSpriteAll( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒXƒvƒ‰ƒCƒgƒZƒbƒg
-//	à–¾	F	ƒXƒvƒ‰ƒCƒg‚ðƒZƒbƒg‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	SpriteNo	ƒXƒvƒ‰ƒCƒg”Ô†
-//				[IN]long	PatNo		ƒpƒ^[ƒ“”Ô†
-//				[IN]double	PosX		•\Ž¦À•WX
-//				[IN]double	PosY		•\Ž¦À•WY
-//				[IN]double	PosZ		•\Ž¦À•WZ
-//				[IN]UShort	Atr			ƒAƒgƒŠƒrƒ…[ƒg
-//	”õl	F	Atr‚ÌÝ’è’l	ATR_NONE	‰½‚à‚È‚µ
-//							ATR_REV_W	¶‰E”½“]
-//							ATR_REV_H	ã‰º”½“]
-//							ATR_ALL		ã‰º¶‰E”½“]
+//	åå‰	ï¼š	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã‚’ã‚»ãƒƒãƒˆã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	SpriteNo	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆç•ªå·
+//				[IN]long	PatNo		ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
+//				[IN]double	PosX		è¡¨ç¤ºåº§æ¨™X
+//				[IN]double	PosY		è¡¨ç¤ºåº§æ¨™Y
+//				[IN]double	PosZ		è¡¨ç¤ºåº§æ¨™Z
+//				[IN]UShort	Atr			ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
+//	å‚™è€ƒ	ï¼š	Atrã®è¨­å®šå€¤	ATR_NONE	ä½•ã‚‚ãªã—
+//							ATR_REV_W	å·¦å³åè»¢
+//							ATR_REV_H	ä¸Šä¸‹åè»¢
+//							ATR_ALL		ä¸Šä¸‹å·¦å³åè»¢
 /******************************************************************************/
 void	SetSprite(long SpriteNo, long PatNo,
 				  double PosX, double PosY, double PosZ,
@@ -125,54 +125,54 @@ void	SetSprite(long SpriteNo, long PatNo,
 	}
 
 	/////////////////////////////////////
-	//	Šeƒƒ“ƒo‚Ì‰Šú‰»
-	SP[ SpriteNo ].Use	= ON;		//	Žg—pƒtƒ‰ƒO‚n‚m
-	SP[ SpriteNo ].Disp	= ON;		//	•\Ž¦ƒtƒ‰ƒO‚n‚m
+	//	å„ãƒ¡ãƒ³ãƒã®åˆæœŸåŒ–
+	SP[ SpriteNo ].Use	= ON;		//	ä½¿ç”¨ãƒ•ãƒ©ã‚°ï¼¯ï¼®
+	SP[ SpriteNo ].Disp	= ON;		//	è¡¨ç¤ºãƒ•ãƒ©ã‚°ï¼¯ï¼®
 
-	SP[ SpriteNo ].PatNo = PatNo;	//	ƒpƒ^[ƒ“”Ô†
+	SP[ SpriteNo ].PatNo = PatNo;	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
 
-	//	ƒXƒvƒ‰ƒCƒg‚ÌƒTƒCƒY
-	SP[ SpriteNo ].Width	= PAT[ PatNo ].Width;	//	‰¡
-	SP[ SpriteNo ].Height	= PAT[ PatNo ].Height;	//	c
+	//	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®ã‚µã‚¤ã‚º
+	SP[ SpriteNo ].Width	= PAT[ PatNo ].Width;	//	æ¨ª
+	SP[ SpriteNo ].Height	= PAT[ PatNo ].Height;	//	ç¸¦
 
-	//	•\Ž¦À•W
+	//	è¡¨ç¤ºåº§æ¨™
 	SP[ SpriteNo ].PosX	= PosX;
 	SP[ SpriteNo ].PosY	= PosY;
 	SP[ SpriteNo ].PosZ = PosZ;
 
-	//	ƒAƒgƒŠƒrƒ…[ƒg
+	//	ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 	SP[ SpriteNo ].Atr	= Atr;
 
-	//	‰ñ“]Šp“x
+	//	å›žè»¢è§’åº¦
 	SP[ SpriteNo ].Rot	= 0.0f;
 }
 
 /******************************************************************************/
-//	–¼‘O	F	’†SÀ•WƒZƒbƒg
-//	à–¾	F	’†SÀ•W‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	SpriteNo	ƒXƒvƒ‰ƒCƒg”Ô†
-//				[IN]long	CenterX		’†SÀ•WX
-//				[IN]long	CenterY		’†SÀ•WY
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ä¸­å¿ƒåº§æ¨™ã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ä¸­å¿ƒåº§æ¨™ã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	SpriteNo	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆç•ªå·
+//				[IN]long	CenterX		ä¸­å¿ƒåº§æ¨™X
+//				[IN]long	CenterY		ä¸­å¿ƒåº§æ¨™Y
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	SetSpriteCenter( long SpriteNo, long CenterX, long CenterY )
 {
-	//	’†SÀ•W
+	//	ä¸­å¿ƒåº§æ¨™
 	SP[ SpriteNo ].CenterX	= CenterX;
 	SP[ SpriteNo ].CenterY	= CenterY;
 }
 
 /******************************************************************************/
-//	–¼‘O	F	’¸“_FÝ’è
-//	à–¾	F	ƒfƒtƒ…[ƒYF‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	SpriteNo	ƒXƒvƒ‰ƒCƒg”Ô†
-//				[IN]UChar	A			ƒAƒ‹ƒtƒ@
-//				[IN]UChar	R			Ô¬•ª
-//				[IN]UChar	G			—Î¬•ª
-//				[IN]UChar	B			Â¬•ª
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	é ‚ç‚¹è‰²è¨­å®š
+//	èª¬æ˜Ž	ï¼š	ãƒ‡ãƒ•ãƒ¥ãƒ¼ã‚ºè‰²ã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	SpriteNo	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆç•ªå·
+//				[IN]UChar	A			ã‚¢ãƒ«ãƒ•ã‚¡
+//				[IN]UChar	R			èµ¤æˆåˆ†
+//				[IN]UChar	G			ç·‘æˆåˆ†
+//				[IN]UChar	B			é’æˆåˆ†
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	SetSpriteColor( long SpriteNo, UChar A, UChar R, UChar G, UChar B )
 {
@@ -183,12 +183,12 @@ void	SetSpriteColor( long SpriteNo, UChar A, UChar R, UChar G, UChar B )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	Šg‘å—¦Ý’è
-//	à–¾	F	Šg‘å—¦‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	SpriteNo	ƒXƒvƒ‰ƒCƒg”Ô†
-//				[IN]double	Scale		Šg‘å—¦
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	æ‹¡å¤§çŽ‡è¨­å®š
+//	èª¬æ˜Ž	ï¼š	æ‹¡å¤§çŽ‡ã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	SpriteNo	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆç•ªå·
+//				[IN]double	Scale		æ‹¡å¤§çŽ‡
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	SetSpriteScale( long SpriteNo, double Scale )
 {
@@ -197,13 +197,13 @@ void	SetSpriteScale( long SpriteNo, double Scale )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	•\Ž¦À•WÝ’è
-//	à–¾	F	•\Ž¦À•W‚ÌÝ’è‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	SpriteNo	ƒXƒvƒ‰ƒCƒg”Ô†
-//				[IN]double	PosX		•\Ž¦À•WX
-//				[IN]double	PosY		•\Ž¦À•WY
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	è¡¨ç¤ºåº§æ¨™è¨­å®š
+//	èª¬æ˜Ž	ï¼š	è¡¨ç¤ºåº§æ¨™ã®è¨­å®šã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	SpriteNo	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆç•ªå·
+//				[IN]double	PosX		è¡¨ç¤ºåº§æ¨™X
+//				[IN]double	PosY		è¡¨ç¤ºåº§æ¨™Y
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	SetSpritePos( long SpriteNo, double PosX, double PosY )
 {
@@ -212,12 +212,12 @@ void	SetSpritePos( long SpriteNo, double PosX, double PosY )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	‹ó‚«ƒXƒvƒ‰ƒCƒg”Ô†Žæ“¾
-//	à–¾	F	‹ó‚«ƒXƒvƒ‰ƒCƒg”Ô†‚ðŽæ“¾‚·‚é
-//	–ß‚è’l	F	long		‹ó‚«”Ô†
-//							-1‚Å‹ó‚«”Ô†‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ç©ºãã‚¹ãƒ—ãƒ©ã‚¤ãƒˆç•ªå·å–å¾—
+//	èª¬æ˜Ž	ï¼š	ç©ºãã‚¹ãƒ—ãƒ©ã‚¤ãƒˆç•ªå·ã‚’å–å¾—ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	long		ç©ºãç•ªå·
+//							-1ã§ç©ºãç•ªå·ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 long	GetSpriteNo( void )
 {
@@ -233,11 +233,11 @@ long	GetSpriteNo( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒXƒvƒ‰ƒCƒg•`‰æ
-//	à–¾	F	ƒXƒvƒ‰ƒCƒg‚Ì•`‰æ‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	SpriteNo	ƒXƒvƒ‰ƒCƒg”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆæç”»
+//	èª¬æ˜Ž	ï¼š	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®æç”»ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	SpriteNo	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	DispSprite( long SpriteNo )
 {
@@ -253,17 +253,17 @@ void	DispSprite( long SpriteNo )
 	{
 		switch( m )
 		{
-			//	¶‰E”½“]
+			//	å·¦å³åè»¢
 			case	ATR_REV_W:
 				ScaleX *= -1;
 				break;
 
-			//	ã‰º”½“]
+			//	ä¸Šä¸‹åè»¢
 			case	ATR_REV_H:
 				ScaleY *= -1;
 				break;
 
-			//	ã‰º¶‰E”½“]
+			//	ä¸Šä¸‹å·¦å³åè»¢
 			case	ATR_ALL:
 				ScaleX *= -1;
 				ScaleY *= -1;
@@ -274,19 +274,19 @@ void	DispSprite( long SpriteNo )
 	D3DXMATRIX	matWorld,matRot,matScale,matTrans;
 	D3DXMatrixIdentity(&matWorld);
 
-	//	Šp“x•â³
+	//	è§’åº¦è£œæ­£
 	CorrectRot( SP[SpriteNo].Rot );
 
-	//	Z‰ñ“]
+	//	Zå›žè»¢
 	D3DXMatrixRotationZ( &matRot, (float)DegToRad( SP[SpriteNo].Rot ) );
 	D3DXMatrixMultiply( &matWorld, &matWorld, &matRot );
-	//	Šg‘å
+	//	æ‹¡å¤§
 	D3DXMatrixScaling( &matScale,
 		(float)SP[SpriteNo].ScaleX*ScaleX,
 		(float)SP[SpriteNo].ScaleY*ScaleY,
 		0.0f );
 	D3DXMatrixMultiply( &matWorld, &matWorld, &matScale );
-	//	ˆÚ“®
+	//	ç§»å‹•
 	D3DXMatrixTranslation( &matTrans,
 		(float)SP[SpriteNo].PosX,
 		(float)SP[SpriteNo].PosY,
@@ -314,11 +314,11 @@ void	DispSprite( long SpriteNo )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒXƒvƒ‰ƒCƒg‘S•`‰æ
-//	à–¾	F	ƒXƒvƒ‰ƒCƒg‚Ì•`‰æ‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆå…¨æç”»
+//	èª¬æ˜Ž	ï¼š	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®æç”»ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	DispSpriteAll( void )
 {
@@ -326,23 +326,23 @@ void	DispSpriteAll( void )
 	long	Max = 0;
 	long	DispNo[SP_MAX];
 
-	//	•`‰æ”ŒŸõ
+	//	æç”»æ•°æ¤œç´¢
 	for( i=0; i<SP_MAX; i++ )
 	{
 		if( SP[i].Use && SP[i].Disp )
 		{
-			//	•`‰æƒXƒvƒ‰ƒCƒg”Ô†Ši”[
+			//	æç”»ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆç•ªå·æ ¼ç´
 			DispNo[Max] = i;
 			Max ++;
 		}
 	}
 
-	//	Zƒ\[ƒg
+	//	Zã‚½ãƒ¼ãƒˆ
 	for( i=Max-1; i>=1; i-- )
 	{
 		for( int j=i-1; j>=0; j-- )
 		{
-			//	Œã‚ë‚Æ‘O‚ð”äŠr
+			//	å¾Œã‚ã¨å‰ã‚’æ¯”è¼ƒ
 			if( SP[ DispNo[i] ].PosZ < SP[ DispNo[j] ].PosZ )
 			{
 				long BakNo = DispNo[i];
@@ -352,7 +352,7 @@ void	DispSpriteAll( void )
 		}
 	}
 
-	//	•`‰æŠJŽn
+	//	æç”»é–‹å§‹
 	if( !lpSprite )
 	{
 		lpSprite->Begin(NULL);
@@ -362,17 +362,17 @@ void	DispSpriteAll( void )
 			DispSprite( DispNo[i] );
  		}
 
-		//	•`‰æI—¹
+		//	æç”»çµ‚äº†
 		lpSprite->End();
 	}
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒXƒvƒ‰ƒCƒg•\Ž¦•ÏX
-//	à–¾	F	ƒXƒvƒ‰ƒCƒg‚Ì•\Ž¦‚ð•ÏX‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]UChar	Flag	•\Ž¦ƒtƒ‰ƒO
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆè¡¨ç¤ºå¤‰æ›´
+//	èª¬æ˜Ž	ï¼š	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®è¡¨ç¤ºã‚’å¤‰æ›´ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]UChar	Flag	è¡¨ç¤ºãƒ•ãƒ©ã‚°
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	DispChangeSprite( UChar Flag )
 {
@@ -386,11 +386,11 @@ void	DispChangeSprite( UChar Flag )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒIƒuƒWƒFƒNƒg‰ð•ú
-//	à–¾	F	ƒIƒuƒWƒFƒNƒg‚Ì‰ð•ú‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆè§£æ”¾
+//	èª¬æ˜Ž	ï¼š	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®è§£æ”¾ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	ReleaseSprite( void )
 {

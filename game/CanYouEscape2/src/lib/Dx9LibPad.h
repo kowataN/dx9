@@ -1,6 +1,6 @@
 /******************************************************************************/
-//	ƒpƒbƒhƒ‰ƒCƒuƒ‰ƒŠ
-//		ƒwƒbƒ_ƒtƒ@ƒCƒ‹
+//	ãƒ‘ãƒƒãƒ‰ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+//		ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 
@@ -9,17 +9,17 @@
 
 
 //----------------------------------------------------------------------------//
-//	ƒvƒƒgƒ^ƒCƒvéŒ¾
+//	ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 //----------------------------------------------------------------------------//
 
-//	ƒpƒbƒhÅ‘å”
+//	ãƒ‘ãƒƒãƒ‰æœ€å¤§æ•°
 #define	PAD_MAX		2
 
-//	ƒL[ƒŠƒs[ƒg
+//	ã‚­ãƒ¼ãƒªãƒ”ãƒ¼ãƒˆ
 #define	KEY_REPEAT_START	20
 #define	KEY_REPEAT_TIME		15
 
-//	ƒ{ƒ^ƒ“”Ô†
+//	ãƒœã‚¿ãƒ³ç•ªå·
 enum
 {
 	PAD_UP = 0,
@@ -37,37 +37,37 @@ enum
 };
 
 //----------------------------------------------------------------------------//
-//	\‘¢‘Ì
+//	æ§‹é€ ä½“
 //----------------------------------------------------------------------------//
 
-//	ƒpƒbƒh\‘¢‘Ì
+//	ãƒ‘ãƒƒãƒ‰æ§‹é€ ä½“
 typedef	struct
 {
-	UChar	Use;	//	Žg—pƒtƒ‰ƒO
-	UChar	JoyUse;	//	ƒWƒ‡ƒCƒXƒeƒBƒbƒNŽg—pƒtƒ‰ƒO
+	UChar	Use;	//	ä½¿ç”¨ãƒ•ãƒ©ã‚°
+	UChar	JoyUse;	//	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ä½¿ç”¨ãƒ•ãƒ©ã‚°
 
-	UChar	Trg[PAD_BUTTON_MAX];	//	ƒgƒŠƒK
-	UChar	TrgBk[PAD_BUTTON_MAX];	//	ƒgƒŠƒKiƒoƒbƒNƒAƒbƒvj
-	UChar	Push[PAD_BUTTON_MAX];	//	ƒvƒbƒVƒ…
-	UChar	PushBk[PAD_BUTTON_MAX];	//	ƒvƒbƒVƒ…iƒoƒbƒNƒAƒbƒvj
-	UChar	Rpt[PAD_BUTTON_MAX];	//	ƒŠƒs[ƒg
-	long	Count[PAD_BUTTON_MAX];	//	ƒJƒEƒ“ƒ^
+	UChar	Trg[PAD_BUTTON_MAX];	//	ãƒˆãƒªã‚¬
+	UChar	TrgBk[PAD_BUTTON_MAX];	//	ãƒˆãƒªã‚¬ï¼ˆãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ï¼‰
+	UChar	Push[PAD_BUTTON_MAX];	//	ãƒ—ãƒƒã‚·ãƒ¥
+	UChar	PushBk[PAD_BUTTON_MAX];	//	ãƒ—ãƒƒã‚·ãƒ¥ï¼ˆãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ï¼‰
+	UChar	Rpt[PAD_BUTTON_MAX];	//	ãƒªãƒ”ãƒ¼ãƒˆ
+	long	Count[PAD_BUTTON_MAX];	//	ã‚«ã‚¦ãƒ³ã‚¿
 
-	short	KeyNo[PAD_BUTTON_MAX];	//	Š„‚è“–‚Ä‚ç‚ê‚Ä‚¢‚éƒL[ƒ{[ƒh”Ô†
-	short	JoyNo[PAD_BUTTON_MAX];	//	Š„‚è“–‚Ä‚ç‚ê‚Ä‚¢‚éƒWƒ‡ƒCƒXƒeƒBƒbƒN‚ÌƒL[”Ô†
+	short	KeyNo[PAD_BUTTON_MAX];	//	å‰²ã‚Šå½“ã¦ã‚‰ã‚Œã¦ã„ã‚‹ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ç•ªå·
+	short	JoyNo[PAD_BUTTON_MAX];	//	å‰²ã‚Šå½“ã¦ã‚‰ã‚Œã¦ã„ã‚‹ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã®ã‚­ãƒ¼ç•ªå·
 }PAD_TBL;
 
 #endif	//	__Dx9LibPad_H__
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 extern	short	SetKeyDat[PAD_MAX][PAD_BUTTON_MAX];
 extern	short	SetJoyDat[PAD_MAX][PAD_BUTTON_MAX];
 extern	PAD_TBL	PAD[PAD_MAX];
 
 //----------------------------------------------------------------------------//
-//	ŠO•”éŒ¾
+//	å¤–éƒ¨å®£è¨€
 //----------------------------------------------------------------------------//
 extern	void	InitPadAll( void );
 extern	void	InitPad( long PadNo );

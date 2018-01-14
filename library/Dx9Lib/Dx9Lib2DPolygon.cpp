@@ -1,45 +1,45 @@
 /******************************************************************************/
-//	DirectX9ƒ‰ƒCƒuƒ‰ƒŠ
-//		ƒ|ƒŠƒSƒ“
+//	DirectX9ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+//		ãƒãƒªã‚´ãƒ³
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #include	"./Dx9Lib.h"
 
 
 
 /******************************************************************************/
-//	–¼‘O	F	ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-//	à–¾	F	‚È‚µ
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+//	èª¬æ˜Ž	ï¼š	ãªã—
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 CDx9LibPolygon::CDx9LibPolygon()
 {
-	//	‰½‚à‚µ‚È‚¢
+	//	ä½•ã‚‚ã—ãªã„
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒfƒXƒgƒ‰ƒNƒ^
-//	à–¾	F	‚È‚µ
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+//	èª¬æ˜Ž	ï¼š	ãªã—
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 CDx9LibPolygon::~CDx9LibPolygon()
 {
-	//	‰½‚à‚µ‚È‚¢
+	//	ä½•ã‚‚ã—ãªã„
 }
 
 /******************************************************************************/
-//	–¼‘O	F	\‘¢‘Ì‘S‰Šú‰»
-//	à–¾	F	ƒ|ƒŠƒSƒ“—p\‘¢‘Ì‚Ì‘S‰Šú‰»
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	“à•”‚ÅuInitPolygonv‚ðŒÄ‚ñ‚Å‚¢‚é
+//	åå‰	ï¼š	æ§‹é€ ä½“å…¨åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ãƒãƒªã‚´ãƒ³ç”¨æ§‹é€ ä½“ã®å…¨åˆæœŸåŒ–
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	å†…éƒ¨ã§ã€ŒInitPolygonã€ã‚’å‘¼ã‚“ã§ã„ã‚‹
 /******************************************************************************/
 void	CDx9LibPolygon::InitAll( void )
 {
@@ -50,11 +50,11 @@ void	CDx9LibPolygon::InitAll( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ|ƒŠƒSƒ“—p\‘¢‘Ì‰Šú‰»
-//	à–¾	F	ƒ|ƒŠƒSƒ“—p\‘¢‘Ì‚Ì‰Šú‰»
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒãƒªã‚´ãƒ³ç”¨æ§‹é€ ä½“åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ãƒãƒªã‚´ãƒ³ç”¨æ§‹é€ ä½“ã®åˆæœŸåŒ–
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::Init( long PolNo )
 {
@@ -63,81 +63,81 @@ void	CDx9LibPolygon::Init( long PolNo )
 		return;
 	}
 
-	//	ƒtƒ‰ƒO
-	m_Info[ PolNo ].Use		= OFF;	//	Žg—pƒtƒ‰ƒO
-	m_Info[ PolNo ].Disp	= OFF;	//	•\Ž¦ƒtƒ‰ƒO
-	m_Info[ PolNo ].PatUse	= OFF;	//	ƒpƒ^[ƒ“Žg—pƒtƒ‰ƒO
+	//	ãƒ•ãƒ©ã‚°
+	m_Info[ PolNo ].Use		= OFF;	//	ä½¿ç”¨ãƒ•ãƒ©ã‚°
+	m_Info[ PolNo ].Disp	= OFF;	//	è¡¨ç¤ºãƒ•ãƒ©ã‚°
+	m_Info[ PolNo ].PatUse	= OFF;	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ä½¿ç”¨ãƒ•ãƒ©ã‚°
 
-	//	”Ô†
-	m_Info[ PolNo ].PatNo	= NOT;	//	ƒpƒ^[ƒ“
+	//	ç•ªå·
+	m_Info[ PolNo ].PatNo	= NOT;	//	ãƒ‘ã‚¿ãƒ¼ãƒ³
 
-	//	•\Ž¦À•W
+	//	è¡¨ç¤ºåº§æ¨™
 	m_Info[ PolNo ].PosX	= 0;
 	m_Info[ PolNo ].PosY	= 0;
 	m_Info[ PolNo ].PosZ	= 0;
 
-	//	ƒoƒbƒNƒAƒbƒvÀ•W
+	//	ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—åº§æ¨™
 	m_Info[ PolNo ].PosXBk	= 0;
 	m_Info[ PolNo ].PosYBk	= 0;
 	m_Info[ PolNo ].PosZBk	= 0;
 
-	//	’†SÀ•W
+	//	ä¸­å¿ƒåº§æ¨™
 	m_Info[ PolNo ].CenterX	= 0;
 	m_Info[ PolNo ].CenterY	= 0;
 
-	//	‰ñ“]Šp“x
+	//	å›žè»¢è§’åº¦
 	m_Info[ PolNo ].RotX	= 0;
 	m_Info[ PolNo ].RotY	= 0;
 	m_Info[ PolNo ].RotZ	= 0;
 
-	//	ƒXƒP[ƒ‹
+	//	ã‚¹ã‚±ãƒ¼ãƒ«
 	m_Info[ PolNo ].ScaleX	= 1.0;
 	m_Info[ PolNo ].ScaleY	= 1.0;
 
-	//	ƒTƒCƒY
+	//	ã‚µã‚¤ã‚º
 	m_Info[ PolNo ].Width	= 0;
 	m_Info[ PolNo ].Height	= 0;
 
-	//	ŠeF¬•ª
+	//	å„è‰²æˆåˆ†
 	m_Info[ PolNo ].A		= 255;
 	m_Info[ PolNo ].R		= 255;
 	m_Info[ PolNo ].G		= 255;
 	m_Info[ PolNo ].B		= 255;
 
-	//	ƒAƒgƒŠƒrƒ…[ƒg
+	//	ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 	m_Info[ PolNo ].Atr		= ATR_NONE;
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ|ƒŠƒSƒ“‘S•`‰æ
-//	à–¾	F	ƒ|ƒŠƒSƒ“‚Ì•`‰æ‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	“à•”‚ÅuDispPolygonv‚ðŒÄ‚ñ‚Å‚¢‚é
+//	åå‰	ï¼š	ãƒãƒªã‚´ãƒ³å…¨æç”»
+//	èª¬æ˜Ž	ï¼š	ãƒãƒªã‚´ãƒ³ã®æç”»ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	å†…éƒ¨ã§ã€ŒDispPolygonã€ã‚’å‘¼ã‚“ã§ã„ã‚‹
 /******************************************************************************/
 void	CDx9LibPolygon::DispAll( void )
 {
 	short	i,j,bak;
 	short	no[POL_MAX],max=0;
 
-	//	ŒŸõ
+	//	æ¤œç´¢
 	for( i=0; i<POL_MAX; i++ )
 	{
-		//	‚»‚Ì”Ô†‚ªŽg‚í‚ê‚Ä‚¢‚é‚©
+		//	ãã®ç•ªå·ãŒä½¿ã‚ã‚Œã¦ã„ã‚‹ã‹
 		if( m_Info[i].Use && m_Info[i].Disp )
 		{
-			//	”z—ñ‚É”Ô†‚ðŠi”[
+			//	é…åˆ—ã«ç•ªå·ã‚’æ ¼ç´
 			no[max] = i;
 			max ++;
 		}
 	}
 
-	//	‚yƒ\[ƒg
-	for( i=max-1; i>=1; i-- )	//	Œã‚ë
+	//	ï¼ºã‚½ãƒ¼ãƒˆ
+	for( i=max-1; i>=1; i-- )	//	å¾Œã‚
 	{
-		for( j=i-1; j>=0; j-- )	//	‘O
+		for( j=i-1; j>=0; j-- )	//	å‰
 		{
-			//	Œã‚ë‚Æ‘O‚ð”äŠr
+			//	å¾Œã‚ã¨å‰ã‚’æ¯”è¼ƒ
 			if( m_Info[ no[i] ].PosZ < m_Info[ no[j] ].PosZ )
 			{
 				bak   = no[i];
@@ -147,7 +147,7 @@ void	CDx9LibPolygon::DispAll( void )
 		}
 	}
 
-	//	•`‰æ
+	//	æç”»
 	for( i=0; i<max; i++ )
 	{
 		this->Disp( no[i] );
@@ -155,18 +155,18 @@ void	CDx9LibPolygon::DispAll( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ|ƒŠƒSƒ“•`‰æ
-//	à–¾	F	ƒ|ƒŠƒSƒ“‚Ì•`‰æ‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo	ƒ|ƒŠƒSƒ“”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒãƒªã‚´ãƒ³æç”»
+//	èª¬æ˜Ž	ï¼š	ãƒãƒªã‚´ãƒ³ã®æç”»ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo	ãƒãƒªã‚´ãƒ³ç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::Disp( long PolNo )
 {
 	ST_VertexInfo	Vertex[4];
 
 	/////////////////////////////////////
-	//	’¸“_‚Ì‰Šú‰»
+	//	é ‚ç‚¹ã®åˆæœŸåŒ–
 	for( int i=0; i<4; i++ )
 	{
 		Vertex[ i ].z	= (float)m_Info[ PolNo ].PosZ;
@@ -186,11 +186,11 @@ void	CDx9LibPolygon::Disp( long PolNo )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ|ƒŠƒSƒ“‹éŒ`•`‰æ
-//	à–¾	F	‹éŒ`ƒ|ƒŠƒSƒ“‚Ì•`‰æ‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo	ƒ|ƒŠƒSƒ“”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒãƒªã‚´ãƒ³çŸ©å½¢æç”»
+//	èª¬æ˜Ž	ï¼š	çŸ©å½¢ãƒãƒªã‚´ãƒ³ã®æç”»ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo	ãƒãƒªã‚´ãƒ³ç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::DispBox( long PolNo, ST_VertexInfo *Vertex )
 {
@@ -198,22 +198,22 @@ void	CDx9LibPolygon::DispBox( long PolNo, ST_VertexInfo *Vertex )
 	short		i,j;
 	float		TexW,TexH,PatX,PatY,PatW,PatH,CenterX,CenterY,PolX,PolY;
 
-	//	’l‘ã“ü
-	PatNo	= m_Info[ PolNo ].PatNo;			//	ƒpƒ^[ƒ“”Ô†
-	TexNo	= PAT[ PatNo ].TextureNo;			//	ƒeƒNƒXƒ`ƒƒ”Ô†
+	//	å€¤ä»£å…¥
+	PatNo	= m_Info[ PolNo ].PatNo;			//	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
+	TexNo	= PAT[ PatNo ].TextureNo;			//	ãƒ†ã‚¯ã‚¹ãƒãƒ£ç•ªå·
 
-	TexW	= (float)TEX[ TexNo ].Width;		//	ƒeƒNƒXƒ`ƒƒƒTƒCƒYE‰¡
-	TexH	= (float)TEX[ TexNo ].Height;		//	ƒeƒNƒXƒ`ƒƒƒTƒCƒYEc
+	TexW	= (float)TEX[ TexNo ].Width;		//	ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚µã‚¤ã‚ºãƒ»æ¨ª
+	TexH	= (float)TEX[ TexNo ].Height;		//	ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚µã‚¤ã‚ºãƒ»ç¸¦
 
-	PatX	= (float)PAT[ PatNo ].PosX;			//	ƒpƒ^[ƒ“X
-	PatY	= (float)PAT[ PatNo ].PosY;			//	ƒpƒ^[ƒ“Y
-	PatW	= (float)m_Info[ PolNo ].Width;		//	ƒpƒ^[ƒ“ƒTƒCƒYE‰¡
-	PatH	= (float)m_Info[ PolNo ].Height;	//	ƒpƒ^[ƒ“ƒTƒCƒYEc
+	PatX	= (float)PAT[ PatNo ].PosX;			//	ãƒ‘ã‚¿ãƒ¼ãƒ³X
+	PatY	= (float)PAT[ PatNo ].PosY;			//	ãƒ‘ã‚¿ãƒ¼ãƒ³Y
+	PatW	= (float)m_Info[ PolNo ].Width;		//	ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚µã‚¤ã‚ºãƒ»æ¨ª
+	PatH	= (float)m_Info[ PolNo ].Height;	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚µã‚¤ã‚ºãƒ»ç¸¦
 
-	PolX	= (float)m_Info[ PolNo ].PosX;		//	•\Ž¦À•WX
-	PolY	= (float)m_Info[ PolNo ].PosY;		//	•\Ž¦À•WY
-	CenterX	= (float)m_Info[ PolNo ].CenterX;	//	’†SÀ•WX
-	CenterY	= (float)m_Info[ PolNo ].CenterY;	//	’†SÀ•WY
+	PolX	= (float)m_Info[ PolNo ].PosX;		//	è¡¨ç¤ºåº§æ¨™X
+	PolY	= (float)m_Info[ PolNo ].PosY;		//	è¡¨ç¤ºåº§æ¨™Y
+	CenterX	= (float)m_Info[ PolNo ].CenterX;	//	ä¸­å¿ƒåº§æ¨™X
+	CenterY	= (float)m_Info[ PolNo ].CenterY;	//	ä¸­å¿ƒåº§æ¨™Y
 
 	D3DXMATRIX	matWorld,matRotX,matRotY,matRotZ,matTrans;
 	D3DXMATRIX	matPos;
@@ -223,12 +223,12 @@ void	CDx9LibPolygon::DispBox( long PolNo, ST_VertexInfo *Vertex )
 	D3DXMatrixIdentity(&matRotZ);
 	D3DXMatrixIdentity(&matPos);
 
-	//	Šp“x•â³
+	//	è§’åº¦è£œæ­£
 	CorrectRot( m_Info[PolNo].RotX );
 	CorrectRot( m_Info[PolNo].RotY );
 	CorrectRot( m_Info[PolNo].RotZ );
 
-	//	‰ñ“]
+	//	å›žè»¢
 	D3DXMatrixRotationX( &matRotX, (float)DegToRad( m_Info[PolNo].RotX ) );
 	D3DXMatrixRotationY( &matRotY, (float)DegToRad( m_Info[PolNo].RotY ) );
 	D3DXMatrixRotationZ( &matRotZ, (float)DegToRad( m_Info[PolNo].RotZ ) );
@@ -242,7 +242,7 @@ void	CDx9LibPolygon::DispBox( long PolNo, ST_VertexInfo *Vertex )
 	Vertex[ 3 ].tu = 0;
 	Vertex[ 3 ].tv = 1;
 
-	//	À•W
+	//	åº§æ¨™
 	switch( m_Info[ PolNo ].Atr )
 	{
 		case	ATR_NONE:
@@ -255,32 +255,32 @@ void	CDx9LibPolygon::DispBox( long PolNo, ST_VertexInfo *Vertex )
 			Vertex[ 3 ].x = PolX - CenterX;
 			Vertex[ 3 ].y = PolY - CenterY + PatH;
 
-			//	Œ´“_‚É–ß‚·
+			//	åŽŸç‚¹ã«æˆ»ã™
 			this->Update( Vertex, -PolX, -PolY, 0.0f );
-			//	ŠeŽíÀ•WŒvŽZ
+			//	å„ç¨®åº§æ¨™è¨ˆç®—
 			for( i=0; i<4; i++ )
 			{
-				//	ˆÚ“®
+				//	ç§»å‹•
 				D3DXMatrixTranslation( &matPos, Vertex[i].x, Vertex[i].y, Vertex[i].z );
-				//	Šp“x
+				//	è§’åº¦
 				matPos *= matRotX;
 				matPos *= matRotY;
 				matPos *= matRotZ;
 
-				//	‰‰ŽZŒ‹‰Ê‚ð‘ã“ü
+				//	æ¼”ç®—çµæžœã‚’ä»£å…¥
 				Vertex[i].x = matPos._41;
 				Vertex[i].y = matPos._42;
 				Vertex[i].z = matPos._43;
 			}
 
-			//	Œ³‚ÌˆÊ’u‚É–ß‚·
+			//	å…ƒã®ä½ç½®ã«æˆ»ã™
 			this->Update( Vertex, PolX, PolY, 0.0f );
 
-			//	ƒeƒNƒXƒ`ƒƒ
+			//	ãƒ†ã‚¯ã‚¹ãƒãƒ£
 			g_lpD3DDev->SetTexture( 0, NULL );
-			//	’¸“_ƒtƒH[ƒ}ƒbƒg‚ÌÝ’è
+			//	é ‚ç‚¹ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆã®è¨­å®š
 			g_lpD3DDev->SetFVF( FVF_TLVERTEX );
-			//	ƒ|ƒŠƒSƒ“•`‰æ
+			//	ãƒãƒªã‚´ãƒ³æç”»
 			g_lpD3DDev->DrawPrimitiveUP( D3DPT_TRIANGLEFAN, 2, Vertex, sizeof( ST_VertexInfo ) );
 
 			break;
@@ -312,32 +312,32 @@ void	CDx9LibPolygon::DispBox( long PolNo, ST_VertexInfo *Vertex )
 					Vertex[ 3 ].y = PolY - CenterY + PatH;
 				}
 
-				//	Œ´“_‚É–ß‚·
+				//	åŽŸç‚¹ã«æˆ»ã™
 				this->Update( Vertex, -PolX, -PolY, 0.0f );
-				//	ŠeŽíÀ•WŒvŽZ
+				//	å„ç¨®åº§æ¨™è¨ˆç®—
 				for( i=0; i<4; i++ )
 				{
-					//	ˆÚ“®
+					//	ç§»å‹•
 					D3DXMatrixTranslation( &matPos, Vertex[i].x, Vertex[i].y, Vertex[i].z );
-					//	Šp“x
+					//	è§’åº¦
 					matPos *= matRotX;
 					matPos *= matRotY;
 					matPos *= matRotZ;
 
-					//	‰‰ŽZŒ‹‰Ê‚ð‘ã“ü
+					//	æ¼”ç®—çµæžœã‚’ä»£å…¥
 					Vertex[i].x = matPos._41;
 					Vertex[i].y = matPos._42;
 					Vertex[i].z = matPos._43;
 				}
 
-				//	Œ³‚ÌˆÊ’u‚É–ß‚·
+				//	å…ƒã®ä½ç½®ã«æˆ»ã™
 				this->Update( Vertex, PolX, PolY, 0.0f );
 
-				//	ƒeƒNƒXƒ`ƒƒ
+				//	ãƒ†ã‚¯ã‚¹ãƒãƒ£
 				g_lpD3DDev->SetTexture( 0, NULL );
-				//	’¸“_ƒtƒH[ƒ}ƒbƒg‚ÌÝ’è
+				//	é ‚ç‚¹ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆã®è¨­å®š
 				g_lpD3DDev->SetFVF( FVF_TLVERTEX );
-				//	ƒ|ƒŠƒSƒ“•`‰æ
+				//	ãƒãƒªã‚´ãƒ³æç”»
 				g_lpD3DDev->DrawPrimitiveUP( D3DPT_LINESTRIP, 2, Vertex, sizeof( ST_VertexInfo ) );
 			}
 
@@ -346,11 +346,11 @@ void	CDx9LibPolygon::DispBox( long PolNo, ST_VertexInfo *Vertex )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒpƒ^[ƒ“•t‚«ƒ|ƒŠƒSƒ“•`‰æ
-//	à–¾	F	ƒpƒ^[ƒ“•t‚«ƒ|ƒŠƒSƒ“‚Ì•`‰æ‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo	ƒ|ƒŠƒSƒ“”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ‘ã‚¿ãƒ¼ãƒ³ä»˜ããƒãƒªã‚´ãƒ³æç”»
+//	èª¬æ˜Ž	ï¼š	ãƒ‘ã‚¿ãƒ¼ãƒ³ä»˜ããƒãƒªã‚´ãƒ³ã®æç”»ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo	ãƒãƒªã‚´ãƒ³ç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::DispPat( long PolNo, ST_VertexInfo *Vertex )
 {
@@ -359,24 +359,24 @@ void	CDx9LibPolygon::DispPat( long PolNo, ST_VertexInfo *Vertex )
 	float		PatX,PatY,PatW,PatH;
 	float		PolX,PolY,CenterX,CenterY,ScaleX,ScaleY;
 
-	//	’l‘ã“ü
-	PatNo	= m_Info[ PolNo ].PatNo;			//	ƒpƒ^[ƒ“”Ô†
-	TexNo	= PAT[ PatNo ].TextureNo;			//	ƒeƒNƒXƒ`ƒƒ”Ô†
+	//	å€¤ä»£å…¥
+	PatNo	= m_Info[ PolNo ].PatNo;			//	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
+	TexNo	= PAT[ PatNo ].TextureNo;			//	ãƒ†ã‚¯ã‚¹ãƒãƒ£ç•ªå·
 
-	TexW	= (float)TEX[ TexNo ].Width;		//	ƒeƒNƒXƒ`ƒƒƒTƒCƒYE‰¡
-	TexH	= (float)TEX[ TexNo ].Height;		//	ƒeƒNƒXƒ`ƒƒƒTƒCƒYEc
+	TexW	= (float)TEX[ TexNo ].Width;		//	ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚µã‚¤ã‚ºãƒ»æ¨ª
+	TexH	= (float)TEX[ TexNo ].Height;		//	ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚µã‚¤ã‚ºãƒ»ç¸¦
 
-	PatX	= (float)PAT[ PatNo ].PosX;			//	ƒpƒ^[ƒ“X
-	PatY	= (float)PAT[ PatNo ].PosY;			//	ƒpƒ^[ƒ“Y
-	PatW	= (float)m_Info[ PolNo ].Width;		//	ƒpƒ^[ƒ“ƒTƒCƒYE‰¡
-	PatH	= (float)m_Info[ PolNo ].Height;	//	ƒpƒ^[ƒ“ƒTƒCƒYEc
+	PatX	= (float)PAT[ PatNo ].PosX;			//	ãƒ‘ã‚¿ãƒ¼ãƒ³X
+	PatY	= (float)PAT[ PatNo ].PosY;			//	ãƒ‘ã‚¿ãƒ¼ãƒ³Y
+	PatW	= (float)m_Info[ PolNo ].Width;		//	ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚µã‚¤ã‚ºãƒ»æ¨ª
+	PatH	= (float)m_Info[ PolNo ].Height;	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚µã‚¤ã‚ºãƒ»ç¸¦
 
-	PolX	= (float)m_Info[ PolNo ].PosX;		//	•\Ž¦À•WX
-	PolY	= (float)m_Info[ PolNo ].PosY;		//	•\Ž¦À•WY
-	CenterX	= (float)m_Info[ PolNo ].CenterX;	//	’†SÀ•WX
-	CenterY	= (float)m_Info[ PolNo ].CenterY;	//	’†SÀ•WY
-	ScaleX	= (float)m_Info[ PolNo ].ScaleX;	//	Šg‘å—¦X
-	ScaleY	= (float)m_Info[ PolNo ].ScaleY;	//	Šg‘å—¦Y
+	PolX	= (float)m_Info[ PolNo ].PosX;		//	è¡¨ç¤ºåº§æ¨™X
+	PolY	= (float)m_Info[ PolNo ].PosY;		//	è¡¨ç¤ºåº§æ¨™Y
+	CenterX	= (float)m_Info[ PolNo ].CenterX;	//	ä¸­å¿ƒåº§æ¨™X
+	CenterY	= (float)m_Info[ PolNo ].CenterY;	//	ä¸­å¿ƒåº§æ¨™Y
+	ScaleX	= (float)m_Info[ PolNo ].ScaleX;	//	æ‹¡å¤§çŽ‡X
+	ScaleY	= (float)m_Info[ PolNo ].ScaleY;	//	æ‹¡å¤§çŽ‡Y
 
 	D3DXMATRIX	matWorld,matRotX,matRotY,matRotZ,matTrans,matScale;
 	D3DXMatrixIdentity(&matWorld);
@@ -385,20 +385,20 @@ void	CDx9LibPolygon::DispPat( long PolNo, ST_VertexInfo *Vertex )
 	D3DXMatrixIdentity(&matRotZ);
 	D3DXMatrixIdentity(&matScale);
 
-	//	Šp“x•â³
+	//	è§’åº¦è£œæ­£
 	CorrectRot( m_Info[PolNo].RotX );
 	CorrectRot( m_Info[PolNo].RotY );
 	CorrectRot( m_Info[PolNo].RotZ );
 
-	//	‰ñ“]
+	//	å›žè»¢
 	D3DXMatrixRotationX( &matRotX, (float)DegToRad( m_Info[PolNo].RotX ) );
 	D3DXMatrixRotationY( &matRotY, (float)DegToRad( m_Info[PolNo].RotY ) );
 	D3DXMatrixRotationZ( &matRotZ, (float)DegToRad( m_Info[PolNo].RotZ ) );
 
-	//	Šg‘å
+	//	æ‹¡å¤§
 	D3DXMatrixScaling( &matScale, ScaleX, ScaleY, 1.0f );
 
-	//	¶‰E”½“]
+	//	å·¦å³åè»¢
 	if( ( m_Info[ PolNo ].Atr & ATR_REV_W ) == ATR_REV_W )
 	{
 		Vertex[ 0 ].x = PolX - CenterX + PatW;
@@ -414,7 +414,7 @@ void	CDx9LibPolygon::DispPat( long PolNo, ST_VertexInfo *Vertex )
 		Vertex[ 3 ].x = PolX - CenterX;
 	}
 
-	//	ã‰º”½“]
+	//	ä¸Šä¸‹åè»¢
 	if( ( m_Info[ PolNo ].Atr &  ATR_REV_H ) == ATR_REV_H )
 	{
 		Vertex[ 0 ].y = PolY - CenterY + PatH;
@@ -430,32 +430,32 @@ void	CDx9LibPolygon::DispPat( long PolNo, ST_VertexInfo *Vertex )
 		Vertex[ 3 ].y = PolY - CenterY + PatH;
 	}
 
-	//	Œ´“_‚É–ß‚·
+	//	åŽŸç‚¹ã«æˆ»ã™
 	this->Update( Vertex, -PolX, -PolY, 0.0f );
 
-	//	ŠeŽíÀ•WŒvŽZ
+	//	å„ç¨®åº§æ¨™è¨ˆç®—
 	D3DXMATRIX matPos;
 	for( int i=0; i<4; i++ )
 	{
-		//	ˆÚ“®
+		//	ç§»å‹•
 		D3DXMatrixTranslation( &matPos, Vertex[i].x, Vertex[i].y, Vertex[i].z );
-		//	Šp“x
+		//	è§’åº¦
 		matPos *= matRotX;
 		matPos *= matRotY;
 		matPos *= matRotZ;
-		//	Šg‘å
+		//	æ‹¡å¤§
 		matPos *= matScale;
 
-		//	‰‰ŽZŒ‹‰Ê‚ð‘ã“ü
+		//	æ¼”ç®—çµæžœã‚’ä»£å…¥
 		Vertex[i].x = matPos._41;
 		Vertex[i].y = matPos._42;
 		Vertex[i].z = matPos._43;
 	}
 
-	//	Œ³‚ÌˆÊ’u‚É–ß‚·
+	//	å…ƒã®ä½ç½®ã«æˆ»ã™
 	this->Update( Vertex, PolX, PolY, 0.0f );
 
-	//	ƒeƒNƒXƒ`ƒƒÀ•W
+	//	ãƒ†ã‚¯ã‚¹ãƒãƒ£åº§æ¨™
 	float tu1 = ( PatX + 0.5f ) / TexW;
 	float tv1 = ( PatY + 0.5f ) / TexH;
 	float tu2 = ( PatX + PatW ) / TexW;
@@ -469,46 +469,46 @@ void	CDx9LibPolygon::DispPat( long PolNo, ST_VertexInfo *Vertex )
 	Vertex[ 3 ].tu = tu1;
 	Vertex[ 3 ].tv = tv2;
 
-	//	ƒeƒNƒXƒ`ƒƒ
+	//	ãƒ†ã‚¯ã‚¹ãƒãƒ£
 	g_lpD3DDev->SetTexture( 0, TEX[ TexNo ].lpTex );
 
-	//	’¸“_ƒtƒH[ƒ}ƒbƒg‚ÌÝ’è
+	//	é ‚ç‚¹ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆã®è¨­å®š
 	g_lpD3DDev->SetFVF( FVF_TLVERTEX );
 
-	//	ƒ|ƒŠƒSƒ“•`‰æ
+	//	ãƒãƒªã‚´ãƒ³æç”»
 	g_lpD3DDev->DrawPrimitiveUP( D3DPT_TRIANGLEFAN, 2, Vertex, sizeof( ST_VertexInfo ) );
 }
 
 /******************************************************************************/
-//	–¼‘O	F	•\Ž¦À•WXV
-//	à–¾	F	•\Ž¦À•W‚ÌXV‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN/OUT]TLVERTEX*	Vertex	’¸“_î•ñ
-//				[IN]float			MoveX	À•WX
-//				[IN]float			MoveY	À•WY
-//				[IN]float			MoveZ	À•WZ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	è¡¨ç¤ºåº§æ¨™æ›´æ–°
+//	èª¬æ˜Ž	ï¼š	è¡¨ç¤ºåº§æ¨™ã®æ›´æ–°ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN/OUT]TLVERTEX*	Vertex	é ‚ç‚¹æƒ…å ±
+//				[IN]float			MoveX	åº§æ¨™X
+//				[IN]float			MoveY	åº§æ¨™Y
+//				[IN]float			MoveZ	åº§æ¨™Z
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::Update( ST_VertexInfo* Vertex, float MoveX, float MoveY, float MoveZ )
 {
 	D3DXMATRIX	matPos,matMove;
 
-	//	‰Šú‰»
+	//	åˆæœŸåŒ–
 	D3DXMatrixIdentity( &matPos );
 	D3DXMatrixIdentity( &matMove );
 
-	//	ˆÚ“®—Ê‚ðÝ’è
+	//	ç§»å‹•é‡ã‚’è¨­å®š
 	D3DXMatrixTranslation( &matMove, MoveX, MoveY, MoveZ );
 
 	for( int i=0;i <4; i++ )
 	{
-		//	Œ»Ý‚Ì’¸î•ñ‚ðÝ’è
+		//	ç¾åœ¨ã®é ‚æƒ…å ±ã‚’è¨­å®š
 		D3DXMatrixTranslation( &matPos, Vertex[i].x, Vertex[i].y, Vertex[i].z );
 
-		//	s—ñŒvŽZ
+		//	è¡Œåˆ—è¨ˆç®—
 		matPos += matMove;
 
-		//	’¸“_À•W‚ðXV
+		//	é ‚ç‚¹åº§æ¨™ã‚’æ›´æ–°
 		Vertex[i].x = matPos._41;
 		Vertex[i].y = matPos._42;
 		Vertex[i].z = matPos._43;
@@ -516,18 +516,18 @@ void	CDx9LibPolygon::Update( ST_VertexInfo* Vertex, float MoveX, float MoveY, fl
 }
 
 /******************************************************************************/
-//	–¼‘O	F	2Dƒ|ƒŠƒSƒ“ƒZƒbƒg
-//	à–¾	F	ƒ|ƒŠƒSƒ“‚ÌÝ’è‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]long	Width		‰¡ƒTƒCƒY
-//				[IN]long	Height		cƒTƒCƒY
-//				[IN]double	PosX		XÀ•W
-//				[IN]double	PosY		YÀ•W
-//				[IN]double	PosZ		ZÀ•W
-//				[IN]UShort	Atr			ƒAƒgƒŠƒrƒ…[ƒg
-//	”õl	F	Atr‚ÌÝ’è’l	ATR_NONE	‚È‚µ
-//							ATR_BOX		‹éŒ`‚Å•`‰æ
+//	åå‰	ï¼š	2Dãƒãƒªã‚´ãƒ³ã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ãƒãƒªã‚´ãƒ³ã®è¨­å®šã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]long	Width		æ¨ªã‚µã‚¤ã‚º
+//				[IN]long	Height		ç¸¦ã‚µã‚¤ã‚º
+//				[IN]double	PosX		Xåº§æ¨™
+//				[IN]double	PosY		Yåº§æ¨™
+//				[IN]double	PosZ		Zåº§æ¨™
+//				[IN]UShort	Atr			ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
+//	å‚™è€ƒ	ï¼š	Atrã®è¨­å®šå€¤	ATR_NONE	ãªã—
+//							ATR_BOX		çŸ©å½¢ã§æç”»
 /******************************************************************************/
 void	CDx9LibPolygon::Set(long PolNo,
 							long Width, long Height,
@@ -540,21 +540,21 @@ void	CDx9LibPolygon::Set(long PolNo,
 	}
 
 	/////////////////////////////////////
-	//	Šeƒƒ“ƒo‰Šú‰»
+	//	å„ãƒ¡ãƒ³ãƒåˆæœŸåŒ–
 
-	//	ƒtƒ‰ƒO
+	//	ãƒ•ãƒ©ã‚°
 	m_Info[ PolNo ].Use		= ON;
 	m_Info[ PolNo ].Disp	= ON;
 	m_Info[ PolNo ].PatUse	= OFF;
 
 	m_Info[ PolNo ].PatNo	= NOT;
 
-	//	À•W‰Šú‰»
+	//	åº§æ¨™åˆæœŸåŒ–
 	m_Info[ PolNo ].PosX	= PosX;
 	m_Info[ PolNo ].PosY	= PosY;
 	m_Info[ PolNo ].PosZ	= PosZ;
 
-	//	ƒTƒCƒY
+	//	ã‚µã‚¤ã‚º
 	m_Info[ PolNo ].Width	= Width;
 	m_Info[ PolNo ].Height	= Height;
 
@@ -562,19 +562,19 @@ void	CDx9LibPolygon::Set(long PolNo,
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ|ƒŠƒSƒ“ƒpƒ^[ƒ“ƒZƒbƒg
-//	à–¾	F	ƒpƒ^[ƒ“•t‚«ƒ|ƒŠƒSƒ“‚ÌÝ’è‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]long	PatNo		ƒpƒ^[ƒ“”Ô†
-//				[IN]double	PosX		XÀ•W
-//				[IN]double	PosY		YÀ•W
-//				[IN]double	PosZ		ZÀ•W
-//				[IN]UShort	Atr			ƒAƒgƒŠƒrƒ…[ƒg
-//	”õl	F	Atr‚ÌÝ’è’l	ATR_NONE	‚È‚µ
-//							ATR_REV_W	¶‰E”½“]
-//							ATR_REV_H	ã‰º”½“]
-//							ATR_ALL		ã‰º¶‰E”½“]
+//	åå‰	ï¼š	ãƒãƒªã‚´ãƒ³ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ãƒ‘ã‚¿ãƒ¼ãƒ³ä»˜ããƒãƒªã‚´ãƒ³ã®è¨­å®šã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]long	PatNo		ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
+//				[IN]double	PosX		Xåº§æ¨™
+//				[IN]double	PosY		Yåº§æ¨™
+//				[IN]double	PosZ		Zåº§æ¨™
+//				[IN]UShort	Atr			ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
+//	å‚™è€ƒ	ï¼š	Atrã®è¨­å®šå€¤	ATR_NONE	ãªã—
+//							ATR_REV_W	å·¦å³åè»¢
+//							ATR_REV_H	ä¸Šä¸‹åè»¢
+//							ATR_ALL		ä¸Šä¸‹å·¦å³åè»¢
 /******************************************************************************/
 void	CDx9LibPolygon::SetPat( long PolNo, long PatNo,
 								double PosX, double PosY, double PosZ,
@@ -586,38 +586,38 @@ void	CDx9LibPolygon::SetPat( long PolNo, long PatNo,
 	}
 
 	/////////////////////////////////////
-	//	Šeƒƒ“ƒo‰Šú‰»
+	//	å„ãƒ¡ãƒ³ãƒåˆæœŸåŒ–
 
-	//	ƒtƒ‰ƒO
+	//	ãƒ•ãƒ©ã‚°
 	m_Info[ PolNo ].Use		= ON;
 	m_Info[ PolNo ].Disp	= ON;
 	m_Info[ PolNo ].PatUse	= ON;
 
 	m_Info[ PolNo ].PatNo	= PatNo;
 
-	//	À•W‰Šú‰»
+	//	åº§æ¨™åˆæœŸåŒ–
 	m_Info[ PolNo ].PosX	= PosX;
 	m_Info[ PolNo ].PosY	= PosY;
 	m_Info[ PolNo ].PosZ	= PosZ;
 
-	//	ƒTƒCƒY
+	//	ã‚µã‚¤ã‚º
 	m_Info[ PolNo ].Width	= PAT[ PatNo ].Width;
 	m_Info[ PolNo ].Height	= PAT[ PatNo ].Height;
 
-	//	ƒAƒgƒŠƒrƒ…[ƒg
+	//	ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 	m_Info[ PolNo ].Atr		= Atr;
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ|ƒŠƒSƒ“ƒJƒ‰[ƒZƒbƒg
-//	à–¾	F	ƒ|ƒŠƒSƒ“‚Ìƒfƒtƒ…[ƒYF‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]UChar	A			ƒAƒ‹ƒtƒ@
-//				[IN]UChar	R			Ô¬•ª
-//				[IN]UChar	G			—Î¬•ª
-//				[IN]UChar	B			Â¬•ª
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒãƒªã‚´ãƒ³ã‚«ãƒ©ãƒ¼ã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ãƒãƒªã‚´ãƒ³ã®ãƒ‡ãƒ•ãƒ¥ãƒ¼ã‚ºè‰²ã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]UChar	A			ã‚¢ãƒ«ãƒ•ã‚¡
+//				[IN]UChar	R			èµ¤æˆåˆ†
+//				[IN]UChar	G			ç·‘æˆåˆ†
+//				[IN]UChar	B			é’æˆåˆ†
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::SetColor( long PolNo, UChar A, UChar R, UChar G, UChar B )
 {
@@ -628,12 +628,12 @@ void	CDx9LibPolygon::SetColor( long PolNo, UChar A, UChar R, UChar G, UChar B )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ|ƒŠƒSƒ“ƒJƒ‰[ƒZƒbƒg
-//	à–¾	F	ƒ|ƒŠƒSƒ“‚Ìƒfƒtƒ…[ƒYF‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]UChar	A			ƒAƒ‹ƒtƒ@
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒãƒªã‚´ãƒ³ã‚«ãƒ©ãƒ¼ã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ãƒãƒªã‚´ãƒ³ã®ãƒ‡ãƒ•ãƒ¥ãƒ¼ã‚ºè‰²ã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]UChar	A			ã‚¢ãƒ«ãƒ•ã‚¡
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::SetColor( long PolNo, UChar A )
 {
@@ -641,13 +641,13 @@ void	CDx9LibPolygon::SetColor( long PolNo, UChar A )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ|ƒŠƒSƒ“•\Ž¦À•WƒZƒbƒg
-//	à–¾	F	ƒ|ƒŠƒSƒ“‚Ì•\Ž¦À•W‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]double	PosX		XÀ•W
-//				[IN]double	PosY		YÀ•W
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒãƒªã‚´ãƒ³è¡¨ç¤ºåº§æ¨™ã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ãƒãƒªã‚´ãƒ³ã®è¡¨ç¤ºåº§æ¨™ã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]double	PosX		Xåº§æ¨™
+//				[IN]double	PosY		Yåº§æ¨™
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::SetPos( long PolNo, double PosX, double PosY )
 {
@@ -656,14 +656,14 @@ void	CDx9LibPolygon::SetPos( long PolNo, double PosX, double PosY )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ|ƒŠƒSƒ“•\Ž¦À•WƒZƒbƒg
-//	à–¾	F	ƒ|ƒŠƒSƒ“‚Ì•\Ž¦À•W‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]double	PosX		XÀ•W
-//				[IN]double	PosY		YÀ•W
-//				[IN]double	PosZ		ZÀ•W
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒãƒªã‚´ãƒ³è¡¨ç¤ºåº§æ¨™ã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ãƒãƒªã‚´ãƒ³ã®è¡¨ç¤ºåº§æ¨™ã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]double	PosX		Xåº§æ¨™
+//				[IN]double	PosY		Yåº§æ¨™
+//				[IN]double	PosZ		Zåº§æ¨™
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::SetPos( long PolNo, double PosX, double PosY, double PosZ )
 {
@@ -673,12 +673,12 @@ void	CDx9LibPolygon::SetPos( long PolNo, double PosX, double PosY, double PosZ )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ|ƒŠƒSƒ“•\Ž¦À•WƒZƒbƒg
-//	à–¾	F	ƒ|ƒŠƒSƒ“‚Ì•\Ž¦À•W‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]double	PosX		XÀ•W
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒãƒªã‚´ãƒ³è¡¨ç¤ºåº§æ¨™ã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ãƒãƒªã‚´ãƒ³ã®è¡¨ç¤ºåº§æ¨™ã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]double	PosX		Xåº§æ¨™
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::SetPosX( long PolNo, double PosX )
 {
@@ -686,12 +686,12 @@ void	CDx9LibPolygon::SetPosX( long PolNo, double PosX )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ|ƒŠƒSƒ“•\Ž¦À•WƒZƒbƒg
-//	à–¾	F	ƒ|ƒŠƒSƒ“‚Ì•\Ž¦À•W‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]double	PosY		YÀ•W
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒãƒªã‚´ãƒ³è¡¨ç¤ºåº§æ¨™ã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ãƒãƒªã‚´ãƒ³ã®è¡¨ç¤ºåº§æ¨™ã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]double	PosY		Yåº§æ¨™
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::SetPosY( long PolNo, double PosY )
 {
@@ -699,12 +699,12 @@ void	CDx9LibPolygon::SetPosY( long PolNo, double PosY )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ|ƒŠƒSƒ“•\Ž¦À•WƒZƒbƒg
-//	à–¾	F	ƒ|ƒŠƒSƒ“‚Ì•\Ž¦À•W‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]double	PosZ		ZÀ•W
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒãƒªã‚´ãƒ³è¡¨ç¤ºåº§æ¨™ã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ãƒãƒªã‚´ãƒ³ã®è¡¨ç¤ºåº§æ¨™ã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]double	PosZ		Zåº§æ¨™
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::SetPosZ( long PolNo, double PosZ )
 {
@@ -712,11 +712,11 @@ void	CDx9LibPolygon::SetPosZ( long PolNo, double PosZ )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	’†SÀ•WƒZƒbƒg
-//	à–¾	F	’†SÀ•W‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ä¸­å¿ƒåº§æ¨™ã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ä¸­å¿ƒåº§æ¨™ã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::SetCenter( long PolNo )
 {
@@ -726,13 +726,13 @@ void	CDx9LibPolygon::SetCenter( long PolNo )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	’†SÀ•WƒZƒbƒg
-//	à–¾	F	’†SÀ•W‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]short	CenterX		’†SÀ•WX
-//				[IN]short	CenterY		’†SÀ•WY
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ä¸­å¿ƒåº§æ¨™ã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ä¸­å¿ƒåº§æ¨™ã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]short	CenterX		ä¸­å¿ƒåº§æ¨™X
+//				[IN]short	CenterY		ä¸­å¿ƒåº§æ¨™Y
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::SetCenter( long PolNo, short CenterX, short CenterY )
 {
@@ -741,12 +741,12 @@ void	CDx9LibPolygon::SetCenter( long PolNo, short CenterX, short CenterY )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	Šg‘å—¦Ý’è
-//	à–¾	F	Šg‘å—¦‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]double	Scale		Šg‘å—¦
-//	”õl	F	c‰¡—¼•ûˆê‚ÉÝ’è‚·‚é
+//	åå‰	ï¼š	æ‹¡å¤§çŽ‡è¨­å®š
+//	èª¬æ˜Ž	ï¼š	æ‹¡å¤§çŽ‡ã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]double	Scale		æ‹¡å¤§çŽ‡
+//	å‚™è€ƒ	ï¼š	ç¸¦æ¨ªä¸¡æ–¹ä¸€ç·’ã«è¨­å®šã™ã‚‹
 /******************************************************************************/
 void	CDx9LibPolygon::SetScale( long PolNo, double Scale )
 {
@@ -755,13 +755,13 @@ void	CDx9LibPolygon::SetScale( long PolNo, double Scale )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒTƒCƒYÝ’è
-//	à–¾	F	ƒTƒCƒY‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]long	Width		‰¡ƒTƒCƒY
-//				[IN]long	Height		cƒTƒCƒY
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚µã‚¤ã‚ºè¨­å®š
+//	èª¬æ˜Ž	ï¼š	ã‚µã‚¤ã‚ºã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]long	Width		æ¨ªã‚µã‚¤ã‚º
+//				[IN]long	Height		ç¸¦ã‚µã‚¤ã‚º
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::SetSize( long PolNo, long Width, long Height )
 {
@@ -770,12 +770,12 @@ void	CDx9LibPolygon::SetSize( long PolNo, long Width, long Height )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	‰¡ƒTƒCƒYÝ’è
-//	à–¾	F	‰¡ƒTƒCƒY‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]long	Width		‰¡ƒTƒCƒY
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	æ¨ªã‚µã‚¤ã‚ºè¨­å®š
+//	èª¬æ˜Ž	ï¼š	æ¨ªã‚µã‚¤ã‚ºã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]long	Width		æ¨ªã‚µã‚¤ã‚º
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::SetWidth( long PolNo, long Width )
 {
@@ -783,12 +783,12 @@ void	CDx9LibPolygon::SetWidth( long PolNo, long Width )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	cƒTƒCƒYÝ’è
-//	à–¾	F	cƒTƒCƒY‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]long	Height		cƒTƒCƒY
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ç¸¦ã‚µã‚¤ã‚ºè¨­å®š
+//	èª¬æ˜Ž	ï¼š	ç¸¦ã‚µã‚¤ã‚ºã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]long	Height		ç¸¦ã‚µã‚¤ã‚º
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::SetHeight( long PolNo, long Height )
 {
@@ -796,12 +796,12 @@ void	CDx9LibPolygon::SetHeight( long PolNo, long Height )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	Šp“xÝ’è
-//	à–¾	F	Šp“x‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]double	Rot			Šp“x
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	è§’åº¦è¨­å®š
+//	èª¬æ˜Ž	ï¼š	è§’åº¦ã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]double	Rot			è§’åº¦
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::SetRotY( long PolNo, double Rot )
 {
@@ -809,12 +809,12 @@ void	CDx9LibPolygon::SetRotY( long PolNo, double Rot )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	Šp“xÝ’è
-//	à–¾	F	Šp“x‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]double	Rot			Šp“x
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	è§’åº¦è¨­å®š
+//	èª¬æ˜Ž	ï¼š	è§’åº¦ã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]double	Rot			è§’åº¦
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::SetRotZ( long PolNo, double Rot )
 {
@@ -822,12 +822,12 @@ void	CDx9LibPolygon::SetRotZ( long PolNo, double Rot )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒpƒ^[ƒ“”Ô†Ý’è
-//	à–¾	F	ƒpƒ^[ƒ“”Ô†‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]long	PatNo		ƒpƒ^[ƒ“”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·è¨­å®š
+//	èª¬æ˜Ž	ï¼š	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·ã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]long	PatNo		ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::SetPatNo( long PolNo, long PatNo )
 {
@@ -835,11 +835,11 @@ void	CDx9LibPolygon::SetPatNo( long PolNo, long PatNo )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ|ƒŠƒSƒ“î•ñŽæ“¾
-//	à–¾	F	ƒ|ƒŠƒSƒ“î•ñ‚ðŽæ“¾‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒãƒªã‚´ãƒ³æƒ…å ±å–å¾—
+//	èª¬æ˜Ž	ï¼š	ãƒãƒªã‚´ãƒ³æƒ…å ±ã‚’å–å¾—ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 ST_PolygonInfo	CDx9LibPolygon::GetInfo( long PolNo )
 {
@@ -847,12 +847,12 @@ ST_PolygonInfo	CDx9LibPolygon::GetInfo( long PolNo )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ|ƒŠƒSƒ“î•ñÝ’è
-//	à–¾	F	ƒ|ƒŠƒSƒ“î•ñ‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]POL_TBL	Info		ƒ|ƒŠƒSƒ“î•ñ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒãƒªã‚´ãƒ³æƒ…å ±è¨­å®š
+//	èª¬æ˜Ž	ï¼š	ãƒãƒªã‚´ãƒ³æƒ…å ±ã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]POL_TBL	Info		ãƒãƒªã‚´ãƒ³æƒ…å ±
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::SetInfo( long PolNo, ST_PolygonInfo Info )
 {
@@ -860,12 +860,12 @@ void	CDx9LibPolygon::SetInfo( long PolNo, ST_PolygonInfo Info )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ|ƒŠƒSƒ“ƒf[ƒ^ƒRƒs[
-//	à–¾	F	ƒ|ƒŠƒSƒ“ƒf[ƒ^‚ðƒRƒs[‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒRƒs[æƒ|ƒŠƒSƒ“”Ô†
-//				[IN]long	CopyNo		ƒRƒs[Œ³ƒ|ƒŠƒSƒ“”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒãƒªã‚´ãƒ³ãƒ‡ãƒ¼ã‚¿ã‚³ãƒ”ãƒ¼
+//	èª¬æ˜Ž	ï¼š	ãƒãƒªã‚´ãƒ³ãƒ‡ãƒ¼ã‚¿ã‚’ã‚³ãƒ”ãƒ¼ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ã‚³ãƒ”ãƒ¼å…ˆãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]long	CopyNo		ã‚³ãƒ”ãƒ¼å…ƒãƒãƒªã‚´ãƒ³ç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::CopyData( long PolNo, long CopyNo )
 {
@@ -873,12 +873,12 @@ void	CDx9LibPolygon::CopyData( long PolNo, long CopyNo )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ|ƒŠƒSƒ“‹ó‚«”Ô†Žæ“¾
-//	à–¾	F	ƒ|ƒŠƒSƒ“\‘¢‘Ì‚Ì’†‚Å–¢Žg—p‚Ì”Ô†‚ðŽæ“¾‚·‚é
-//	–ß‚è’l	F	long	ˆ—Œ‹‰Ê	-1(‹ó‚«”Ô†‚È‚µ)
-//									-1ˆÈŠO(‹ó‚«”Ô†)
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒãƒªã‚´ãƒ³ç©ºãç•ªå·å–å¾—
+//	èª¬æ˜Ž	ï¼š	ãƒãƒªã‚´ãƒ³æ§‹é€ ä½“ã®ä¸­ã§æœªä½¿ç”¨ã®ç•ªå·ã‚’å–å¾—ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	long	å‡¦ç†çµæžœ	-1(ç©ºãç•ªå·ãªã—)
+//									-1ä»¥å¤–(ç©ºãç•ªå·)
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 long	CDx9LibPolygon::GetNo( void )
 {
@@ -897,12 +897,12 @@ long	CDx9LibPolygon::GetNo( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ|ƒŠƒSƒ“•\Ž¦Ø‘Ö
-//	à–¾	F	ƒ|ƒŠƒSƒ“‚Ì•\Ž¦‚ðØ‚è‘Ö‚¦‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]UChar		Flag	•\Ž¦ó‘Ô
-//	”õl	F	Flag‚ÌÝ’è’l	ON		•\Ž¦
-//								OFF		”ñ•\Ž¦
+//	åå‰	ï¼š	ãƒãƒªã‚´ãƒ³è¡¨ç¤ºåˆ‡æ›¿
+//	èª¬æ˜Ž	ï¼š	ãƒãƒªã‚´ãƒ³ã®è¡¨ç¤ºã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]UChar		Flag	è¡¨ç¤ºçŠ¶æ…‹
+//	å‚™è€ƒ	ï¼š	Flagã®è¨­å®šå€¤	ON		è¡¨ç¤º
+//								OFF		éžè¡¨ç¤º
 /******************************************************************************/
 void	CDx9LibPolygon::ChangeDisp( UChar Flag )
 {
@@ -916,13 +916,13 @@ void	CDx9LibPolygon::ChangeDisp( UChar Flag )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ|ƒŠƒSƒ“•\Ž¦Ø‘Ö
-//	à–¾	F	ƒ|ƒŠƒSƒ“‚Ì•\Ž¦‚ðØ‚è‘Ö‚¦‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long		PolNo	ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]UChar		Flag	•\Ž¦ó‘Ô
-//	”õl	F	Flag‚ÌÝ’è’l	ON		•\Ž¦
-//								OFF		”ñ•\Ž¦
+//	åå‰	ï¼š	ãƒãƒªã‚´ãƒ³è¡¨ç¤ºåˆ‡æ›¿
+//	èª¬æ˜Ž	ï¼š	ãƒãƒªã‚´ãƒ³ã®è¡¨ç¤ºã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long		PolNo	ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]UChar		Flag	è¡¨ç¤ºçŠ¶æ…‹
+//	å‚™è€ƒ	ï¼š	Flagã®è¨­å®šå€¤	ON		è¡¨ç¤º
+//								OFF		éžè¡¨ç¤º
 /******************************************************************************/
 void	CDx9LibPolygon::ChangeDisp( long PolNo, UChar Flag )
 {
@@ -933,11 +933,11 @@ void	CDx9LibPolygon::ChangeDisp( long PolNo, UChar Flag )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ|ƒŠƒSƒ“•\Ž¦ó‘Ô”½“]
-//	à–¾	F	ƒ|ƒŠƒSƒ“‚Ì•\Ž¦ó‘Ô‚ð”½“]‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long		PolNo	ƒ|ƒŠƒSƒ“”Ô†
-//	”õl	F	•\Ž¦¨”ñ•\Ž¦@”ñ•\Ž¦¨•\Ž¦
+//	åå‰	ï¼š	ãƒãƒªã‚´ãƒ³è¡¨ç¤ºçŠ¶æ…‹åè»¢
+//	èª¬æ˜Ž	ï¼š	ãƒãƒªã‚´ãƒ³ã®è¡¨ç¤ºçŠ¶æ…‹ã‚’åè»¢ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long		PolNo	ãƒãƒªã‚´ãƒ³ç•ªå·
+//	å‚™è€ƒ	ï¼š	è¡¨ç¤ºâ†’éžè¡¨ç¤ºã€€éžè¡¨ç¤ºâ†’è¡¨ç¤º
 /******************************************************************************/
 void	CDx9LibPolygon::ChangeDispRev( long PolNo )
 {
@@ -945,13 +945,13 @@ void	CDx9LibPolygon::ChangeDispRev( long PolNo )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	•\Ž¦À•W‰ÁŽZ
-//	à–¾	F	•\Ž¦À•W‚ð‰ÁŽZ‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]double	AddX		‰ÁŽZ’lX
-//				[IN]double	AddY		‰ÁŽZ’lY
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	è¡¨ç¤ºåº§æ¨™åŠ ç®—
+//	èª¬æ˜Ž	ï¼š	è¡¨ç¤ºåº§æ¨™ã‚’åŠ ç®—ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]double	AddX		åŠ ç®—å€¤X
+//				[IN]double	AddY		åŠ ç®—å€¤Y
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::AddPos( long PolNo, double AddX, double AddY )
 {
@@ -960,12 +960,12 @@ void	CDx9LibPolygon::AddPos( long PolNo, double AddX, double AddY )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	•\Ž¦À•W‰ÁŽZ
-//	à–¾	F	•\Ž¦À•W‚ð‰ÁŽZ‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]double	AddX		‰ÁŽZ’lX
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	è¡¨ç¤ºåº§æ¨™åŠ ç®—
+//	èª¬æ˜Ž	ï¼š	è¡¨ç¤ºåº§æ¨™ã‚’åŠ ç®—ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]double	AddX		åŠ ç®—å€¤X
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::AddPosX( long PolNo, double AddX )
 {
@@ -973,12 +973,12 @@ void	CDx9LibPolygon::AddPosX( long PolNo, double AddX )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	•\Ž¦À•W‰ÁŽZ
-//	à–¾	F	•\Ž¦À•W‚ð‰ÁŽZ‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]double	AddY		‰ÁŽZ’lY
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	è¡¨ç¤ºåº§æ¨™åŠ ç®—
+//	èª¬æ˜Ž	ï¼š	è¡¨ç¤ºåº§æ¨™ã‚’åŠ ç®—ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]double	AddY		åŠ ç®—å€¤Y
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::AddPosY( long PolNo, double AddY )
 {
@@ -986,14 +986,14 @@ void	CDx9LibPolygon::AddPosY( long PolNo, double AddY )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	Šp“x‰ÁŽZ
-//	à–¾	F	Šp“x‚ð‰ÁŽZ‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]double	AddX		‰ÁŽZ’lX
-//				[IN]double	AddY		‰ÁŽZ’lY
-//				[IN]double	AddZ		‰ÁŽZ’lZ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	è§’åº¦åŠ ç®—
+//	èª¬æ˜Ž	ï¼š	è§’åº¦ã‚’åŠ ç®—ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]double	AddX		åŠ ç®—å€¤X
+//				[IN]double	AddY		åŠ ç®—å€¤Y
+//				[IN]double	AddZ		åŠ ç®—å€¤Z
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::AddRot( long PolNo, double AddX, double AddY, double AddZ )
 {
@@ -1003,12 +1003,12 @@ void	CDx9LibPolygon::AddRot( long PolNo, double AddX, double AddY, double AddZ )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	Šg‘å—¦‰ÁŽZ
-//	à–¾	F	Šg‘å—¦‚ð‰ÁŽZ‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]double	Add			‰ÁŽZ’l
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	æ‹¡å¤§çŽ‡åŠ ç®—
+//	èª¬æ˜Ž	ï¼š	æ‹¡å¤§çŽ‡ã‚’åŠ ç®—ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]double	Add			åŠ ç®—å€¤
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::AddScale( long PolNo, double Add )
 {
@@ -1017,12 +1017,12 @@ void	CDx9LibPolygon::AddScale( long PolNo, double Add )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	‰¡ƒTƒCƒY‰ÁŽZ
-//	à–¾	F	‰¡ƒTƒCƒY‰ÁŽZ‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]long	Add			‰ÁŽZ’l
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	æ¨ªã‚µã‚¤ã‚ºåŠ ç®—
+//	èª¬æ˜Ž	ï¼š	æ¨ªã‚µã‚¤ã‚ºåŠ ç®—ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]long	Add			åŠ ç®—å€¤
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::AddWidth( long PolNo, long Add )
 {
@@ -1030,12 +1030,12 @@ void	CDx9LibPolygon::AddWidth( long PolNo, long Add )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	cƒTƒCƒY‰ÁŽZ
-//	à–¾	F	cƒTƒCƒY‚ð‰ÁŽZ‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]long	Add			‰ÁŽZ’l
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ç¸¦ã‚µã‚¤ã‚ºåŠ ç®—
+//	èª¬æ˜Ž	ï¼š	ç¸¦ã‚µã‚¤ã‚ºã‚’åŠ ç®—ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]long	Add			åŠ ç®—å€¤
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::AddHeight( long PolNo, long Add )
 {
@@ -1043,15 +1043,15 @@ void	CDx9LibPolygon::AddHeight( long PolNo, long Add )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	F‰ÁŽZ
-//	à–¾	F	F‚ð‰ÁŽZ‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]long	AddA		‰ÁŽZ’lA
-//				[IN]long	AddR		‰ÁŽZ’lR
-//				[IN]long	AddG		‰ÁŽZ’lG
-//				[IN]long	AddB		‰ÁŽZ’lB
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	è‰²åŠ ç®—
+//	èª¬æ˜Ž	ï¼š	è‰²ã‚’åŠ ç®—ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]long	AddA		åŠ ç®—å€¤A
+//				[IN]long	AddR		åŠ ç®—å€¤R
+//				[IN]long	AddG		åŠ ç®—å€¤G
+//				[IN]long	AddB		åŠ ç®—å€¤B
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::AddColor( long PolNo, UChar AddA, UChar AddR, UChar AddG, UChar AddB )
 {
@@ -1062,11 +1062,11 @@ void	CDx9LibPolygon::AddColor( long PolNo, UChar AddA, UChar AddR, UChar AddG, U
 }
 
 /******************************************************************************/
-//	–¼‘O	F	À•WƒoƒbƒNƒAƒbƒv
-//	à–¾	F	À•W‚ÌƒoƒbƒNƒAƒbƒv‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	åº§æ¨™ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—
+//	èª¬æ˜Ž	ï¼š	åº§æ¨™ã®ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::PosBackup( long PolNo )
 {
@@ -1076,11 +1076,11 @@ void	CDx9LibPolygon::PosBackup( long PolNo )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	À•WƒŠƒXƒgƒA
-//	à–¾	F	À•W‚ÌƒŠƒXƒgƒA‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	åº§æ¨™ãƒªã‚¹ãƒˆã‚¢
+//	èª¬æ˜Ž	ï¼š	åº§æ¨™ã®ãƒªã‚¹ãƒˆã‚¢ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::PosRestore( long PolNo )
 {
@@ -1090,13 +1090,13 @@ void	CDx9LibPolygon::PosRestore( long PolNo )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	XÀ•WƒNƒŠƒbƒsƒ“ƒO
-//	à–¾	F	XÀ•W‚ÌƒNƒŠƒbƒsƒ“ƒO‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]double	MinPos		Å¬’l
-//				[IN]double	MaxPos		Å‘å’l
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	Xåº§æ¨™ã‚¯ãƒªãƒƒãƒ”ãƒ³ã‚°
+//	èª¬æ˜Ž	ï¼š	Xåº§æ¨™ã®ã‚¯ãƒªãƒƒãƒ”ãƒ³ã‚°ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]double	MinPos		æœ€å°å€¤
+//				[IN]double	MaxPos		æœ€å¤§å€¤
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::ClippingPosX( long PolNo, double MinPos, double MaxPos )
 {
@@ -1111,13 +1111,13 @@ void	CDx9LibPolygon::ClippingPosX( long PolNo, double MinPos, double MaxPos )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	YÀ•WƒNƒŠƒbƒsƒ“ƒO
-//	à–¾	F	YÀ•W‚ÌƒNƒŠƒbƒsƒ“ƒO‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]double	MinPos		Å¬’l
-//				[IN]double	MaxPos		Å‘å’l
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	Yåº§æ¨™ã‚¯ãƒªãƒƒãƒ”ãƒ³ã‚°
+//	èª¬æ˜Ž	ï¼š	Yåº§æ¨™ã®ã‚¯ãƒªãƒƒãƒ”ãƒ³ã‚°ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]double	MinPos		æœ€å°å€¤
+//				[IN]double	MaxPos		æœ€å¤§å€¤
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibPolygon::ClippingPosY( long PolNo, double MinPos, double MaxPos )
 {

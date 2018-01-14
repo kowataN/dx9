@@ -1,33 +1,33 @@
 /******************************************************************************/
-//	DirectX9ƒ‰ƒCƒuƒ‰ƒŠ
-//		ƒtƒF[ƒh
+//	DirectX9ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+//		ãƒ•ã‚§ãƒ¼ãƒ‰
 /******************************************************************************/
 
 #ifndef	__Dx9LibFade_H__
 #define	__Dx9LibFade_H__
 
 //----------------------------------------------------------------------------//
-//	\‘¢‘Ì
+//	æ§‹é€ ä½“
 //----------------------------------------------------------------------------//
 
-//	ƒtƒF[ƒh—p\‘¢‘Ì
+//	ãƒ•ã‚§ãƒ¼ãƒ‰ç”¨æ§‹é€ ä½“
 typedef	struct
 {
-	UChar	Use;						//	g—pƒtƒ‰ƒO
-	UChar	Disp;						//	•\¦ƒtƒ‰ƒO
-	UChar	Init;						//	‰Šú‰»ƒtƒ‰ƒO
-	UChar	State;						//	ó‘Ôi0:I—¹A1:ƒtƒF[ƒh’†j
-	long	Time;						//	Š—vŠÔ
-	long	Count;						//	ƒJƒEƒ“ƒ^
-	double	A,R,G,B;					//	ƒJƒŒƒ“ƒg‚ÌF
-	double	StartA;						//	ŠJnF(A)
-	double	StartR,StartG,StartB;		//	ŠJnF(ŠeF¬•ª)
-	double	TargetA;					//	–Ú•WF(A)
-	double	TargetR,TargetG,TargetB;	//	–Ú•WF(ŠeF¬•ª)
+	UChar	Use;						//	ä½¿ç”¨ãƒ•ãƒ©ã‚°
+	UChar	Disp;						//	è¡¨ç¤ºãƒ•ãƒ©ã‚°
+	UChar	Init;						//	åˆæœŸåŒ–ãƒ•ãƒ©ã‚°
+	UChar	State;						//	çŠ¶æ…‹ï¼ˆ0:çµ‚äº†ã€1:ãƒ•ã‚§ãƒ¼ãƒ‰ä¸­ï¼‰
+	long	Time;						//	æ‰€è¦æ™‚é–“
+	long	Count;						//	ã‚«ã‚¦ãƒ³ã‚¿
+	double	A,R,G,B;					//	ã‚«ãƒ¬ãƒ³ãƒˆã®è‰²
+	double	StartA;						//	é–‹å§‹è‰²(A)
+	double	StartR,StartG,StartB;		//	é–‹å§‹è‰²(å„è‰²æˆåˆ†)
+	double	TargetA;					//	ç›®æ¨™è‰²(A)
+	double	TargetR,TargetG,TargetB;	//	ç›®æ¨™è‰²(å„è‰²æˆåˆ†)
 }ST_FadeInfo;
 
 //----------------------------------------------------------------------------//
-//	ƒNƒ‰ƒX
+//	ã‚¯ãƒ©ã‚¹
 //----------------------------------------------------------------------------//
 class	CDx9LibFade
 {
@@ -35,22 +35,22 @@ private:
 	ST_FadeInfo	m_Fade;
 
 public:
-	void	Init( void );				//	ƒtƒF[ƒh‰Šú‰»
+	void	Init( void );				//	ãƒ•ã‚§ãƒ¼ãƒ‰åˆæœŸåŒ–
 	void	Set( long Time, double a1, double r1, double g1, double b1, double a2, double r2, double g2, double b2 );
-	void	Loop( void );				//	ƒtƒF[ƒhƒ‹[ƒv
-	void	BlackOut( long Time );		//	ƒuƒ‰ƒbƒNƒAƒEƒg
-	void	BlackIn( long Time );		//	ƒuƒ‰ƒbƒNƒCƒ“
-	void	WhiteOut( long Time );		//	ƒzƒƒCƒgƒAƒEƒg
-	void	WhiteIn( long Time );		//	ƒzƒƒCƒgƒCƒ“
-	short	GetState( void );			//	ó‘Ôæ“¾
-	long	GetProgress( void );		//	isó‹µæ“¾
+	void	Loop( void );				//	ãƒ•ã‚§ãƒ¼ãƒ‰ãƒ«ãƒ¼ãƒ—
+	void	BlackOut( long Time );		//	ãƒ–ãƒ©ãƒƒã‚¯ã‚¢ã‚¦ãƒˆ
+	void	BlackIn( long Time );		//	ãƒ–ãƒ©ãƒƒã‚¯ã‚¤ãƒ³
+	void	WhiteOut( long Time );		//	ãƒ›ãƒ¯ã‚¤ãƒˆã‚¢ã‚¦ãƒˆ
+	void	WhiteIn( long Time );		//	ãƒ›ãƒ¯ã‚¤ãƒˆã‚¤ãƒ³
+	short	GetState( void );			//	çŠ¶æ…‹å–å¾—
+	long	GetProgress( void );		//	é€²è¡ŒçŠ¶æ³å–å¾—
 private:
-	void	Draw( void );				//	•`‰æ
+	void	Draw( void );				//	æç”»
 };
 
 #endif	//	__Dx9LibFade_H__
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 extern	CDx9LibFade	g_LibFade;

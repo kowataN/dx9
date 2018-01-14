@@ -1,10 +1,10 @@
 /******************************************************************************/
-//	ƒLƒƒƒ‰ƒNƒ^[ƒZƒŒƒNƒg
-//		ƒ\[ƒXƒtƒ@ƒCƒ‹
+//	ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã‚»ãƒ¬ã‚¯ãƒˆ
+//		ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #include	"./Dx9Lib/Dx9Lib.h"
 #include	"./Dx9LibPad.h"
@@ -14,11 +14,11 @@
 #include	"./CharSelect.h"
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«
 //----------------------------------------------------------------------------//
 
 /////////////////////////////////////////////////
-//	ƒ^ƒCƒgƒ‹ƒ‚[ƒhƒtƒ‰ƒO
+//	ã‚¿ã‚¤ãƒˆãƒ«ãƒ¢ãƒ¼ãƒ‰ãƒ•ãƒ©ã‚°
 short	CharSelectFlag;
 short	Move[2];
 short	Center[4][2]=
@@ -39,20 +39,20 @@ short	Pat[4][4]=
 
 short	SelectFlag[2],UnitPat[2];
 
-//	ƒ†ƒjƒbƒg1
-char	*Unit1Help={ "ˆê”Ô•½‹Ï“I‚Èƒ†ƒjƒbƒgB\n‚»‚Ì‚½‚ßAŽg‚¢‚â‚·‚¢B\n‰SŽÒŒü‚«" };
-//	ƒ†ƒjƒbƒg2
-char	*Unit2Help={ "ƒ†ƒjƒbƒg‚Ì’†‚Åˆê”ÔÅ‘¬‚ðŒÖ‚éƒ†ƒj\nƒbƒgB\n’†‹‰ŽÒŒü‚«" };
-//	ƒ†ƒjƒbƒg3
-char	*Unit3Help={ "”ÍˆÍƒVƒ‡ƒbƒg‚É—D‚ê‚Ä‚¢‚éƒ†ƒjƒbƒgB\n‰SŽÒŒü‚«" };
-//	ƒ†ƒjƒbƒg4
-char	*Unit4Help={"‘S•ºŠí‚ªƒz[ƒ~ƒ“ƒO«‚ÌƒVƒ‡ƒbƒgŽ‚Â\n“ÁŽê‚Èƒ†ƒjƒbƒgBiÅ‹­Hj\n‚»‚Ì‘ã‚í‚èˆÚ“®‘¬“x‚Í’x‚­‚È‚Á‚Ä‚¢‚é\nB\nã‹‰ŽÒŒü‚«"};
+//	ãƒ¦ãƒ‹ãƒƒãƒˆ1
+char	*Unit1Help={ "ä¸€ç•ªå¹³å‡çš„ãªãƒ¦ãƒ‹ãƒƒãƒˆã€‚\nãã®ãŸã‚ã€ä½¿ã„ã‚„ã™ã„ã€‚\nåˆå¿ƒè€…å‘ã" };
+//	ãƒ¦ãƒ‹ãƒƒãƒˆ2
+char	*Unit2Help={ "ãƒ¦ãƒ‹ãƒƒãƒˆã®ä¸­ã§ä¸€ç•ªæœ€é€Ÿã‚’èª‡ã‚‹ãƒ¦ãƒ‹\nãƒƒãƒˆã€‚\nä¸­ç´šè€…å‘ã" };
+//	ãƒ¦ãƒ‹ãƒƒãƒˆ3
+char	*Unit3Help={ "ç¯„å›²ã‚·ãƒ§ãƒƒãƒˆã«å„ªã‚Œã¦ã„ã‚‹ãƒ¦ãƒ‹ãƒƒãƒˆã€‚\nåˆå¿ƒè€…å‘ã" };
+//	ãƒ¦ãƒ‹ãƒƒãƒˆ4
+char	*Unit4Help={"å…¨å…µå™¨ãŒãƒ›ãƒ¼ãƒŸãƒ³ã‚°æ€§ã®ã‚·ãƒ§ãƒƒãƒˆæŒã¤\nç‰¹æ®Šãªãƒ¦ãƒ‹ãƒƒãƒˆã€‚ï¼ˆæœ€å¼·ï¼Ÿï¼‰\nãã®ä»£ã‚ã‚Šç§»å‹•é€Ÿåº¦ã¯é…ããªã£ã¦ã„ã‚‹\nã€‚\nä¸Šç´šè€…å‘ã"};
 
 //----------------------------------------------------------------------------------------------//
-//	ƒvƒƒgƒ^ƒCƒvéŒ¾
+//	ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 //----------------------------------------------------------------------------------------------//
-void	CharSelectInit( void );	//	ƒLƒƒƒ‰ƒZƒŒƒNƒg‰Šú‰»
-void	CharSelectMain( void );	//	ƒLƒƒƒ‰ƒZƒŒƒNƒgƒƒCƒ“
+void	CharSelectInit( void );	//	ã‚­ãƒ£ãƒ©ã‚»ãƒ¬ã‚¯ãƒˆåˆæœŸåŒ–
+void	CharSelectMain( void );	//	ã‚­ãƒ£ãƒ©ã‚»ãƒ¬ã‚¯ãƒˆãƒ¡ã‚¤ãƒ³
 void	CharSelectCurSor( void );
 void	CharSelectUnitSet( void );
 void	CharSelectHelpDisp( void );
@@ -60,16 +60,16 @@ void	CharSelectHelpDisp( void );
 
 
 /******************************************************************************/
-//	ƒLƒƒƒ‰ƒZƒŒƒNƒg‰Šú‰»
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ã‚­ãƒ£ãƒ©ã‚»ãƒ¬ã‚¯ãƒˆåˆæœŸåŒ–
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	CharSelectInit( void )
 {
 	/////////////////////////////////////////////////
-	//	ƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»
+	//	ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–
 	InitTextureAll();
 	InitPatternAll();
 	InitPolygonAll();
@@ -84,38 +84,38 @@ void	CharSelectInit( void )
 	PAD[1].Use = ON;
 
 	/////////////////////////////////////////////////
-	//	ƒeƒNƒXƒ`ƒƒ“Ç‚Ýž‚Ý
+	//	ãƒ†ã‚¯ã‚¹ãƒãƒ£èª­ã¿è¾¼ã¿
 	LoadTexture( TEX_CHAR_SELECT_BG, "img\\sys\\char_sel_bg.img" );
 	LoadTexture( TEX_CHAR_SELECT_CHAR, "img\\char\\chr_samp.img" );
 	LoadTexture( TEX_CHAR_SELECT_SHOT, "img\\battle\\shot.img" );
 
 	/////////////////////////////////////////////////
-	//	ƒpƒ^[ƒ“ƒJƒbƒg
+	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚«ãƒƒãƒˆ
 	SetPattern( PAT_CHAR_SELECT_BG, TEX_CHAR_SELECT_BG, 0,0, 640,480 );
 	SetPattern( PAT_CHAR_SELECT_1P, TEX_CHAR_SELECT_CHAR, 0,0, 0,0 );
 	SetPattern( PAT_CHAR_SELECT_2P, TEX_CHAR_SELECT_CHAR, 0,0, 0,0 );
 
 	/////////////////////////////////////////////////
-	//	ƒ|ƒŠƒSƒ“ƒZƒbƒg
+	//	ãƒãƒªã‚´ãƒ³ã‚»ãƒƒãƒˆ
 	SetPolygon( POL_CHAR_SELECT_CUR_1P, 64,64, 288,112,1.0, ATR_BOX );
 	SetPolygon( POL_CHAR_SELECT_CUR_2P, 64,64, 288,176,1.0, ATR_BOX );
 	SetPolygonColor( POL_CHAR_SELECT_CUR_1P, 255,255,0,0 );
 	SetPolygonColor( POL_CHAR_SELECT_CUR_2P, 255,0,0,255 );
 
 	/////////////////////////////////////////////////
-	//	ƒIƒuƒWƒFƒNƒgƒZƒbƒg
+	//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚»ãƒƒãƒˆ
 	ObjSet( OBJ_CHAR_SELECT_BG, POL_CHAR_SELECT_BG, PAT_CHAR_SELECT_BG, 0,0,1.0, OBJ_TYPE_BG, ATR_NONE );
 	ObjSet( OBJ_CHAR_SELECT_1P, POL_CHAR_SELECT_1P, PAT_CHAR_SELECT_1P, 128,344,1.0, OBJ_TYPE_BG, ATR_NONE );
 	ObjSet( OBJ_CHAR_SELECT_2P, POL_CHAR_SELECT_2P, PAT_CHAR_SELECT_2P, 512,344,1.0, OBJ_TYPE_BG, ATR_NONE );
 
 	/////////////////////////////////////////////////
-	//	SE‚Ì“Ç‚Ýž‚Ý
+	//	SEã®èª­ã¿è¾¼ã¿
 	g_LibMusic.Load( SE_CURSOR, "se\\se_cursor.wav" );
 	g_LibMusic.Load( SE_START, "se\\se_button01.wav" );
 	g_LibMusic.Load( SE_BUT, "se\\se_button00.wav" );
 
 	/////////////////////////////////////////////////
-	//	ƒOƒ[ƒoƒ‹•Ï”‰Šú‰»
+	//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°åˆæœŸåŒ–
 	Move[0] = 0;
 	Move[1] = 1;
 
@@ -131,22 +131,22 @@ void	CharSelectInit( void )
 }
 
 /******************************************************************************/
-//	ƒLƒƒƒ‰ƒZƒŒƒNƒgƒƒCƒ“
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ã‚­ãƒ£ãƒ©ã‚»ãƒ¬ã‚¯ãƒˆãƒ¡ã‚¤ãƒ³
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	CharSelectMain( void )
 {
 	switch( CharSelectFlag )
 	{
 		case	0:
-			//	ƒJ[ƒ\ƒ‹‚ÌˆÚ“®
+			//	ã‚«ãƒ¼ã‚½ãƒ«ã®ç§»å‹•
 			CharSelectCurSor();
-			//	ƒ†ƒjƒbƒg•\Ž¦
+			//	ãƒ¦ãƒ‹ãƒƒãƒˆè¡¨ç¤º
 			CharSelectUnitSet();
-			//	à–¾•¶•\Ž¦
+			//	èª¬æ˜Žæ–‡è¡¨ç¤º
 			CharSelectHelpDisp();
 			break;
 
@@ -158,11 +158,11 @@ void	CharSelectMain( void )
 }
 
 /******************************************************************************/
-//	ƒJ[ƒ\ƒ‹ˆÚ“®
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ã‚«ãƒ¼ã‚½ãƒ«ç§»å‹•
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	CharSelectCurSor( void )
 {
@@ -172,7 +172,7 @@ void	CharSelectCurSor( void )
 	{
 		if( SelectFlag[i] == NOT )
 		{
-			//	ƒJ|ƒ\ƒ‹‚ÌˆÚ“®
+			//	ã‚«âˆ’ã‚½ãƒ«ã®ç§»å‹•
 			if( PAD[i].Trg[ PAD_UP ] )
 			{
 				Move[i] --;
@@ -184,7 +184,7 @@ void	CharSelectCurSor( void )
 				g_LibMusic.Play( SE_CURSOR, ONE );
 			}
 
-			//	ƒNƒŠƒbƒsƒ“ƒO
+			//	ã‚¯ãƒªãƒƒãƒ”ãƒ³ã‚°
 			if( Move[i] < 0 )
 			{
 				Move[i] = 4;
@@ -209,7 +209,7 @@ void	CharSelectCurSor( void )
 			continue;
 		}
 
-		//	ƒ{ƒ^ƒ“ŠÄŽ‹
+		//	ãƒœã‚¿ãƒ³ç›£è¦–
 		if( PAD[i].Trg[ PAD_BUT1 ] )
 		{
 			SelectFlag[i] = Move[i];
@@ -224,7 +224,7 @@ void	CharSelectCurSor( void )
 		POL[ POL_CHAR_SELECT_CUR_1P+i ].PosY = cursor[ Move[i] ];
 	}
 
-	//	ƒJ[ƒ\ƒ‹‚ÌƒTƒCƒY
+	//	ã‚«ãƒ¼ã‚½ãƒ«ã®ã‚µã‚¤ã‚º
 	if( Move[0] == Move[1] )
 	{
 		POL[ POL_CHAR_SELECT_CUR_1P ].Width = 32;
@@ -249,11 +249,11 @@ void	CharSelectCurSor( void )
 }
 
 /******************************************************************************/
-//	ƒ†ƒjƒbƒg•\Ž¦
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ãƒ¦ãƒ‹ãƒƒãƒˆè¡¨ç¤º
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	CharSelectUnitSet( void )
 {
@@ -271,11 +271,11 @@ void	CharSelectUnitSet( void )
 }
 
 /******************************************************************************/
-//	ƒ†ƒjƒbƒg‚Ìà–¾•¶•\Ž¦
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ãƒ¦ãƒ‹ãƒƒãƒˆã®èª¬æ˜Žæ–‡è¡¨ç¤º
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	CharSelectHelpDisp( void )
 {

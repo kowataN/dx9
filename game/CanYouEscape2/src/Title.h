@@ -1,52 +1,52 @@
 /******************************************************************************/
-//	ƒ^ƒCƒgƒ‹ƒƒCƒ“
-//		ƒwƒbƒ_ƒtƒ@ƒCƒ‹
+//	ã‚¿ã‚¤ãƒˆãƒ«ãƒ¡ã‚¤ãƒ³
+//		ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 #ifndef	__Title_H__
 #define	__Title_H__
 
 //----------------------------------------------------------------------------//
-//	’è‹`
+//	å®šç¾©
 //----------------------------------------------------------------------------//
 enum
 {
-	//	ƒeƒNƒXƒ`ƒƒ”Ô†
-	TEX_TITLE_BG = 0,	//	”wŒi
-	TEX_TITLE_SYS,		//	‚»‚Ì‘¼
+	//	ãƒ†ã‚¯ã‚¹ãƒãƒ£ç•ªå·
+	TEX_TITLE_BG = 0,	//	èƒŒæ™¯
+	TEX_TITLE_SYS,		//	ãã®ä»–
 
-	//	ƒpƒ^[ƒ“”Ô†
-	PAT_TITLE_BG = 0,	//	”wŒi
-	PAT_TITLE_TEXT1,	//	uCAN YOUv
-	PAT_TITLE_TEXT2,	//	uESCAPA2v
-	PAT_TITLE_TEXT3,	//	uPUSH STARTv
-	PAT_TITLE_TEXT4,	//	uGAME_STARTv
-	PAT_TITLE_TEXT5,	//	uOPTIONv
+	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
+	PAT_TITLE_BG = 0,	//	èƒŒæ™¯
+	PAT_TITLE_TEXT1,	//	ã€ŒCAN YOUã€
+	PAT_TITLE_TEXT2,	//	ã€ŒESCAPA2ã€
+	PAT_TITLE_TEXT3,	//	ã€ŒPUSH STARTã€
+	PAT_TITLE_TEXT4,	//	ã€ŒGAME_STARTã€
+	PAT_TITLE_TEXT5,	//	ã€ŒOPTIONã€
 
-	//	ƒ|ƒŠƒSƒ“”Ô†
-	POL_TITLE_BG = 0,	//	”wŒi
-	POL_TITLE_TEXT1,	//	uCAN YOUv
-	POL_TITLE_TEXT2,	//	uESCAPA2v
-	POL_TITLE_TEXT3,	//	uPUSH STARTv
-	POL_TITLE_TEXT4,	//	uGAME_STARTv
-	POL_TITLE_TEXT5,	//	uOPTIONv
+	//	ãƒãƒªã‚´ãƒ³ç•ªå·
+	POL_TITLE_BG = 0,	//	èƒŒæ™¯
+	POL_TITLE_TEXT1,	//	ã€ŒCAN YOUã€
+	POL_TITLE_TEXT2,	//	ã€ŒESCAPA2ã€
+	POL_TITLE_TEXT3,	//	ã€ŒPUSH STARTã€
+	POL_TITLE_TEXT4,	//	ã€ŒGAME_STARTã€
+	POL_TITLE_TEXT5,	//	ã€ŒOPTIONã€
 
-	//	ƒIƒuƒWƒFƒNƒg”Ô†
-	OBJ_TITLE_BG = 0,	//	”wŒi
-	OBJ_TITLE_TEXT1,	//	uCAN YOUv
-	OBJ_TITLE_TEXT2,	//	uESCAPA2v
-	OBJ_TITLE_TEXT3,	//	uPUSH STARTv
-	OBJ_TITLE_TEXT4,	//	uGAME_STARTv
-	OBJ_TITLE_TEXT5,	//	uOPTIONv
+	//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç•ªå·
+	OBJ_TITLE_BG = 0,	//	èƒŒæ™¯
+	OBJ_TITLE_TEXT1,	//	ã€ŒCAN YOUã€
+	OBJ_TITLE_TEXT2,	//	ã€ŒESCAPA2ã€
+	OBJ_TITLE_TEXT3,	//	ã€ŒPUSH STARTã€
+	OBJ_TITLE_TEXT4,	//	ã€ŒGAME_STARTã€
+	OBJ_TITLE_TEXT5,	//	ã€ŒOPTIONã€
 
-	//	‚»‚Ì‘¼
+	//	ãã®ä»–
 	TITLE_TIME = 60,
 };
 
 #endif	//	__Title_H__
 
 //----------------------------------------------------------------------------//
-//	ƒvƒƒgƒ^ƒCƒvéŒ¾
+//	ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 //----------------------------------------------------------------------------//
-extern	void	TitleInit( void );	//	ƒ^ƒCƒgƒ‹‰Šú‰»
-extern	short	TitleMain( void );	//	ƒ^ƒCƒgƒ‹ƒƒCƒ“
+extern	void	TitleInit( void );	//	ã‚¿ã‚¤ãƒˆãƒ«åˆæœŸåŒ–
+extern	short	TitleMain( void );	//	ã‚¿ã‚¤ãƒˆãƒ«ãƒ¡ã‚¤ãƒ³

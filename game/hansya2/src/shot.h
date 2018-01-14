@@ -1,6 +1,6 @@
 /************************************************************************************************/
-//	ƒVƒ‡ƒbƒgƒƒCƒ“
-//		ƒwƒbƒ_ƒtƒ@ƒCƒ‹
+//	ã‚·ãƒ§ãƒƒãƒˆãƒ¡ã‚¤ãƒ³
+//		ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 /************************************************************************************************/
 
 
@@ -10,7 +10,7 @@
 
 
 //----------------------------------------------------------------------------------------------//
-//	ƒfƒtƒFƒCƒ“
+//	ãƒ‡ãƒ•ã‚§ã‚¤ãƒ³
 //----------------------------------------------------------------------------------------------//
 
 #define	SHOT_MAX	256
@@ -24,40 +24,40 @@ enum
 
 
 //----------------------------------------------------------------------------------------------//
-//	\‘¢‘Ì
+//	æ§‹é€ ä½“
 //----------------------------------------------------------------------------------------------//
 
 /////////////////////////////////////////////////
-//	ƒVƒ‡ƒbƒg\‘¢‘Ì
+//	ã‚·ãƒ§ãƒƒãƒˆæ§‹é€ ä½“
 typedef	struct
 {
-	//	ƒtƒ‰ƒO
-	u_char	use;		//	g—pƒtƒ‰ƒO
-	u_char	disp;		//	•\¦ƒtƒ‰ƒO
+	//	ãƒ•ãƒ©ã‚°
+	u_char	use;		//	ä½¿ç”¨ãƒ•ãƒ©ã‚°
+	u_char	disp;		//	è¡¨ç¤ºãƒ•ãƒ©ã‚°
 
-	//	”Ô†
-	long	pol_no;		//	ƒ|ƒŠƒSƒ“”Ô†
+	//	ç•ªå·
+	long	pol_no;		//	ãƒãƒªã‚´ãƒ³ç•ªå·
 
-	//	À•WŒn
-	double	px,py,pz;	//	•\¦À•W
-	double	bx,by,bz;	//	•\¦À•WiƒoƒbƒNƒAƒbƒvj
-	double	mx,my;		//	ˆÚ“®—Ê
-	short	w,h;		//	ƒTƒCƒY
+	//	åº§æ¨™ç³»
+	double	px,py,pz;	//	è¡¨ç¤ºåº§æ¨™
+	double	bx,by,bz;	//	è¡¨ç¤ºåº§æ¨™ï¼ˆãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ï¼‰
+	double	mx,my;		//	ç§»å‹•é‡
+	short	w,h;		//	ã‚µã‚¤ã‚º
 
-	//	‘®«Œn
-	u_long	atr;		//	ƒAƒgƒŠƒrƒ…[ƒg(©‹@A©ƒVƒ‡ƒbƒg
+	//	å±æ€§ç³»
+	u_long	atr;		//	ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ(è‡ªæ©Ÿã€è‡ªã‚·ãƒ§ãƒƒãƒˆ
 
-	//	‚»‚Ì‘¼
-	double	rot_r,rot_d;	//	Œü‚«(ƒ‰ƒWƒAƒ“AƒfƒtƒŠ[)
-	double	speed;		//	ˆÚ“®‘¬“x
+	//	ãã®ä»–
+	double	rot_r,rot_d;	//	å‘ã(ãƒ©ã‚¸ã‚¢ãƒ³ã€ãƒ‡ãƒ•ãƒªãƒ¼)
+	double	speed;		//	ç§»å‹•é€Ÿåº¦
 
-	short	disp_ct;	//	ƒJƒEƒ“ƒ^iuseƒtƒ‰ƒO‚ªON‚É‚È‚Á‚Ä‚©‚ç‚ÌŠÔj
-	long	ct;			//	”Ä—pƒJƒEƒ“ƒ^
+	short	disp_ct;	//	ã‚«ã‚¦ãƒ³ã‚¿ï¼ˆuseãƒ•ãƒ©ã‚°ãŒONã«ãªã£ã¦ã‹ã‚‰ã®æ™‚é–“ï¼‰
+	long	ct;			//	æ±ç”¨ã‚«ã‚¦ãƒ³ã‚¿
 }SHOT_TBL;
 
 
 /////////////////////////////////////////////////
-//	ƒJƒ‰[ƒe[ƒuƒ‹
+//	ã‚«ãƒ©ãƒ¼ãƒ†ãƒ¼ãƒ–ãƒ«
 typedef	struct
 {
 	u_char	a;
@@ -66,7 +66,7 @@ typedef	struct
 
 
 /////////////////////////////////////////////////
-//	ƒVƒ‡ƒbƒgƒf[ƒ^
+//	ã‚·ãƒ§ãƒƒãƒˆãƒ‡ãƒ¼ã‚¿
 typedef	struct
 {
 	short	w,h;
@@ -78,15 +78,15 @@ typedef	struct
 
 
 //----------------------------------------------------------------------------------------------//
-//	ƒvƒƒgƒ^ƒCƒvéŒ¾
+//	ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 //----------------------------------------------------------------------------------------------//
-extern	void	ShotInitAll( void );			//	ƒVƒ‡ƒbƒg‰Šú‰»i‘S‘Ìj
-extern	void	ShotInit( SHOT_TBL *shot );		//	ƒVƒ‡ƒbƒg‰Šú‰»i’P‘Ìj
-extern	void	ShotLoop( void );				//	ƒVƒ‡ƒbƒgƒ‹[ƒv
-extern	void	ShotMain( SHOT_TBL *shot );		//	ƒVƒ‡ƒbƒgƒƒCƒ“
-extern	long	GetShotNo( void );				//	ƒVƒ‡ƒbƒg‹ó‚«”Ô†æ“¾
-extern	void	ShotRotSet( SHOT_TBL *shot );	//	ƒVƒ‡ƒbƒgŠp“xƒZƒbƒg
-extern	long	ShotHitChk( long no );			//	ƒVƒ‡ƒbƒg‚Ì“–‚½‚è”»’è
+extern	void	ShotInitAll( void );			//	ã‚·ãƒ§ãƒƒãƒˆåˆæœŸåŒ–ï¼ˆå…¨ä½“ï¼‰
+extern	void	ShotInit( SHOT_TBL *shot );		//	ã‚·ãƒ§ãƒƒãƒˆåˆæœŸåŒ–ï¼ˆå˜ä½“ï¼‰
+extern	void	ShotLoop( void );				//	ã‚·ãƒ§ãƒƒãƒˆãƒ«ãƒ¼ãƒ—
+extern	void	ShotMain( SHOT_TBL *shot );		//	ã‚·ãƒ§ãƒƒãƒˆãƒ¡ã‚¤ãƒ³
+extern	long	GetShotNo( void );				//	ã‚·ãƒ§ãƒƒãƒˆç©ºãç•ªå·å–å¾—
+extern	void	ShotRotSet( SHOT_TBL *shot );	//	ã‚·ãƒ§ãƒƒãƒˆè§’åº¦ã‚»ãƒƒãƒˆ
+extern	long	ShotHitChk( long no );			//	ã‚·ãƒ§ãƒƒãƒˆã®å½“ãŸã‚Šåˆ¤å®š
 extern	long	HitCheck( double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4 );
 
 extern	void	ShotNormalSet( double speed, double rev );
@@ -96,5 +96,5 @@ extern	void	ShotSplineSet( double speed, double rot_add, double rev );
 extern	void	ShotHomingSet( double speed, double rev );
 
 
-//	ƒVƒ‡ƒbƒg\‘¢‘Ì
+//	ã‚·ãƒ§ãƒƒãƒˆæ§‹é€ ä½“
 extern	SHOT_TBL	SHOT[SHOT_MAX];

@@ -1,10 +1,10 @@
 /******************************************************************************/
-//	�I�u�W�F�N�g�p�t�@�C��
-//		�\�[�X�t�@�C��
+//	オブジェクト用ファイル
+//		ソースファイル
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	�C���N���[�h
+//	インクルード
 //----------------------------------------------------------------------------//
 #include	"./Dx9Lib/Dx9Lib.h"
 #include	"./Dx9LibAnm.h"
@@ -14,39 +14,39 @@
 #include	"./GameMain.h"
 
 //----------------------------------------------------------------------------//
-//	�O���[�o���ϐ�
+//	グローバル変数
 //----------------------------------------------------------------------------//
 OBJ_TBL	OBJ[OBJ_MAX];
 
 //----------------------------------------------------------------------------//
-//	�v���g�^�C�v�錾
+//	プロトタイプ宣言
 //----------------------------------------------------------------------------//
-void	ObjInitAll( void );				//	�I�u�W�F�N�g�S������
-void	ObjInit( long no );				//	�I�u�W�F�N�g������
+void	ObjInitAll( void );				//	オブジェクト全初期化
+void	ObjInit( long no );				//	オブジェクト初期化
 void	ObjSet( long obj_no, long pol_no, long pat_no, double x, double y, double z, u_long type, u_long atr );
-void	ObjPosSet( long obj_no, double x, double y, double z );		//	�\�����W�Z�b�g
-void	ObjCenterSet( long obj_no, short cx, short cy );	//	���S���W�Z�b�g
-void	ObjScaleSet( long obj_no, double scale );			//	�g�嗦�Z�b�g
-void	ObjMovePosSet( long obj_no, double mx, double my );	//	�ړ��ʃZ�b�g
-void	ObjAnmSet( long obj_no, long anm_no, long flag );	//	�I�u�W�F�N�g�A�j���Z�b�g
-void	ObjMove( void );				//	�I�u�W�F�N�g�S�ړ�
-void	ObjMoveLoop( long no );			//	�I�u�W�F�N�g�ړ�
-void	ObjDispAll( void );				//	�I�u�W�F�N�g�S�o��
-void	ObjDisp( OBJ_TBL *obj );		//	�I�u�W�F�N�g�o��
-long	ObjClipping( long no );			//	�I�u�W�F�N�g�N���b�s���O
-void	ObjPosBackUp( OBJ_TBL *obj );	//	���W�o�b�N�A�b�v
-void	ObjPosRet( OBJ_TBL *obj );		//	���W�����ɖ߂�
-long	ObjGetNo( long no );			//	�󂫔ԍ��擾
-void	ObjDelete( short no, long time );	//	�I�u�W�F�N�g����
+void	ObjPosSet( long obj_no, double x, double y, double z );		//	表示座標セット
+void	ObjCenterSet( long obj_no, short cx, short cy );	//	中心座標セット
+void	ObjScaleSet( long obj_no, double scale );			//	拡大率セット
+void	ObjMovePosSet( long obj_no, double mx, double my );	//	移動量セット
+void	ObjAnmSet( long obj_no, long anm_no, long flag );	//	オブジェクトアニメセット
+void	ObjMove( void );				//	オブジェクト全移動
+void	ObjMoveLoop( long no );			//	オブジェクト移動
+void	ObjDispAll( void );				//	オブジェクト全出現
+void	ObjDisp( OBJ_TBL *obj );		//	オブジェクト出現
+long	ObjClipping( long no );			//	オブジェクトクリッピング
+void	ObjPosBackUp( OBJ_TBL *obj );	//	座標バックアップ
+void	ObjPosRet( OBJ_TBL *obj );		//	座標を元に戻す
+long	ObjGetNo( long no );			//	空き番号取得
+void	ObjDelete( short no, long time );	//	オブジェクト消滅
 
 
 
 /******************************************************************************/
-//	�I�u�W�F�N�g�S������
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				�Ȃ�
+//	オブジェクト全初期化
+//		戻り値：
+//				なし
+//		引数：
+//				なし
 /******************************************************************************/
 void	ObjInitAll( void )
 {
@@ -57,92 +57,92 @@ void	ObjInitAll( void )
 }
 
 /******************************************************************************/
-//	�I�u�W�F�N�g������
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				�Ȃ�
+//	オブジェクト初期化
+//		戻り値：
+//				なし
+//		引数：
+//				なし
 /******************************************************************************/
 void	ObjInit( long no )
 {
 	POL[ no ].Disp = OFF;
 
-	//	�t���O
-	OBJ[ no ].use = OFF;				//	�g�p
-	OBJ[ no ].disp = OFF;				//	�\��
-	OBJ[ no ].buzz = OFF;				//	�o�Y��
+	//	フラグ
+	OBJ[ no ].use = OFF;				//	使用
+	OBJ[ no ].disp = OFF;				//	表示
+	OBJ[ no ].buzz = OFF;				//	バズり
 
-	//	�ԍ�
+	//	番号
 	OBJ[ no ].pol_no = NOT;
 	OBJ[ no ].pat_no = NOT;
 	OBJ[ no ].anm_no = NOT;
 
-	//	���W
-	ObjPosSet( no, 0,0,0 )	;	//	�\�����W
-	ObjPosBackUp( &OBJ[ no ] );	//	�o�b�N�A�b�v���W
-	ObjMovePosSet( no, 0,0 );	//	�ړ���
-	ObjCenterSet( no, 0,0 );	//	���S���W
+	//	座標
+	ObjPosSet( no, 0,0,0 )	;	//	表示座標
+	ObjPosBackUp( &OBJ[ no ] );	//	バックアップ座標
+	ObjMovePosSet( no, 0,0 );	//	移動量
+	ObjCenterSet( no, 0,0 );	//	中心座標
 
-	//	����
-	OBJ[ no ].type = 0;			//	�^�C�v
-	OBJ[ no ].atr = OBJ_ATR_NONE;	//	�A�g���r���[�g
+	//	属性
+	OBJ[ no ].type = 0;			//	タイプ
+	OBJ[ no ].atr = OBJ_ATR_NONE;	//	アトリビュート
 
-	//	�����蔻��
+	//	当たり判定
 	OBJ[ no ].hit_rect = 0;
 	OBJ[ no ].buzz_rect = 0;
 
-	//	���̑�
-	OBJ[ no ].scale = 1.0;	//	�g�嗦
-	OBJ[ no ].rot_r = OBJ[ no ].rot_d = 0;	//	����
-	OBJ[ no ].rot = 0;		//	�p�x
-	OBJ[ no ].speed = 0;		//	�X�s�[�h
-	OBJ[ no ].dead = 0;		//	���S�t���O
-	OBJ[ no ].dead_ct = 0;	//	���S�J�E���^
-	OBJ[ no ].ct = 0;		//	�ėp�J�E���^
+	//	その他
+	OBJ[ no ].scale = 1.0;	//	拡大率
+	OBJ[ no ].rot_r = OBJ[ no ].rot_d = 0;	//	向き
+	OBJ[ no ].rot = 0;		//	角度
+	OBJ[ no ].speed = 0;		//	スピード
+	OBJ[ no ].dead = 0;		//	死亡フラグ
+	OBJ[ no ].dead_ct = 0;	//	死亡カウンタ
+	OBJ[ no ].ct = 0;		//	汎用カウンタ
 }
 
 /******************************************************************************/
-//	�I�u�W�F�N�g�ݒ�
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				obj_no		�I�u�W�F�N�g�ԍ�
-//				pol_no		�|���S���ԍ�
-//				pat_no		�p�^�[���ԍ�
-//				x,y,z		���W
-//				type		�^�C�v
-//				atr			�A�g���r���[�g
+//	オブジェクト設定
+//		戻り値：
+//				なし
+//		引数：
+//				obj_no		オブジェクト番号
+//				pol_no		ポリゴン番号
+//				pat_no		パターン番号
+//				x,y,z		座標
+//				type		タイプ
+//				atr			アトリビュート
 /******************************************************************************/
 void	ObjSet( long obj_no, long pol_no, long pat_no, double x, double y, double z, u_long type, u_long atr )
 {
-	//	�t���O
+	//	フラグ
 	OBJ[ obj_no ].use = ON;
 	OBJ[ obj_no ].disp = ON;
 
-	//	�ԍ�
+	//	番号
 	OBJ[ obj_no ].pol_no = pol_no;
 	OBJ[ obj_no ].pat_no = pat_no;
 
-	//	���W
+	//	座標
 	OBJ[ obj_no ].px = x;
 	OBJ[ obj_no ].py = y;
 	OBJ[ obj_no ].pz = z;
 
-	//	����
+	//	属性
 	OBJ[ obj_no ].type = type;
 	OBJ[ obj_no ].atr = atr;
 
-	//	�|���S���Z�b�g
+	//	ポリゴンセット
 	SetPolygonPat( pol_no, pat_no, x,y,z, ATR_NONE );
 }
 
 /******************************************************************************/
-//	�I�u�W�F�N�g�̕\�����W�Z�b�g
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				obj_no		�I�u�W�F�N�g�ԍ�
-//				x,y,z		�\�����W
+//	オブジェクトの表示座標セット
+//		戻り値：
+//				なし
+//		引数：
+//				obj_no		オブジェクト番号
+//				x,y,z		表示座標
 /******************************************************************************/
 void	ObjPosSet( long obj_no, double x, double y,double z )
 {
@@ -157,12 +157,12 @@ void	ObjPosSet( long obj_no, double x, double y,double z )
 }
 
 /******************************************************************************/
-//	���S���W�̃Z�b�g
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				obj_no		�I�u�W�F�N�g�ԍ�
-//				cx,cy		���S���W
+//	中心座標のセット
+//		戻り値：
+//				なし
+//		引数：
+//				obj_no		オブジェクト番号
+//				cx,cy		中心座標
 /******************************************************************************/
 void	ObjCenterSet( long obj_no, short cx, short cy )
 {
@@ -175,12 +175,12 @@ void	ObjCenterSet( long obj_no, short cx, short cy )
 }
 
 /******************************************************************************/
-//	�g�嗦�̃Z�b�g
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				obj_no	�I�u�W�F�N�g�ԍ�
-//				scale	�g�嗦
+//	拡大率のセット
+//		戻り値：
+//				なし
+//		引数：
+//				obj_no	オブジェクト番号
+//				scale	拡大率
 /******************************************************************************/
 void	ObjScaleSet( long obj_no, double scale )
 {
@@ -191,12 +191,12 @@ void	ObjScaleSet( long obj_no, double scale )
 }
 
 /******************************************************************************/
-//	�ړ��ʃZ�b�g
-//		�߂�l�G
-//				�Ȃ�
-//		�����F
-//				obj_no	�I�u�W�F�N�g�ԍ�
-//				mx,my	�ړ���
+//	移動量セット
+//		戻り値；
+//				なし
+//		引数：
+//				obj_no	オブジェクト番号
+//				mx,my	移動量
 /******************************************************************************/
 void	ObjMovePosSet( long obj_no, double mx, double my )
 {
@@ -205,24 +205,24 @@ void	ObjMovePosSet( long obj_no, double mx, double my )
 }
 
 /******************************************************************************/
-//	�I�u�W�F�N�g�A�j���Z�b�g
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				obj_no		�I�u�W�F�N�g�ԍ�
-//				anm_no		�A�j���ԍ�
-//				flag		�t���O
+//	オブジェクトアニメセット
+//		戻り値：
+//				なし
+//		引数：
+//				obj_no		オブジェクト番号
+//				anm_no		アニメ番号
+//				flag		フラグ
 /******************************************************************************/
 void	ObjAnmSet( long obj_no, long anm_no, long flag )
 {
 }
 
 /******************************************************************************/
-//	�I�u�W�F�N�g�S�ړ�
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				�Ȃ�
+//	オブジェクト全移動
+//		戻り値：
+//				なし
+//		引数：
+//				なし
 /******************************************************************************/
 void	ObjMove( void )
 {
@@ -233,11 +233,11 @@ void	ObjMove( void )
 }
 
 /******************************************************************************/
-//	�I�u�W�F�N�g�ړ�
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				*obj	�I�u�W�F�N�g�̃A�h���X
+//	オブジェクト移動
+//		戻り値：
+//				なし
+//		引数：
+//				*obj	オブジェクトのアドレス
 /******************************************************************************/
 void	ObjMoveLoop( long no )
 {
@@ -250,11 +250,11 @@ void	ObjMoveLoop( long no )
 }
 
 /******************************************************************************/
-//	�I�u�W�F�N�g�S�o��
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				�Ȃ�
+//	オブジェクト全出現
+//		戻り値：
+//				なし
+//		引数：
+//				なし
 /******************************************************************************/
 void	ObjDispAll( void )
 {
@@ -268,55 +268,55 @@ void	ObjDispAll( void )
 }
 
 /******************************************************************************/
-//	�I�u�W�F�N�g�o��
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				*obj	�I�u�W�F�N�g�̃A�h���X
+//	オブジェクト出現
+//		戻り値：
+//				なし
+//		引数：
+//				*obj	オブジェクトのアドレス
 /******************************************************************************/
 void	ObjDisp( OBJ_TBL *obj )
 {
-	//	�ꎞ�i�[�p
+	//	一時格納用
 	long	pol,pat;
 	double	x,y,z;
 
-	//	�ԍ�
+	//	番号
 	pat = obj->pat_no;
 	pol = obj->pol_no;
 
-	//	���W
+	//	座標
 	x = obj->px;
 	y = obj->py;
 	z = obj->pz;
 
-	//	���W�̃o�b�N�A�b�v
+	//	座標のバックアップ
 	obj->bx = obj->px;
 	obj->by = obj->py;
 	obj->bz = obj->pz;
 
-	//	�|���S���ăZ�b�g
+	//	ポリゴン再セット
 	SetPolygonPat( pol, pat, x,y,z, ATR_NONE );
 
 	POL[ pol ].Disp = obj->disp;
 
-	//	�g�嗦
+	//	拡大率
 	POL[ pol ].ScaleX = obj->scale;
 	POL[ pol ].ScaleY = obj->scale;
 
-	//	�p�x
+	//	角度
 	POL[ pol ].Rot = obj->rot;
 
-	//	���S���W
+	//	中心座標
 	POL[ pol ].CenterX = obj->cx;
 	POL[ pol ].CenterY = obj->cy;
 }
 
 /******************************************************************************/
-//	�I�u�W�F�N�g�N���b�s���O
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				*obj	�I�u�W�F�N�g�̃A�h���X
+//	オブジェクトクリッピング
+//		戻り値：
+//				なし
+//		引数：
+//				*obj	オブジェクトのアドレス
 /******************************************************************************/
 long	ObjClipping( long no )
 {
@@ -364,11 +364,11 @@ long	ObjClipping( long no )
 }
 
 /******************************************************************************/
-//	���W�o�b�N�A�b�v
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				*obj	�I�u�W�F�N�g�̃A�h���X
+//	座標バックアップ
+//		戻り値：
+//				なし
+//		引数：
+//				*obj	オブジェクトのアドレス
 /******************************************************************************/
 void	ObjPosBackUp( OBJ_TBL *obj )
 {
@@ -378,11 +378,11 @@ void	ObjPosBackUp( OBJ_TBL *obj )
 }
 
 /******************************************************************************/
-//	���W�����ɖ߂�
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				*obj	�I�u�W�F�N�g�̃A�h���X
+//	座標を元に戻す
+//		戻り値：
+//				なし
+//		引数：
+//				*obj	オブジェクトのアドレス
 /******************************************************************************/
 void	ObjPosRet( OBJ_TBL *obj )
 {
@@ -391,11 +391,11 @@ void	ObjPosRet( OBJ_TBL *obj )
 }
 
 /******************************************************************************/
-//	�󂫔ԍ��擾
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				*obj	�I�u�W�F�N�g�̔ԍ�
+//	空き番号取得
+//		戻り値：
+//				なし
+//		引数：
+//				*obj	オブジェクトの番号
 /******************************************************************************/
 long	ObjGetNo( long no )
 {
@@ -413,11 +413,11 @@ long	ObjGetNo( long no )
 }
 
 /******************************************************************************/
-//	�I�u�W�F�N�g����
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				time		���ł܂ł̎��ԁi�t���[�����j
+//	オブジェクト消滅
+//		戻り値：
+//				なし
+//		引数：
+//				time		消滅までの時間（フレーム数）
 /******************************************************************************/
 void	ObjDelete( short no, long time )
 {

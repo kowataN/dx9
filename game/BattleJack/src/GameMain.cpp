@@ -1,10 +1,10 @@
 /******************************************************************************/
-//	ƒoƒgƒ‹ƒWƒƒƒbƒN
-//		ƒQ[ƒ€ƒƒCƒ“ƒ\[ƒXƒtƒ@ƒCƒ‹
+//	ãƒãƒˆãƒ«ã‚¸ãƒ£ãƒƒã‚¯
+//		ã‚²ãƒ¼ãƒ ãƒ¡ã‚¤ãƒ³ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #include	<process.h>
 #include	"./Dx9Lib/Dx9Lib.h"
@@ -13,7 +13,7 @@
 #include	"./StopWatch.h"
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 GAME_MNG_TBL	g_GameMng =
 {
@@ -29,22 +29,22 @@ GAME_MNG_TBL	g_GameMng =
 
 DECK_TBL	DeckCpu[CARD_MAX];
 
-//	ƒvƒŒƒCƒ„[èD•\¦À•W
+//	ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼æ‰‹æœ­è¡¨ç¤ºåº§æ¨™
 double	HandPlayerPos[][4][2]=
 {
-	{	//	1–‡
+	{	//	1æš
 		296+(CARD_SIZE_W/2),416+(CARD_SIZE_H/2)
 	},
-	{	//	2–‡
+	{	//	2æš
 		268+(CARD_SIZE_W/2),416+(CARD_SIZE_H/2),
 		324+(CARD_SIZE_W/2),416+(CARD_SIZE_H/2)
 	},
-	{	//	3–‡
+	{	//	3æš
 		240+(CARD_SIZE_W/2),416+(CARD_SIZE_H/2),
 		296+(CARD_SIZE_W/2),416+(CARD_SIZE_H/2),
 		352+(CARD_SIZE_W/2),416+(CARD_SIZE_H/2)
 	},
-	{	//	4–‡
+	{	//	4æš
 		212+(CARD_SIZE_W/2),416+(CARD_SIZE_H/2),
 		268+(CARD_SIZE_W/2),416+(CARD_SIZE_H/2),
 		324+(CARD_SIZE_W/2),416+(CARD_SIZE_H/2),
@@ -52,22 +52,22 @@ double	HandPlayerPos[][4][2]=
 	},
 };
 
-//	CPUƒJ[ƒhèD•\¦À•W
+//	CPUã‚«ãƒ¼ãƒ‰æ‰‹æœ­è¡¨ç¤ºåº§æ¨™
 double	HandCpuPos[][4][2] =
 {
-	{	//	1–‡
+	{	//	1æš
 		296+(CARD_SIZE_W/2),8+(CARD_SIZE_H/2)
 	},
-	{	//	2–‡
+	{	//	2æš
 		268+(CARD_SIZE_W/2),8+(CARD_SIZE_H/2),
 		324+(CARD_SIZE_W/2),8+(CARD_SIZE_H/2)
 	},
-	{	//	3–‡
+	{	//	3æš
 		240+(CARD_SIZE_W/2),8+(CARD_SIZE_H/2),
 		296+(CARD_SIZE_W/2),8+(CARD_SIZE_H/2),
 		352+(CARD_SIZE_W/2),8+(CARD_SIZE_H/2)
 	},
-	{	//	4–‡
+	{	//	4æš
 		212+(CARD_SIZE_W/2),8+(CARD_SIZE_H/2),
 		268+(CARD_SIZE_W/2),8+(CARD_SIZE_H/2),
 		324+(CARD_SIZE_W/2),8+(CARD_SIZE_H/2),
@@ -75,22 +75,22 @@ double	HandCpuPos[][4][2] =
 	},
 };
 
-//	ƒvƒŒƒCƒ„[ƒJ[ƒh“–‚½‚è”»’è
+//	ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚«ãƒ¼ãƒ‰å½“ãŸã‚Šåˆ¤å®š
 long	HitPlayerCard[][4][4] =
 {
-	{	//	1–‡
+	{	//	1æš
 		296,416,344,472,
 	},
-	{	//	2–‡
+	{	//	2æš
 		268,416,316,472,
 		324,416,372,472,
 	},
-	{	//	3–‡
+	{	//	3æš
 		240,416,288,472,
 		296,416,344,472,
 		352,415,400,472,
 	},
-	{	//	4–‡
+	{	//	4æš
 		212,416,260,472,
 		268,416,316,472,
 		324,416,372,472,
@@ -98,30 +98,30 @@ long	HitPlayerCard[][4][4] =
 	},
 };
 
-//	ƒvƒŒƒCƒ„[ƒtƒB[ƒ‹ƒh•\¦À•W
+//	ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¡¨ç¤ºåº§æ¨™
 double	FldPlayerPos[][4][2] =
 {
-	{	//	2–‡
+	{	//	2æš
 		268,296, 324,296,
 	},
-	{	//	3–‡
+	{	//	3æš
 		240,296, 296,296, 352,296,
 	},
-	{	//	4–‡
+	{	//	4æš
 		212,296, 268,296, 324,296, 380,296,
 	},
 };
 
-//	CPUƒtƒB[ƒ‹ƒh•\¦À•W
+//	CPUãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¡¨ç¤ºåº§æ¨™
 double	FldCpuPos[][4][2] =
 {
-	{	//	2–‡
+	{	//	2æš
 		268,128, 324,128,
 	},
-	{	//	3–‡
+	{	//	3æš
 		240,128, 296,128, 352,128,
 	},
-	{	//	4–‡
+	{	//	4æš
 		212,128, 268,128, 324,128, 380,128,
 	},
 };
@@ -129,7 +129,7 @@ double	FldCpuPos[][4][2] =
 CHARA_TBL	Chara[2];
 
 //----------------------------------------------------------------------------//
-//	ƒvƒƒgƒ^ƒCƒvéŒ¾
+//	ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 //----------------------------------------------------------------------------//
 void	MainInit( void );
 void	MainEnd( void );
@@ -159,7 +159,7 @@ void	DispAddPointOne( long UserFlag, long PolNo );
 
 
 /******************************************************************************/
-//	ƒƒCƒ“ƒ‹[ƒv
+//	ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒ—
 /******************************************************************************/
 void	MainLoop( void )
 {
@@ -180,62 +180,62 @@ void	MainLoop( void )
 }
 
 /******************************************************************************/
-//	ƒƒCƒ“‰Šú‰»
+//	ãƒ¡ã‚¤ãƒ³åˆæœŸåŒ–
 /******************************************************************************/
 void	MainInit( void )
 {
 }
 
 /******************************************************************************/
-//	ƒƒCƒ“I—¹ˆ—
+//	ãƒ¡ã‚¤ãƒ³çµ‚äº†å‡¦ç†
 /******************************************************************************/
 void	MainEnd( void )
 {
 }
 
 /******************************************************************************/
-//	ƒQ[ƒ€ƒ‹[ƒv
+//	ã‚²ãƒ¼ãƒ ãƒ«ãƒ¼ãƒ—
 /******************************************************************************/
 void	GameLoop( void )
 {
 	switch( g_GameMng.GameMode )
 	{
-		//	ƒQ[ƒ€‰Šú‰»
+		//	ã‚²ãƒ¼ãƒ åˆæœŸåŒ–
 		case	GameModeInit:
 			GameInit();
 			g_GameMng.GameMode = GameModeStart;
 
-		//	ƒQ[ƒ€ŠJn
+		//	ã‚²ãƒ¼ãƒ é–‹å§‹
 		case	GameModeStart:
 			GameStart();
 			break;
 
-		//	ƒJ[ƒh‚ğ”z‚é
+		//	ã‚«ãƒ¼ãƒ‰ã‚’é…ã‚‹
 		case	GameModeCardDraw:
 			GameCardDraw();
 			break;
 
-		//	ƒvƒŒƒCƒ„[ƒJ[ƒh‘I‘ğ
+		//	ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚«ãƒ¼ãƒ‰é¸æŠ
 		case	GameModeSelect:
 			GameSelectCard();
 			break;
 
-		//	CPUƒJ[ƒh‘I‘ğ
+		//	CPUã‚«ãƒ¼ãƒ‰é¸æŠ
 		case	GameModeCpuSelect:
 			GameSelectCardCpu();
 			break;
 
-		//	ƒtƒB[ƒ‹ƒh‚ÉƒJ[ƒhİ’è
+		//	ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«ã‚«ãƒ¼ãƒ‰è¨­å®š
 		case	GameModeFldCardSet:
 			GameFldCardSet();
 			break;
 
-		//	”»’è
+		//	åˆ¤å®š
 		case	GameModeDispSum:
 			DispCardCalc();
 			break;
 
-		//	ƒQ[ƒ€I—¹
+		//	ã‚²ãƒ¼ãƒ çµ‚äº†
 		case	GameModeEnd:
 			GameEnd();
 			break;
@@ -243,7 +243,7 @@ void	GameLoop( void )
 }
 
 /******************************************************************************/
-//	ƒQ[ƒ€‰Šú‰»
+//	ã‚²ãƒ¼ãƒ åˆæœŸåŒ–
 /******************************************************************************/
 void	GameInit( void )
 {
@@ -258,22 +258,22 @@ void	GameInit( void )
 	}
 
 	/////////////////////////////////////////////////
-	//	ƒeƒNƒXƒ`ƒƒ“Ç‚İ‚İ
+	//	ãƒ†ã‚¯ã‚¹ãƒãƒ£èª­ã¿è¾¼ã¿
 
-	//	”wŒi
+	//	èƒŒæ™¯
 	LoadTexture( TEX_GAME_BG, "img\\bg.bmp" );
-	//	ƒVƒXƒeƒ€
+	//	ã‚·ã‚¹ãƒ†ãƒ 
 	LoadTexture( TEX_GAME_SYSTEM, "img\\system.bmp" );
-	//	ƒJ[ƒh
+	//	ã‚«ãƒ¼ãƒ‰
 	LoadTexture( TEX_GAME_CARD, "img\\card.bmp" );
 
 	/////////////////////////////////////////////////
-	//	ƒpƒ^[ƒ“İ’è
+	//	ãƒ‘ã‚¿ãƒ¼ãƒ³è¨­å®š
 
-	//	”wŒi
+	//	èƒŒæ™¯
 	SetPattern( PAT_GAME_BG, TEX_GAME_BG, 0,0, 640,480 );
 
-	//	RD
+	//	å±±æœ­
 	SetPattern( PAT_GAME_DECK_PLAYER, TEX_GAME_CARD,
 		DECK_PLAYER_PAT_X,DECK_PLAYER_PAT_Y,
 		DECK_PLAYER_PAT_W,DECK_PLAYER_PAT_H );
@@ -281,7 +281,7 @@ void	GameInit( void )
 		DECK_CPU_PAT_X,DECK_CPU_PAT_Y,
 		DECK_CPU_PAT_W,DECK_CPU_PAT_H );
 
-	//	ƒ{ƒ^ƒ“
+	//	ãƒœã‚¿ãƒ³
 	SetPattern( PAT_GAME_BUT_OK, TEX_GAME_SYSTEM,
 		BUT_OK_PAT_X,BUT_OK_PAT_Y,
 		BUT_OK_PAT_W,BUT_OK_PAT_H );
@@ -289,55 +289,55 @@ void	GameInit( void )
 		BUT_CANSEL_PAT_X,BUT_CANSEL_PAT_Y,
 		BUT_CANSEL_PAT_W,BUT_CANSEL_PAT_H );
 
-	//	ƒ|ƒCƒ“ƒg
+	//	ãƒã‚¤ãƒ³ãƒˆ
 	for( int i=0; i<13; i++ )
 	{
 		SetPattern( PAT_GAME_NUMBER0 + i, TEX_GAME_SYSTEM,
 			(NUMBER_SIZE_W*i), 0, NUMBER_SIZE_W,NUMBER_SIZE_H );
 	}
 
-	//	ƒJ[ƒh
+	//	ã‚«ãƒ¼ãƒ‰
 	for( int i=0; i<USE_NUMBER; i++ )
 	{
-		//	ƒn[ƒg
+		//	ãƒãƒ¼ãƒˆ
 		SetPattern( PAT_GAME_HEART + i,TEX_GAME_CARD,
 			CARD_SIZE_W*i, CARD_SIZE_H*0, CARD_SIZE_W,CARD_SIZE_H );
-		//	ƒ_ƒCƒ„
+		//	ãƒ€ã‚¤ãƒ¤
 		SetPattern( PAT_GAME_DIAMOND + i,TEX_GAME_CARD,
 			CARD_SIZE_W*i, CARD_SIZE_H*1, CARD_SIZE_W,CARD_SIZE_H );
-		//	ƒNƒ‰ƒu
+		//	ã‚¯ãƒ©ãƒ–
 		SetPattern( PAT_GAME_CLUB + i,TEX_GAME_CARD,
 			CARD_SIZE_W*i, CARD_SIZE_H*2, CARD_SIZE_W,CARD_SIZE_H );
-		//	ƒXƒy[ƒh
+		//	ã‚¹ãƒšãƒ¼ãƒ‰
 		SetPattern( PAT_GAME_SPADE + i,TEX_GAME_CARD,
 			CARD_SIZE_W*i, CARD_SIZE_H*3, CARD_SIZE_W,CARD_SIZE_H );
 	}
 
-	//	Ÿ”s—p
+	//	å‹æ•—ç”¨
 	SetPattern( PAT_GAME_WIN, TEX_GAME_SYSTEM, WIN_PAT_X,WIN_PAT_Y, WIN_PAT_W,WIN_PAT_H );
 	SetPattern( PAT_GAME_LOSE, TEX_GAME_SYSTEM, LOSE_PAT_X,LOSE_PAT_Y, LOSE_PAT_W,LOSE_PAT_H );
 	SetPattern( PAT_GAME_DRAW, TEX_GAME_SYSTEM, DRAW_PAT_X,DRAW_PAT_Y, DRAW_PAT_W,DRAW_PAT_H );
 	SetPattern( PAT_GAME_JUDGE_FLD, TEX_GAME_SYSTEM, WIN_FLD_PAT_X,WIN_FLD_PAT_Y, WIN_FLD_PAT_W,WIN_FLD_PAT_H );
 
-	//	í–Ú
+	//	æˆ¦ç›®
 	SetPattern( PAT_GAME_COUNT_STR, TEX_GAME_SYSTEM, SENME_PAT_X,SENME_PAT_Y, SENME_PAT_W,SENME_PAT_H );
 
-	//	I—¹•¶š
+	//	çµ‚äº†æ–‡å­—
 	SetPattern( PAT_GAME_END_STR, TEX_GAME_SYSTEM, END_STR_PAT_X,END_STR_PAT_Y, END_STR_PAT_W,END_STR_PAT_H );
 
 	/////////////////////////////////////////////////
-	//	ƒ|ƒŠƒSƒ“•\¦
+	//	ãƒãƒªã‚´ãƒ³è¡¨ç¤º
 
-	//	”wŒi
+	//	èƒŒæ™¯
 	g_LibPol.SetPat( POL_GAME_BG, PAT_GAME_BG, 0,0,0.0, ATR_NONE );
 
-	//	RD
+	//	å±±æœ­
 	g_LibPol.SetPat( POL_GAME_DECK_PLAYER, PAT_GAME_DECK_PLAYER,
 		DECK_PLAYER_POS_X,DECK_PLAYER_POS_Y,0.1, ATR_NONE );
 	g_LibPol.SetPat( POL_GAME_DECK_CPU, POL_GAME_DECK_CPU,
 		DECK_CPU_POS_X,DECK_CPU_POS_Y,0.1, ATR_NONE );
 
-	//	ƒ|ƒCƒ“ƒg
+	//	ãƒã‚¤ãƒ³ãƒˆ
 	for( int i=0; i<3; i++ )
 	{
 		g_LibPol.SetPat( POL_GAME_POINT_PLAYER+i, PAT_GAME_NUMBER_NONE,
@@ -346,7 +346,7 @@ void	GameInit( void )
 		g_LibPol.SetPat( POL_GAME_POINT_CPU+i, PAT_GAME_NUMBER_NONE,
 			POINT_CPU_POS_X+(i*16),POINT_CPU_POS_Y,0.1, ATR_NONE );
 	}
-	//	ƒ|ƒCƒ“ƒg—pƒ}ƒCƒiƒX‹L†
+	//	ãƒã‚¤ãƒ³ãƒˆç”¨ãƒã‚¤ãƒŠã‚¹è¨˜å·
 	g_LibPol.SetPat( POL_GAME_POINT_PLAYER+5, PAT_GAME_MINUS,
 		MINUS_PLAYER_POS_X,MINUS_PLAYER_POS_Y,0.1, ATR_NONE );
 	g_LibPol.SetPat( POL_GAME_POINT_CPU+5, PAT_GAME_MINUS,
@@ -354,7 +354,7 @@ void	GameInit( void )
 	g_LibPol.ChangeDisp( POL_GAME_POINT_PLAYER+5, OFF );
 	g_LibPol.ChangeDisp( POL_GAME_POINT_CPU+5, OFF );
 
-	//	‡Œv’l•\¦—p
+	//	åˆè¨ˆå€¤è¡¨ç¤ºç”¨
 	g_LibPol.SetPat( POL_GAME_CALC_PLAYER, PAT_GAME_NUMBER0,
 		CALC_PLAYER_POS_X,CALC_PLAYER_POS_Y,0.5, ATR_NONE );
 	g_LibPol.SetPat( POL_GAME_CALC_PLAYER+1, PAT_GAME_NUMBER0,
@@ -368,7 +368,7 @@ void	GameInit( void )
 	g_LibPol.ChangeDisp( POL_GAME_CALC_CPU, OFF );
 	g_LibPol.ChangeDisp( POL_GAME_CALC_CPU+1, OFF );
 
-	//	ƒ{ƒ^ƒ“ŠÖ˜A
+	//	ãƒœã‚¿ãƒ³é–¢é€£
 	g_LibPol.Set( POL_GAME_BUT_FLD,
 		BUT_FLD_SIZE_W,BUT_FLD_SIZE_H,
 		BUT_FLD_POS_X,BUT_FLD_POS_Y, 0.6, ATR_NONE );
@@ -380,7 +380,7 @@ void	GameInit( void )
 	g_LibPol.SetColor( POL_GAME_BUT_OK, 255,128,128,128 );
 	g_LibPol.SetColor( POL_GAME_BUT_CANCEL, 255,128,128,128 );
 
-	//	‰ÁZ’l
+	//	åŠ ç®—å€¤
 	g_LibPol.SetPat( POL_GAME_PLAYER_OPT, PAT_GAME_PLUS, OPT_PLAYER_POS_X,OPT_PLAYER_POS_Y,0.1, ATR_NONE );
 	g_LibPol.SetPat( POL_GAME_PLAYER_ADD1, PAT_GAME_NUMBER0, ADD1_PLAYER_POS_X,ADD1_PLAYER_POS_Y,0.1, ATR_NONE );
 	g_LibPol.SetPat( POL_GAME_PLAYER_ADD2, PAT_GAME_NUMBER0, ADD2_PLAYER_POS_X,ADD2_PLAYER_POS_Y,0.1, ATR_NONE );
@@ -398,7 +398,7 @@ void	GameInit( void )
 	g_LibPol.ChangeDisp( POL_GAME_CPU_ADD2, OFF);
 	g_LibPol.ChangeDisp( POL_GAME_CPU_ADD3, OFF);
 
-	//	Ÿ”sŠÖ˜A
+	//	å‹æ•—é–¢é€£
 	g_LibPol.SetPat( POL_GAME_JUDGE_FLD, PAT_GAME_JUDGE_FLD,
 		WIN_FLD_POS_X,WIN_FLD_POS_Y, 0.5, ATR_NONE );
 	g_LibPol.SetPat( POL_GAME_JUDGE, PAT_GAME_WIN,
@@ -407,23 +407,23 @@ void	GameInit( void )
 	g_LibPol.ChangeDisp( POL_GAME_JUDGE_FLD, OFF);
 	g_LibPol.ChangeDisp( POL_GAME_JUDGE, OFF);
 
-	//	ƒLƒƒƒ‰ƒNƒ^[\‘¢‘Ì‰Šú‰»
+	//	ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼æ§‹é€ ä½“åˆæœŸåŒ–
 	InitChara( GamePlayer );
 	InitChara( GameCpu );
 
-	//	—”‰Šú‰»
+	//	ä¹±æ•°åˆæœŸåŒ–
 	srand( (unsigned int)time(NULL) );
 
-	//	RD‰Šú‰»
+	//	å±±æœ­åˆæœŸåŒ–
 	InitDeck( Chara[GamePlayer].Deck );
 	InitDeck( Chara[GameCpu].Deck );
 
-	//	ƒ|ƒCƒ“ƒg•\¦
+	//	ãƒã‚¤ãƒ³ãƒˆè¡¨ç¤º
 	DispPoint();
 }
 
 /******************************************************************************/
-//	ƒQ[ƒ€ŠJn
+//	ã‚²ãƒ¼ãƒ é–‹å§‹
 /******************************************************************************/
 void	GameStart( void )
 {
@@ -433,7 +433,7 @@ void	GameStart( void )
 
 	switch( g_GameMng.GameModeState )
 	{
-		//	‰Šú‰»
+		//	åˆæœŸåŒ–
 		case	0:
 			g_LibPol.SetPat( POL_GAME_COUNT1, PAT_GAME_NUMBER0+Count[0], WIDTH,228, 0.8, ATR_NONE );
 			g_LibPol.SetPat( POL_GAME_COUNT2, PAT_GAME_NUMBER0+Count[1], WIDTH+NUMBER_SIZE_W,228, 0.8, ATR_NONE );
@@ -444,7 +444,7 @@ void	GameStart( void )
 			g_GameMng.GameModeState = 1;
 			break;
 
-		//	˜g•\¦
+		//	æ è¡¨ç¤º
 		case	1:
 			g_LibPol.AddHeight( POL_GAME_COUNT_FLD, 2 );
 			g_LibPol.AddPosY( POL_GAME_COUNT_FLD, -1 );
@@ -454,7 +454,7 @@ void	GameStart( void )
 			}
 			break;
 
-		//	•¶š•\¦
+		//	æ–‡å­—è¡¨ç¤º
 		case	2:
 			g_LibPol.AddPosX( POL_GAME_COUNT1, -20 );
 			g_LibPol.AddPosX( POL_GAME_COUNT2, -20 );
@@ -465,13 +465,13 @@ void	GameStart( void )
 			}
 			break;
 
-		//	ƒEƒGƒCƒg
+		//	ã‚¦ã‚¨ã‚¤ãƒˆ
 		case	3:
 			WaitTime( 30 );
 			g_GameMng.GameModeState = 4;
 			break;
 
-		//	•¶šˆÚ“®
+		//	æ–‡å­—ç§»å‹•
 		case	4:
 			g_LibPol.AddPosX( POL_GAME_COUNT1, -20 );
 			g_LibPol.AddPosX( POL_GAME_COUNT2, -20 );
@@ -482,7 +482,7 @@ void	GameStart( void )
 			}
 			break;
 
-		//	˜gÁ‹
+		//	æ æ¶ˆå»
 		case	5:
 			g_LibPol.AddHeight( POL_GAME_COUNT_FLD, -2 );
 			g_LibPol.AddPosY( POL_GAME_COUNT_FLD, 1 );
@@ -504,7 +504,7 @@ void	GameStart( void )
 }
 
 /******************************************************************************/
-//	ƒJ[ƒh‚ğ”z‚é
+//	ã‚«ãƒ¼ãƒ‰ã‚’é…ã‚‹
 /******************************************************************************/
 void	GameCardDraw( void )
 {
@@ -527,21 +527,21 @@ void	GameCardDraw( void )
 		Chara[GamePlayer].DeckIndex += 4;
 		Chara[GameCpu].DeckIndex += 4;
 
-		//	‘I‘ğó‘Ô‚ğ‰Šú‰»
+		//	é¸æŠçŠ¶æ…‹ã‚’åˆæœŸåŒ–
 		memset( &Chara[ GamePlayer ].SelectCard, 0x00, sizeof(Chara[ GamePlayer ].SelectCard) );
 		memset( &Chara[ GameCpu ].SelectCard, 0x00, sizeof(Chara[ GameCpu ].SelectCard) );
 	}
 }
 
 /******************************************************************************/
-//	ƒvƒŒƒCƒ„[‚ÉƒJ[ƒh‚ğ”z‚é
+//	ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã«ã‚«ãƒ¼ãƒ‰ã‚’é…ã‚‹
 /******************************************************************************/
 void	PlayerCardDraw( long Num )
 {
-	//	‚¨Œİ‚¢‚S–‡‚¸‚ÂƒJ[ƒh‚ğ”z‚é
+	//	ãŠäº’ã„ï¼”æšãšã¤ã‚«ãƒ¼ãƒ‰ã‚’é…ã‚‹
 	switch( Chara[ GamePlayer ].StateFlag[Num] )
 	{
-		//	ƒJ[ƒh‰Šú‰»
+		//	ã‚«ãƒ¼ãƒ‰åˆæœŸåŒ–
 		case	0:
 			g_LibPol.SetPat( POL_GAME_HAND_PLAYER+Num, PAT_GAME_DECK_PLAYER,
 				DECK_PLAYER_POS_X + (CARD_SIZE_W/2),
@@ -600,14 +600,14 @@ void	PlayerCardDraw( long Num )
 }
 
 /******************************************************************************/
-//	CPU‚ÉƒJ[ƒh‚ğ”z‚é
+//	CPUã«ã‚«ãƒ¼ãƒ‰ã‚’é…ã‚‹
 /******************************************************************************/
 void	CpuCardDraw( long Num )
 {
-	//	‚¨Œİ‚¢‚S–‡‚¸‚ÂƒJ[ƒh‚ğ”z‚é
+	//	ãŠäº’ã„ï¼”æšãšã¤ã‚«ãƒ¼ãƒ‰ã‚’é…ã‚‹
 	switch( Chara[ GameCpu ].StateFlag[Num] )
 	{
-		//	ƒJ[ƒh‰Šú‰»
+		//	ã‚«ãƒ¼ãƒ‰åˆæœŸåŒ–
 		case	0:
 			g_LibPol.SetPat( POL_GAME_HAND_CPU+Num, PAT_GAME_DECK_CPU,
 				DECK_CPU_POS_X + (CARD_SIZE_W/2),
@@ -639,7 +639,7 @@ void	CpuCardDraw( long Num )
 }
 
 /******************************************************************************/
-//	ƒJ[ƒh‘I‘ğ
+//	ã‚«ãƒ¼ãƒ‰é¸æŠ
 /******************************************************************************/
 void	GameSelectCard( void )
 {
@@ -648,7 +648,7 @@ void	GameSelectCard( void )
 	g_LibPol.ChangeDisp( POL_GAME_BUT_CANCEL, ON );
 
 	g_LibText.Set( 0, 168,360, 255,255,255,255,
-		"‡Œv‚Q‚P‚É‚È‚é‚æ‚¤‚É‚Q–‡ˆÈã‘I‘ğ‚µ‚Ä‰º‚³‚¢B" );
+		"åˆè¨ˆï¼’ï¼‘ã«ãªã‚‹ã‚ˆã†ã«ï¼’æšä»¥ä¸Šé¸æŠã—ã¦ä¸‹ã•ã„ã€‚" );
 
 	if( Chara[GamePlayer].SelCardCt >=1 )
 	{
@@ -676,7 +676,7 @@ void	GameSelectCard( void )
 		&& ( MOUSE.PosY >= BUT_OK_POS_Y )
 		&& ( MOUSE.PosY <= BUT_OK_POS_Y+BUT_OK_PAT_H ) )
 		{
-			//	OKƒ{ƒ^ƒ“”»’è
+			//	OKãƒœã‚¿ãƒ³åˆ¤å®š
 			if( Chara[GamePlayer].SelCardCt >= 2 && 21>=CardCalcOne( GamePlayer ) )
 			{
 				TXT[0].Disp = OFF;
@@ -689,17 +689,17 @@ void	GameSelectCard( void )
 			&& ( MOUSE.PosY >= BUT_CANCEL_POS_Y )
 			&& ( MOUSE.PosY <= BUT_CANCEL_POS_Y+BUT_CANSEL_PAT_H ) )
 		{
-			//	CANCELƒ{ƒ^ƒ“”»’è
+			//	CANCELãƒœã‚¿ãƒ³åˆ¤å®š
 			for( int i=0; i<HAND_NUM_MAX; i++ )
 			{
-				//	ƒJ[ƒh‚ğŒ³‚ÌˆÊ’u‚É–ß‚·
+				//	ã‚«ãƒ¼ãƒ‰ã‚’å…ƒã®ä½ç½®ã«æˆ»ã™
 				g_LibPol.SetPosY( POL_GAME_HAND_PLAYER+i, HandPlayerPos[HandNum][i][1] );
-				//	–¢‘I‘ğ‚É‚·‚é
+				//	æœªé¸æŠã«ã™ã‚‹
 				Chara[ GamePlayer ].SelectCard[i] = OFF;
 			}
 		}
 
-		//	ƒJ[ƒh“–‚½‚è”»’è
+		//	ã‚«ãƒ¼ãƒ‰å½“ãŸã‚Šåˆ¤å®š
 		for( int i=0; i<HAND_NUM_MAX; i++ )
 		{
 			if( HitPlayerCard[ HandNum ][i] == NULL )
@@ -716,7 +716,7 @@ void	GameSelectCard( void )
 			&& ( MOUSE.PosY >= Y1 )
 			&& ( MOUSE.PosY <= Y2 ) )
 			{
-				//	‘I‘ğ‚³‚ê‚Ä‚¢‚é‚©”»’è
+				//	é¸æŠã•ã‚Œã¦ã„ã‚‹ã‹åˆ¤å®š
 				if( Chara[ GamePlayer ].SelectCard[ i ] == ON )
 				{
 					long Index = Chara[ GamePlayer ].SelectCard[ i ];
@@ -731,7 +731,7 @@ void	GameSelectCard( void )
 		}
 	}
 
-	//	‘I‘ğ”æ“¾
+	//	é¸æŠæ•°å–å¾—
 	Chara[ GamePlayer ].SelCardCt = 0;
 	for( int i=0; i<HAND_NUM_MAX; i++ )
 	{
@@ -755,7 +755,7 @@ void	GameSelectCard( void )
 }
 
 /******************************************************************************/
-//	CPUƒJ[ƒh‘I‘ğ
+//	CPUã‚«ãƒ¼ãƒ‰é¸æŠ
 /******************************************************************************/
 void	GameSelectCardCpu( void )
 {
@@ -773,10 +773,10 @@ void	GameSelectCardCpu( void )
 		{ 1, 3, -1, -1 },
 		{ 2, 3, -1, -1 },
 	};
-	//	”z—ñ‚Ì—v‘f”æ“¾
+	//	é…åˆ—ã®è¦ç´ æ•°å–å¾—
 	long Size = sizeof(CalcTbl) / (sizeof(long)*4);
 
-	//	èDæ“¾
+	//	æ‰‹æœ­å–å¾—
 	long Hand[4];
 	for( int i=0; i<HAND_NUM_MAX; i++ )
 	{
@@ -784,14 +784,14 @@ void	GameSelectCardCpu( void )
 		Hand[i] = Chara[ GameCpu ].Deck[ Index+i ].Number;
 	}
 
-	//	‘“–‚è‚ÅÅ‘å’l‚ğæ“¾
+	//	ç·å½“ã‚Šã§æœ€å¤§å€¤ã‚’å–å¾—
 	long MaxCalc = 0;
 	long MaxCallcIndex = 0;
 	long Card[4] = {NOT};
 	for( int i=0; i<Size; i++ )
 	{
 		memset( &Card, -1, sizeof(Card) );
-		//	ŒvZ—p‚Ìƒe[ƒuƒ‹ì¬
+		//	è¨ˆç®—ç”¨ã®ãƒ†ãƒ¼ãƒ–ãƒ«ä½œæˆ
 		long Index = 0;
 		for( int j=0; j<HAND_NUM_MAX; j++ )
 		{
@@ -804,7 +804,7 @@ void	GameSelectCardCpu( void )
 		long TempCalc = CardCalc ( Card );
 		char Str[MAX_PATH+1];
 		memset( &Str, 0x00, sizeof(Str) );
-		sprintf_s( Str, MAX_PATH, "%2d ‡ŒvF%d\n",i, TempCalc );
+		sprintf_s( Str, MAX_PATH, "%2d åˆè¨ˆï¼š%d\n",i, TempCalc );
 		TRACE(Str);
 		if( TempCalc < 22 && MaxCalc <= TempCalc )
 		{
@@ -813,7 +813,7 @@ void	GameSelectCardCpu( void )
 		}
 	}
 
-	//	‘I‘ğƒJ[ƒh”ŒvZ
+	//	é¸æŠã‚«ãƒ¼ãƒ‰æ•°è¨ˆç®—
 	Chara[ GameCpu ].SelCardCt = 0;
 	for( int i=0; i<HAND_NUM_MAX; i++ )
 	{
@@ -826,7 +826,7 @@ void	GameSelectCardCpu( void )
 
 	char Str[MAX_PATH+1];
 	memset( &Str, 0x00, sizeof(Str) );
-	sprintf_s( Str, MAX_PATH, "Å‘åIDXF%2d Å‘å’lF%d\n", MaxCallcIndex, MaxCalc );
+	sprintf_s( Str, MAX_PATH, "æœ€å¤§IDXï¼š%2d æœ€å¤§å€¤ï¼š%d\n", MaxCallcIndex, MaxCalc );
 	TRACE(Str);
 
 	g_GameMng.GameMode = GameModeFldCardSet;
@@ -840,19 +840,19 @@ void	GameSelectCardCpu( void )
 
 #ifdef	_DEBUG
 	//g_LibText.Set( 10, 0,0, 255,255,255,255, "" );
-	//sprintf_s( TXT[10].Str, MAX_PATH, "èDF[%2d]  [%2d]  [%2d]  [%2d]",
+	//sprintf_s( TXT[10].Str, MAX_PATH, "æ‰‹æœ­ï¼š[%2d]  [%2d]  [%2d]  [%2d]",
 	//	Hand[0], Hand[1], Hand[2], Hand[3] );
 #endif
 }
 
 /******************************************************************************/
-//	ƒtƒB[ƒ‹ƒh‚ÉƒJ[ƒhİ’è
+//	ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«ã‚«ãƒ¼ãƒ‰è¨­å®š
 /******************************************************************************/
 void	GameFldCardSet( void )
 {
 	long Index = 0;
 
-	//	CPUƒJ[ƒhƒZƒbƒg
+	//	CPUã‚«ãƒ¼ãƒ‰ã‚»ãƒƒãƒˆ
 	for( int i=0; i<HAND_NUM_MAX; i++ )
 	{
 		if( Chara[ GameCpu ].SelectCard[i] )
@@ -866,7 +866,7 @@ void	GameFldCardSet( void )
 		}
 	}
 
-	//	ƒvƒŒƒCƒ„[ƒJ[ƒhƒZƒbƒg
+	//	ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚«ãƒ¼ãƒ‰ã‚»ãƒƒãƒˆ
 	Index = 0;
 	for( int i=0; i<HAND_NUM_MAX; i++ )
 	{
@@ -891,22 +891,22 @@ void	GameFldCardSet( void )
 		&& ( Chara[GameCpu].StateFlag[3] == 4 )
 		)
 	{
-		//	”»’è
+		//	åˆ¤å®š
 		g_GameMng.GameMode = GameModeDispSum;
 		g_GameMng.GameModeState = 0;
 	}
 }
 
 /******************************************************************************/
-//	ƒvƒŒƒCƒ„[ƒJ[ƒhƒtƒB[ƒ‹ƒhƒZƒbƒg
+//	ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚«ãƒ¼ãƒ‰ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚»ãƒƒãƒˆ
 /******************************************************************************/
 void	PlayerCardFldSet( long Num, long FldIndex )
 {
 	long SelCt = Chara[ GamePlayer ].SelCardCt-2;
-	//	‘I‘ğ’†‚ÌƒJ[ƒhˆÚ“®
+	//	é¸æŠä¸­ã®ã‚«ãƒ¼ãƒ‰ç§»å‹•
 	switch( Chara[ GamePlayer ].StateFlag[Num] )
 	{
-		//	ƒJ[ƒh‰Šú‰»
+		//	ã‚«ãƒ¼ãƒ‰åˆæœŸåŒ–
 		case	0:
 			Chara[ GamePlayer ].HandCardRotR[Num]
 				= GetRot(
@@ -919,9 +919,9 @@ void	PlayerCardFldSet( long Num, long FldIndex )
 			break;
 
 		case	1:
-			//	‚wÀ•WˆÚ“®
+			//	ï¼¸åº§æ¨™ç§»å‹•
 			g_LibPol.AddPosX( POL_GAME_HAND_PLAYER+Num, GetMoveX( 20, Chara[ GamePlayer ].HandCardRotR[Num] ) );
-			//	‚xÀ•WˆÚ“®
+			//	ï¼¹åº§æ¨™ç§»å‹•
 			g_LibPol.AddPosY( POL_GAME_HAND_PLAYER+Num, GetMoveY( 20, Chara[ GamePlayer ].HandCardRotR[Num] ) );
 
 			if( g_LibPol.GetInfo(POL_GAME_HAND_PLAYER+Num).PosY <= FldPlayerPos[ SelCt ][FldIndex][1] + (CARD_SIZE_H/2) )
@@ -940,15 +940,15 @@ void	PlayerCardFldSet( long Num, long FldIndex )
 }
 
 /******************************************************************************/
-//	CPUƒJ[ƒhƒtƒB[ƒ‹ƒhƒZƒbƒg
+//	CPUã‚«ãƒ¼ãƒ‰ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚»ãƒƒãƒˆ
 /******************************************************************************/
 void	CpuCardFldSet( long Num, long FldIndex )
 {
 	long SelCt = Chara[ GameCpu ].SelCardCt-2;
-	//	‘I‘ğ’†‚ÌƒJ[ƒhˆÚ“®
+	//	é¸æŠä¸­ã®ã‚«ãƒ¼ãƒ‰ç§»å‹•
 	switch( Chara[ GameCpu ].StateFlag[Num] )
 	{
-		//	ƒJ[ƒh‰Šú‰»
+		//	ã‚«ãƒ¼ãƒ‰åˆæœŸåŒ–
 		case	0:
 			Chara[ GameCpu ].HandCardRotR[Num]
 			= GetRot(
@@ -961,9 +961,9 @@ void	CpuCardFldSet( long Num, long FldIndex )
 			break;
 
 		case	1:
-			//	‚wÀ•WˆÚ“®
+			//	ï¼¸åº§æ¨™ç§»å‹•
 			g_LibPol.AddPosX( POL_GAME_HAND_CPU+Num, GetMoveX( 20, Chara[ GameCpu ].HandCardRotR[Num] ) );
-			//	‚xÀ•WˆÚ“®
+			//	ï¼¹åº§æ¨™ç§»å‹•
 			g_LibPol.AddPosY( POL_GAME_HAND_CPU+Num, GetMoveY( 20, Chara[ GameCpu ].HandCardRotR[Num] ) );
 
 			if( g_LibPol.GetInfo(POL_GAME_HAND_CPU+Num).PosY <= FldCpuPos[ SelCt ][FldIndex][1] + (CARD_SIZE_H/2) )
@@ -981,7 +981,7 @@ void	CpuCardFldSet( long Num, long FldIndex )
 			if( g_LibPol.GetInfo(POL_GAME_HAND_CPU+Num).RotY >= 90 )
 			{
 				Chara[ GameCpu ].StateFlag[Num] = 3;
-				//	ƒpƒ^[ƒ“•ÏX
+				//	ãƒ‘ã‚¿ãƒ¼ãƒ³å¤‰æ›´
 				g_LibPol.SetPatNo( POL_GAME_HAND_CPU+Num,
 					Chara[ GameCpu ].Deck[ Chara[ GameCpu ].DeckIndex-4+Num ].Mark
 					+ (Chara[ GameCpu ].Deck[ Chara[ GameCpu ].DeckIndex-4+Num ].Number-1) );
@@ -1007,7 +1007,7 @@ void	CpuCardFldSet( long Num, long FldIndex )
 }
 
 /******************************************************************************/
-//	‡Œv’l•\¦
+//	åˆè¨ˆå€¤è¡¨ç¤º
 /******************************************************************************/
 void	DispCardCalc( void )
 {
@@ -1016,9 +1016,9 @@ void	DispCardCalc( void )
 
 	switch( g_GameMng.GameModeState )
 	{
-		//	‰Šú‰»
+		//	åˆæœŸåŒ–
 		case	0:
-			//	ŒÂ•Ê‚É‡Œv’l•\¦
+			//	å€‹åˆ¥ã«åˆè¨ˆå€¤è¡¨ç¤º
 			PlayCalc = DispCardCalcOne( GamePlayer, POL_GAME_CALC_PLAYER );
 			CpuClac = DispCardCalcOne( GameCpu, POL_GAME_CALC_CPU );
 
@@ -1036,7 +1036,7 @@ void	DispCardCalc( void )
 				g_GameMng.GameModeState = 1;
 			}
 
-			//	À•W‰Šú‰»
+			//	åº§æ¨™åˆæœŸåŒ–
 			g_LibPol.SetPos( POL_GAME_PLAYER_OPT, OPT_PLAYER_POS_X,OPT_PLAYER_POS_Y );
 			g_LibPol.SetPos( POL_GAME_PLAYER_ADD1, ADD1_PLAYER_POS_X,ADD1_PLAYER_POS_Y );
 			g_LibPol.SetPos( POL_GAME_PLAYER_ADD2, ADD2_PLAYER_POS_X,ADD2_PLAYER_POS_Y );
@@ -1045,7 +1045,7 @@ void	DispCardCalc( void )
 			g_LibPol.SetPos( POL_GAME_CPU_ADD1, ADD1_CPU_POS_X,ADD1_CPU_POS_Y );
 			g_LibPol.SetPos( POL_GAME_CPU_ADD2, ADD2_CPU_POS_X,ADD2_CPU_POS_Y );
 			g_LibPol.SetPos( POL_GAME_CPU_ADD3, ADD3_CPU_POS_X,ADD3_CPU_POS_Y );
-			//	F‰Šú‰»
+			//	è‰²åˆæœŸåŒ–
 			g_LibPol.SetColor( POL_GAME_PLAYER_OPT, 255,255,255,255 );
 			g_LibPol.SetColor( POL_GAME_PLAYER_ADD1, 255,255,255,255 );
 			g_LibPol.SetColor( POL_GAME_PLAYER_ADD2, 255,255,255,255 );
@@ -1056,33 +1056,33 @@ void	DispCardCalc( void )
 			g_LibPol.SetColor( POL_GAME_CPU_ADD3, 255,255,255,255 );
 			break;
 
-		//	ƒEƒGƒCƒg
+		//	ã‚¦ã‚¨ã‚¤ãƒˆ
 		case	1:
 			WaitTime( 45 );
 			g_GameMng.GameModeState = 2;
 			break;
 
-		//	‰ÁZ’l•\¦
+		//	åŠ ç®—å€¤è¡¨ç¤º
 		case	2:
 			DispAddPointOne( GamePlayer, POL_GAME_PLAYER_OPT );
 			DispAddPointOne( GameCpu, POL_GAME_CPU_OPT );
 			g_GameMng.GameModeState = 3;
 			break;
 
-		//	ƒEƒGƒCƒg
+		//	ã‚¦ã‚¨ã‚¤ãƒˆ
 		case	3:
 			WaitTime( 45 );
 			g_GameMng.GameModeState = 4;
 			break;
 
-		//	‰ÁZ
+		//	åŠ ç®—
 		case	4:
 			for( int i=0; i<4; i++ )
 			{
-				//	ƒvƒŒƒCƒ„[‚Í‰º‚ÉˆÚ“®
+				//	ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã¯ä¸‹ã«ç§»å‹•
 				g_LibPol.AddPosY( POL_GAME_PLAYER_OPT + i, 4 );
 				g_LibPol.AddColor( POL_GAME_PLAYER_OPT + i, -48,0,0,0 );
-				//	CPU‚Íã‚ÉˆÚ“®
+				//	CPUã¯ä¸Šã«ç§»å‹•
 				g_LibPol.AddPosY( POL_GAME_CPU_OPT + i, -4 );
 				g_LibPol.AddColor( POL_GAME_CPU_OPT + i, -48,0,0,0 );
 			}
@@ -1093,23 +1093,23 @@ void	DispCardCalc( void )
 					g_LibPol.ChangeDisp( POL_GAME_PLAYER_OPT + i, OFF );
 					g_LibPol.ChangeDisp( POL_GAME_CPU_OPT + i, OFF );
 				}
-				//	ƒ|ƒCƒ“ƒg‰ÁZ
+				//	ãƒã‚¤ãƒ³ãƒˆåŠ ç®—
 				g_GameMng.Point[ GamePlayer ] += g_GameMng.PointAdd[ GamePlayer ];
 				g_GameMng.Point[ GameCpu ] += g_GameMng.PointAdd[ GameCpu ];
 				g_GameMng.GameModeState = 5;
 			}
 			break;
 
-		//	ƒEƒGƒCƒg
+		//	ã‚¦ã‚¨ã‚¤ãƒˆ
 		case	5:
 			WaitTime( 45 );
 			g_GameMng.GameModeState = 6;
 			break;
 
-		//	ƒJ[ƒh‚ğ”z‚é
+		//	ã‚«ãƒ¼ãƒ‰ã‚’é…ã‚‹
 		case	6:
 			g_GameMng.GameCount ++;
-			//	TODO ƒeƒXƒg
+			//	TODO ãƒ†ã‚¹ãƒˆ
 			if( g_GameMng.GameCount < 14 )
 			{
 				g_GameMng.GameMode = GameModeStart;
@@ -1120,7 +1120,7 @@ void	DispCardCalc( void )
 			}
 			g_GameMng.GameModeState = 0;
 #ifdef	__DEBUG__
-			////	Ÿ”s”»’è
+			////	å‹æ•—åˆ¤å®š
 			//if( Chara[GamePlayer].DeckIndex > CARD_MAX-HAND_NUM_MAX )
 			//{
 			//	Chara[GamePlayer].DeckIndex = 0;
@@ -1144,7 +1144,7 @@ void	DispCardCalc( void )
 }
 
 /******************************************************************************/
-//	ƒQ[ƒ€I—¹ˆ—
+//	ã‚²ãƒ¼ãƒ çµ‚äº†å‡¦ç†
 /******************************************************************************/
 void	GameEnd( void )
 {
@@ -1152,48 +1152,48 @@ void	GameEnd( void )
 
 	switch( g_GameMng.GameModeState )
 	{
-		//	‰Šú‰»
+		//	åˆæœŸåŒ–
 		case	0:
-			//	ƒJ[ƒh”ñ•\¦
+			//	ã‚«ãƒ¼ãƒ‰éè¡¨ç¤º
 			for( int i=0; i<HAND_NUM_MAX; i++ )
 			{
 				g_LibPol.ChangeDisp( POL_GAME_HAND_PLAYER + i, OFF );
 				g_LibPol.ChangeDisp( POL_GAME_HAND_CPU + i, OFF );
 			}
-			//	‘S‘Ì‚ğˆÃ‚­‚·‚é
+			//	å…¨ä½“ã‚’æš—ãã™ã‚‹
 			g_LibPol.Set( POL_GAME_JUDGE_FLD+1, WIDTH,HEIGHT, 0,0,0.7, ATR_NONE );
 			g_LibPol.SetColor(POL_GAME_JUDGE_FLD+1, 128,0,0,0 );
 
-			//	”»’è•¶š
+			//	åˆ¤å®šæ–‡å­—
 			if( g_GameMng.Point[GamePlayer] > g_GameMng.Point[GameCpu] )
 			{
-				//	ƒvƒŒƒCƒ„[‚ÌŸ‚¿
+				//	ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®å‹ã¡
 				PatNo = PAT_GAME_WIN;
 			}
 			else if( g_GameMng.Point[GamePlayer] == g_GameMng.Point[GameCpu] )
 			{
-				//	ƒhƒ[
+				//	ãƒ‰ãƒ­ãƒ¼
 				PatNo = PAT_GAME_DRAW;
 			}
 			else
 			{
-				//	ƒvƒŒƒCƒ„[‚Ì•‰‚¯
+				//	ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®è² ã‘
 				PatNo = PAT_GAME_LOSE;
 			}
 			g_LibPol.SetPat( POL_GAME_JUDGE_FLD, PAT_GAME_JUDGE_FLD, WIN_FLD_POS_X,WIN_FLD_POS_Y,0.8, ATR_NONE );
 			g_LibPol.SetPat( POL_GAME_JUDGE, PatNo, WIN_POS_X,WIN_POS_Y,0.9, ATR_NONE );
 
-			//	”»’è—pƒtƒB[ƒ‹ƒh•\¦
+			//	åˆ¤å®šç”¨ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¡¨ç¤º
 			g_LibPol.Set( POL_GAME_JUDGE_FLD+2, END_STR_PAT_W+32,336, 320-((END_STR_PAT_W+32)/2),72,0.9, ATR_NONE );
 			g_LibPol.SetColor(POL_GAME_JUDGE_FLD+2, 255,0,0,0 );
 
-			//	I—¹•¶š•\¦
+			//	çµ‚äº†æ–‡å­—è¡¨ç¤º
 			g_LibPol.SetPat( POL_GAME_END_STR, PAT_GAME_END_STR,
 				g_LibPol.GetInfo(POL_GAME_JUDGE_FLD+2).PosX+16,-END_STR_PAT_H,1.0, ATR_NONE );
 			g_GameMng.GameModeState = 1;
 			break;
 
-		//	I—¹•¶šˆÚ“®
+		//	çµ‚äº†æ–‡å­—ç§»å‹•
 		case	1:
 			g_LibPol.AddPosY( POL_GAME_END_STR, 25 );
 			if( g_LibPol.GetInfo(POL_GAME_END_STR).PosY >= (HEIGHT/2)-(END_STR_PAT_H/2) )
@@ -1203,13 +1203,13 @@ void	GameEnd( void )
 			}
 			break;
 
-		//	ƒEƒGƒCƒg
+		//	ã‚¦ã‚¨ã‚¤ãƒˆ
 		case	2:
 			WaitTime( 45 );
 			g_GameMng.GameModeState = 3;
 			break;
 
-		//	I—¹•¶šˆÚ“®
+		//	çµ‚äº†æ–‡å­—ç§»å‹•
 		case	3:
 			g_LibPol.AddPosY( POL_GAME_END_STR, 25 );
 			if( g_LibPol.GetInfo(POL_GAME_END_STR).PosY >= HEIGHT )
@@ -1219,7 +1219,7 @@ void	GameEnd( void )
 			}
 			break;
 
-		//	˜g’²®
+		//	æ èª¿æ•´
 		case	4:
 			if( g_LibPol.GetInfo(POL_GAME_JUDGE_FLD+2).PosX > 0 )
 			{
@@ -1250,7 +1250,7 @@ void	GameEnd( void )
 }
 
 /******************************************************************************/
-//	ƒLƒƒƒ‰ƒNƒ^[\‘¢‘Ì‰Šú‰»
+//	ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼æ§‹é€ ä½“åˆæœŸåŒ–
 /******************************************************************************/
 void	InitChara( long Index )
 {
@@ -1263,11 +1263,11 @@ void	InitChara( long Index )
 }
 
 /******************************************************************************/
-//	RDƒVƒƒƒbƒtƒ‹
+//	å±±æœ­ã‚·ãƒ£ãƒƒãƒ•ãƒ«
 /******************************************************************************/
 void	InitDeck( DECK_TBL* Deck )
 {
-	//	‚Ü‚¸‚ÍRD‚ğ‡”Ô‚É•À‚×‚é
+	//	ã¾ãšã¯å±±æœ­ã‚’é †ç•ªã«ä¸¦ã¹ã‚‹
 	for( int i=0; i<USE_NUMBER; i++ )
 	{
 		Deck[ i ].Mark = PAT_GAME_HEART;
@@ -1283,10 +1283,10 @@ void	InitDeck( DECK_TBL* Deck )
 	long Count = CARD_MAX;
 	DECK_TBL	Temp;
 
-	//	RDÅ‘å”•ªƒVƒƒƒbƒtƒ‹
+	//	å±±æœ­æœ€å¤§æ•°åˆ†ã‚·ãƒ£ãƒƒãƒ•ãƒ«
 	for( int i=0; i<CARD_MAX; i++ )
 	{
-		//	Fisher-Yates–@g—p‚µA100‰ñƒVƒƒƒbƒtƒ‹‚·‚é
+		//	Fisher-Yatesæ³•ä½¿ç”¨ã—ã€100å›ã‚·ãƒ£ãƒƒãƒ•ãƒ«ã™ã‚‹
 		while( Count > 1 )
 		{
 			long Index = (int)( rand() % CARD_MAX );
@@ -1300,7 +1300,7 @@ void	InitDeck( DECK_TBL* Deck )
 #ifdef	__DEBUG__
 	char	MarkTbl[USE_MARK][10]=
 	{
-		"ƒn[ƒg","ƒ_ƒCƒ„","ƒNƒ‰ƒu","ƒXƒy[ƒh",
+		"ãƒãƒ¼ãƒˆ","ãƒ€ã‚¤ãƒ¤","ã‚¯ãƒ©ãƒ–","ã‚¹ãƒšãƒ¼ãƒ‰",
 	};
 	char	DispStr[MAX_PATH];
 	for( int No=0; No<CARD_MAX; No++ )
@@ -1314,7 +1314,7 @@ void	InitDeck( DECK_TBL* Deck )
 }
 
 /******************************************************************************/
-//	ƒ|ƒCƒ“ƒg•\¦
+//	ãƒã‚¤ãƒ³ãƒˆè¡¨ç¤º
 /******************************************************************************/
 void	DispPoint( void )
 {
@@ -1323,7 +1323,7 @@ void	DispPoint( void )
 }
 
 /******************************************************************************/
-//	ŒÂ•Êƒ|ƒCƒ“ƒg•\¦
+//	å€‹åˆ¥ãƒã‚¤ãƒ³ãƒˆè¡¨ç¤º
 /******************************************************************************/
 void	DispPointOne( long UserFlag, long PolNo )
 {
@@ -1350,7 +1350,7 @@ void	DispPointOne( long UserFlag, long PolNo )
 		g_LibPol.SetPatNo( PolNo + i, PAT_GAME_NUMBER0 + cScore[i] );
 	}
 
-	//	•\¦İ’è
+	//	è¡¨ç¤ºè¨­å®š
 	if( cScore[0] == 0 )
 	{
 		g_LibPol.ChangeDisp( PolNo, OFF );
@@ -1368,14 +1368,14 @@ void	DispPointOne( long UserFlag, long PolNo )
 }
 
 /******************************************************************************/
-//	‡ŒvŒvZ
+//	åˆè¨ˆè¨ˆç®—
 /******************************************************************************/
 long	CardCalc( long *SelTbl )
 {
 	long Point = 0;
 	long AceCt = 0;
 
-	//	‡Œv
+	//	åˆè¨ˆ
 	for( int i=0; i<HAND_NUM_MAX; i++ )
 	{
 		if( SelTbl[i] == NOT )
@@ -1385,12 +1385,12 @@ long	CardCalc( long *SelTbl )
 
 		if( SelTbl[i] > 1 && SelTbl[i] < 10 )
 		{
-			//	1`9‚ğ‰ÁZ
+			//	1ã€œ9ã‚’åŠ ç®—
 			Point += SelTbl[i];
 		}
 		else
 		{
-			//	10`‚Í10‚Æ‚µ‚ÄŒvZ
+			//	10ã€œã¯10ã¨ã—ã¦è¨ˆç®—
 			if( SelTbl[i] >= 10 )
 			{
 				Point += 10;
@@ -1398,7 +1398,7 @@ long	CardCalc( long *SelTbl )
 		}
 	}
 
-	//	ACEƒJƒEƒ“ƒg
+	//	ACEã‚«ã‚¦ãƒ³ãƒˆ
 	for( int i=0; i<HAND_NUM_MAX; i++ )
 	{
 		if( SelTbl[i] == 1 )
@@ -1407,7 +1407,7 @@ long	CardCalc( long *SelTbl )
 		}
 	}
 
-	//	ACE‰ÁZ
+	//	ACEåŠ ç®—
 	for( int i=0; i<AceCt; i++ )
 	{
 		if( Point+11 > 21 )
@@ -1428,11 +1428,11 @@ long	CardCalc( long *SelTbl )
 }
 
 /******************************************************************************/
-//	ŒÂ•ÊƒJ[ƒh‡Œv’l•\¦
+//	å€‹åˆ¥ã‚«ãƒ¼ãƒ‰åˆè¨ˆå€¤è¡¨ç¤º
 /******************************************************************************/
 long	DispCardCalcOne( long UserFlag, long PolNo )
 {
-	//	‡Œv’læ“¾
+	//	åˆè¨ˆå€¤å–å¾—
 	long Calc = CardCalcOne( UserFlag );
 	long CalcAry[2] ={0};
 	CalcAry[0] = Calc / 10;
@@ -1441,7 +1441,7 @@ long	DispCardCalcOne( long UserFlag, long PolNo )
 	g_LibPol.SetPatNo( PolNo, PAT_GAME_NUMBER0 + CalcAry[0] );
 	g_LibPol.SetPatNo( PolNo+1, PAT_GAME_NUMBER0 + CalcAry[1] );
 
-	//	‡Œv’l•\¦
+	//	åˆè¨ˆå€¤è¡¨ç¤º
 	g_LibPol.ChangeDisp( PolNo, ON );
 	g_LibPol.ChangeDisp( PolNo+1, ON );
 
@@ -1449,7 +1449,7 @@ long	DispCardCalcOne( long UserFlag, long PolNo )
 }
 
 /******************************************************************************/
-//	ŒÂ•ÊƒJ[ƒh‡Œv’lŒvZ
+//	å€‹åˆ¥ã‚«ãƒ¼ãƒ‰åˆè¨ˆå€¤è¨ˆç®—
 /******************************************************************************/
 long	CardCalcOne( long UserFlag )
 {
@@ -1463,12 +1463,12 @@ long	CardCalcOne( long UserFlag )
 		}
 	}
 
-	//	‡Œv’læ“¾
+	//	åˆè¨ˆå€¤å–å¾—
 	return CardCalc( Sel );
 }
 
 /******************************************************************************/
-//	ŒÂ•Êƒ|ƒCƒ“ƒg‰ÁZ’l•\¦
+//	å€‹åˆ¥ãƒã‚¤ãƒ³ãƒˆåŠ ç®—å€¤è¡¨ç¤º
 /******************************************************************************/
 void	DispAddPointOne( long UserFlag, long PolNo )
 {
@@ -1501,7 +1501,7 @@ void	DispAddPointOne( long UserFlag, long PolNo )
 		g_LibPol.SetPatNo( PolNo + i, PAT_GAME_NUMBER0 + cScore[i] );
 	}
 
-	//	•\¦İ’è
+	//	è¡¨ç¤ºè¨­å®š
 	if( cScore[0] == 0 )
 	{
 		g_LibPol.ChangeDisp( PolNo, OFF );

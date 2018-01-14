@@ -1,10 +1,10 @@
 /******************************************************************************/
-//	ƒ}ƒbƒvƒGƒfƒBƒ^[
-//		ƒ\[ƒXƒtƒ@ƒCƒ‹
+//	ãƒãƒƒãƒ—ã‚¨ãƒ‡ã‚£ã‚¿ãƒ¼
+//		ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #include	"./Dx9Lib/Dx9Lib.h"
 #include	"./Dx9LibPad.h"
@@ -12,59 +12,59 @@
 #include	"MainD.h"
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«
 //----------------------------------------------------------------------------//
 short		MainMode = OFF;
-char		BmpFilePath[MAX_PATH];	//	BMPƒtƒ@ƒCƒ‹‚ÌƒpƒX
-char		MapFilePath[MAX_PATH];	//	MAPƒtƒ@ƒCƒ‹‚ÌƒpƒX
-char		BmpFileName[MAX_PATH];	//	BMPƒtƒ@ƒCƒ‹‚Ì–¼‘O
-char		MapFileName[MAX_PATH];	//	MAPƒtƒ@ƒCƒ‹‚Ì–¼‘O
-short		DispX,DispY;			//	MAP‚Ì•\¦À•W
-FLAG_TBL	FLAG;					//	ƒtƒ‰ƒOŠÇ—\‘¢‘Ì
-MAP_TBL		MAP;					//	MAP\‘¢‘Ì
-MAP_TBL		S_MAP;					//	ƒT[ƒ`—p
+char		BmpFilePath[MAX_PATH];	//	BMPãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹
+char		MapFilePath[MAX_PATH];	//	MAPãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹
+char		BmpFileName[MAX_PATH];	//	BMPãƒ•ã‚¡ã‚¤ãƒ«ã®åå‰
+char		MapFileName[MAX_PATH];	//	MAPãƒ•ã‚¡ã‚¤ãƒ«ã®åå‰
+short		DispX,DispY;			//	MAPã®è¡¨ç¤ºåº§æ¨™
+FLAG_TBL	FLAG;					//	ãƒ•ãƒ©ã‚°ç®¡ç†æ§‹é€ ä½“
+MAP_TBL		MAP;					//	MAPæ§‹é€ ä½“
+MAP_TBL		S_MAP;					//	ã‚µãƒ¼ãƒç”¨
 
 //----------------------------------------------------------------------------//
-//	ƒvƒƒgƒ^ƒCƒvéŒ¾
+//	ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 //----------------------------------------------------------------------------//
-void	MainInit( void );						//	ƒƒCƒ“‰Šú‰»
-void	EditerMain( void );						//	ƒGƒfƒBƒ^[ƒƒCƒ“
-void	MenuSelect( void );						//	ƒƒjƒ…[ƒZƒŒƒNƒg
-short	MouseSel( void );						//	ƒ}ƒEƒXƒZƒŒƒNƒg
-void	Clip( void );							//	ƒNƒŠƒbƒsƒ“ƒO
-void	MapSave( void );						//	ƒ}ƒbƒvƒf[ƒ^‚ÌƒZ[ƒu
-void	MapLoad( void );						//	ƒ}ƒbƒvƒf[ƒ^‚Ìƒ[ƒh
-void	BmpLoad( void );						//	BMPƒtƒ@ƒCƒ‹‚Ìƒ[ƒh
-void	WidthUp( void );						//	‚v£
-void	WidthDown( void );						//	‚v¥
-void	HeightUp( void );						//	‚g£
-void	HeightDown( void );						//	‚g¥
-void	Layer1Switch( void );					//	ƒŒƒCƒ„[‚PƒXƒCƒbƒ`
-void	Layer2Switch( void );					//	ƒŒƒCƒ„[‚QƒXƒCƒbƒ`
-void	Layer3Switch( void );					//	ƒŒƒCƒ„[‚RƒXƒCƒbƒ`
-void	HitSwitch( void );						//	“–‚½‚è”»’èƒXƒCƒbƒ`
-void	PageLeft( void );						//	ƒy[ƒW¶
-void	PageRight( void );						//	ƒy[ƒW‰E
-void	MenuHitChk( void );						//	ƒƒjƒ…[‚Æ‚Ì“–‚½‚è”»’è
-void	ChipSel( void );						//	ƒ`ƒbƒv‚Ì‘I‘ğ
-void	ChipMapSet( UChar Flag );				//	ƒ`ƒbƒv‚ğƒ}ƒbƒv‚ÉƒZƒbƒg
-long	MapSet( long Map, long Layer );			//	ƒ}ƒbƒvƒZƒbƒg
-long	ChipGet( long MapDat, long Layer );		//	ƒ`ƒbƒv”Ô†æ“¾
-long	MapHitChkSet( long Map );				//	ƒ}ƒbƒv“–‚½‚è”»’èƒZƒbƒg
-long	MapHitChkGet( long Map );				//	ƒ}ƒbƒv‚ ‚½‚è”»’èæ“¾
-void	MapInit(void );							//	ƒ}ƒbƒv‰Šú‰»
-void	MapDisp( void );						//	ƒ}ƒbƒv•\¦
-void	MapOff( void );							//	ƒ}ƒbƒv”ñ•\¦
-long	LayerDisp( long PolNo, long Layer );	//	ƒŒƒCƒ„[•\¦
-void	FontDisp( void );						//	•¶š•\¦
-void	GridInit( void );						//	ƒOƒŠƒbƒh‰Šú‰»
-void	GridDisp( void );						//	ƒOƒŠƒbƒh•\¦
-void	BrushCheck( void );						//	ƒuƒ‰ƒVŠÄ‹
-void	BrushPaint( void );						//	“h‚è‚Â‚Ô‚µ
-void	BrushPaintSearch( long x, long y );		//	“h‚è‚Â‚Ô‚µ‰ÓŠŒŸo
-void	GetKeyButton( void );					//	ƒL[‚Ìæ“¾
-void	ChipToCursorPos( long Chip );			//	ƒ`ƒbƒv”Ô†‚©‚çƒJ[ƒ\ƒ‹À•Wæ“¾
-void	MenuDispCheck( void );					//	ƒƒjƒ…[•\¦ŠÄ‹
+void	MainInit( void );						//	ãƒ¡ã‚¤ãƒ³åˆæœŸåŒ–
+void	EditerMain( void );						//	ã‚¨ãƒ‡ã‚£ã‚¿ãƒ¼ãƒ¡ã‚¤ãƒ³
+void	MenuSelect( void );						//	ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚»ãƒ¬ã‚¯ãƒˆ
+short	MouseSel( void );						//	ãƒã‚¦ã‚¹ã‚»ãƒ¬ã‚¯ãƒˆ
+void	Clip( void );							//	ã‚¯ãƒªãƒƒãƒ”ãƒ³ã‚°
+void	MapSave( void );						//	ãƒãƒƒãƒ—ãƒ‡ãƒ¼ã‚¿ã®ã‚»ãƒ¼ãƒ–
+void	MapLoad( void );						//	ãƒãƒƒãƒ—ãƒ‡ãƒ¼ã‚¿ã®ãƒ­ãƒ¼ãƒ‰
+void	BmpLoad( void );						//	BMPãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ­ãƒ¼ãƒ‰
+void	WidthUp( void );						//	ï¼·â–²
+void	WidthDown( void );						//	ï¼·â–¼
+void	HeightUp( void );						//	ï¼¨â–²
+void	HeightDown( void );						//	ï¼¨â–¼
+void	Layer1Switch( void );					//	ãƒ¬ã‚¤ãƒ¤ãƒ¼ï¼‘ã‚¹ã‚¤ãƒƒãƒ
+void	Layer2Switch( void );					//	ãƒ¬ã‚¤ãƒ¤ãƒ¼ï¼’ã‚¹ã‚¤ãƒƒãƒ
+void	Layer3Switch( void );					//	ãƒ¬ã‚¤ãƒ¤ãƒ¼ï¼“ã‚¹ã‚¤ãƒƒãƒ
+void	HitSwitch( void );						//	å½“ãŸã‚Šåˆ¤å®šã‚¹ã‚¤ãƒƒãƒ
+void	PageLeft( void );						//	ãƒšãƒ¼ã‚¸å·¦
+void	PageRight( void );						//	ãƒšãƒ¼ã‚¸å³
+void	MenuHitChk( void );						//	ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã¨ã®å½“ãŸã‚Šåˆ¤å®š
+void	ChipSel( void );						//	ãƒãƒƒãƒ—ã®é¸æŠ
+void	ChipMapSet( UChar Flag );				//	ãƒãƒƒãƒ—ã‚’ãƒãƒƒãƒ—ã«ã‚»ãƒƒãƒˆ
+long	MapSet( long Map, long Layer );			//	ãƒãƒƒãƒ—ã‚»ãƒƒãƒˆ
+long	ChipGet( long MapDat, long Layer );		//	ãƒãƒƒãƒ—ç•ªå·å–å¾—
+long	MapHitChkSet( long Map );				//	ãƒãƒƒãƒ—å½“ãŸã‚Šåˆ¤å®šã‚»ãƒƒãƒˆ
+long	MapHitChkGet( long Map );				//	ãƒãƒƒãƒ—ã‚ãŸã‚Šåˆ¤å®šå–å¾—
+void	MapInit(void );							//	ãƒãƒƒãƒ—åˆæœŸåŒ–
+void	MapDisp( void );						//	ãƒãƒƒãƒ—è¡¨ç¤º
+void	MapOff( void );							//	ãƒãƒƒãƒ—éè¡¨ç¤º
+long	LayerDisp( long PolNo, long Layer );	//	ãƒ¬ã‚¤ãƒ¤ãƒ¼è¡¨ç¤º
+void	FontDisp( void );						//	æ–‡å­—è¡¨ç¤º
+void	GridInit( void );						//	ã‚°ãƒªãƒƒãƒ‰åˆæœŸåŒ–
+void	GridDisp( void );						//	ã‚°ãƒªãƒƒãƒ‰è¡¨ç¤º
+void	BrushCheck( void );						//	ãƒ–ãƒ©ã‚·ç›£è¦–
+void	BrushPaint( void );						//	å¡—ã‚Šã¤ã¶ã—
+void	BrushPaintSearch( long x, long y );		//	å¡—ã‚Šã¤ã¶ã—ç®‡æ‰€æ¤œå‡º
+void	GetKeyButton( void );					//	ã‚­ãƒ¼ã®å–å¾—
+void	ChipToCursorPos( long Chip );			//	ãƒãƒƒãƒ—ç•ªå·ã‹ã‚‰ã‚«ãƒ¼ã‚½ãƒ«åº§æ¨™å–å¾—
+void	MenuDispCheck( void );					//	ãƒ¡ãƒ‹ãƒ¥ãƒ¼è¡¨ç¤ºç›£è¦–
 void	*Tbl[]=
 {
 	MapSave,
@@ -82,26 +82,26 @@ void	*Tbl[]=
 	PageRight,
 };
 
-void	DebugMsInit( void );	//	ƒfƒoƒbƒO—p•¶š‚Ì‰Šú‰»
-void	DebugMsDisp( void );	//	ƒfƒoƒbƒO—p•¶š‚Ì•\¦
+void	DebugMsInit( void );	//	ãƒ‡ãƒãƒƒã‚°ç”¨æ–‡å­—ã®åˆæœŸåŒ–
+void	DebugMsDisp( void );	//	ãƒ‡ãƒãƒƒã‚°ç”¨æ–‡å­—ã®è¡¨ç¤º
 
 
 
 /******************************************************************************/
-//	ƒƒCƒ“
+//	ãƒ¡ã‚¤ãƒ³
 /******************************************************************************/
 void	MainLoop( void )
 {
 	switch( MainMode )
 	{
 		/////////////////////////////////////
-		//	ƒƒCƒ“‰Šú‰»
+		//	ãƒ¡ã‚¤ãƒ³åˆæœŸåŒ–
 		case	OFF:
 			MainInit();
 			MainMode = ON;
 
 		/////////////////////////////////////
-		//	ƒGƒfƒBƒ^[ƒƒCƒ“
+		//	ã‚¨ãƒ‡ã‚£ã‚¿ãƒ¼ãƒ¡ã‚¤ãƒ³
 		case	ON:
 			EditerMain();
 			break;
@@ -109,12 +109,12 @@ void	MainLoop( void )
 }
 
 /******************************************************************************/
-//	ƒƒCƒ“‰Šú‰»
+//	ãƒ¡ã‚¤ãƒ³åˆæœŸåŒ–
 /******************************************************************************/
 void	MainInit( void )
 {
 	/////////////////////////////////////
-	//	ƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»
+	//	ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–
 	InitTextureAll();
 	InitPatternAll();
 	InitPolygonAll();
@@ -123,19 +123,19 @@ void	MainInit( void )
 	PAD[0].Use = ON;
 
 	/////////////////////////////////////
-	//	ƒeƒNƒXƒ`ƒƒ[“Ç‚İ‚İ
+	//	ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼èª­ã¿è¾¼ã¿
 	LoadTexture( TEX_SYSTEM, "dat\\system000.bmp" );
 
 	/////////////////////////////////////
-	//	ƒpƒ^[ƒ“
+	//	ãƒ‘ã‚¿ãƒ¼ãƒ³
 	short	pat_no[6] =
 	{
-		PAT_MENU,	//	0:ƒƒjƒ…[
-		PAT_CURSOR,	//	1:ƒJ[ƒ\ƒ‹
-		PAT_FRM,	//	2:ƒXƒCƒbƒ`˜g
-		PAT_MARU,	//	3:›
-		PAT_BATU,	//	4:~
-		PAT_BRUSH,	//	5:ƒuƒ‰ƒV
+		PAT_MENU,	//	0:ãƒ¡ãƒ‹ãƒ¥ãƒ¼
+		PAT_CURSOR,	//	1:ã‚«ãƒ¼ã‚½ãƒ«
+		PAT_FRM,	//	2:ã‚¹ã‚¤ãƒƒãƒæ 
+		PAT_MARU,	//	3:â—‹
+		PAT_BATU,	//	4:Ã—
+		PAT_BRUSH,	//	5:ãƒ–ãƒ©ã‚·
 	};
 	for( long i=0; i<6; i++ )
 	{
@@ -145,13 +145,13 @@ void	MainInit( void )
 	}
 
 	/////////////////////////////////////
-	//	ƒ|ƒŠƒSƒ“
+	//	ãƒãƒªã‚´ãƒ³
 	short	pol_no[4][2] =
 	{
-		POL_MENU,	PAT_MENU,		//	ƒƒjƒ…[
-		POL_CURSOR,	PAT_CURSOR,		//	ƒJ[ƒ\ƒ‹
-		POL_FRM,	PAT_FRM,		//	ƒXƒCƒbƒ`˜g
-		POL_SEL,	PAT_CURSOR,		//	ƒJ[ƒ\ƒ‹iƒƒjƒ…[j
+		POL_MENU,	PAT_MENU,		//	ãƒ¡ãƒ‹ãƒ¥ãƒ¼
+		POL_CURSOR,	PAT_CURSOR,		//	ã‚«ãƒ¼ã‚½ãƒ«
+		POL_FRM,	PAT_FRM,		//	ã‚¹ã‚¤ãƒƒãƒæ 
+		POL_SEL,	PAT_CURSOR,		//	ã‚«ãƒ¼ã‚½ãƒ«ï¼ˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ï¼‰
 	};
 
 	for( long i=0; i<4; i++ )
@@ -163,7 +163,7 @@ void	MainInit( void )
 	SetPolygonPat( POL_BRUSH, PAT_BRUSH, MOUSE.PosX,MOUSE.PosY,1.0, ATR_NONE );
 
 	/////////////////////////////////////
-	//	ƒeƒLƒXƒg
+	//	ãƒ†ã‚­ã‚¹ãƒˆ
 	g_LibText.Set( TXT_MOUSE, Font[0][0], Font[0][1], 255, 255, 255, 255, "" );
 	g_LibText.Set( TXT_FILE_NAME, Font[1][0], Font[1][1], 255, 0, 0, 0, "" );
 	g_LibText.Set( TXT_WIDTH, Font[2][0], Font[2][1], 255, 0, 0, 0, "" );
@@ -174,18 +174,18 @@ void	MainInit( void )
 	ZeroMemory( BmpFileName, MAX_PATH );
 	ZeroMemory( MapFileName, MAX_PATH );
 
-	//	‰Šúƒ}ƒbƒvƒTƒCƒY‰Šú‰»
+	//	åˆæœŸãƒãƒƒãƒ—ã‚µã‚¤ã‚ºåˆæœŸåŒ–
 	MAP.Use = OFF;
 	MAP.Width = 40;
 	MAP.Height = 30;
 
-	//	”wŒi
+	//	èƒŒæ™¯
 	SetPolygon( POL_BG,
 		MAP.Width*CHIP_SIZE, MAP.Height*CHIP_SIZE,
 		128+(DispX*CHIP_SIZE), DispY*CHIP_SIZE, 0.0, ATR_NONE );
 	SetPolygonColor( POL_BG, 255, 100, 100, 100 );
 
-	//	ƒtƒ‰ƒO‰Šú‰»
+	//	ãƒ•ãƒ©ã‚°åˆæœŸåŒ–
 	FLAG.HitMenu = OFF;
 	FLAG.HitChipWin = OFF;
 	FLAG.Page = 0;
@@ -196,22 +196,22 @@ void	MainInit( void )
 	FLAG.Layer = 0;
 	FLAG.Brush = OFF;
 
-	//	ƒ}ƒbƒv•\¦ˆÊ’u‰Šú‰»
+	//	ãƒãƒƒãƒ—è¡¨ç¤ºä½ç½®åˆæœŸåŒ–
 	DispX = DispY = 0;
 
 	/////////////////////////////////////
-	//	ƒ}ƒbƒv‰Šú‰»
+	//	ãƒãƒƒãƒ—åˆæœŸåŒ–
 	MapInit();
 
 	/////////////////////////////////////
-	//	ƒOƒŠƒbƒh‰Šú‰»
+	//	ã‚°ãƒªãƒƒãƒ‰åˆæœŸåŒ–
 	GridInit();
 
 	DebugMsInit();
 }
 
 /******************************************************************************/
-//	ƒGƒfƒBƒ^[ƒƒCƒ“ˆ—
+//	ã‚¨ãƒ‡ã‚£ã‚¿ãƒ¼ãƒ¡ã‚¤ãƒ³å‡¦ç†
 /******************************************************************************/
 void	EditerMain( void )
 {
@@ -219,18 +219,18 @@ void	EditerMain( void )
 	long	my = MOUSE.PosY / CHIP_SIZE;
 
 	/////////////////////////////////////
-	//	ƒƒjƒ…[‚Æ‚Ì“–‚½‚è”»’è
+	//	ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã¨ã®å½“ãŸã‚Šåˆ¤å®š
 	MenuHitChk();
 
 	/////////////////////////////////////
-	//	ƒ}ƒEƒX”»’è
+	//	ãƒã‚¦ã‚¹åˆ¤å®š
 	if( FLAG.HitMenu )
 	{
 		MenuSelect();
 	}
 	else
 	{
-		//	“–‚è”»’è
+		//	å½“ã‚Šåˆ¤å®š
 		if( FLAG.Layer == 3 )
 		{
 			if( MOUSE.Trg[ MOUSE_LEFT ] )
@@ -271,36 +271,36 @@ void	EditerMain( void )
 	}
 
 	/////////////////////////////////////
-	//	ƒ`ƒbƒv‘I‘ğ
+	//	ãƒãƒƒãƒ—é¸æŠ
 	ChipSel();
 
 	/////////////////////////////////////
-	//	ƒNƒŠƒbƒsƒ“ƒO
+	//	ã‚¯ãƒªãƒƒãƒ”ãƒ³ã‚°
 	POL[ POL_CURSOR ].PosX = mx * CHIP_SIZE;
 	POL[ POL_CURSOR ].PosY = my * CHIP_SIZE;
 	Clip();
 
 	/////////////////////////////////////
-	//	ƒ}ƒbƒv•\¦
+	//	ãƒãƒƒãƒ—è¡¨ç¤º
 	if( FLAG.DispMap )
 	{
 		MapDisp();
 	}
 
 	/////////////////////////////////////
-	//	ƒtƒHƒ“ƒg•\¦
+	//	ãƒ•ã‚©ãƒ³ãƒˆè¡¨ç¤º
 	FontDisp();
 
 	/////////////////////////////////////
-	//	ƒOƒŠƒbƒh•\¦
+	//	ã‚°ãƒªãƒƒãƒ‰è¡¨ç¤º
 	GridDisp();
 
 	/////////////////////////////////////
-	//	ƒL[ƒ{[ƒhˆ—
+	//	ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰å‡¦ç†
 	GetKeyButton();
 
 	/////////////////////////////////////
-	//	ƒuƒ‰ƒV‚ÌŠÄ‹
+	//	ãƒ–ãƒ©ã‚·ã®ç›£è¦–
 	BrushCheck();
 
 	PAT[ PAT_BMP ].PosX = ChipPatDat[ FLAG.Page ][0];
@@ -310,7 +310,7 @@ void	EditerMain( void )
 }
 
 /******************************************************************************/
-//	ƒƒjƒ…[ƒZƒŒƒNƒg
+//	ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚»ãƒ¬ã‚¯ãƒˆ
 /******************************************************************************/
 void	MenuSelect( void )
 {
@@ -329,7 +329,7 @@ void	MenuSelect( void )
 }
 
 /******************************************************************************/
-//	ƒ}ƒEƒX‚Ì‘I‘ğ
+//	ãƒã‚¦ã‚¹ã®é¸æŠ
 /******************************************************************************/
 short	MouseSel( void )
 {
@@ -353,31 +353,31 @@ short	MouseSel( void )
 }
 
 /******************************************************************************/
-//	ƒNƒŠƒbƒsƒ“ƒO
+//	ã‚¯ãƒªãƒƒãƒ”ãƒ³ã‚°
 /******************************************************************************/
 void	Clip( void )
 {
 	short	PolNo = POL_CURSOR;
 
-	//	¶’[
+	//	å·¦ç«¯
 	if( POL[ PolNo ].PosX < POL[ POL_BG ].PosX )
 	{
 		POL[ PolNo ].PosX = POL[ POL_BG ].PosX;
 	}
 
-	//	‰E’[
+	//	å³ç«¯
 	if( POL[ PolNo ].PosX >= POL[ POL_BG ].PosX + MAP.Width * CHIP_SIZE )
 	{
 		POL[ PolNo ].PosX = POL[ POL_BG ].PosX + MAP.Width * CHIP_SIZE - CHIP_SIZE;
 	}
 
-	//	ã’[
+	//	ä¸Šç«¯
 	if( POL[ PolNo ].PosY < POL[ POL_BG ].PosY )
 	{
 		POL[ PolNo ].PosY = POL[ POL_BG ].PosY;
 	}
 
-	//	‰º’[
+	//	ä¸‹ç«¯
 	if( POL[ PolNo ].PosY >= POL[ POL_BG ].PosY + MAP.Height * CHIP_SIZE )
 	{
 		POL[ PolNo ].PosY = POL[ POL_BG ].PosY + MAP.Height * CHIP_SIZE - CHIP_SIZE;
@@ -385,7 +385,7 @@ void	Clip( void )
 }
 
 /******************************************************************************/
-//	ƒ}ƒbƒvƒf[ƒ^•Û‘¶
+//	ãƒãƒƒãƒ—ãƒ‡ãƒ¼ã‚¿ä¿å­˜
 /******************************************************************************/
 void	MapSave( void )
 {
@@ -393,7 +393,7 @@ void	MapSave( void )
 	long	FileSize = 0;
 
 	ShowCursor( TRUE );
-	//	ƒtƒ@ƒCƒ‹ƒ_ƒCƒAƒƒO‚Ì•\¦
+	//	ãƒ•ã‚¡ã‚¤ãƒ«ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®è¡¨ç¤º
 	if( SaveFileDialog( Dialog[0], Dialog[2], Dialog[5], MapFilePath ) == 0 )
 	{
 		ShowCursor( FALSE );
@@ -402,16 +402,16 @@ void	MapSave( void )
 	ShowCursor( FALSE );
 
 	/////////////////////////////////////
-	//	€”õ
+	//	æº–å‚™
 
-	//	bmpƒtƒ@ƒCƒ‹‚Ì’·‚³
+	//	bmpãƒ•ã‚¡ã‚¤ãƒ«ã®é•·ã•
 	long BmpFileLen = (long)strlen( BmpFileName );
 
 	/////////////////////////////////////
-	//	ƒwƒbƒ_•”
+	//	ãƒ˜ãƒƒãƒ€éƒ¨
 	ZeroMemory( &g_FreeWork, sizeof(g_FreeWork) );
 	char *pt = (char *)g_FreeWork;
-	//	ƒtƒ@ƒCƒ‹‚Ìí—Ş
+	//	ãƒ•ã‚¡ã‚¤ãƒ«ã®ç¨®é¡
 	*pt = 'M';
 	pt ++;
 	*pt = 'A';
@@ -420,12 +420,12 @@ void	MapSave( void )
 	pt ++;
 	FileSize += 3;
 
-	//	bmpƒtƒ@ƒCƒ‹‚Ì’·‚³
+	//	bmpãƒ•ã‚¡ã‚¤ãƒ«ã®é•·ã•
 	SetLong( BmpFileLen, pt );
 	pt += 4;
 	FileSize += 4;
 
-	//	bmpƒtƒ@ƒCƒ‹–¼
+	//	bmpãƒ•ã‚¡ã‚¤ãƒ«å
 	for( long i=0; i<BmpFileLen; i++ )
 	{
 		*pt = BmpFileName[ i ];
@@ -433,7 +433,7 @@ void	MapSave( void )
 		FileSize ++;
 	}
 
-	//	‘ƒ`ƒbƒv”æ“¾
+	//	ç·ãƒãƒƒãƒ—æ•°å–å¾—
 	long	ChipMax = 0;
 	for( long h=0; h<MAP.Height; h++ )
 	{
@@ -441,7 +441,7 @@ void	MapSave( void )
 		{
 			for( long Layer=0; Layer<LAYER_HIT; Layer++ )
 			{
-				//	ƒ`ƒbƒv”Ô†æ“¾
+				//	ãƒãƒƒãƒ—ç•ªå·å–å¾—
 				long	ChipNo = MAP.Layer[Layer].Chip[h][w];
 				if( Layer >= 1 && ChipNo == 0 )
 				{
@@ -466,7 +466,7 @@ void	MapSave( void )
 		}
 	}
 
-	//	ƒ}ƒbƒvƒTƒCƒY
+	//	ãƒãƒƒãƒ—ã‚µã‚¤ã‚º
 	SetLong( MAP.Height, pt );
 	pt += 2;
 	FileSize += 2;
@@ -474,15 +474,15 @@ void	MapSave( void )
 	pt += 2;
 	FileSize += 2;
 
-	//	‘ƒ`ƒbƒv”
+	//	ç·ãƒãƒƒãƒ—æ•°
 	SetLong( ChipMax, pt );
 	pt += 4;
 	FileSize += 4;
 
 	/////////////////////////////////////
-	//	Àƒf[ƒ^
+	//	å®Ÿãƒ‡ãƒ¼ã‚¿
 
-	//	ƒ}ƒbƒvƒf[ƒ^
+	//	ãƒãƒƒãƒ—ãƒ‡ãƒ¼ã‚¿
 	for( long h=0; h<MAP.Height; h++ )
 	{
 		TRACE("\n");
@@ -502,23 +502,23 @@ void	MapSave( void )
 		}
 	}
 
-	//	‘‚«o‚µ
+	//	æ›¸ãå‡ºã—
 	SaveFile( MapFilePath, g_FreeWork, FileSize );
 }
 
 /******************************************************************************/
-//	ƒ}ƒbƒvƒf[ƒ^‚Ì“Ç‚İ‚İ
+//	ãƒãƒƒãƒ—ãƒ‡ãƒ¼ã‚¿ã®èª­ã¿è¾¼ã¿
 /******************************************************************************/
 void	MapLoad( void )
 {
-	//	ƒ}ƒbƒv‚ªŠù‚Ég—p’†‚©‚Ç‚¤‚©
+	//	ãƒãƒƒãƒ—ãŒæ—¢ã«ä½¿ç”¨ä¸­ã‹ã©ã†ã‹
 	if( MAP.Use )
 	{
 
 	}
 
 	ShowCursor( TRUE );
-	//	ƒtƒ@ƒCƒ‹ƒ_ƒCƒAƒƒO‚Ì•\¦
+	//	ãƒ•ã‚¡ã‚¤ãƒ«ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®è¡¨ç¤º
 	if( LoadFileDialog( Dialog[0], Dialog[2], Dialog[4], MapFilePath ) == 0 )
 	{
 		ShowCursor( FALSE );
@@ -530,11 +530,11 @@ void	MapLoad( void )
 	long size = LoadFile( MapFilePath, g_FreeWork );
 
 	/////////////////////////////////////
-	//	ƒwƒbƒ_•”
+	//	ãƒ˜ãƒƒãƒ€éƒ¨
 
 	char *pt = ( char * )g_FreeWork;
 
-	//	ƒtƒ@ƒCƒ‹‚Ìí—Ş
+	//	ãƒ•ã‚¡ã‚¤ãƒ«ã®ç¨®é¡
 	if( ( pt[0] != 'M' )
 	&& ( pt[1] != 'A' )
 	&& ( pt[2] != 'P' ) )
@@ -543,30 +543,30 @@ void	MapLoad( void )
 	}
 	pt += 3;
 
-	//	ƒtƒ@ƒCƒ‹‚Ì’·‚³æ“¾
+	//	ãƒ•ã‚¡ã‚¤ãƒ«ã®é•·ã•å–å¾—
 	long BmpFileLen = GetLong( pt );
 	pt += 4;
 
-	//	bmpƒtƒ@ƒCƒ‹–¼
+	//	bmpãƒ•ã‚¡ã‚¤ãƒ«å
 	for( long i=0; i<BmpFileLen; i++ )
 	{
 		BmpFileName[ i ] = *pt;
 		pt ++;
 	}
 
-	//	ƒ}ƒbƒvƒTƒCƒY
+	//	ãƒãƒƒãƒ—ã‚µã‚¤ã‚º
 	MAP.Height = GetShort( pt );
 	pt += 2;
 	MAP.Width = GetShort( pt );
 	pt += 2;
 
-	//	‘ƒpƒ^[ƒ“”
+	//	ç·ãƒ‘ã‚¿ãƒ¼ãƒ³æ•°
 	pt += 4;
 
 	/////////////////////////////////////
-	//	Àƒf[ƒ^
+	//	å®Ÿãƒ‡ãƒ¼ã‚¿
 
-	//	ƒ}ƒbƒvƒf[ƒ^
+	//	ãƒãƒƒãƒ—ãƒ‡ãƒ¼ã‚¿
 	for( long h=0; h<MAP.Height; h++ )
 	{
 		TRACE("\n");
@@ -591,7 +591,7 @@ void	MapLoad( void )
 	TRACE("\n");
 
 	/////////////////////////////////////
-	//	ƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠ‚Ìæ“¾
+	//	ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®å–å¾—
 	char FilePath[MAX_PATH];
 
 	GetCurrentDirectory( MAX_PATH, MapFilePath );
@@ -603,7 +603,7 @@ void	MapLoad( void )
 	strcat_s( FilePath, MAX_PATH, BmpFileName );
 
 	/////////////////////////////////////
-	//	bmpƒtƒ@ƒCƒ‹“Ç‚İ‚İ
+	//	bmpãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿
 	LoadTexture( TEX_BMP, FilePath );
 	SetPattern( PAT_BMP, TEX_BMP, 0, 0, 96, 192 );
 	SetPolygonPat( POL_BMP, PAT_BMP, CHIP_SIZE, 164, 0.7, ATR_NONE );
@@ -614,7 +614,7 @@ void	MapLoad( void )
 }
 
 /******************************************************************************/
-//	bmp“Ç‚İ‚İ
+//	bmpèª­ã¿è¾¼ã¿
 /******************************************************************************/
 void	BmpLoad( void )
 {
@@ -639,14 +639,14 @@ void	BmpLoad( void )
 }
 
 /******************************************************************************/
-//	•£
+//	å¹…â–²
 /******************************************************************************/
 void	WidthUp( void )
 {
 	MAP.Width ++;
 	MaxMin( MAP.Width, MAP_W_MAX, 0 );
 
-	//	”wŒi
+	//	èƒŒæ™¯
 	SetPolygon( POL_BG,
 		MAP.Width * CHIP_SIZE,
 		MAP.Height * CHIP_SIZE,
@@ -654,14 +654,14 @@ void	WidthUp( void )
 }
 
 /******************************************************************************/
-//	•¥
+//	å¹…â–¼
 /******************************************************************************/
 void	WidthDown( void )
 {
 	MAP.Width --;
 	MaxMin( MAP.Width, MAP_W_MAX, 0 );
 
-	//	”wŒi
+	//	èƒŒæ™¯
 	SetPolygon( POL_BG,
 		MAP.Width * CHIP_SIZE,
 		MAP.Height * CHIP_SIZE,
@@ -669,14 +669,14 @@ void	WidthDown( void )
 }
 
 /******************************************************************************/
-//	‚‚³£
+//	é«˜ã•â–²
 /******************************************************************************/
 void	HeightUp( void )
 {
 	MAP.Height ++;
 	MaxMin( MAP.Height, MAP_H_MAX, 0 );
 
-	//	”wŒi
+	//	èƒŒæ™¯
 	SetPolygon( POL_BG,
 		MAP.Width * CHIP_SIZE,
 		MAP.Height * CHIP_SIZE,
@@ -684,14 +684,14 @@ void	HeightUp( void )
 }
 
 /******************************************************************************/
-//	‚‚³¥
+//	é«˜ã•â–¼
 /******************************************************************************/
 void	HeightDown( void )
 {
 	MAP.Height --;
 	MaxMin( MAP.Height, MAP_H_MAX, 0 );
 
-	//	”wŒi
+	//	èƒŒæ™¯
 	SetPolygon( POL_BG,
 		MAP.Width * CHIP_SIZE,
 		MAP.Height * CHIP_SIZE,
@@ -699,7 +699,7 @@ void	HeightDown( void )
 }
 
 /******************************************************************************/
-//	ƒŒƒCƒ„[‚PƒXƒCƒbƒ`
+//	ãƒ¬ã‚¤ãƒ¤ãƒ¼ï¼‘ã‚¹ã‚¤ãƒƒãƒ
 /******************************************************************************/
 void	Layer1Switch( void )
 {
@@ -709,7 +709,7 @@ void	Layer1Switch( void )
 }
 
 /******************************************************************************/
-//	ƒŒƒCƒ„[‚QƒXƒCƒbƒ`
+//	ãƒ¬ã‚¤ãƒ¤ãƒ¼ï¼’ã‚¹ã‚¤ãƒƒãƒ
 /******************************************************************************/
 void	Layer2Switch( void )
 {
@@ -719,7 +719,7 @@ void	Layer2Switch( void )
 }
 
 /******************************************************************************/
-//	ƒŒƒCƒ„[‚RƒXƒCƒbƒ`
+//	ãƒ¬ã‚¤ãƒ¤ãƒ¼ï¼“ã‚¹ã‚¤ãƒƒãƒ
 /******************************************************************************/
 void	Layer3Switch( void )
 {
@@ -729,7 +729,7 @@ void	Layer3Switch( void )
 }
 
 /******************************************************************************/
-//	“–‚½‚è”»’è
+//	å½“ãŸã‚Šåˆ¤å®š
 /******************************************************************************/
 void	HitSwitch( void )
 {
@@ -739,7 +739,7 @@ void	HitSwitch( void )
 }
 
 /******************************************************************************/
-//	¶ƒ{ƒ^ƒ“
+//	å·¦ãƒœã‚¿ãƒ³
 /******************************************************************************/
 void	PageLeft( void )
 {
@@ -751,7 +751,7 @@ void	PageLeft( void )
 }
 
 /******************************************************************************/
-//	‰Eƒ{ƒ^ƒ“
+//	å³ãƒœã‚¿ãƒ³
 /******************************************************************************/
 void	PageRight( void )
 {
@@ -763,7 +763,7 @@ void	PageRight( void )
 }
 
 /******************************************************************************/
-//	ƒƒjƒ…[‚Æ‚Ì“–‚½‚è”»’è
+//	ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã¨ã®å½“ãŸã‚Šåˆ¤å®š
 /******************************************************************************/
 void	MenuHitChk( void )
 {
@@ -784,7 +784,7 @@ void	MenuHitChk( void )
 }
 
 /******************************************************************************/
-//	ƒ`ƒbƒv‘I‘ğ
+//	ãƒãƒƒãƒ—é¸æŠ
 /******************************************************************************/
 void	ChipSel( void )
 {
@@ -818,7 +818,7 @@ void	ChipSel( void )
 }
 
 /******************************************************************************/
-//	ƒ`ƒbƒv‚ğƒ}ƒbƒv‚É“o˜^
+//	ãƒãƒƒãƒ—ã‚’ãƒãƒƒãƒ—ã«ç™»éŒ²
 /******************************************************************************/
 void	ChipMapSet( UChar Flag )
 {
@@ -827,7 +827,7 @@ void	ChipMapSet( UChar Flag )
 
 	if( FLAG.Layer == LAYER_HIT )
 	{
-		//	“–‚½‚è”»’è
+		//	å½“ãŸã‚Šåˆ¤å®š
 		if( MapHitChkGet( MAP.Layer[ FLAG.Layer ].Chip[PosY][PosX] ) == 0 )
 		{
 			MAP.Layer[ FLAG.Layer ].Chip[ PosY ][ PosX ] = ON;
@@ -841,28 +841,28 @@ void	ChipMapSet( UChar Flag )
 	{
 		if( Flag == 0 )
 		{
-			//	¶ƒNƒŠƒbƒN
+			//	å·¦ã‚¯ãƒªãƒƒã‚¯
 			MAP.Layer[ FLAG.Layer ].Chip[ PosY ][ PosX ] = FLAG.Chip;
 		}
 		else
 		{
-			//	‰EƒNƒŠƒbƒN
+			//	å³ã‚¯ãƒªãƒƒã‚¯
 			FLAG.Chip = MAP.Layer[ FLAG.Layer ].Chip[ PosY ][ PosX ];
 
-			//	ƒ`ƒbƒv”Ô†‚©‚çƒJ[ƒ\ƒ‹À•Wæ“¾
+			//	ãƒãƒƒãƒ—ç•ªå·ã‹ã‚‰ã‚«ãƒ¼ã‚½ãƒ«åº§æ¨™å–å¾—
 			ChipToCursorPos( FLAG.Chip );
 		}
 	}
 }
 
 /******************************************************************************/
-//	ƒ}ƒbƒvƒZƒbƒg
+//	ãƒãƒƒãƒ—ã‚»ãƒƒãƒˆ
 /******************************************************************************/
 long	MapSet( long Map, long Layer )
 {
 	if( Layer == 0 )
 	{
-		//	ƒŒƒCƒ„[0
+		//	ãƒ¬ã‚¤ãƒ¤ãƒ¼0
 		return (Map<<LAYER(Layer));
 	}
 	else
@@ -879,7 +879,7 @@ long	MapSet( long Map, long Layer )
 }
 
 /******************************************************************************/
-//	ƒ`ƒbƒv”Ô†æ“¾
+//	ãƒãƒƒãƒ—ç•ªå·å–å¾—
 /******************************************************************************/
 long	ChipGet( long MapDat, long Layer )
 {
@@ -895,7 +895,7 @@ long	ChipGet( long MapDat, long Layer )
 }
 
 /******************************************************************************/
-//	ƒ}ƒbƒv‚Ì“–‚½‚è”»’èƒtƒ‰ƒOƒZƒbƒg
+//	ãƒãƒƒãƒ—ã®å½“ãŸã‚Šåˆ¤å®šãƒ•ãƒ©ã‚°ã‚»ãƒƒãƒˆ
 /******************************************************************************/
 long	MapHitChkSet( long Map )
 {
@@ -903,7 +903,7 @@ long	MapHitChkSet( long Map )
 }
 
 /******************************************************************************/
-//	ƒ}ƒbƒv‚Ì“–‚½‚è”»’èƒtƒ‰ƒOæ“¾
+//	ãƒãƒƒãƒ—ã®å½“ãŸã‚Šåˆ¤å®šãƒ•ãƒ©ã‚°å–å¾—
 /******************************************************************************/
 long	MapHitChkGet( long Map )
 {
@@ -911,7 +911,7 @@ long	MapHitChkGet( long Map )
 }
 
 /******************************************************************************/
-//	ƒ}ƒbƒv‚Ì‰Šú‰»
+//	ãƒãƒƒãƒ—ã®åˆæœŸåŒ–
 /******************************************************************************/
 void	MapInit(void )
 {
@@ -937,7 +937,7 @@ void	MapInit(void )
 }
 
 /******************************************************************************/
-//	ƒ}ƒbƒv•\¦
+//	ãƒãƒƒãƒ—è¡¨ç¤º
 /******************************************************************************/
 void	MapDisp( void )
 {
@@ -955,7 +955,7 @@ void	MapDisp( void )
 }
 
 /******************************************************************************/
-//	ƒ}ƒbƒv”ñ•\¦
+//	ãƒãƒƒãƒ—éè¡¨ç¤º
 /******************************************************************************/
 void	MapOff( void )
 {
@@ -967,12 +967,12 @@ void	MapOff( void )
 }
 
 /******************************************************************************/
-//	ƒŒƒCƒ„[•\¦
-//		–ß‚è’lF
-//				g‚Á‚½ƒ|ƒŠƒSƒ“”
-//		ˆø”F
-//				PolNo		g‚¤æ“ª‚Ìƒ|ƒŠƒSƒ“”Ô†
-//				Layer		•\¦‚·‚éƒŒƒCƒ„[
+//	ãƒ¬ã‚¤ãƒ¤ãƒ¼è¡¨ç¤º
+//		æˆ»ã‚Šå€¤ï¼š
+//				ä½¿ã£ãŸãƒãƒªã‚´ãƒ³æ•°
+//		å¼•æ•°ï¼š
+//				PolNo		ä½¿ã†å…ˆé ­ã®ãƒãƒªã‚´ãƒ³ç•ªå·
+//				Layer		è¡¨ç¤ºã™ã‚‹ãƒ¬ã‚¤ãƒ¤ãƒ¼
 /******************************************************************************/
 long	LayerDisp( long PolNo, long Layer )
 {
@@ -989,7 +989,7 @@ long	LayerDisp( long PolNo, long Layer )
 				continue;
 			}
 
-			//	ƒpƒ^[ƒ“
+			//	ãƒ‘ã‚¿ãƒ¼ãƒ³
 			//long PatNo = ChipGet( MAP.Layer[Layer].Chip[h][w], Layer );
 			long PatNo = MAP.Layer[Layer].Chip[h][w];
 			if( PatNo != NOT )
@@ -1021,7 +1021,7 @@ long	LayerDisp( long PolNo, long Layer )
 				InitPolygon( POL_MAP + PolNo );
 			}
 
-			//	ƒAƒ‹ƒtƒ@
+			//	ã‚¢ãƒ«ãƒ•ã‚¡
 			if( FLAG.Layer == Layer )
 			{
 				POL[ POL_MAP + PolNo ].A = 255;
@@ -1039,7 +1039,7 @@ long	LayerDisp( long PolNo, long Layer )
 }
 
 /******************************************************************************/
-//	ƒtƒHƒ“ƒg•\¦
+//	ãƒ•ã‚©ãƒ³ãƒˆè¡¨ç¤º
 /******************************************************************************/
 void	FontDisp( void )
 {
@@ -1063,7 +1063,7 @@ void	FontDisp( void )
 }
 
 /******************************************************************************/
-//	ƒOƒŠƒbƒh‰Šú‰»
+//	ã‚°ãƒªãƒƒãƒ‰åˆæœŸåŒ–
 /******************************************************************************/
 void	GridInit( void )
 {
@@ -1074,11 +1074,11 @@ void	GridInit( void )
 
 	for( int i=0; i<w; i++ )
 	{
-		SetPolygon( POL_GRID+i, 640, 1, 0, i*CHIP_SIZE, 0.3, ATR_NONE );	//	‰¡ü
+		SetPolygon( POL_GRID+i, 640, 1, 0, i*CHIP_SIZE, 0.3, ATR_NONE );	//	æ¨ªç·š
 	}
 	for( int i=0; i<h; i++ )
 	{
-		SetPolygon( POL_GRID+30+i, 1, 480, i*CHIP_SIZE, 0, 0.3, ATR_NONE );	//	cü
+		SetPolygon( POL_GRID+30+i, 1, 480, i*CHIP_SIZE, 0, 0.3, ATR_NONE );	//	ç¸¦ç·š
 	}
 	for( int i=0; i<w+h; i++ )
 	{
@@ -1089,7 +1089,7 @@ void	GridInit( void )
 }
 
 /******************************************************************************/
-//	ƒOƒŠƒbƒh•\¦
+//	ã‚°ãƒªãƒƒãƒ‰è¡¨ç¤º
 /******************************************************************************/
 void	GridDisp( void )
 {
@@ -1102,7 +1102,7 @@ void	GridDisp( void )
 }
 
 /******************************************************************************/
-//	ƒuƒ‰ƒVŠÄ‹
+//	ãƒ–ãƒ©ã‚·ç›£è¦–
 /******************************************************************************/
 void	BrushCheck( void )
 {
@@ -1110,20 +1110,20 @@ void	BrushCheck( void )
 
 	if( FLAG.Brush == OFF )
 	{
-		//	ƒm[ƒ}ƒ‹
+		//	ãƒãƒ¼ãƒãƒ«
 		POL[ POL_BRUSH ].PosY = MOUSE.PosY;
 		SetPattern( PAT_BRUSH, TEX_SYSTEM, 176,0, 16,16 );
 	}
 	else
 	{
-		//	ƒuƒ‰ƒV
+		//	ãƒ–ãƒ©ã‚·
 		POL[ POL_BRUSH ].PosY = MOUSE.PosY - 12;
 		SetPattern( PAT_BRUSH, TEX_SYSTEM, 160,0, 16,16 );
 	}
 }
 
 /******************************************************************************/
-//	“h‚è‚Â‚Ô‚µ
+//	å¡—ã‚Šã¤ã¶ã—
 /******************************************************************************/
 void	BrushPaint( void )
 {
@@ -1141,29 +1141,29 @@ void	BrushPaint( void )
 		}
 	}
 
-	//	ƒ`ƒbƒv‚ÌƒoƒbƒNƒAƒbƒv
+	//	ãƒãƒƒãƒ—ã®ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—
 	FLAG.ChipBk = MAP.Layer[ FLAG.Layer ].Chip[y][x];
 	ChipMapSet( 0 );
 
 	S_MAP.Layer[ FLAG.Layer ].Chip[y][x] = ON;
 
-	//	ŒŸõ
+	//	æ¤œç´¢
 	BrushPaintSearch( x, y );
 }
 
 /******************************************************************************/
-//	“h‚è‚Â‚Ô‚µ‰ÓŠŒŸõ
-//		–ß‚è’lF
-//				‚OFŒŸõI—¹A‚PFŒŸõ’†
+//	å¡—ã‚Šã¤ã¶ã—ç®‡æ‰€æ¤œç´¢
+//		æˆ»ã‚Šå€¤ï¼š
+//				ï¼ï¼šæ¤œç´¢çµ‚äº†ã€ï¼‘ï¼šæ¤œç´¢ä¸­
 /******************************************************************************/
 void	BrushPaintSearch( long x, long y )
 {
 	//////////////////////////////////
-	//	Ä‹NŠÖ”‚ÅŒŸõ
+	//	å†èµ·é–¢æ•°ã§æ¤œç´¢
 
 	if( y-1 >= 0 )
 	{
-		//	ã‚ğ’²‚×‚é
+		//	ä¸Šã‚’èª¿ã¹ã‚‹
 		if( ( S_MAP.Layer[ FLAG.Layer ].Chip[ y-1 ][ x ] == OFF )
 		&& ( MAP.Layer[ FLAG.Layer ].Chip[ y-1 ][ x ] == FLAG.ChipBk ) )
 		{
@@ -1175,7 +1175,7 @@ void	BrushPaintSearch( long x, long y )
 
 	if( y+1 < MAP.Height )
 	{
-		//	‰º‚ğ’²‚×‚é
+		//	ä¸‹ã‚’èª¿ã¹ã‚‹
 		if( ( S_MAP.Layer[ FLAG.Layer ].Chip[ y+1 ][ x ] == OFF )
 		&& ( MAP.Layer[ FLAG.Layer ].Chip[ y+1 ][ x ] == FLAG.ChipBk ) )
 		{
@@ -1187,7 +1187,7 @@ void	BrushPaintSearch( long x, long y )
 
 	if( x-1 >= 0 )
 	{
-		//	¶‚ğ’²‚×‚é
+		//	å·¦ã‚’èª¿ã¹ã‚‹
 		if( ( S_MAP.Layer[ FLAG.Layer ].Chip[ y ][ x-1 ] == OFF )
 		&& ( MAP.Layer[ FLAG.Layer ].Chip[ y ][ x-1 ] == FLAG.ChipBk ) )
 		{
@@ -1199,7 +1199,7 @@ void	BrushPaintSearch( long x, long y )
 
 	if( x+1 < MAP.Width )
 	{
-		//	‰E‚ğ’²‚×‚é
+		//	å³ã‚’èª¿ã¹ã‚‹
 		if( ( S_MAP.Layer[ FLAG.Layer ].Chip[ y ][ x+1 ] == OFF )
 		&& ( MAP.Layer[ FLAG.Layer ].Chip[ y ][ x+1 ] == FLAG.ChipBk ) )
 		{
@@ -1211,7 +1211,7 @@ void	BrushPaintSearch( long x, long y )
 }
 
 /******************************************************************************/
-//	ƒL[ƒ{[ƒh“ü—Íˆ—
+//	ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰å…¥åŠ›å‡¦ç†
 /******************************************************************************/
 void	GetKeyButton( void )
 {
@@ -1221,7 +1221,7 @@ void	GetKeyButton( void )
 	mx = my = x = y = 0;
 	alt = ctrl = shift = OFF;
 
-	//	ª
+	//	â†‘
 	if( KEY.Trg[ DIK_UP ]
 	|| ( ( KEY.Count[ DIK_UP ] >= KEY_REPEAT_START )
 	&& ( KEY.Count[ DIK_UP ] % KEY_REPEAT_TIME == 0 ) ) )
@@ -1229,7 +1229,7 @@ void	GetKeyButton( void )
 		my --;
 	}
 
-	//	«
+	//	â†“
 	if( KEY.Trg[ DIK_DOWN ]
 	|| ( ( KEY.Count[ DIK_DOWN ] >= KEY_REPEAT_START )
 	&& ( KEY.Count[ DIK_DOWN ] % KEY_REPEAT_TIME == 0 ) ) )
@@ -1237,7 +1237,7 @@ void	GetKeyButton( void )
 		my ++;
 	}
 
-	//	©
+	//	â†
 	if( KEY.Trg[ DIK_LEFT ]
 	|| ( ( KEY.Count[ DIK_LEFT ] >= KEY_REPEAT_START )
 	&& ( KEY.Count[ DIK_LEFT ] % KEY_REPEAT_TIME == 0 ) ) )
@@ -1245,7 +1245,7 @@ void	GetKeyButton( void )
 		mx --;
 	}
 
-	//	¨
+	//	â†’
 	if( KEY.Trg[ DIK_RIGHT ]
 	|| ( ( KEY.Count[ DIK_RIGHT ] >= KEY_REPEAT_START )
 	&& ( KEY.Count[ DIK_RIGHT ] % KEY_REPEAT_TIME == 0 ) ) )
@@ -1255,31 +1255,31 @@ void	GetKeyButton( void )
 
 	if( KEY.Push[ DIK_LALT ] || KEY.Push[ DIK_RALT ] )
 	{
-		alt = ON;	//	[ALT]ƒL[
+		alt = ON;	//	[ALT]ã‚­ãƒ¼
 	}
 	if( KEY.Push[ DIK_LCONTROL ] || KEY.Push[ DIK_RCONTROL ] )
 	{
-		ctrl = ON;	//	[CTRL]ƒL[
+		ctrl = ON;	//	[CTRL]ã‚­ãƒ¼
 	}
 	if( KEY.Push[ DIK_LSHIFT ] || KEY.Push[ DIK_RSHIFT ] )
 	{
-		shift = ON;	//	[SHIFT]ƒL[
+		shift = ON;	//	[SHIFT]ã‚­ãƒ¼
 	}
 
 	if( alt )
 	{
 		/////////////////////////////////////
-		//	[ALT]ƒL[
+		//	[ALT]ã‚­ãƒ¼
 	}
 	else	if( ctrl )
 	{
 		/////////////////////////////////////
-		//	[CTRL]ƒL[
+		//	[CTRL]ã‚­ãƒ¼
 	}
 	else	if( shift )
 	{
 		/////////////////////////////////////
-		//	[SHIFT]ƒL[
+		//	[SHIFT]ã‚­ãƒ¼
 		if( KEY.Trg[ DIK_L ] )
 		{
 			FLAG.Layer --;
@@ -1305,7 +1305,7 @@ void	GetKeyButton( void )
 	else
 	{
 		/////////////////////////////////////
-		//	‚»‚Ì‘¼
+		//	ãã®ä»–
 		DispX += mx;
 		DispY += my;
 
@@ -1320,15 +1320,15 @@ void	GetKeyButton( void )
 
 		if( KEY.Trg[ DIK_G ] )
 		{
-			FLAG.DispGrid ^= 1;	//	ƒOƒŠƒbƒh•\¦Ø‘Ö
+			FLAG.DispGrid ^= 1;	//	ã‚°ãƒªãƒƒãƒ‰è¡¨ç¤ºåˆ‡æ›¿
 		}
 		if( KEY.Trg[ DIK_B ] )
 		{
-			FLAG.Brush ^= 1;		//	ƒuƒ‰ƒVØ‘Ö
+			FLAG.Brush ^= 1;		//	ãƒ–ãƒ©ã‚·åˆ‡æ›¿
 		}
 		if( KEY.Trg[ DIK_M ] )
 		{
-			MenuDispCheck();		//	ƒƒjƒ…[•\¦Ø‘Ö
+			MenuDispCheck();		//	ãƒ¡ãƒ‹ãƒ¥ãƒ¼è¡¨ç¤ºåˆ‡æ›¿
 		}
 		if( KEY.Trg[ DIK_L ] )
 		{
@@ -1355,7 +1355,7 @@ void	GetKeyButton( void )
 }
 
 /******************************************************************************/
-//	ƒ`ƒbƒv”Ô†‚©‚çƒJ[ƒ\ƒ‹À•Wæ“¾
+//	ãƒãƒƒãƒ—ç•ªå·ã‹ã‚‰ã‚«ãƒ¼ã‚½ãƒ«åº§æ¨™å–å¾—
 /******************************************************************************/
 void	ChipToCursorPos( long Chip )
 {
@@ -1391,11 +1391,11 @@ void	ChipToCursorPos( long Chip )
 }
 
 /******************************************************************************/
-//	ƒƒjƒ…[•\¦ŠÄ‹
+//	ãƒ¡ãƒ‹ãƒ¥ãƒ¼è¡¨ç¤ºç›£è¦–
 /******************************************************************************/
 void	MenuDispCheck( void )
 {
-	//	ƒtƒ‰ƒO”½“]
+	//	ãƒ•ãƒ©ã‚°åè»¢
 	POL[ POL_MENU ].Disp ^= 1;
 	POL[ POL_BMP ].Disp ^= 1;
 	TXT[ TXT_MOUSE ].Disp ^= 1;
@@ -1407,7 +1407,7 @@ void	MenuDispCheck( void )
 }
 
 /******************************************************************************/
-//	ƒfƒoƒbƒOƒƒbƒZ[ƒW‰Šú‰»
+//	ãƒ‡ãƒãƒƒã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸åˆæœŸåŒ–
 /******************************************************************************/
 void	DebugMsInit( void )
 {
@@ -1422,7 +1422,7 @@ void	DebugMsInit( void )
 }
 
 /******************************************************************************/
-//	ƒfƒoƒbƒOƒƒbƒZ[ƒW‰Šú‰»
+//	ãƒ‡ãƒãƒƒã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸åˆæœŸåŒ–
 /******************************************************************************/
 void	DebugMsDisp( void )
 {
@@ -1432,11 +1432,11 @@ void	DebugMsDisp( void )
 	char	str[128],
 			ms[10][128] =
 			{
-				"ƒŒƒCƒ„[”Ô†F",
-				"ƒy[ƒW”Ô†F",
-				"ƒ`ƒbƒv”Ô†F",
-				"ƒƒjƒ…[“–‚½‚è”»’èF",
-				"ƒ`ƒbƒv“–‚½‚è”»’èF",
+				"ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ï¼š",
+				"ãƒšãƒ¼ã‚¸ç•ªå·ï¼š",
+				"ãƒãƒƒãƒ—ç•ªå·ï¼š",
+				"ãƒ¡ãƒ‹ãƒ¥ãƒ¼å½“ãŸã‚Šåˆ¤å®šï¼š",
+				"ãƒãƒƒãƒ—å½“ãŸã‚Šåˆ¤å®šï¼š",
 			};
 
 	long	dat[10] =
@@ -1455,7 +1455,7 @@ void	DebugMsDisp( void )
 		sprintf_s( TXT[DB_MS+i].Str, MAX_PATH, ms[i] );
 	}
 
-	sprintf_s( TXT[ DB_MS+7 ].Str, MAX_PATH, "ƒtƒ@ƒCƒ‹–¼À•W:%d,%d", TXT[TXT_FILE_NAME].PosX, TXT[TXT_FILE_NAME].PosY );
+	sprintf_s( TXT[ DB_MS+7 ].Str, MAX_PATH, "ãƒ•ã‚¡ã‚¤ãƒ«ååº§æ¨™:%d,%d", TXT[TXT_FILE_NAME].PosX, TXT[TXT_FILE_NAME].PosY );
 
 #endif
 }

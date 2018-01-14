@@ -1,17 +1,17 @@
 /******************************************************************************/
-//	ƒXƒNƒŠƒvƒgƒƒCƒv
-//		ƒ\[ƒXƒtƒ@ƒCƒ‹
+//	ã‚¹ã‚¯ãƒªãƒ—ãƒˆãƒ¯ã‚¤ãƒ—
+//		ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #include	"./Dx9Lib/Dx9Lib.h"
 #include	"./Dx9LibPad.h"
 #include	"./ScriptWipeEngine.h"
 
 /******************************************************************************/
-//	ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+//	ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 /******************************************************************************/
 CScriptWipeEngine::CScriptWipeEngine()
 : m_WipeNo(NOT), m_State(0), m_Time(0), m_Count(0)
@@ -21,7 +21,7 @@ CScriptWipeEngine::CScriptWipeEngine()
 }
 
 /******************************************************************************/
-//	ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+//	ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 /******************************************************************************/
 CScriptWipeEngine::CScriptWipeEngine(long TexNo, long PatNo, long PolNo )
 : m_WipeNo(NOT), m_State(0), m_Time(0), m_Count(0)
@@ -29,7 +29,7 @@ CScriptWipeEngine::CScriptWipeEngine(long TexNo, long PatNo, long PolNo )
 	ZeroMemory( &m_OldBg, sizeof(WIPE_FADE_TBL) );
 	ZeroMemory( &m_NewBg, sizeof(WIPE_FADE_TBL) );
 
-	//	Œ³‚Ì‰æ‘œŠÖ˜A‚Ì”Ô†
+	//	å…ƒã®ç”»åƒé–¢é€£ã®ç•ªå·
 	if( TexNo < TEX_MAX )
 	{
 		m_OldBg.TexNo = TexNo;
@@ -43,7 +43,7 @@ CScriptWipeEngine::CScriptWipeEngine(long TexNo, long PatNo, long PolNo )
 		m_OldBg.PolNo = PolNo;
 	}
 
-	//	Œ³‚Ì‰æ‘œŠÖ˜A‚Ì”Ô†
+	//	å…ƒã®ç”»åƒé–¢é€£ã®ç•ªå·
 	if( TexNo+1 < TEX_MAX )
 	{
 		m_NewBg.TexNo = TexNo+1;
@@ -59,14 +59,14 @@ CScriptWipeEngine::CScriptWipeEngine(long TexNo, long PatNo, long PolNo )
 }
 
 /******************************************************************************/
-//	ƒfƒXƒgƒ‰ƒNƒ^
+//	ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 /******************************************************************************/
 CScriptWipeEngine::~CScriptWipeEngine()
 {
 }
 
 /******************************************************************************/
-//	‰Šú‰»
+//	åˆæœŸåŒ–
 /******************************************************************************/
 void	CScriptWipeEngine::Init( long WipeNo, long Time, char *FileName )
 {
@@ -81,7 +81,7 @@ void	CScriptWipeEngine::Init( long WipeNo, long Time, char *FileName )
 
 	switch( WipeNo )
 	{
-		//	ƒNƒƒXƒtƒF[ƒh
+		//	ã‚¯ãƒ­ã‚¹ãƒ•ã‚§ãƒ¼ãƒ‰
 		case	WIPE_CROSS_FADE:
 			SetCrossFade( FileName );
 			break;
@@ -89,7 +89,7 @@ void	CScriptWipeEngine::Init( long WipeNo, long Time, char *FileName )
 }
 
 /******************************************************************************/
-//	ƒ‹[ƒvˆ—
+//	ãƒ«ãƒ¼ãƒ—å‡¦ç†
 /******************************************************************************/
 long	CScriptWipeEngine::Loop( void )
 {
@@ -104,7 +104,7 @@ long	CScriptWipeEngine::Loop( void )
 }
 
 /******************************************************************************/
-//	ƒNƒƒXƒtƒF[ƒhİ’è
+//	ã‚¯ãƒ­ã‚¹ãƒ•ã‚§ãƒ¼ãƒ‰è¨­å®š
 /******************************************************************************/
 void	CScriptWipeEngine::SetCrossFade( char *FileName )
 {
@@ -113,7 +113,7 @@ void	CScriptWipeEngine::SetCrossFade( char *FileName )
 	g_LibPol.SetPat( m_NewBg.PolNo, m_NewBg.PatNo, 0,0,0.0, ATR_NONE );
 	g_LibPol.SetColor( m_NewBg.PolNo, 0, 255,255,255 );
 
-	//	F‰Šú‰»
+	//	è‰²åˆæœŸåŒ–
 	m_OldBg.StartA = g_LibPol.GetInfo( m_OldBg.PolNo ).A;
 	m_OldBg.StartR = g_LibPol.GetInfo( m_OldBg.PolNo ).R;
 	m_OldBg.StartG = g_LibPol.GetInfo( m_OldBg.PolNo ).G;
@@ -144,7 +144,7 @@ void	CScriptWipeEngine::SetCrossFade( char *FileName )
 }
 
 /******************************************************************************/
-//	ƒNƒƒXƒtƒF[ƒhƒ‹[ƒv
+//	ã‚¯ãƒ­ã‚¹ãƒ•ã‚§ãƒ¼ãƒ‰ãƒ«ãƒ¼ãƒ—
 /******************************************************************************/
 void	CScriptWipeEngine::LoopCrossFade( void )
 {
@@ -166,11 +166,11 @@ void	CScriptWipeEngine::LoopCrossFade( void )
 		return;
 	}
 
-	//	ƒ‹[ƒvˆ—
+	//	ãƒ«ãƒ¼ãƒ—å‡¦ç†
 	if( m_Count == m_Time )
 	{
 		/////////////////////////////////////
-		//	ƒtƒF[ƒhI—¹
+		//	ãƒ•ã‚§ãƒ¼ãƒ‰çµ‚äº†
 		m_OldBg.A = m_OldBg.TargetA;
 		m_OldBg.R = m_OldBg.TargetR;
 		m_OldBg.G = m_OldBg.TargetG;
@@ -184,7 +184,7 @@ void	CScriptWipeEngine::LoopCrossFade( void )
 	else
 	{
 		/////////////////////////////////////
-		//	ƒtƒF[ƒh’†
+		//	ãƒ•ã‚§ãƒ¼ãƒ‰ä¸­
 		m_OldBg.A += ( m_OldBg.TargetA - m_OldBg.StartA ) / m_Time;
 		m_OldBg.R += ( m_OldBg.TargetR - m_OldBg.StartR ) / m_Time;
 		m_OldBg.G += ( m_OldBg.TargetG - m_OldBg.StartG ) / m_Time;
@@ -196,7 +196,7 @@ void	CScriptWipeEngine::LoopCrossFade( void )
 		m_NewBg.B += ( m_NewBg.TargetB - m_NewBg.StartB ) / m_Time;
 	}
 
-	//	FƒNƒŠƒbƒsƒ“ƒO
+	//	è‰²ã‚¯ãƒªãƒƒãƒ”ãƒ³ã‚°
 	MaxMin( m_OldBg.A, 255, 0 );
 	MaxMin( m_OldBg.R, 255, 0 );
 	MaxMin( m_OldBg.G, 255, 0 );

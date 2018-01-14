@@ -1,21 +1,21 @@
 /******************************************************************************/
-//	ƒXƒNƒŠƒvƒg
-//		ƒwƒbƒ_ƒtƒ@ƒCƒ‹
+//	ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
+//		ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 #ifndef		__ScriptEngine_H__
 #define		__ScriptEngine_H__
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #include	"ScriptWipeEngine.h"
 
 //----------------------------------------------------------------------------//
-//	’è‹`
+//	å®šç¾©
 //----------------------------------------------------------------------------//
 
-//	ƒfƒtƒHƒ‹ƒgŠeíg—pŠJn”Ô†
+//	ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå„ç¨®ä½¿ç”¨é–‹å§‹ç•ªå·
 enum
 {
 	TEX_SCRIPT_BG = 0,
@@ -36,13 +36,13 @@ enum
 	TEXT_SCRIPT_NO = 0,
 };
 
-//	•¶š—ñŠÖ˜A
-#define	SCR_TEXT_LINE_MAX	4	//	Å‘ås”
+//	æ–‡å­—åˆ—é–¢é€£
+#define	SCR_TEXT_LINE_MAX	4	//	æœ€å¤§è¡Œæ•°
 
-//	ƒtƒ‰ƒOŠÖ˜A
-#define	SCR_FLAG_MAX	1000	//	ƒtƒ‰ƒO‚ÌÅ‘å”
+//	ãƒ•ãƒ©ã‚°é–¢é€£
+#define	SCR_FLAG_MAX	1000	//	ãƒ•ãƒ©ã‚°ã®æœ€å¤§æ•°
 
-//	ƒeƒLƒXƒg•\¦ŠÖ˜A
+//	ãƒ†ã‚­ã‚¹ãƒˆè¡¨ç¤ºé–¢é€£
 #define	TEXT_DISP_X		16
 #define	TEXT_DISP_Y		404
 #define	TEXT_FLD_X		0
@@ -57,42 +57,42 @@ enum
 
 enum
 {
-	Command_text,			//	0	•¶š—ñ•\¦
-	Command_end,			//	1	I—¹
-	Command_jump,			//	2	ƒ‰ƒxƒ‹ƒWƒƒƒ“ƒv
-	Command_sel,			//	3	‘I‘ğˆ
-	Command_flag_on,		//	4	ƒtƒ‰ƒOON
-	Command_flag_off,		//	5	ƒtƒ‰ƒOOFF
-	Command_flag_chk,		//	6	ƒtƒ‰ƒOƒ`ƒFƒbƒN
-	Command_black_out,		//	7	ƒtƒF[ƒhƒAƒEƒgiƒuƒ‰ƒbƒNƒAƒEƒgj
-	Command_black_in,		//	8	ƒtƒF[ƒhƒCƒ“iƒuƒ‰ƒbƒNƒCƒ“j
-	Command_white_out,		//	9	ƒtƒF[ƒhƒAƒEƒgiƒzƒƒCƒgƒAƒEƒgj
-	Command_white_in,		//	10	ƒtƒF[ƒhƒCƒ“iƒzƒƒCƒgƒCƒ“j
-	Command_cursor_blink,	//	11	ƒJ[ƒ\ƒ‹ƒuƒŠƒ“ƒN
-	Command_wait,			//	12	’x‰„
-	Command_scr_change,		//	13	ƒXƒNƒŠƒvƒgƒtƒ@ƒCƒ‹•ÏX
-	Command_text_input,		//	14	•¶š—ñ“ü—Í
-	Command_set_str,		//	15	•¶š—ñ‚ğƒZƒbƒg
-	Command_save_point,		//	16	ƒZ[ƒuƒ|ƒCƒ“ƒg
-	Command_shake,			//	17	‰æ–Ê‚ğ—h‚ç‚·
-	Command_load_tex,		//	18	ƒeƒNƒXƒ`ƒƒ‰æ‘œ“Ç‚İ‚İ
-	Command_set_pat,		//	19	ƒpƒ^[ƒ“ƒZƒbƒg
-	Command_set_pol,		//	20	ƒ|ƒŠƒSƒ“ƒZƒbƒg
-	Command_load_bg,		//	21	”wŒi“Ç‚İ‚İ
-	Command_disp_bg,		//	22	”wŒi•\¦E”ñ•\¦
-	Command_wipe,			//	23	ƒƒCƒv
-	Command_play_bgm,		//	24	BGMÄ¶
-	Command_stop_bgm,		//	25	BGM’â~
-	Command_play_se,		//	26	SEÄ¶
-	Command_init_str,		//	27	ƒZƒbƒg•¶š—ñ‰Šú‰»
+	Command_text,			//	0	æ–‡å­—åˆ—è¡¨ç¤º
+	Command_end,			//	1	çµ‚äº†
+	Command_jump,			//	2	ãƒ©ãƒ™ãƒ«ã‚¸ãƒ£ãƒ³ãƒ—
+	Command_sel,			//	3	é¸æŠè‚¢
+	Command_flag_on,		//	4	ãƒ•ãƒ©ã‚°ON
+	Command_flag_off,		//	5	ãƒ•ãƒ©ã‚°OFF
+	Command_flag_chk,		//	6	ãƒ•ãƒ©ã‚°ãƒã‚§ãƒƒã‚¯
+	Command_black_out,		//	7	ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆï¼ˆãƒ–ãƒ©ãƒƒã‚¯ã‚¢ã‚¦ãƒˆï¼‰
+	Command_black_in,		//	8	ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ³ï¼ˆãƒ–ãƒ©ãƒƒã‚¯ã‚¤ãƒ³ï¼‰
+	Command_white_out,		//	9	ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆï¼ˆãƒ›ãƒ¯ã‚¤ãƒˆã‚¢ã‚¦ãƒˆï¼‰
+	Command_white_in,		//	10	ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ³ï¼ˆãƒ›ãƒ¯ã‚¤ãƒˆã‚¤ãƒ³ï¼‰
+	Command_cursor_blink,	//	11	ã‚«ãƒ¼ã‚½ãƒ«ãƒ–ãƒªãƒ³ã‚¯
+	Command_wait,			//	12	é…å»¶
+	Command_scr_change,		//	13	ã‚¹ã‚¯ãƒªãƒ—ãƒˆãƒ•ã‚¡ã‚¤ãƒ«å¤‰æ›´
+	Command_text_input,		//	14	æ–‡å­—åˆ—å…¥åŠ›
+	Command_set_str,		//	15	æ–‡å­—åˆ—ã‚’ã‚»ãƒƒãƒˆ
+	Command_save_point,		//	16	ã‚»ãƒ¼ãƒ–ãƒã‚¤ãƒ³ãƒˆ
+	Command_shake,			//	17	ç”»é¢ã‚’æºã‚‰ã™
+	Command_load_tex,		//	18	ãƒ†ã‚¯ã‚¹ãƒãƒ£ç”»åƒèª­ã¿è¾¼ã¿
+	Command_set_pat,		//	19	ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚»ãƒƒãƒˆ
+	Command_set_pol,		//	20	ãƒãƒªã‚´ãƒ³ã‚»ãƒƒãƒˆ
+	Command_load_bg,		//	21	èƒŒæ™¯èª­ã¿è¾¼ã¿
+	Command_disp_bg,		//	22	èƒŒæ™¯è¡¨ç¤ºãƒ»éè¡¨ç¤º
+	Command_wipe,			//	23	ãƒ¯ã‚¤ãƒ—
+	Command_play_bgm,		//	24	BGMå†ç”Ÿ
+	Command_stop_bgm,		//	25	BGMåœæ­¢
+	Command_play_se,		//	26	SEå†ç”Ÿ
+	Command_init_str,		//	27	ã‚»ãƒƒãƒˆæ–‡å­—åˆ—åˆæœŸåŒ–
 	CommandMax,
 };
 
 enum E_TextColor
 {
-	_TextColorNormal,		//	’Êí
-	_TextColorSelect,		//	‘I‘ğ
-	_TextColorNotSelect,	//	”ñ‘I‘ğ
+	_TextColorNormal,		//	é€šå¸¸
+	_TextColorSelect,		//	é¸æŠ
+	_TextColorNotSelect,	//	éé¸æŠ
 };
 
 #define	SHAKAE_ATR_X		1
@@ -100,68 +100,68 @@ enum E_TextColor
 #define	SHAKAE_ATR_XY		(SHAKAE_ATR_X|SHAKAE_ATR_Y)
 
 //----------------------------------------------------------------------------//
-//	\‘¢‘Ì
+//	æ§‹é€ ä½“
 //----------------------------------------------------------------------------//
 
 ////////////////////////////////////////////////
-//	•¶š—ñ—p
+//	æ–‡å­—åˆ—ç”¨
 typedef	struct
 {
-	E_TextColor	TextColor;		//	•¶š—ñ‚ÌF
-	char		Text[MAX_PATH];	//	•\¦•¶š—ñ
+	E_TextColor	TextColor;		//	æ–‡å­—åˆ—ã®è‰²
+	char		Text[MAX_PATH];	//	è¡¨ç¤ºæ–‡å­—åˆ—
 }SE_STR_TBL;
 
 /////////////////////////////////////////////////
-//	”wŒi—h‚ç‚µ—p\‘¢‘Ì
+//	èƒŒæ™¯æºã‚‰ã—ç”¨æ§‹é€ ä½“
 typedef	struct
 {
-	long	Value;	//	‰ÁZ’l
-	long	Time;	//	—h‚ç‚·ŠÔiƒtƒŒ[ƒ€”j
-	long	Count;	//	ƒJƒEƒ“ƒ^
-	long	State;	//	ó‘Ô
-	UChar	Atr;	//	ƒAƒgƒŠƒrƒ…[ƒg(0:XA1:YA2:XY)
+	long	Value;	//	åŠ ç®—å€¤
+	long	Time;	//	æºã‚‰ã™æ™‚é–“ï¼ˆãƒ•ãƒ¬ãƒ¼ãƒ æ•°ï¼‰
+	long	Count;	//	ã‚«ã‚¦ãƒ³ã‚¿
+	long	State;	//	çŠ¶æ…‹
+	UChar	Atr;	//	ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ(0:Xã€1:Yã€2:XY)
 }SE_SHAKE_TBL;
 
 /////////////////////////////////////////////////
-//	•¶š—ñŠÇ——p\‘¢‘Ì
+//	æ–‡å­—åˆ—ç®¡ç†ç”¨æ§‹é€ ä½“
 typedef	struct
 {
-	long		DispFlag;	//	ƒeƒLƒXƒg•\¦iON:•\¦AOFF:’â~j
-	long		MaxLine;	//	•¶š—ñ‚Ìs”
-	long		CrtLine;	//	Œ»İ‚Ìs”
-	long		CrtTime;	//	ƒJƒŒƒ“ƒgŠÔ
-	long		Count;		//	ƒJƒEƒ“ƒ^
-	long		State;		//	ó‘Ô
+	long		DispFlag;	//	ãƒ†ã‚­ã‚¹ãƒˆè¡¨ç¤ºï¼ˆON:è¡¨ç¤ºã€OFF:åœæ­¢ï¼‰
+	long		MaxLine;	//	æ–‡å­—åˆ—ã®è¡Œæ•°
+	long		CrtLine;	//	ç¾åœ¨ã®è¡Œæ•°
+	long		CrtTime;	//	ã‚«ãƒ¬ãƒ³ãƒˆæ™‚é–“
+	long		Count;		//	ã‚«ã‚¦ãƒ³ã‚¿
+	long		State;		//	çŠ¶æ…‹
 	SE_STR_TBL	SST[SCR_TEXT_LINE_MAX];
 }SE_TEXT_TBL;
 
 /////////////////////////////////////////////////
-//	ƒXƒNƒŠƒvƒgŠÇ—\‘¢‘Ì
+//	ã‚¹ã‚¯ãƒªãƒ—ãƒˆç®¡ç†æ§‹é€ ä½“
 typedef	struct
 {
-	long			Mode;			//	ƒ‚[ƒhi0:ƒZƒbƒgA1:ƒ‹[ƒvj
-	long			WaitFlag;		//	’x‰„iON:’x‰„‚ ‚èAOFF:’x‰„‚È‚µj
-	long			BlinkCursor;	//	ƒJ[ƒ\ƒ‹“_–ÅiON:“_–Å’†AOFF:“_–Å‚È‚µj
+	long			Mode;			//	ãƒ¢ãƒ¼ãƒ‰ï¼ˆ0:ã‚»ãƒƒãƒˆã€1:ãƒ«ãƒ¼ãƒ—ï¼‰
+	long			WaitFlag;		//	é…å»¶ï¼ˆON:é…å»¶ã‚ã‚Šã€OFF:é…å»¶ãªã—ï¼‰
+	long			BlinkCursor;	//	ã‚«ãƒ¼ã‚½ãƒ«ç‚¹æ»…ï¼ˆON:ç‚¹æ»…ä¸­ã€OFF:ç‚¹æ»…ãªã—ï¼‰
 
-	long			CmdNo;			//	ƒRƒ}ƒ“ƒh”Ô†
-	long			SelectNo;		//	‘I‘ğˆ”Ô†
+	long			CmdNo;			//	ã‚³ãƒãƒ³ãƒ‰ç•ªå·
+	long			SelectNo;		//	é¸æŠè‚¢ç•ªå·
 
-	char			JumpStr[SCR_TEXT_LINE_MAX][256];	//	”ò‚Ñæƒ‰ƒxƒ‹
-	char			EventFlag[SCR_FLAG_MAX];			//	ƒCƒxƒ“ƒgƒtƒ‰ƒO
+	char			JumpStr[SCR_TEXT_LINE_MAX][256];	//	é£›ã³å…ˆãƒ©ãƒ™ãƒ«
+	char			EventFlag[SCR_FLAG_MAX];			//	ã‚¤ãƒ™ãƒ³ãƒˆãƒ•ãƒ©ã‚°
 	SE_STR_TBL		SET[STR_SET_MAX];
-	SE_SHAKE_TBL	SHAKE;			//	‰æ–Ê—h‚ç‚µ
-	char			*Addr;			//	Œ»İ‚ÌƒXƒNƒŠƒvƒgƒAƒhƒŒƒX
+	SE_SHAKE_TBL	SHAKE;			//	ç”»é¢æºã‚‰ã—
+	char			*Addr;			//	ç¾åœ¨ã®ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚¢ãƒ‰ãƒ¬ã‚¹
 }SCRIPT_TBL;
 
 //----------------------------------------------------------------------------//
-//	ƒNƒ‰ƒX
+//	ã‚¯ãƒ©ã‚¹
 //----------------------------------------------------------------------------//
 class	CScriptEngine
 {
 protected:
 	char				m_ScrDat[100*1024];
 	SCRIPT_TBL			m_SCR;
-	SE_TEXT_TBL			m_TEXT;			//	•¶š—ñŠÇ—\‘¢‘Ì
+	SE_TEXT_TBL			m_TEXT;			//	æ–‡å­—åˆ—ç®¡ç†æ§‹é€ ä½“
 	long				m_CursorTimer;
 	long				m_UseTextureNo;
 	long				m_UsePatNo;
@@ -176,70 +176,70 @@ public:
 	CScriptEngine( long TextureNo, long PatNo, long PolNo, long TextNo, long BGMNo, long SENo );
 	~CScriptEngine();
 	void	Init( char *FileName );
-	void	Main( void );	//	ƒXƒNƒŠƒvƒgƒGƒ“ƒWƒ“ƒƒCƒ“
+	void	Main( void );	//	ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚¨ãƒ³ã‚¸ãƒ³ãƒ¡ã‚¤ãƒ³
 
 protected:
 	/////////////////////////////////////////////////
-	//	ƒGƒ“ƒWƒ“
-	void	Set( void );			//	ƒXƒNƒŠƒvƒgƒZƒbƒg
-	void	Loop( void );			//	ƒXƒNƒŠƒgƒvƒgƒ‹[ƒv
-	long	GetNextCommand( void );	//	Ÿ‚ÌƒRƒ}ƒ“ƒhæ“¾
+	//	ã‚¨ãƒ³ã‚¸ãƒ³
+	void	Set( void );			//	ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚»ãƒƒãƒˆ
+	void	Loop( void );			//	ã‚¹ã‚¯ãƒªãƒˆãƒ—ãƒˆãƒ«ãƒ¼ãƒ—
+	long	GetNextCommand( void );	//	æ¬¡ã®ã‚³ãƒãƒ³ãƒ‰å–å¾—
 
 	/////////////////////////////////////////////////
-	//	ƒtƒŒ[ƒ€ƒ‹[ƒv
+	//	ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ«ãƒ¼ãƒ—
 	void	DispTextLoop( void );
 
 	/////////////////////////////////////////////////
-	//	ƒRƒ}ƒ“ƒh
-	void	CommandTextSet( void );			//	ƒeƒLƒXƒgƒRƒ}ƒ“ƒhEƒZƒbƒg
-	void	CommandEndSet( void );			//	I—¹ƒRƒ}ƒ“ƒhEƒZƒbƒg
-	void	CommandJumpSet( void );			//	ƒ‰ƒxƒ‹ƒWƒƒƒ“ƒvƒRƒ}ƒ“ƒhEƒZƒbƒg
-	void	CommandSelSet( void );			//	‘I‘ğˆƒRƒ}ƒ“ƒhEƒZƒbƒg
-	void	CommandFlagOnSet( void );		//	ƒtƒ‰ƒOƒRƒ}ƒ“ƒhONEƒZƒbƒg
-	void	CommandFlagOffSet( void );		//	ƒtƒ‰ƒOƒRƒ}ƒ“ƒhOFFEƒZƒbƒg
-	void	CommandFlagChkSet( void );		//	ƒtƒ‰ƒOƒRƒ}ƒ“ƒhƒ`ƒFƒbƒNEƒZƒbƒg
-	void	CommandBlackOutSet( void );		//	ƒuƒ‰ƒbƒNƒAƒEƒgƒRƒ}ƒ“ƒhEƒZƒbƒg
-	void	CommandBlackInSet( void );		//	ƒuƒ‰ƒbƒNƒCƒ“ƒRƒ}ƒ“ƒhEƒZƒbƒg
-	void	CommandWhiteOutSet( void );		//	ƒzƒƒCƒgƒAƒEƒgƒRƒ}ƒ“ƒhEƒZƒbƒg
-	void	CommandWhiteInSet( void );		//	ƒzƒƒCƒgƒCƒ“ƒRƒ}ƒ“ƒhEƒZƒbƒg
-	void	CommandCursorBlinkSet( void );	//	ƒJ[ƒ\ƒ‹“_–ÅƒRƒ}ƒ“ƒhEƒZƒbƒg
-	void	CommandWaitSet( void );			//	’x‰„ƒRƒ}ƒ“ƒhEƒZƒbƒg
-	void	CommandScriptChangeSet( void );	//	ƒXƒNƒŠƒvƒgƒtƒ@ƒCƒ‹•ÏXƒRƒ}ƒ“ƒhEƒZƒbƒg
-	void	CommandTextInputSet( void );	//	ƒeƒLƒXƒg“ü—ÍƒRƒ}ƒ“ƒhEƒZƒbƒg
-	void	CommandSetStrSet( void );		//	•¶š—ñƒZƒbƒgƒRƒ}ƒ“ƒhEƒZƒbƒg
-	void	CommandSavePointSet( void );	//	ƒZ[ƒuƒ|ƒCƒ“ƒgƒRƒ}ƒ“ƒhEƒZƒbƒg
-	void	CommandShakeSet( void );		//	‰æ–Ê—h‚ç‚·ƒRƒ}ƒ“ƒhEƒZƒbƒg
-	void	CommandLoadTex( void );			//	ƒeƒNƒXƒ`ƒƒ‰æ‘œ“Ç‚İ‚İ
-	void	CommandSetPat( void );			//	ƒpƒ^[ƒ“ƒZƒbƒg
-	void	CommandSetPol( void );			//	ƒ|ƒŠƒSƒ“ƒZƒbƒg
-	void	CommandLoadBg( void );			//	”wŒi“Ç‚İ‚İ
-	void	CommandDispBg( void );			//	”wŒi•\¦E”ñ•\¦
-	void	CommandWipe( void );			//	ƒƒCƒv
-	void	CommandPlayBGM( void );			//	BGMÄ¶
-	void	CommandStopBGM( void );			//	BGM’â~
-	void	CommandPlaySE( void );			//	SEÄ¶
-	void	CommandInitStr( void );			//	ƒZƒbƒg•¶š—ñ‰Šú‰»
+	//	ã‚³ãƒãƒ³ãƒ‰
+	void	CommandTextSet( void );			//	ãƒ†ã‚­ã‚¹ãƒˆã‚³ãƒãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
+	void	CommandEndSet( void );			//	çµ‚äº†ã‚³ãƒãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
+	void	CommandJumpSet( void );			//	ãƒ©ãƒ™ãƒ«ã‚¸ãƒ£ãƒ³ãƒ—ã‚³ãƒãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
+	void	CommandSelSet( void );			//	é¸æŠè‚¢ã‚³ãƒãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
+	void	CommandFlagOnSet( void );		//	ãƒ•ãƒ©ã‚°ã‚³ãƒãƒ³ãƒ‰ONãƒ»ã‚»ãƒƒãƒˆ
+	void	CommandFlagOffSet( void );		//	ãƒ•ãƒ©ã‚°ã‚³ãƒãƒ³ãƒ‰OFFãƒ»ã‚»ãƒƒãƒˆ
+	void	CommandFlagChkSet( void );		//	ãƒ•ãƒ©ã‚°ã‚³ãƒãƒ³ãƒ‰ãƒã‚§ãƒƒã‚¯ãƒ»ã‚»ãƒƒãƒˆ
+	void	CommandBlackOutSet( void );		//	ãƒ–ãƒ©ãƒƒã‚¯ã‚¢ã‚¦ãƒˆã‚³ãƒãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
+	void	CommandBlackInSet( void );		//	ãƒ–ãƒ©ãƒƒã‚¯ã‚¤ãƒ³ã‚³ãƒãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
+	void	CommandWhiteOutSet( void );		//	ãƒ›ãƒ¯ã‚¤ãƒˆã‚¢ã‚¦ãƒˆã‚³ãƒãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
+	void	CommandWhiteInSet( void );		//	ãƒ›ãƒ¯ã‚¤ãƒˆã‚¤ãƒ³ã‚³ãƒãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
+	void	CommandCursorBlinkSet( void );	//	ã‚«ãƒ¼ã‚½ãƒ«ç‚¹æ»…ã‚³ãƒãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
+	void	CommandWaitSet( void );			//	é…å»¶ã‚³ãƒãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
+	void	CommandScriptChangeSet( void );	//	ã‚¹ã‚¯ãƒªãƒ—ãƒˆãƒ•ã‚¡ã‚¤ãƒ«å¤‰æ›´ã‚³ãƒãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
+	void	CommandTextInputSet( void );	//	ãƒ†ã‚­ã‚¹ãƒˆå…¥åŠ›ã‚³ãƒãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
+	void	CommandSetStrSet( void );		//	æ–‡å­—åˆ—ã‚»ãƒƒãƒˆã‚³ãƒãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
+	void	CommandSavePointSet( void );	//	ã‚»ãƒ¼ãƒ–ãƒã‚¤ãƒ³ãƒˆã‚³ãƒãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
+	void	CommandShakeSet( void );		//	ç”»é¢æºã‚‰ã™ã‚³ãƒãƒ³ãƒ‰ãƒ»ã‚»ãƒƒãƒˆ
+	void	CommandLoadTex( void );			//	ãƒ†ã‚¯ã‚¹ãƒãƒ£ç”»åƒèª­ã¿è¾¼ã¿
+	void	CommandSetPat( void );			//	ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚»ãƒƒãƒˆ
+	void	CommandSetPol( void );			//	ãƒãƒªã‚´ãƒ³ã‚»ãƒƒãƒˆ
+	void	CommandLoadBg( void );			//	èƒŒæ™¯èª­ã¿è¾¼ã¿
+	void	CommandDispBg( void );			//	èƒŒæ™¯è¡¨ç¤ºãƒ»éè¡¨ç¤º
+	void	CommandWipe( void );			//	ãƒ¯ã‚¤ãƒ—
+	void	CommandPlayBGM( void );			//	BGMå†ç”Ÿ
+	void	CommandStopBGM( void );			//	BGMåœæ­¢
+	void	CommandPlaySE( void );			//	SEå†ç”Ÿ
+	void	CommandInitStr( void );			//	ã‚»ãƒƒãƒˆæ–‡å­—åˆ—åˆæœŸåŒ–
 
-	void	CommandTextLoop( void );		//	ƒeƒLƒXƒgƒRƒ}ƒ“ƒhEƒ‹[ƒv
-	void	CommandSelLoop( void );			//	‘I‘ğˆƒRƒ}ƒ“ƒhEƒ‹[ƒv
-	void	CommandBlackOutLoop( void );	//	ƒuƒ‰ƒbƒNƒAƒEƒgƒRƒ}ƒ“ƒhEƒ‹[ƒv
-	void	CommandBlackInLoop( void );		//	ƒuƒ‰ƒbƒNƒCƒ“ƒRƒ}ƒ“ƒhEƒ‹[ƒv
-	void	CommandWhiteOutLoop( void );	//	ƒzƒƒCƒgƒAƒEƒgƒRƒ}ƒ“ƒhEƒ‹[ƒv
-	void	CommandWhiteInLoop( void );		//	ƒzƒƒCƒgƒCƒ“ƒRƒ}ƒ“ƒhEƒ‹[ƒv
-	void	CommandCursorBlinkLoop( void );	//	ƒJ[ƒ\ƒ‹“_–ÅƒRƒ}ƒ“ƒhEƒ‹[ƒv
-	void	CommandShakeLoop( void );		//	‰æ–Ê—h‚ç‚·ƒRƒ}ƒ“ƒhEƒ‹[ƒv
+	void	CommandTextLoop( void );		//	ãƒ†ã‚­ã‚¹ãƒˆã‚³ãƒãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
+	void	CommandSelLoop( void );			//	é¸æŠè‚¢ã‚³ãƒãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
+	void	CommandBlackOutLoop( void );	//	ãƒ–ãƒ©ãƒƒã‚¯ã‚¢ã‚¦ãƒˆã‚³ãƒãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
+	void	CommandBlackInLoop( void );		//	ãƒ–ãƒ©ãƒƒã‚¯ã‚¤ãƒ³ã‚³ãƒãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
+	void	CommandWhiteOutLoop( void );	//	ãƒ›ãƒ¯ã‚¤ãƒˆã‚¢ã‚¦ãƒˆã‚³ãƒãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
+	void	CommandWhiteInLoop( void );		//	ãƒ›ãƒ¯ã‚¤ãƒˆã‚¤ãƒ³ã‚³ãƒãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
+	void	CommandCursorBlinkLoop( void );	//	ã‚«ãƒ¼ã‚½ãƒ«ç‚¹æ»…ã‚³ãƒãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
+	void	CommandShakeLoop( void );		//	ç”»é¢æºã‚‰ã™ã‚³ãƒãƒ³ãƒ‰ãƒ»ãƒ«ãƒ¼ãƒ—
 
 	/////////////////////////////////////////////////
-	//	ƒXƒNƒŠƒvƒg”Ä—p
-	char	*ScriptSearchChar( char *pt, char ch );		//	•¶šŒŸõ
-	char	*ScriptSkipSpace( char *pt );				//	‹ó”’‚ÌƒXƒLƒbƒv
-	char	*ScriptSkipStr( char *pt );					//	•¶š—ñƒXƒLƒbƒv
-	char	*ScriptGetStr( char *pt, char *str );		//	•¶šæ“¾
-	char	*ScriptGetStrDouble( char *pt, char *str );	//	•¶š—ñæ“¾
-	char	*ScriptLabelJump( char *addr, char *str );	//	ƒ‰ƒxƒ‹ƒWƒƒƒ“ƒv
-	long	ScriptStrComp( char *str1, char *str2 );	//	•¶š—ñ”äŠr
-	char	*ScriptSkipComment( char *pt );				//	ƒRƒƒ“ƒgƒXƒLƒbƒv
-	void	SwapStr( char *Str );						//	ƒZƒbƒg•¶š—ñ•ÏX
+	//	ã‚¹ã‚¯ãƒªãƒ—ãƒˆæ±ç”¨
+	char	*ScriptSearchChar( char *pt, char ch );		//	æ–‡å­—æ¤œç´¢
+	char	*ScriptSkipSpace( char *pt );				//	ç©ºç™½ã®ã‚¹ã‚­ãƒƒãƒ—
+	char	*ScriptSkipStr( char *pt );					//	æ–‡å­—åˆ—ã‚¹ã‚­ãƒƒãƒ—
+	char	*ScriptGetStr( char *pt, char *str );		//	æ–‡å­—å–å¾—
+	char	*ScriptGetStrDouble( char *pt, char *str );	//	æ–‡å­—åˆ—å–å¾—
+	char	*ScriptLabelJump( char *addr, char *str );	//	ãƒ©ãƒ™ãƒ«ã‚¸ãƒ£ãƒ³ãƒ—
+	long	ScriptStrComp( char *str1, char *str2 );	//	æ–‡å­—åˆ—æ¯”è¼ƒ
+	char	*ScriptSkipComment( char *pt );				//	ã‚³ãƒ¡ãƒ³ãƒˆã‚¹ã‚­ãƒƒãƒ—
+	void	SwapStr( char *Str );						//	ã‚»ãƒƒãƒˆæ–‡å­—åˆ—å¤‰æ›´
 };
 
 class SETextColor

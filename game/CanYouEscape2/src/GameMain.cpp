@@ -1,10 +1,10 @@
 /******************************************************************************/
-//	ƒQ[ƒ€ƒƒCƒ“
-//		ƒ\[ƒXƒtƒ@ƒCƒ‹
+//	ã‚²ãƒ¼ãƒ ãƒ¡ã‚¤ãƒ³
+//		ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #include	"./Dx9Lib/Dx9Lib.h"
 #include	"./Dx9LibAnm.h"
@@ -21,13 +21,13 @@
 #include	"./CharSelect.h"
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 
-//	ƒVƒXƒeƒ€
+//	ã‚·ã‚¹ãƒ†ãƒ 
 SYSTEM_TBL	SYS =
 {
-	//	ƒQ[ƒ€ƒ‚[ƒhƒtƒ‰ƒO
+	//	ã‚²ãƒ¼ãƒ ãƒ¢ãƒ¼ãƒ‰ãƒ•ãƒ©ã‚°
 	MAIN_MODE_INIT,
 //	MAIN_MODE_TITLE_INIT,
 //	MAIN_MODE_OPTION_INIT,
@@ -35,29 +35,29 @@ SYSTEM_TBL	SYS =
 //	MAIN_MODE_GAME_INIT,
 //	MAIN_MODE_END_INIT,
 
-	0,		//	ƒXƒe[ƒW”Ô†
-	NOT,	//	ŸŽÒ
-//	0,	//	ŸŽÒ
+	0,		//	ã‚¹ãƒ†ãƒ¼ã‚¸ç•ªå·
+	NOT,	//	å‹è€…
+//	0,	//	å‹è€…
 
-	60,	//	TIME(-2:–³§ŒÀ)
+	60,	//	TIME(-2:ç„¡åˆ¶é™)
 
-	0,		//	ƒtƒŒ[ƒ€ƒJƒEƒ“ƒ^
-	OFF,	//	BUZZƒtƒ‰ƒO
-	OFF,	//	PAUSEƒtƒ‰ƒO
+	0,		//	ãƒ•ãƒ¬ãƒ¼ãƒ ã‚«ã‚¦ãƒ³ã‚¿
+	OFF,	//	BUZZãƒ•ãƒ©ã‚°
+	OFF,	//	PAUSEãƒ•ãƒ©ã‚°
 
-	1000,1000,	//	ƒ‰ƒCƒt
-//	0,0,	//	ƒ‰ƒCƒt
+	1000,1000,	//	ãƒ©ã‚¤ãƒ•
+//	0,0,	//	ãƒ©ã‚¤ãƒ•
 };
 
 //----------------------------------------------------------------------------//
-//	ƒvƒƒgƒ^ƒCƒvéŒ¾
+//	ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 //----------------------------------------------------------------------------//
-void	MainInit( void );	//	ƒƒCƒ“‰Šú‰»
-void	GameInit( void );	//	ƒQ[ƒ€‰Šú‰»
-void	GameMain( void );	//	ƒQ[ƒ€ƒƒCƒ“
+void	MainInit( void );	//	ãƒ¡ã‚¤ãƒ³åˆæœŸåŒ–
+void	GameInit( void );	//	ã‚²ãƒ¼ãƒ åˆæœŸåŒ–
+void	GameMain( void );	//	ã‚²ãƒ¼ãƒ ãƒ¡ã‚¤ãƒ³
 long	HitCheck( double x1, double y1, double r1, double x2, double y2, double r2 );
 
-//	ƒfƒoƒbƒO
+//	ãƒ‡ãƒãƒƒã‚°
 #ifdef	__DEBUG__
 	void	DebugUnitChagne( void );
 #endif
@@ -65,78 +65,78 @@ long	HitCheck( double x1, double y1, double r1, double x2, double y2, double r2 
 
 
 /******************************************************************************/
-//	ƒƒCƒ“ƒ‹[ƒv
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒ—
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	MainLoop( void )
 {
 	switch( SYS.main_mode )
 	{
 		/////////////////////////////////////////////////
-		//	‹@“®‰Šú‰»
+		//	æ©Ÿå‹•åˆæœŸåŒ–
 		case	MAIN_MODE_INIT:
 			MainInit();
 			SYS.main_mode = MAIN_MODE_TITLE_INIT;
 
 		/////////////////////////////////////////////////
-		//	ƒ^ƒCƒgƒ‹‰Šú‰»
+		//	ã‚¿ã‚¤ãƒˆãƒ«åˆæœŸåŒ–
 		case	MAIN_MODE_TITLE_INIT:
 			TitleInit();
 			SYS.main_mode = MAIN_MODE_TITLE_MAIN;
 
 		/////////////////////////////////////////////////
-		//	ƒ^ƒCƒgƒ‹ƒƒCƒ“
+		//	ã‚¿ã‚¤ãƒˆãƒ«ãƒ¡ã‚¤ãƒ³
 		case	MAIN_MODE_TITLE_MAIN:
 			TitleMain();
 			break;
 
 		/////////////////////////////////////////////////
-		//	ƒIƒvƒVƒ‡ƒ“‰Šú‰»
+		//	ã‚ªãƒ—ã‚·ãƒ§ãƒ³åˆæœŸåŒ–
 		case	MAIN_MODE_OPTION_INIT:
 			OptionInit();
 			SYS.main_mode = MAIN_MODE_OPTION_MAIN;
 
 		/////////////////////////////////////////////////
-		//	ƒIƒvƒVƒ‡ƒ“ƒƒCƒ“
+		//	ã‚ªãƒ—ã‚·ãƒ§ãƒ³ãƒ¡ã‚¤ãƒ³
 		case	MAIN_MODE_OPTION_MAIN:
 			OptionMain();
 			break;
 
 		/////////////////////////////////////////////////
-		//	ƒLƒƒƒ‰ƒNƒ^[ƒZƒŒƒNƒg‰Šú‰»
+		//	ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã‚»ãƒ¬ã‚¯ãƒˆåˆæœŸåŒ–
 		case	MAIN_MODE_CHAR_SELECT_INIT:
 			CharSelectInit();
 			SYS.main_mode = MAIN_MODE_CHAR_SELECT_MAIN;
 
 		/////////////////////////////////////////////////
-		//	ƒLƒƒƒ‰ƒNƒ^[ƒZƒŒƒNƒgƒƒCƒ“
+		//	ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã‚»ãƒ¬ã‚¯ãƒˆãƒ¡ã‚¤ãƒ³
 		case	MAIN_MODE_CHAR_SELECT_MAIN:
 			CharSelectMain();
 			break;
 
 		/////////////////////////////////////////////////
-		//	ƒQ[ƒ€‰Šú‰»
+		//	ã‚²ãƒ¼ãƒ åˆæœŸåŒ–
 		case	MAIN_MODE_GAME_INIT:
 			GameInit();
 			SYS.main_mode = MAIN_MODE_GAME_MAIN;
 
 		/////////////////////////////////////////////////
-		//	ƒQ[ƒ€ƒƒCƒ“
+		//	ã‚²ãƒ¼ãƒ ãƒ¡ã‚¤ãƒ³
 		case	MAIN_MODE_GAME_MAIN:
 			GameMain();
 			break;
 
 		/////////////////////////////////////////////////
-		//	I—¹‰Šú‰»
+		//	çµ‚äº†åˆæœŸåŒ–
 		case	MAIN_MODE_END_INIT:
 			EndInit();
 			SYS.main_mode = MAIN_MODE_END_MAIN;
 
 		/////////////////////////////////////////////////
-		//	I—¹ƒƒCƒ“
+		//	çµ‚äº†ãƒ¡ã‚¤ãƒ³
 		case	MAIN_MODE_END_MAIN:
 			EndMain();
 			break;
@@ -149,16 +149,16 @@ void	MainLoop( void )
 }
 
 /******************************************************************************/
-//	ƒƒCƒ“‰Šú‰»
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ãƒ¡ã‚¤ãƒ³åˆæœŸåŒ–
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	MainInit( void )
 {
 	/////////////////////////////////////////////////
-	//	ƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»
+	//	ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–
 	InitTextureAll();
 	InitPatternAll();
 	InitPolygonAll();
@@ -171,16 +171,16 @@ void	MainInit( void )
 }
 
 /******************************************************************************/
-//	ƒQ[ƒ€‰Šú‰»
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ã‚²ãƒ¼ãƒ åˆæœŸåŒ–
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	GameInit( void )
 {
 	/////////////////////////////////////////////////
-	//	ƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»
+	//	ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–
 	InitTextureAll();
 	InitPatternAll();
 	InitPolygonAll();
@@ -198,17 +198,17 @@ void	GameInit( void )
 	PAD[0].JoyUse = ON;
 
 	/////////////////////////////////////////////////
-	//	ƒLƒƒƒ‰‚Ì‰Šú‰»
+	//	ã‚­ãƒ£ãƒ©ã®åˆæœŸåŒ–
 	CharInit( 0, SelectFlag[0] );
 	CharInit( 1, SelectFlag[1] );
 
 	/////////////////////////////////////////////////
-	//	ƒeƒNƒXƒ`ƒƒ“Ç‚Ýž‚Ý
+	//	ãƒ†ã‚¯ã‚¹ãƒãƒ£èª­ã¿è¾¼ã¿
 	LoadTexture( TEX_GAME_UNIT, "img\\char\\chr_samp.img" );
 	LoadTexture( TEX_GAME_SHOT, "img\\battle\\shot.img" );
 
 	/////////////////////////////////////////////////
-	//	ƒpƒ^[ƒ“
+	//	ãƒ‘ã‚¿ãƒ¼ãƒ³
 	short	rect[2][4];
 	for( int i=0; i<2; i++ )
 	{
@@ -218,14 +218,14 @@ void	GameInit( void )
 		rect[i][3] = (short)UNIT[i].pat.bottom;
 	}
 
-	//	ƒ†ƒjƒbƒg
+	//	ãƒ¦ãƒ‹ãƒƒãƒˆ
 	SetPattern( PAT_GAME_UNIT+0, TEX_GAME_UNIT, rect[0][0],rect[0][1], rect[0][2],rect[0][3] );
 	SetPattern( PAT_GAME_UNIT+1, TEX_GAME_UNIT, rect[1][0],rect[1][1], rect[1][2],rect[1][3] );
 
-	SetPattern( PAT_GAME_TOUCH, TEX_GAME_SHOT, 32,0,64,64 );	//	ÚG”ÍˆÍ
-	SetPattern( PAT_GAME_BUZZ,  TEX_GAME_SHOT, 0,32, 29,29 );	//	ƒoƒYƒŠ”ÍˆÍ
+	SetPattern( PAT_GAME_TOUCH, TEX_GAME_SHOT, 32,0,64,64 );	//	æŽ¥è§¦ç¯„å›²
+	SetPattern( PAT_GAME_BUZZ,  TEX_GAME_SHOT, 0,32, 29,29 );	//	ãƒã‚ºãƒªç¯„å›²
 
-	//	ƒVƒ‡ƒg
+	//	ã‚·ãƒ§ãƒˆ
 	SetPattern( PAT_GAME_SHOT+0, TEX_GAME_SHOT, 0,0, 16,32 );
 	SetPattern( PAT_GAME_SHOT+1, TEX_GAME_SHOT, 16,0, 16,32 );
 
@@ -236,7 +236,7 @@ void	GameInit( void )
 	SetPattern( PAT_GAME_SHOT+5, TEX_GAME_SHOT, 0,64, 16,16 );
 
 	/////////////////////////////////////////////////
-	//	ƒIƒuƒWƒFƒNƒg
+	//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 	ObjSet( OBJ_GAME_UNIT+0,  POL_GAME_UNIT+0,  PAT_GAME_UNIT+0, 160,240,0.5, OBJ_TYPE_UNIT, OBJ_ATR_NONE );
 	ObjSet( OBJ_GAME_UNIT+1,  POL_GAME_UNIT+1,  PAT_GAME_UNIT+1, 480,240,0.5, OBJ_TYPE_UNIT, OBJ_ATR_NONE );
 	ObjCenterSet( OBJ_GAME_UNIT+0, UNIT[0].cx,UNIT[0].cy );
@@ -257,14 +257,14 @@ void	GameInit( void )
 	OBJ[ OBJ_GAME_BUZZ+1 ].disp = SYS.buzz_disp;
 
 	/////////////////////////////////////////////////
-	//	SE‚Ì“Ç‚Ýž‚Ý
+	//	SEã®èª­ã¿è¾¼ã¿
 	g_LibMusic.Load( SE_CURSOR, "se\\se_cursor.wav" );
 	g_LibMusic.Load( SE_BUT, "se\\se_button00.wav" );
 	g_LibMusic.Load( SE_START, "se\\se_button01.wav" );
 	g_LibMusic.Load( SE_RELOAD, "se\\se_reload.wav" );
 
 	/////////////////////////////////////////////////
-	//	ƒ‰ƒCƒt
+	//	ãƒ©ã‚¤ãƒ•
 	g_LibText.Set( 10, 0,0, 255,255,0,0, "" );
 	g_LibText.Set( 11, 0,16, 255,255,0,0, "" );
 	TXT[10].Disp = OFF;
@@ -273,11 +273,11 @@ void	GameInit( void )
 }
 
 /******************************************************************************/
-//	ƒQ[ƒ€ƒƒCƒ“
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ã‚²ãƒ¼ãƒ ãƒ¡ã‚¤ãƒ³
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	GameMain( void )
 {
@@ -296,27 +296,27 @@ void	GameMain( void )
 		UNIT[1].gage = 300;
 	}
 
-//	ƒfƒoƒbƒO
+//	ãƒ‡ãƒãƒƒã‚°
 #ifdef	__DEBUG__
 	DebugUnitChagne();
 #endif
 }
 
 /******************************************************************************/
-//	“–‚½‚è”»’è
-//		–ß‚è’lF
-//				‚OF–¢ÚGA‚PFÚG
-//		ˆø”F
-//				x1,y1	À•W‚P
-//				r1		’¼Œa‚P
-//				x2,y2	À•W‚Q
-//				r2		’¼Œa‚Q
+//	å½“ãŸã‚Šåˆ¤å®š
+//		æˆ»ã‚Šå€¤ï¼š
+//				ï¼ï¼šæœªæŽ¥è§¦ã€ï¼‘ï¼šæŽ¥è§¦
+//		å¼•æ•°ï¼š
+//				x1,y1	åº§æ¨™ï¼‘
+//				r1		ç›´å¾„ï¼‘
+//				x2,y2	åº§æ¨™ï¼’
+//				r2		ç›´å¾„ï¼’
 /******************************************************************************/
 long	HitCheck( double x1, double y1, double r1, double x2, double y2, double r2 )
 {
 	double	w,h,len,r;
 
-	//	‰¡
+	//	æ¨ª
 	if( x1 > x2 )
 	{
 		w = x1 - x2;
@@ -326,7 +326,7 @@ long	HitCheck( double x1, double y1, double r1, double x2, double y2, double r2 
 		w = x2 - x1;
 	}
 
-	//	c
+	//	ç¸¦
 	if( y1 > y2 )
 	{
 		h = y1 - y2;
@@ -336,10 +336,10 @@ long	HitCheck( double x1, double y1, double r1, double x2, double y2, double r2 
 		h = y2 - y1;
 	}
 
-	//	‹——£
+	//	è·é›¢
 	len = sqrt( ( w * w ) + ( h * h ) );
 
-	//	”¼Œa
+	//	åŠå¾„
 	r = (r1/2) * (r2/2);
 
 
@@ -353,7 +353,7 @@ long	HitCheck( double x1, double y1, double r1, double x2, double y2, double r2 
 	}
 }
 
-//	ƒfƒoƒbƒO
+//	ãƒ‡ãƒãƒƒã‚°
 #ifdef	__DEBUG__
 void	DebugUnitChagne( void )
 {

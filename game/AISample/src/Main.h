@@ -1,6 +1,6 @@
 /******************************************************************************/
-//	ƒQ[ƒ€ƒƒCƒ“
-//		ƒwƒbƒ_ƒtƒ@ƒCƒ‹
+//	ã‚²ãƒ¼ãƒ ãƒ¡ã‚¤ãƒ³
+//		ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 #ifndef	__Main_H__
@@ -9,12 +9,12 @@
 #include	"./ObjectMng.h"
 
 //----------------------------------------------------------------------------//
-//	’è‹`
+//	å®šç¾©
 //----------------------------------------------------------------------------//
 enum
 {
 	/////////////////////////////////////////////////
-	//	ƒQ[ƒ€ƒ‚[ƒh
+	//	ã‚²ãƒ¼ãƒ ãƒ¢ãƒ¼ãƒ‰
 	MAIN_MODE_INIT = 0,
 	MAIN_MODE_TITLE_INIT = 10,
 	MAIN_MODE_TITLE_MAIN,
@@ -28,7 +28,7 @@ enum
 	MAIN_MODE_END_MAIN,
 
 	/////////////////////////////////////////////////
-	//	ƒeƒNƒXƒ`ƒƒ”Ô†
+	//	ãƒ†ã‚¯ã‚¹ãƒãƒ£ç•ªå·
 	TEX_GAME_BG	= 0,
 	TEX_GAME_SYSTEM,
 	TEX_GAME_END_TEXT,
@@ -37,7 +37,7 @@ enum
 	TEX_GAME_END_ICON,
 
 	/////////////////////////////////////////////////
-	//	ƒpƒ^[ƒ“”Ô†
+	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
 	PAT_GAME_BG = 0,
 	PAT_GAME_TIME = 10,
 	PAT_GAME_GAGE_FRM = 25,
@@ -56,7 +56,7 @@ enum
 	PAT_GAME_SHOT = 120,
 
 	/////////////////////////////////////////////////
-	//	ƒIƒuƒWƒFƒNƒg”Ô†
+	//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç•ªå·
 	OBJ_GAME_BG = 0,
 	OBJ_GAME_TIME = 10,
 	OBJ_GAME_GAGE_FRM = 20,
@@ -75,10 +75,10 @@ enum
 	OBJ_GAME_SHOT = 100,
 
 	/////////////////////////////////////////////////
-	//	ƒAƒjƒ”Ô†
+	//	ã‚¢ãƒ‹ãƒ¡ç•ªå·
 
 	/////////////////////////////////////////////////
-	//	‚a‚f‚l•‚r‚d
+	//	ï¼¢ï¼§ï¼­ï¼†ï¼³ï¼¥
 
 	//	BGM
 	BGM_BATTLE = 0,
@@ -98,67 +98,67 @@ enum
 };
 
 /////////////////////////////////////////////////
-//	ƒAƒgƒŠƒrƒ…[ƒg
-#define	OBJ_ATR_NONE			(0)		//	‚È‚µi‰Šú’lj
-#define	OBJ_ATR_UNIT			(1<<1)	//	Ž©‹@
-#define	OBJ_ATR_ENEMY			(1<<2)	//	“G‹@
-#define	OBJ_ATR_SHOT			(1<<3)	//	’e
+//	ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
+#define	OBJ_ATR_NONE			(0)		//	ãªã—ï¼ˆåˆæœŸå€¤ï¼‰
+#define	OBJ_ATR_UNIT			(1<<1)	//	è‡ªæ©Ÿ
+#define	OBJ_ATR_ENEMY			(1<<2)	//	æ•µæ©Ÿ
+#define	OBJ_ATR_SHOT			(1<<3)	//	å¼¾
 
-#define	OBJ_ATR_SHOT_NORMAL		(1<<4)	//	ƒm[ƒ}ƒ‹ƒVƒ‡ƒbƒg
-#define	OBJ_ATR_SHOT_SPECIAL1	(1<<5)	//	“ÁŽêƒVƒ‡ƒbƒg‚P
-#define	OBJ_ATR_SHOT_SPECIAL2	(1<<6)	//	“ÁŽêƒVƒ‡ƒbƒg‚Q
-#define	OBJ_ATR_SHOT_EXTRA1		(1<<7)	//	EXƒVƒ‡ƒbƒg‚P
-#define	OBJ_ATR_SHOT_EXTRA2		(1<<8)	//	EXƒVƒ‡ƒbƒg‚Q
+#define	OBJ_ATR_SHOT_NORMAL		(1<<4)	//	ãƒŽãƒ¼ãƒžãƒ«ã‚·ãƒ§ãƒƒãƒˆ
+#define	OBJ_ATR_SHOT_SPECIAL1	(1<<5)	//	ç‰¹æ®Šã‚·ãƒ§ãƒƒãƒˆï¼‘
+#define	OBJ_ATR_SHOT_SPECIAL2	(1<<6)	//	ç‰¹æ®Šã‚·ãƒ§ãƒƒãƒˆï¼’
+#define	OBJ_ATR_SHOT_EXTRA1		(1<<7)	//	EXã‚·ãƒ§ãƒƒãƒˆï¼‘
+#define	OBJ_ATR_SHOT_EXTRA2		(1<<8)	//	EXã‚·ãƒ§ãƒƒãƒˆï¼’
 
-#define	OBJ_ATR_SHOT_HOMING1	(1<<9)	//	ƒz[ƒ~ƒ“ƒO1
-#define	OBJ_ATR_SHOT_HOMING2	(1<<10)	//	ƒz[ƒ~ƒ“ƒO2
-#define	OBJ_ATR_SHOT_HOMING3	(1<<11)	//	ƒz[ƒ~ƒ“ƒO3
-#define	OBJ_ATR_SHOT_HOMING4	(1<<12)	//	ƒz[ƒ~ƒ“ƒO4
-#define	OBJ_ATR_SHOT_HOMING5	(1<<13)	//	ƒz[ƒ~ƒ“ƒO5
-#define	OBJ_ATR_SHOT_HOMING		(1<<14)	//	ƒz[ƒ~ƒ“ƒO
-#define	OBJ_ATR_SHOT_SET_UP		(1<<15)	//	Ý’uŽ®
-#define	OBJ_ATR_SHOT_SPLINE		(1<<16)	//	ƒXƒvƒ‰ƒCƒ“
+#define	OBJ_ATR_SHOT_HOMING1	(1<<9)	//	ãƒ›ãƒ¼ãƒŸãƒ³ã‚°1
+#define	OBJ_ATR_SHOT_HOMING2	(1<<10)	//	ãƒ›ãƒ¼ãƒŸãƒ³ã‚°2
+#define	OBJ_ATR_SHOT_HOMING3	(1<<11)	//	ãƒ›ãƒ¼ãƒŸãƒ³ã‚°3
+#define	OBJ_ATR_SHOT_HOMING4	(1<<12)	//	ãƒ›ãƒ¼ãƒŸãƒ³ã‚°4
+#define	OBJ_ATR_SHOT_HOMING5	(1<<13)	//	ãƒ›ãƒ¼ãƒŸãƒ³ã‚°5
+#define	OBJ_ATR_SHOT_HOMING		(1<<14)	//	ãƒ›ãƒ¼ãƒŸãƒ³ã‚°
+#define	OBJ_ATR_SHOT_SET_UP		(1<<15)	//	è¨­ç½®å¼
+#define	OBJ_ATR_SHOT_SPLINE		(1<<16)	//	ã‚¹ãƒ—ãƒ©ã‚¤ãƒ³
 
-#define	OBJ_ATR_ROT_NONE		(1<<17)	//	‰ñ“]‚È‚µ
-#define	OBJ_ATR_ROT_USE			(1<<18)	//	‰ñ“]‚·‚é
-#define	OBJ_ATR_ROT_CHANGE		(1<<19)	//	Šp“x•ÏX
+#define	OBJ_ATR_ROT_NONE		(1<<17)	//	å›žè»¢ãªã—
+#define	OBJ_ATR_ROT_USE			(1<<18)	//	å›žè»¢ã™ã‚‹
+#define	OBJ_ATR_ROT_CHANGE		(1<<19)	//	è§’åº¦å¤‰æ›´
 
 #define	OBJ_ATR_SHOT_RANK		(OBJ_ATR_SHOT_NORMAL|OBJ_ATR_SHOT_SPECIAL1|OBJ_ATR_SHOT_SPECIAL2|OBJ_ATR_SHOT_EXTRA1|OBJ_ATR_SHOT_EXTRA2)
 #define	OBJ_ATR_SHOT_TYPE		(OBJ_ATR_SHOT_HOMING|OBJ_ATR_SHOT_SET_UP|OBJ_ATR_SHOT_SPLINE)
 #define	OBJ_ATR_ROT_TYPE		(OBJ_ATR_ROT_NONE|OBJ_ATR_ROT_USE|OBJ_ATR_ROT_CHANGE)
 
 /////////////////////////////////////////////////
-//	ƒfƒoƒbƒOƒXƒCƒbƒ`
+//	ãƒ‡ãƒãƒƒã‚°ã‚¹ã‚¤ãƒƒãƒ
 //#define		__DEBUG__
 
 //----------------------------------------------------------------------------//
-//	\‘¢‘Ì
+//	æ§‹é€ ä½“
 //----------------------------------------------------------------------------//
 
 /////////////////////////////////////////////////
-//	ƒVƒXƒeƒ€—p
+//	ã‚·ã‚¹ãƒ†ãƒ ç”¨
 typedef	struct
 {
-	long	MainMode;	//	ƒƒCƒ“ƒ‚[ƒh
-	short	StageNo;	//	ƒXƒe[ƒW”Ô†
-	short	Time;		//	í“¬‚ÌŽžŠÔ
-	long	FrameCt;	//	ƒtƒŒ[ƒ€ƒJƒEƒ“ƒ^
-	UChar	PauseDisp;	//	ƒ|[ƒY•\Ž¦ƒtƒ‰ƒO
-	long	Life;		//	ƒ‰ƒCƒti‰Šú‰»—pj
+	long	MainMode;	//	ãƒ¡ã‚¤ãƒ³ãƒ¢ãƒ¼ãƒ‰
+	short	StageNo;	//	ã‚¹ãƒ†ãƒ¼ã‚¸ç•ªå·
+	short	Time;		//	æˆ¦é—˜ã®æ™‚é–“
+	long	FrameCt;	//	ãƒ•ãƒ¬ãƒ¼ãƒ ã‚«ã‚¦ãƒ³ã‚¿
+	UChar	PauseDisp;	//	ãƒãƒ¼ã‚ºè¡¨ç¤ºãƒ•ãƒ©ã‚°
+	long	Life;		//	ãƒ©ã‚¤ãƒ•ï¼ˆåˆæœŸåŒ–ç”¨ï¼‰
 }SYSTEM_TBL;
 
 #endif	//	__Main_H__
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 
-//	ƒVƒXƒeƒ€
+//	ã‚·ã‚¹ãƒ†ãƒ 
 extern	SYSTEM_TBL	SYS;
 extern	CObjectMng	g_Obj;
 
 
 //----------------------------------------------------------------------------//
-//	ƒvƒƒgƒ^ƒCƒvéŒ¾
+//	ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 //----------------------------------------------------------------------------//
 extern	long	HitCheck( double x1, double y1, double r1, double x2, double y2, double r2 );

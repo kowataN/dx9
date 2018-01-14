@@ -1,4 +1,4 @@
-﻿namespace Dictionary
+namespace Dictionary
 {
     partial class FormEdit
     {

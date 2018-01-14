@@ -1,16 +1,16 @@
 /******************************************************************************/
-//	ƒVƒ‡ƒbƒgƒƒCƒ“
-//		ƒwƒbƒ_ƒtƒ@ƒCƒ‹
+//	ã‚·ãƒ§ãƒƒãƒˆãƒ¡ã‚¤ãƒ³
+//		ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒvƒƒgƒ^ƒCƒvéŒ¾
+//	ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 //----------------------------------------------------------------------------//
-extern	void	ShotInitAll( void );			//	ƒVƒ‡ƒbƒg‰Šú‰»i‘S‘Ìj
-extern	void	ShotInit( OBJ_TBL *obj );		//	ƒVƒ‡ƒbƒg‰Šú‰»i’P‘Ìj
-extern	void	ShotLoop( void );				//	ƒVƒ‡ƒbƒgƒ‹[ƒv
-extern	void	ShotMain( OBJ_TBL *obj );		//	ƒVƒ‡ƒbƒgƒƒCƒ“
-extern	long	GetShotNo( void );				//	ƒVƒ‡ƒbƒg‹ó‚«”Ô†Žæ“¾
-extern	void	ShotRotSet( OBJ_TBL *obj, long chara );	//	ƒVƒ‡ƒbƒgŠp“xƒZƒbƒg
-extern	void	ShotHitChk( void );				//	ƒVƒ‡ƒbƒg‚Ì“–‚½‚è”»’è
+extern	void	ShotInitAll( void );			//	ã‚·ãƒ§ãƒƒãƒˆåˆæœŸåŒ–ï¼ˆå…¨ä½“ï¼‰
+extern	void	ShotInit( OBJ_TBL *obj );		//	ã‚·ãƒ§ãƒƒãƒˆåˆæœŸåŒ–ï¼ˆå˜ä½“ï¼‰
+extern	void	ShotLoop( void );				//	ã‚·ãƒ§ãƒƒãƒˆãƒ«ãƒ¼ãƒ—
+extern	void	ShotMain( OBJ_TBL *obj );		//	ã‚·ãƒ§ãƒƒãƒˆãƒ¡ã‚¤ãƒ³
+extern	long	GetShotNo( void );				//	ã‚·ãƒ§ãƒƒãƒˆç©ºãç•ªå·å–å¾—
+extern	void	ShotRotSet( OBJ_TBL *obj, long chara );	//	ã‚·ãƒ§ãƒƒãƒˆè§’åº¦ã‚»ãƒƒãƒˆ
+extern	void	ShotHitChk( void );				//	ã‚·ãƒ§ãƒƒãƒˆã®å½“ãŸã‚Šåˆ¤å®š
 extern	void	*ShotTbl[];

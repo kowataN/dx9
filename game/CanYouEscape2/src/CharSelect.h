@@ -1,28 +1,28 @@
 /******************************************************************************/
-//	ƒLƒƒƒ‰ƒNƒ^[ƒZƒŒƒNƒg
-//		ƒwƒbƒ_ƒtƒ@ƒCƒ‹
+//	ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã‚»ãƒ¬ã‚¯ãƒˆ
+//		ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 #ifndef	__CharSelect_H__
 #define	__CharSelect_H__
 
 //----------------------------------------------------------------------------//
-//	’è‹`
+//	å®šç¾©
 //----------------------------------------------------------------------------//
 enum
 {
-	//	ƒeƒNƒXƒ`ƒƒ”Ô†
+	//	ãƒ†ã‚¯ã‚¹ãƒãƒ£ç•ªå·
 	TEX_CHAR_SELECT_BG = 0,
 	TEX_CHAR_SELECT_CHAR,
 	TEX_CHAR_SELECT_SHOT,
 
-	//	ƒpƒ^[ƒ“”Ô†
+	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
 	PAT_CHAR_SELECT_BG = 0,
 	PAT_CHAR_SELECT_1P,
 	PAT_CHAR_SELECT_2P,
 	PAT_CHAR_SELECT_SHOT,
 
-	//	ƒ|ƒŠƒSƒ“”Ô†
+	//	ãƒãƒªã‚´ãƒ³ç•ªå·
 	POL_CHAR_SELECT_BG = 0,
 	POL_CHAR_SELECT_CUR_1P,
 	POL_CHAR_SELECT_CUR_2P,
@@ -30,7 +30,7 @@ enum
 	POL_CHAR_SELECT_2P,
 	POL_CHAR_SELECT_SHOT,
 
-	//	ƒIƒuƒWƒFƒNƒg”Ô†
+	//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç•ªå·
 	OBJ_CHAR_SELECT_BG = 0,
 	OBJ_CHAR_SELECT_ICON,
 	OBJ_CHAR_SELECT_CUR_1P,
@@ -43,12 +43,12 @@ enum
 #endif	//	__CharSelect_H__
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 extern	short	SelectFlag[2];
 
 //----------------------------------------------------------------------------//
-//	ƒvƒƒgƒ^ƒCƒvéŒ¾
+//	ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 //----------------------------------------------------------------------------//
-extern	void	CharSelectInit( void );	//	ƒLƒƒƒ‰ƒZƒŒƒNƒg‰Šú‰»
-extern	void	CharSelectMain( void );	//	ƒLƒƒƒ‰ƒZƒŒƒNƒgƒƒCƒ“
+extern	void	CharSelectInit( void );	//	ã‚­ãƒ£ãƒ©ã‚»ãƒ¬ã‚¯ãƒˆåˆæœŸåŒ–
+extern	void	CharSelectMain( void );	//	ã‚­ãƒ£ãƒ©ã‚»ãƒ¬ã‚¯ãƒˆãƒ¡ã‚¤ãƒ³

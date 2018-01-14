@@ -1,70 +1,70 @@
 /******************************************************************************/
-//	ƒ€[ƒuƒ‰ƒCƒuƒ‰ƒŠ
-//		ƒwƒbƒ_ƒtƒ@ƒCƒ‹
+//	ãƒ ãƒ¼ãƒ–ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+//		ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 #ifndef	__Dx9LibMove_H__
 #define	__Dx9LibMove_H__
 
 //----------------------------------------------------------------------------//
-//	’è‹`
+//	å®šç¾©
 //----------------------------------------------------------------------------//
 
-//	ƒ€[ƒuƒf[ƒ^Å‘å”
+//	ãƒ ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿æœ€å¤§æ•°
 #define	MOV_MAX		100
 
-//	ŠeƒCƒ“ƒfƒbƒNƒXƒTƒCƒY
+//	å„ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚µã‚¤ã‚º
 #define	MOV_INDEX_SIZE		(2+2+2)
 
-//	ƒtƒ‰ƒO
+//	ãƒ•ãƒ©ã‚°
 enum
 {
-	MOVE_LOOP = 0,	//	ƒ‹[ƒv
-	MOVE_STOP,		//	’âŽ~
-	MOVE_END,		//	I—¹
+	MOVE_LOOP = 0,	//	ãƒ«ãƒ¼ãƒ—
+	MOVE_STOP,		//	åœæ­¢
+	MOVE_END,		//	çµ‚äº†
 };
 
 //----------------------------------------------------------------------------//
-//	\‘¢‘Ì
+//	æ§‹é€ ä½“
 //----------------------------------------------------------------------------//
 
 ////////////////////////////////////////
-//	ƒ€[ƒu—pƒtƒŒ[ƒ€\‘¢‘Ì
+//	ãƒ ãƒ¼ãƒ–ç”¨ãƒ•ãƒ¬ãƒ¼ãƒ æ§‹é€ ä½“
 typedef	struct
 {
-	long			Time;			//	ƒtƒŒ[ƒ€ŽžŠÔ
-	double			InitX,InitY;	//	‰ŠúÀ•W
-	double			PosX,PosY;		//	•\Ž¦À•W
-	short			MoveX,MoveY;	//	ˆÚ“®—Ê
+	long			Time;			//	ãƒ•ãƒ¬ãƒ¼ãƒ æ™‚é–“
+	double			InitX,InitY;	//	åˆæœŸåº§æ¨™
+	double			PosX,PosY;		//	è¡¨ç¤ºåº§æ¨™
+	short			MoveX,MoveY;	//	ç§»å‹•é‡
 }ST_MoveFrame;
 
 ////////////////////////////////////////
-//	ƒ€[ƒu—p\‘¢‘Ì
+//	ãƒ ãƒ¼ãƒ–ç”¨æ§‹é€ ä½“
 typedef	struct
 {
-	UChar			Use;			//	Žg—pƒtƒ‰ƒO
-	UChar			ExecFlag;		//	ƒtƒ‰ƒOi0:ƒ‹[ƒvA1:’âŽ~A2:I—¹j
-	UChar			State;			//	ó‘Ôi0:’âŽ~A1:Ä¶’†j
+	UChar			Use;			//	ä½¿ç”¨ãƒ•ãƒ©ã‚°
+	UChar			ExecFlag;		//	ãƒ•ãƒ©ã‚°ï¼ˆ0:ãƒ«ãƒ¼ãƒ—ã€1:åœæ­¢ã€2:çµ‚äº†ï¼‰
+	UChar			State;			//	çŠ¶æ…‹ï¼ˆ0:åœæ­¢ã€1:å†ç”Ÿä¸­ï¼‰
 
-	long			FrameMax;		//	ƒtƒŒ[ƒ€‚ÌÅ‘å”
-	long			FrameNo;		//	ƒtƒŒ[ƒ€”Ô†
-	long			DataNo;			//	ƒf[ƒ^”Ô†
-	long			PolNo;			//	ƒ|ƒŠƒSƒ“”Ô†
+	long			FrameMax;		//	ãƒ•ãƒ¬ãƒ¼ãƒ ã®æœ€å¤§æ•°
+	long			FrameNo;		//	ãƒ•ãƒ¬ãƒ¼ãƒ ç•ªå·
+	long			DataNo;			//	ãƒ‡ãƒ¼ã‚¿ç•ªå·
+	long			PolNo;			//	ãƒãƒªã‚´ãƒ³ç•ªå·
 
-	long			TimeCount;		//	ƒ^ƒCƒ€ƒJƒEƒ“ƒ^
-	ST_MoveFrame	FRM;			//	ƒtƒŒ[ƒ€ƒf[ƒ^(ƒJƒŒƒ“ƒgƒf[ƒ^)
-	char			*DataAddr;		//	ƒ€[ƒuƒf[ƒ^‚ÌƒAƒhƒŒƒX
+	long			TimeCount;		//	ã‚¿ã‚¤ãƒ ã‚«ã‚¦ãƒ³ã‚¿
+	ST_MoveFrame	FRM;			//	ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ‡ãƒ¼ã‚¿(ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ãƒ¼ã‚¿)
+	char			*DataAddr;		//	ãƒ ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 }ST_MoveData;
 
 #endif	//	__Dx9LibMove_H__
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 extern	ST_MoveData	MOV[MOV_MAX];
 
 //----------------------------------------------------------------------------//
-//	ƒvƒƒgƒ^ƒCƒvéŒ¾
+//	ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 //----------------------------------------------------------------------------//
 extern	void	InitMoveAll( void );
 extern	void	InitMove( long MoveNo );

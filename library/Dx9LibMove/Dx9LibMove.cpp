@@ -1,30 +1,30 @@
 /******************************************************************************/
-//	ƒ€[ƒuƒ‰ƒCƒuƒ‰ƒŠ
-//		ƒƒCƒ“ƒ\[ƒX
+//	ãƒ ãƒ¼ãƒ–ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+//		ãƒ¡ã‚¤ãƒ³ã‚½ãƒ¼ã‚¹
 /******************************************************************************/
 
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #include	"./Dx9Lib/Dx9Lib.h"
 #include	"./Dx9LibMove.h"
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 
-//	ƒ€[ƒuƒf[ƒ^
+//	ãƒ ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿
 ST_MoveData		MOV[MOV_MAX];
 
 
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ€[ƒuƒf[ƒ^‰Šú‰»
-//	à–¾	F	ƒ€[ƒu\‘¢‘Ì‚Ì‰Šú‰»‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	MoveNo		ƒ€[ƒu”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ãƒ ãƒ¼ãƒ–æ§‹é€ ä½“ã®åˆæœŸåŒ–ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	MoveNo		ãƒ ãƒ¼ãƒ–ç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	InitMove( long MoveNo )
 {
@@ -33,29 +33,29 @@ void	InitMove( long MoveNo )
 		return;
 	}
 
-	//	Žg—pƒtƒ‰ƒOOFF
+	//	ä½¿ç”¨ãƒ•ãƒ©ã‚°OFF
 	MOV[ MoveNo ].Use = OFF;
 
-	//	ƒtƒŒ[ƒ€”Ô†
+	//	ãƒ•ãƒ¬ãƒ¼ãƒ ç•ªå·
 	MOV[ MoveNo ].FrameNo = 0;
 
-	//	ƒ|ƒŠƒSƒ“”Ô†
+	//	ãƒãƒªã‚´ãƒ³ç•ªå·
 	MOV[ MoveNo ].PolNo = NOT;
 
-	//	ƒ^ƒCƒ€ƒJƒEƒ“ƒ^
+	//	ã‚¿ã‚¤ãƒ ã‚«ã‚¦ãƒ³ã‚¿
 	MOV[ MoveNo ].TimeCount = 0;
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ€[ƒuƒf[ƒ^‘S‰Šú‰»
-//	à–¾	F	ƒ€[ƒu\‘¢‘Ì‚Ì‘S‰Šú‰»‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿å…¨åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ãƒ ãƒ¼ãƒ–æ§‹é€ ä½“ã®å…¨åˆæœŸåŒ–ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	InitMoveAll( void )
 {
-	//	\‘¢‘Ì‰Šú‰»
+	//	æ§‹é€ ä½“åˆæœŸåŒ–
 	for( long i=0; i<MOV_MAX; i++ )
 	{
 		InitMove( i );
@@ -63,16 +63,16 @@ void	InitMoveAll( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ€[ƒuƒtƒ@ƒCƒ‹“Ç‚Ýž‚Ý
-//	à–¾	F	ƒ€[ƒuƒtƒ@ƒCƒ‹‚Ì“Ç‚Ýž‚Ý‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]char	FileName	“Ç‚Ýž‚Þmovƒtƒ@ƒCƒ‹
-//				[OUT]char	*LoadBuf	“Ç‚Ýž‚Ýæ‚Ìƒoƒbƒtƒ@
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ ãƒ¼ãƒ–ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿
+//	èª¬æ˜Ž	ï¼š	ãƒ ãƒ¼ãƒ–ãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿è¾¼ã¿ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]char	FileName	èª­ã¿è¾¼ã‚€movãƒ•ã‚¡ã‚¤ãƒ«
+//				[OUT]char	*LoadBuf	èª­ã¿è¾¼ã¿å…ˆã®ãƒãƒƒãƒ•ã‚¡
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	LoadMoveFile( char *FileName, char *LoadBuf )
 {
-	//	movƒtƒ@ƒCƒ‹“Ç‚Ýž‚Ý
+	//	movãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿
 	if( LoadFile( FileName, LoadBuf ) < 0 )
 	{
 		return;
@@ -80,14 +80,14 @@ void	LoadMoveFile( char *FileName, char *LoadBuf )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ€[ƒuƒZƒbƒg
-//	à–¾	F	ƒ€[ƒuƒf[ƒ^‚ÌÝ’è‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	MoveNo		ƒZƒbƒg‚·‚éƒ€[ƒu”Ô†
-//				[IN]long	PolNo		ƒ|ƒŠƒSƒ“”Ô†
-//				[IN]long	DataNo		“Ç‚Ýž‚ñ‚¾ƒtƒ@ƒCƒ‹‚Ìƒ€[ƒu”Ô†
-//				[IN]char	*DataAddr	ƒf[ƒ^‚ÌƒAƒhƒŒƒX
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ ãƒ¼ãƒ–ã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ãƒ ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã®è¨­å®šã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	MoveNo		ã‚»ãƒƒãƒˆã™ã‚‹ãƒ ãƒ¼ãƒ–ç•ªå·
+//				[IN]long	PolNo		ãƒãƒªã‚´ãƒ³ç•ªå·
+//				[IN]long	DataNo		èª­ã¿è¾¼ã‚“ã ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ ãƒ¼ãƒ–ç•ªå·
+//				[IN]char	*DataAddr	ãƒ‡ãƒ¼ã‚¿ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	SetMove( long MoveNo, long PolNo, long DataNo, char *DataAddr )
 {
@@ -103,23 +103,23 @@ void	SetMove( long MoveNo, long PolNo, long DataNo, char *DataAddr )
 
 	for( i=0; i<DataNo; i++ )
 	{
-		//	ƒtƒŒ[ƒ€Å‘å”
+		//	ãƒ•ãƒ¬ãƒ¼ãƒ æœ€å¤§æ•°
 		long FrmMax = GetLong( pt );
 		pt += 4;
 		pt += FrmMax * MOV_INDEX_SIZE;
 	}
 
-	//	ƒtƒŒ[ƒ€Å‘å”
+	//	ãƒ•ãƒ¬ãƒ¼ãƒ æœ€å¤§æ•°
 	MOV[ MoveNo ].FrameMax = GetLong( pt );
 	pt += 4;
 
-	//	ˆÚ“®—Ê
+	//	ç§»å‹•é‡
 	MOV[ MoveNo ].FRM.MoveX = GetShort( pt );
 	pt += 2;
 	MOV[ MoveNo ].FRM.MoveY = GetShort( pt );
 	pt += 2;
 
-	//	ŽžŠÔ
+	//	æ™‚é–“
 	MOV[ MoveNo ].FRM.Time = GetShort( pt );
 	pt += 2;
 
@@ -132,11 +132,11 @@ void	SetMove( long MoveNo, long PolNo, long DataNo, char *DataAddr )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ€[ƒuƒf[ƒ^ƒZƒbƒg
-//	à–¾	F	ƒ€[ƒuƒf[ƒ^‚ÌÝ’è‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	MoveNo		ƒ€[ƒu”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ãƒ ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã®è¨­å®šã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	MoveNo		ãƒ ãƒ¼ãƒ–ç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	SetMoveData( long MoveNo )
 {
@@ -147,38 +147,38 @@ void	SetMoveData( long MoveNo )
 
 	short	i;
 
-	//	æ“ªƒAƒhƒŒƒX
+	//	å…ˆé ­ã‚¢ãƒ‰ãƒ¬ã‚¹
 	char *pt = (char *)MOV[ MoveNo ].DataAddr;
 	for( i=0; i<MOV[MoveNo].DataNo; i++ )
 	{
-		//	ƒtƒŒ[ƒ€Å‘å”
+		//	ãƒ•ãƒ¬ãƒ¼ãƒ æœ€å¤§æ•°
 		long FrmMax = GetLong( pt );
 		pt += 4;
 		pt += FrmMax * MOV_INDEX_SIZE;
 	}
 
-	//	ƒtƒŒ[ƒ€Å‘å”
+	//	ãƒ•ãƒ¬ãƒ¼ãƒ æœ€å¤§æ•°
 	MOV[ MoveNo ].FrameMax = GetLong( pt );
 	pt += 4;
 	pt += MOV_INDEX_SIZE * MOV[ MoveNo ].FrameNo;
 
-	//	ˆÚ“®—Ê
+	//	ç§»å‹•é‡
 	MOV[ MoveNo ].FRM.MoveX = GetShort( pt );
 	pt += 2;
 	MOV[ MoveNo ].FRM.MoveY = GetShort( pt );
 	pt += 2;
 
-	//	ŽžŠÔ
+	//	æ™‚é–“
 	MOV[ MoveNo ].FRM.Time = GetShort( pt );
 	pt += 2;
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ€[ƒuÄ¶
-//	à–¾	F	ƒ€[ƒu‚ÌÄ¶‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	MoveNo		ƒ€[ƒu”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ ãƒ¼ãƒ–å†ç”Ÿ
+//	èª¬æ˜Ž	ï¼š	ãƒ ãƒ¼ãƒ–ã®å†ç”Ÿã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	MoveNo		ãƒ ãƒ¼ãƒ–ç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	LoopMoveOne( long MoveNo )
 {
@@ -194,28 +194,28 @@ void	LoopMoveOne( long MoveNo )
 
 	if( MOV[ MoveNo ].TimeCount >= MOV[ MoveNo ].FRM.Time )
 	{
-		//	ƒ^ƒCƒ€ƒJƒEƒ“ƒ^‰Šú‰»
+		//	ã‚¿ã‚¤ãƒ ã‚«ã‚¦ãƒ³ã‚¿åˆæœŸåŒ–
 		MOV[ MoveNo ].TimeCount = 0;
 
-		//	ŽŸ‚ÌƒtƒŒ[ƒ€
+		//	æ¬¡ã®ãƒ•ãƒ¬ãƒ¼ãƒ 
 		MOV[ MoveNo ].FrameNo ++;
 		if( MOV[ MoveNo ].FrameNo >= MOV[ MoveNo ].FrameMax )
 		{
 			switch( MOV[ MoveNo ].ExecFlag )
 			{
-				//	ƒ‹[ƒv
+				//	ãƒ«ãƒ¼ãƒ—
 				case	MOVE_LOOP:
 					MOV[ MoveNo ].State = 1;
 					MOV[ MoveNo ].FrameNo = 0;
 					break;
 
-				//	’âŽ~
+				//	åœæ­¢
 				case	MOVE_STOP:
 					MOV[ MoveNo ].State = 0;
 					MOV[ MoveNo ].FrameNo = MOV[ MoveNo ].FrameMax - 1;
 					break;
 
-				//	I—¹
+				//	çµ‚äº†
 				case	MOVE_END:
 					MOV[ MoveNo ].State = 0;
 					break;
@@ -225,7 +225,7 @@ void	LoopMoveOne( long MoveNo )
 		SetMoveData( MoveNo );
 	}
 
-	//	ˆÚ“®
+	//	ç§»å‹•
 	double MoveX = MOV[ MoveNo ].FRM.MoveX;
 	double MoveY = MOV[ MoveNo ].FRM.MoveY;
 
@@ -233,16 +233,16 @@ void	LoopMoveOne( long MoveNo )
 	g_LibPol.AddPosX( PolNo, MoveX / MOV[ MoveNo ].FRM.Time );
 	g_LibPol.AddPosY( PolNo, MoveY / MOV[ MoveNo ].FRM.Time );
 
-	//	ƒJƒEƒ“ƒ^‰ÁŽZ
+	//	ã‚«ã‚¦ãƒ³ã‚¿åŠ ç®—
 	MOV[ MoveNo ].TimeCount ++;
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ€[ƒu‘SÄ¶
-//	à–¾	F	ƒ€[ƒu‚Ì‘SÄ¶‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ ãƒ¼ãƒ–å…¨å†ç”Ÿ
+//	èª¬æ˜Ž	ï¼š	ãƒ ãƒ¼ãƒ–ã®å…¨å†ç”Ÿã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	LoopMove( void )
 {

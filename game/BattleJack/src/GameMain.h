@@ -1,17 +1,17 @@
 /******************************************************************************/
-//	ƒoƒgƒ‹ƒWƒƒƒbƒN
-//		ƒQ[ƒ€ƒƒCƒ“ƒwƒbƒ_ƒtƒ@ƒCƒ‹
+//	ãƒãƒˆãƒ«ã‚¸ãƒ£ãƒƒã‚¯
+//		ã‚²ãƒ¼ãƒ ãƒ¡ã‚¤ãƒ³ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 #ifndef	__GameMain_H__
 #define	__GameMain_H__
 
 //----------------------------------------------------------------------------//
-//	’è‹`
+//	å®šç¾©
 //----------------------------------------------------------------------------//
 
 ////////////////////////////////////////
-//	ƒƒCƒ“ƒ‚[ƒhƒtƒ‰ƒO
+//	ãƒ¡ã‚¤ãƒ³ãƒ¢ãƒ¼ãƒ‰ãƒ•ãƒ©ã‚°
 enum
 {
 	MainModeInit,
@@ -20,7 +20,7 @@ enum
 };
 
 ////////////////////////////////////////
-//	ƒQ[ƒ€ƒ‚[ƒhƒtƒ‰ƒO
+//	ã‚²ãƒ¼ãƒ ãƒ¢ãƒ¼ãƒ‰ãƒ•ãƒ©ã‚°
 enum
 {
 	GameModeInit,
@@ -33,12 +33,12 @@ enum
 	GameModeEnd,
 };
 
-//	ƒeƒNƒXƒ`ƒƒ”Ô†
+//	ãƒ†ã‚¯ã‚¹ãƒãƒ£ç•ªå·
 #define	TEX_GAME_BG				0
 #define	TEX_GAME_SYSTEM			1
 #define	TEX_GAME_CARD			2
 
-//	ƒpƒ^[ƒ“”Ô†
+//	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
 #define	PAT_GAME_BG				0
 #define	PAT_GAME_DECK_PLAYER	5
 #define	PAT_GAME_DECK_CPU		(PAT_GAME_DECK_PLAYER+1)
@@ -68,7 +68,7 @@ enum
 #define	PAT_GAME_COUNT_STR		130
 #define	PAT_GAME_END_STR		135
 
-//	ƒ|ƒŠƒSƒ“”Ô†
+//	ãƒãƒªã‚´ãƒ³ç•ªå·
 #define	POL_GAME_BG				0
 #define	POL_GAME_DECK_PLAYER	5
 #define	POL_GAME_DECK_CPU		(POL_GAME_DECK_PLAYER+1)
@@ -98,47 +98,47 @@ enum
 #define	POL_GAME_END_STR		115
 
 ////////////////////////////////////////
-//	g—pƒJ[ƒh”(1`13)
+//	ä½¿ç”¨ã‚«ãƒ¼ãƒ‰æ•°(1ã€œ13)
 #define	USE_NUMBER		13
-//	g—pƒ}[ƒN”
+//	ä½¿ç”¨ãƒãƒ¼ã‚¯æ•°
 #define	USE_MARK		4
 
 ////////////////////////////////////////
-//	RDÅ‘å”
+//	å±±æœ­æœ€å¤§æ•°
 #define	CARD_MAX		(USE_NUMBER*USE_MARK)
 
 enum
-{	//	ƒvƒŒƒCƒ„[
+{	//	ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼
 	GamePlayer =0,
 	//	CPU
 	GameCpu,
-	//	ƒvƒŒƒCÅ‘å”
+	//	ãƒ—ãƒ¬ã‚¤æœ€å¤§æ•°
 	MaxPlayer
 };
 
-//	èDÅ‘å”
+//	æ‰‹æœ­æœ€å¤§æ•°
 #define	HAND_NUM_MAX	4
 
 ////////////////////////////////////////
-//	ƒpƒ^[ƒ“ƒTƒCƒY
+//	ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚µã‚¤ã‚º
 
-//	ƒJ[ƒhƒTƒCƒY
+//	ã‚«ãƒ¼ãƒ‰ã‚µã‚¤ã‚º
 #define	CARD_SIZE_W			48
 #define	CARD_SIZE_H			56
-//	ƒvƒŒƒCƒ„[RDƒTƒCƒY
+//	ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼å±±æœ­ã‚µã‚¤ã‚º
 #define	DECK_PLAYER_PAT_X	0
 #define	DECK_PLAYER_PAT_Y	224
 #define	DECK_PLAYER_PAT_W	CARD_SIZE_W
 #define	DECK_PLAYER_PAT_H	CARD_SIZE_H
-//	CPURDƒTƒCƒY
+//	CPUå±±æœ­ã‚µã‚¤ã‚º
 #define	DECK_CPU_PAT_X		48
 #define	DECK_CPU_PAT_Y		224
 #define	DECK_CPU_PAT_W		CARD_SIZE_W
 #define	DECK_CPU_PAT_H		CARD_SIZE_H
-//	”šƒTƒCƒY
+//	æ•°å­—ã‚µã‚¤ã‚º
 #define	NUMBER_SIZE_W		16
 #define	NUMBER_SIZE_H		24
-//	ƒ{ƒ^ƒ“ƒTƒCƒY
+//	ãƒœã‚¿ãƒ³ã‚µã‚¤ã‚º
 #define	BUT_OK_PAT_X		0
 #define	BUT_OK_PAT_Y		64
 #define	BUT_OK_PAT_W		88
@@ -149,7 +149,7 @@ enum
 #define	BUT_CANSEL_PAT_H	40
 #define	BUT_FLD_SIZE_W		208
 #define	BUT_FLD_SIZE_H		56
-//	Ÿ”s—pƒTƒCƒY
+//	å‹æ•—ç”¨ã‚µã‚¤ã‚º
 #define	WIN_PAT_X			0
 #define	WIN_PAT_Y			104
 #define	WIN_PAT_W			120
@@ -166,26 +166,26 @@ enum
 #define	WIN_FLD_PAT_Y		200
 #define	WIN_FLD_PAT_W		216
 #define	WIN_FLD_PAT_H		32
-//	í–Ú
+//	æˆ¦ç›®
 #define	SENME_PAT_X			192
 #define	SENME_PAT_Y			0
 #define	SENME_PAT_W			48
 #define	SENME_PAT_H			24
-//	I—¹•¶š
+//	çµ‚äº†æ–‡å­—
 #define	END_STR_PAT_X		0
 #define	END_STR_PAT_Y		24
 #define	END_STR_PAT_W		288
 #define	END_STR_PAT_H		40
 
 ////////////////////////////////////////
-//	•\¦À•W
+//	è¡¨ç¤ºåº§æ¨™
 
-//	RD
+//	å±±æœ­
 #define	DECK_PLAYER_POS_X	488
 #define	DECK_PLAYER_POS_Y	344
 #define	DECK_CPU_POS_X		104
 #define	DECK_CPU_POS_Y		80
-//	ƒ|ƒCƒ“ƒg•\¦
+//	ãƒã‚¤ãƒ³ãƒˆè¡¨ç¤º
 #define	POINT_PLAYER_POS_X	104
 #define	POINT_PLAYER_POS_Y	256
 #define	MINUS_PLAYER_POS_X	88
@@ -194,7 +194,7 @@ enum
 #define	POINT_CPU_POS_Y		200
 #define	MINUS_CPU_POS_X		560
 #define	MINUS_CPU_POS_Y		200
-//	ƒvƒŒƒCƒ„[ƒ|ƒCƒ“ƒg‰ÁZ’l
+//	ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãƒã‚¤ãƒ³ãƒˆåŠ ç®—å€¤
 #define	OPT_PLAYER_POS_X	88
 #define	OPT_PLAYER_POS_Y	224
 #define	ADD1_PLAYER_POS_X	104
@@ -203,7 +203,7 @@ enum
 #define	ADD2_PLAYER_POS_Y	(OPT_PLAYER_POS_Y)
 #define	ADD3_PLAYER_POS_X	136
 #define	ADD3_PLAYER_POS_Y	(OPT_PLAYER_POS_Y)
-//	CPUƒ|ƒCƒ“ƒg‰ÁZ’l
+//	CPUãƒã‚¤ãƒ³ãƒˆåŠ ç®—å€¤
 #define	OPT_CPU_POS_X		560
 #define	OPT_CPU_POS_Y		232
 #define	ADD1_CPU_POS_X		576
@@ -212,66 +212,66 @@ enum
 #define	ADD2_CPU_POS_Y		(OPT_CPU_POS_Y)
 #define	ADD3_CPU_POS_X		608
 #define	ADD3_CPU_POS_Y		(OPT_CPU_POS_Y)
-//	OKECENCELƒ_ƒCƒAƒƒO
+//	OKãƒ»CENCELãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 #define	BUT_FLD_POS_X		216
 #define	BUT_FLD_POS_Y		296
 #define	BUT_OK_POS_X		224
 #define	BUT_OK_POS_Y		304
 #define	BUT_CANCEL_POS_X	328
 #define	BUT_CANCEL_POS_Y	(BUT_OK_POS_Y)
-//	ƒJ[ƒh‡Œv’l
+//	ã‚«ãƒ¼ãƒ‰åˆè¨ˆå€¤
 #define	CALC_PLAYER_POS_X	304
 #define	CALC_PLAYER_POS_Y	256
 #define	CALC_CPU_POS_X		304
 #define	CALC_CPU_POS_Y		200
-//	Ÿ”s
+//	å‹æ•—
 #define	WIN_POS_X			256
 #define	WIN_POS_Y			224
 #define	WIN_FLD_POS_X		208
 #define	WIN_FLD_POS_Y		224
-//	í–Ú
+//	æˆ¦ç›®
 #define	COUNT_POS_X			280
 #define	COUNT_POS_Y			228
 
 ////////////////////////////////////////
-//	ƒfƒoƒbƒOƒtƒ‰ƒO
+//	ãƒ‡ãƒãƒƒã‚°ãƒ•ãƒ©ã‚°
 #ifdef	_DEBUG
 #define	__DEBUG__
 #endif
 
 //----------------------------------------------------------------------------//
-//	\‘¢‘Ì
+//	æ§‹é€ ä½“
 //----------------------------------------------------------------------------//
 
 ////////////////////////////////////////
-//	ƒQ[ƒ€ŠÇ—\‘¢‘Ì
+//	ã‚²ãƒ¼ãƒ ç®¡ç†æ§‹é€ ä½“
 typedef	struct
 {
-	long		MainMode;				//	ƒƒCƒ“ƒ‚[ƒh
-	long		GameMode;				//	ƒQ[ƒ€ƒ‚[ƒh
-	long		Point[MaxPlayer];		//	ƒ|ƒCƒ“ƒg
-	long		PointAdd[MaxPlayer];	//	ƒ|ƒCƒ“ƒg‰ÁZ’l
-	long		CardMax[MaxPlayer];		//	RDÅ‘å”
-	UChar		Judge;					//	”»’èƒtƒ‰ƒO
-	long		GameCount;				//	ƒQ[ƒ€‰ñ”
-	long		GameModeState;			//	”Ä—pƒtƒ‰ƒO
+	long		MainMode;				//	ãƒ¡ã‚¤ãƒ³ãƒ¢ãƒ¼ãƒ‰
+	long		GameMode;				//	ã‚²ãƒ¼ãƒ ãƒ¢ãƒ¼ãƒ‰
+	long		Point[MaxPlayer];		//	ãƒã‚¤ãƒ³ãƒˆ
+	long		PointAdd[MaxPlayer];	//	ãƒã‚¤ãƒ³ãƒˆåŠ ç®—å€¤
+	long		CardMax[MaxPlayer];		//	å±±æœ­æœ€å¤§æ•°
+	UChar		Judge;					//	åˆ¤å®šãƒ•ãƒ©ã‚°
+	long		GameCount;				//	ã‚²ãƒ¼ãƒ å›æ•°
+	long		GameModeState;			//	æ±ç”¨ãƒ•ãƒ©ã‚°
 }GAME_MNG_TBL;
 
 ////////////////////////////////////////
-//	RDŠÇ—\‘¢‘Ì
+//	å±±æœ­ç®¡ç†æ§‹é€ ä½“
 typedef	struct
 {
-	long		Mark;					//	ƒ}[ƒN
-	long		Number;					//	”š
+	long		Mark;					//	ãƒãƒ¼ã‚¯
+	long		Number;					//	æ•°å­—
 }DECK_TBL;
 
 ////////////////////////////////////////
-//	ƒLƒƒƒ‰ƒNƒ^[ŠÇ—\‘¢‘Ì
+//	ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ç®¡ç†æ§‹é€ ä½“
 typedef	struct
 {
 	long		DeckIndex;
 	long		HandNumber;
-	long		StateFlag[HAND_NUM_MAX];	//	”Ä—pó‘Ôƒtƒ‰ƒO(Player—p)
+	long		StateFlag[HAND_NUM_MAX];	//	æ±ç”¨çŠ¶æ…‹ãƒ•ãƒ©ã‚°(Playerç”¨)
 	long		SelCardCt;
 	long		SelectCard[HAND_NUM_MAX];
 	double		HandCardRotR[HAND_NUM_MAX];
@@ -281,9 +281,9 @@ typedef	struct
 #endif	// __GameMain_H__
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 
 //----------------------------------------------------------------------------//
-//	ƒvƒƒgƒ^ƒCƒvéŒ¾
+//	ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 //----------------------------------------------------------------------------//

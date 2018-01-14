@@ -1,6 +1,6 @@
 /******************************************************************************/
-//	ƒGƒlƒ~[§Œä
-//		ƒ\[ƒXƒtƒ@ƒCƒ‹
+//	ã‚¨ãƒãƒŸãƒ¼åˆ¶å¾¡
+//		ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 #ifndef	__EnemyControl_H__
@@ -11,33 +11,33 @@
 using namespace std;
 
 //----------------------------------------------------------------------------//
-//	’è‹`
+//	å®šç¾©
 //----------------------------------------------------------------------------//
 
-//	ó‘Ô
+//	çŠ¶æ…‹
 enum E_State
 {
-	_StateStop,		//	’â~
-	_StateMove,		//	ˆÚ“®
-	_StateAtack,	//	UŒ‚
+	_StateStop,		//	åœæ­¢
+	_StateMove,		//	ç§»å‹•
+	_StateAtack,	//	æ”»æ’ƒ
 };
 
-//	ˆÊ’u
+//	ä½ç½®
 enum	E_Position
 {
-	_PosLeftUp,		//	¶ã
-	_PosCenterUp,	//	ã
-	_PosRightUp,	//	‰Eã
-	_PosLeft,		//	¶
-	_PosCenter,		//	^‚ñ’†
-	_PosRight,		//	‰E
-	_PosLeftDown,	//	¶‰º
-	_PosCenterDown,	//	‰º
-	_PosRightDown,	//	‰E‰º
-	_PosMax,		//	Å‘å’l
+	_PosLeftUp,		//	å·¦ä¸Š
+	_PosCenterUp,	//	ä¸Š
+	_PosRightUp,	//	å³ä¸Š
+	_PosLeft,		//	å·¦
+	_PosCenter,		//	çœŸã‚“ä¸­
+	_PosRight,		//	å³
+	_PosLeftDown,	//	å·¦ä¸‹
+	_PosCenterDown,	//	ä¸‹
+	_PosRightDown,	//	å³ä¸‹
+	_PosMax,		//	æœ€å¤§å€¤
 };
 
-//	‹——£
+//	è·é›¢
 enum E_Lange
 {
 	_LngShort,
@@ -45,50 +45,50 @@ enum E_Lange
 	_LngLong,
 };
 
-//	ˆÚ“®ƒtƒ‰ƒO
+//	ç§»å‹•ãƒ•ãƒ©ã‚°
 enum	E_MoveFlag
 {
-	_MoveFlagSet,	//	İ’è
-	_MoveFlagLoop,	//	ƒ‹[ƒv
+	_MoveFlagSet,	//	è¨­å®š
+	_MoveFlagLoop,	//	ãƒ«ãƒ¼ãƒ—
 };
 
 //----------------------------------------------------------------------------//
-//	\‘¢‘Ì
+//	æ§‹é€ ä½“
 //----------------------------------------------------------------------------//
 
 ////////////////////////////////////////
-//	ƒ†ƒjƒbƒg—p
+//	ãƒ¦ãƒ‹ãƒƒãƒˆç”¨
 typedef	struct
 {
-	long	ObjectNo;			//	ƒIƒuƒWƒFƒNƒg”Ô†
-	long	TargetObjNo;		//	–Ú•WƒIƒuƒWƒFƒNƒg”Ô†
+	long	ObjectNo;			//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç•ªå·
+	long	TargetObjNo;		//	ç›®æ¨™ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç•ªå·
 
-	RECT	PatSize;			//	ƒpƒ^[ƒ“ƒTƒCƒY
-	short	CenterX,CenterY;	//	’†SÀ•W
-	short	HitRect;			//	“–‚½‚è”ÍˆÍ
-	double	Speed;				//	ˆÚ“®‘¬“x
+	RECT	PatSize;			//	ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚µã‚¤ã‚º
+	short	CenterX,CenterY;	//	ä¸­å¿ƒåº§æ¨™
+	short	HitRect;			//	å½“ãŸã‚Šç¯„å›²
+	double	Speed;				//	ç§»å‹•é€Ÿåº¦
 
-	long	Shot[5];			//	ƒVƒ‡ƒbƒg”Ô†
-	//	ƒVƒ‡ƒbƒgƒtƒ‰ƒO
-	//	(0:‰Ÿ‚µ‚Ä‚È‚¢A1:ƒm[ƒ}ƒ‹A2:“Áê‚PA3:“Áê‚QA4:‚d‚w‚PA5:‚d‚w‚Q)
+	long	Shot[5];			//	ã‚·ãƒ§ãƒƒãƒˆç•ªå·
+	//	ã‚·ãƒ§ãƒƒãƒˆãƒ•ãƒ©ã‚°
+	//	(0:æŠ¼ã—ã¦ãªã„ã€1:ãƒãƒ¼ãƒãƒ«ã€2:ç‰¹æ®Šï¼‘ã€3:ç‰¹æ®Šï¼’ã€4:ï¼¥ï¼¸ï¼‘ã€5:ï¼¥ï¼¸ï¼’)
 	long	ButNo;
-	long	ShotLv;				//	ƒVƒ‡ƒbƒgƒŒƒxƒ‹
+	long	ShotLv;				//	ã‚·ãƒ§ãƒƒãƒˆãƒ¬ãƒ™ãƒ«
 
-	long	Life;				//	ƒ‰ƒCƒt
-	E_State	State;				//	ó‘Ô
-	double	Distance;			//	‹——£
-	E_Position	Pos;			//	ˆÊ’u
-	long	ShotTimer;			//	ƒVƒ‡ƒbƒgƒ^ƒCƒ}
-	long	ShotCt;				//	ƒVƒ‡ƒbƒgƒJƒEƒ“ƒ^
-	E_MoveFlag	MoveFlag;			//	ˆÚ“®ƒtƒ‰ƒO
-	long	MoveTimer;			//	ˆÚ“®ƒ^ƒCƒ}
-	long	MoveCt;				//	ˆÚ“®ƒJƒEƒ“ƒ^
+	long	Life;				//	ãƒ©ã‚¤ãƒ•
+	E_State	State;				//	çŠ¶æ…‹
+	double	Distance;			//	è·é›¢
+	E_Position	Pos;			//	ä½ç½®
+	long	ShotTimer;			//	ã‚·ãƒ§ãƒƒãƒˆã‚¿ã‚¤ãƒ
+	long	ShotCt;				//	ã‚·ãƒ§ãƒƒãƒˆã‚«ã‚¦ãƒ³ã‚¿
+	E_MoveFlag	MoveFlag;			//	ç§»å‹•ãƒ•ãƒ©ã‚°
+	long	MoveTimer;			//	ç§»å‹•ã‚¿ã‚¤ãƒ
+	long	MoveCt;				//	ç§»å‹•ã‚«ã‚¦ãƒ³ã‚¿
 }ST_Enemy;
 
 #endif	//	__EnemyControl_H__
 
 //----------------------------------------------------------------------------//
-//	ƒNƒ‰ƒX
+//	ã‚¯ãƒ©ã‚¹
 //----------------------------------------------------------------------------//
 class	CEnemy
 {

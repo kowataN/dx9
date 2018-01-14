@@ -1,45 +1,45 @@
 /******************************************************************************/
-//	ƒpƒbƒhƒ‰ƒCƒuƒ‰ƒŠ
-//		ƒƒCƒ“ƒtƒ@ƒCƒ‹
+//	ãƒ‘ãƒƒãƒ‰ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+//		ãƒ¡ã‚¤ãƒ³ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #include	"./Dx9Lib/Dx9Lib.h"
 #include	"Dx9LibPad.h"
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 
-//	ƒL[ƒ{[ƒh‰Šú‰»
+//	ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰åˆæœŸåŒ–
 short	SetKeyDat[PAD_MAX][PAD_BUTTON_MAX] =
 {
-	//	ã ‰º         ¶        ‰E         ‡@           ‡A           ‡B           ‡C            ƒXƒ^[ƒg
+	//	ä¸Š ä¸‹         å·¦        å³         â‘            â‘¡           â‘¢           â‘£            ã‚¹ã‚¿ãƒ¼ãƒˆ
 	DIK_W,  DIK_Z,    DIK_A,    DIK_S,     DIK_C,       DIK_V,       DIK_B,       DIK_N,       DIK_M,       DIK_RETURN,
 	DIK_UP, DIK_DOWN, DIK_LEFT, DIK_RIGHT, DIK_NUMPAD1, DIK_NUMPAD2, DIK_NUMPAD3, DIK_NUMPAD4, DIK_NUMPAD5, 156,
 };
 
-//	ƒWƒ‡ƒCƒXƒeƒBƒbƒN‰Šú‰»
+//	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯åˆæœŸåŒ–
 short	SetJoyDat[PAD_MAX][PAD_BUTTON_MAX] = 
 {
-	//	ã  ‰º        ¶        ‰E         ‡@        ‡A        ‡B        ‡C        ƒXƒ^[ƒg
+	//	ä¸Š  ä¸‹        å·¦        å³         â‘         â‘¡        â‘¢        â‘£        ã‚¹ã‚¿ãƒ¼ãƒˆ
 	JOY_UP, JOY_DOWN, JOY_LEFT, JOY_RIGHT, JOY_BUT1, JOY_BUT2, JOY_BUT3, JOY_BUT4, JOY_BUT5,
 	JOY_UP, JOY_DOWN, JOY_LEFT, JOY_RIGHT, JOY_BUT1, JOY_BUT2, JOY_BUT3, JOY_BUT4, JOY_BUT5,
 };
 
-//	ƒpƒbƒh\‘¢‘Ì
+//	ãƒ‘ãƒƒãƒ‰æ§‹é€ ä½“
 PAD_TBL	PAD[PAD_MAX];
 
 
 
 /******************************************************************************/
-//	ƒpƒbƒh‰Šú‰»i’P‘Ìj
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				no		ƒpƒbƒh”Ô†
+//	ãƒ‘ãƒƒãƒ‰åˆæœŸåŒ–ï¼ˆå˜ä½“ï¼‰
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				no		ãƒ‘ãƒƒãƒ‰ç•ªå·
 /******************************************************************************/
 void	InitPad( long PadNo )
 {
@@ -61,11 +61,11 @@ void	InitPad( long PadNo )
 }
 
 /******************************************************************************/
-//	ƒpƒbƒh‰Šú‰»i‘S‘Ìj
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ãƒ‘ãƒƒãƒ‰åˆæœŸåŒ–ï¼ˆå…¨ä½“ï¼‰
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	InitPadAll( void )
 {
@@ -76,73 +76,73 @@ void	InitPadAll( void )
 }
 
 /******************************************************************************/
-//	ƒpƒbƒhƒƒCƒ“
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				no		ƒpƒbƒh”Ô†
+//	ãƒ‘ãƒƒãƒ‰ãƒ¡ã‚¤ãƒ³
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				no		ãƒ‘ãƒƒãƒ‰ç•ªå·
 /******************************************************************************/
 void	MainPad( long PadNo )
 {
 	long	i;
 
-	//	Žg—pƒtƒ‰ƒOŠm”F
+	//	ä½¿ç”¨ãƒ•ãƒ©ã‚°ç¢ºèª
 	if( PAD[PadNo].Use == OFF )
 	{
 		return;
 	}
 
 	///////////////////////////////
-	//	ƒoƒbƒNƒAƒbƒv
+	//	ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—
 	for( i=0; i<PAD_BUTTON_MAX; i++ )
 	{
-		//	ƒgƒŠƒK
+		//	ãƒˆãƒªã‚¬
 		PAD[PadNo].TrgBk[i] = PAD[PadNo].Trg[i];
 
-		//	ƒvƒbƒVƒ…
+		//	ãƒ—ãƒƒã‚·ãƒ¥
 		PAD[PadNo].PushBk[i] = PAD[PadNo].Push[i];
 
-		//	‰Šú‰»
+		//	åˆæœŸåŒ–
 		PAD[PadNo].Trg[i] = OFF;
 		PAD[PadNo].Push[i] = OFF;
 	}
 
 	///////////////////////////////
-	//	ƒL[ƒ{[ƒh‚Ì”»’è
+	//	ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®åˆ¤å®š
 	for( i=0; i<PAD_BUTTON_MAX; i++ )
 	{
-		//	ˆêŽžŠi”[
+		//	ä¸€æ™‚æ ¼ç´
 		long KeyNo = PAD[PadNo].KeyNo[i];
 
-		//	ƒgƒŠƒK
+		//	ãƒˆãƒªã‚¬
 		PAD[PadNo].Trg[i] |= KEY.Trg[KeyNo];
 
-		//	ƒvƒbƒVƒ…
+		//	ãƒ—ãƒƒã‚·ãƒ¥
 		PAD[PadNo].Push[i] |= KEY.Push[KeyNo];
 	}
 
 	///////////////////////////////
-	//	ƒWƒ‡ƒCƒXƒeƒBƒbƒN‚Ì”»’è
+	//	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã®åˆ¤å®š
 	if( PAD[PadNo].JoyUse )
 	{
-		//	•ûŒüƒL[
+		//	æ–¹å‘ã‚­ãƒ¼
 		for( i=0; i<PAD_BUTTON_MAX; i++ )
 		{
 			long	JoyNo = PAD[PadNo].JoyNo[i];
 
-			//	ƒgƒŠƒK
+			//	ãƒˆãƒªã‚¬
 			PAD[PadNo].Trg[i] |= JOY[PadNo].Trg[JoyNo];
 
-			//	ƒvƒbƒVƒ…
+			//	ãƒ—ãƒƒã‚·ãƒ¥
 			PAD[PadNo].Push[i] |= JOY[PadNo].Push[JoyNo];
 		}
 	}
 
 	///////////////////////////////
-	//	ƒJƒEƒ“ƒ^AƒL[ƒŠƒs[ƒg
+	//	ã‚«ã‚¦ãƒ³ã‚¿ã€ã‚­ãƒ¼ãƒªãƒ”ãƒ¼ãƒˆ
 	for( i=0; i<PAD_BUTTON_MAX; i++ )
 	{
-		//	ƒJƒEƒ“ƒ^
+		//	ã‚«ã‚¦ãƒ³ã‚¿
 		if( PAD[PadNo].Push[i] )
 		{
 			PAD[PadNo].Count[i] ++;
@@ -152,7 +152,7 @@ void	MainPad( long PadNo )
 			PAD[PadNo].Count[i] = 0;
 		}
 
-		//	ƒL[ƒŠƒs[ƒg
+		//	ã‚­ãƒ¼ãƒªãƒ”ãƒ¼ãƒˆ
 		if( ( PAD[PadNo].Trg[i] )
 		|| ( ( PAD[PadNo].Count[i] >= KEY_REPEAT_START )
 		&& ( PAD[PadNo].Count[i] % KEY_REPEAT_TIME == 0 ) ) )
@@ -167,11 +167,11 @@ void	MainPad( long PadNo )
 }
 
 /******************************************************************************/
-//	ƒpƒbƒhƒ‹[ƒv
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ãƒ‘ãƒƒãƒ‰ãƒ«ãƒ¼ãƒ—
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	LoopPad( void )
 {
@@ -182,19 +182,19 @@ void	LoopPad( void )
 }
 
 /******************************************************************************/
-//	ƒpƒbƒhƒf[ƒ^“Ç‚Ýž‚Ý
+//	ãƒ‘ãƒƒãƒ‰ãƒ‡ãƒ¼ã‚¿èª­ã¿è¾¼ã¿
 /******************************************************************************/
 void	LoadPadData( char* FileName )
 {
 	char	LoadBuf[1024];
 
-	//	ƒtƒ@ƒCƒ‹“Ç‚Ýž‚Ý
+	//	ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿
 	if( LoadFile( FileName, LoadBuf ) < 0 )
 	{
 		return;
 	}
 
-	//	ƒf[ƒ^Žæ“¾
+	//	ãƒ‡ãƒ¼ã‚¿å–å¾—
 	char	*pt = (char*)LoadBuf;
 	long	PadMax = GetLong( pt );
 	pt += 4;

@@ -1,43 +1,43 @@
 /******************************************************************************/
-//	DirectX9ƒ‰ƒCƒuƒ‰ƒŠ
-//		ƒRƒ‚ƒ“
+//	DirectX9ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+//		ã‚³ãƒ¢ãƒ³
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
-//	”Ä—p
+//	æ±ç”¨
 extern	char	g_FreeWork[FREE_WORK_SIZE];
 
 //----------------------------------------------------------------------------//
-//	ƒvƒƒgƒ^ƒCƒvéŒ¾
+//	ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 //----------------------------------------------------------------------------//
-extern	long	LoadFile( char *FileName, char *LoadBuf );							//	ƒtƒ@ƒCƒ‹ƒ[ƒh
-extern	long	SaveFile( char *FileName, char *SaveBuf, long Size );				//	ƒtƒ@ƒCƒ‹ƒZ[ƒu
-extern	void	PathToName( char *Path, char *FileName);							//	ƒpƒX‚©‚çƒtƒ@ƒCƒ‹–¼æ“¾
-extern	void	PathToOpt( char *Path, char *FileName );							//	ƒpƒX‚©‚çŠg’£qæ“¾
-extern	void	PathToDir( char *Path, char *Dir );									//	ƒpƒX‚©‚çƒfƒBƒŒƒNƒgƒŠæ“¾
-extern	void	PathChange( char *NewPath, char *BakupPath );						//	ƒpƒX•ÏX
-extern	long	Secret( char *FileName );											//	ˆÃ†‰»
-extern	void	SaveSecret( char *FileName, char *SaveFileName );					//	ˆÃ†ƒtƒ@ƒCƒ‹•Û‘¶
-extern	long	AntiSecret( char *SecretFile, char *FileName );						//	‰ğ“Ç
-extern	void	SetShort( short Dat, char *pt );									//	ƒVƒ‡[ƒgŒ^‚ğİ’è
-extern	void	SetLong( long Dat, char *pt );										//	ƒƒ“ƒOŒ^‚ğİ’è
-extern	void	SetFloat( float Dat, char *pt );									//	ƒtƒ[ƒgŒ^‚ğİ’è
-extern	void	SetDouble( double Dat, char *pt );									//	ƒ_ƒuƒ‹Œ^‚ğ‚ğİ’è
-extern	short	GetShort( char *pt );												//	ƒVƒ‡[ƒgŒ^ƒf[ƒ^‚Ìæ“¾
-extern	long	GetLong( char *pt );												//	ƒƒ“ƒOŒ^ƒf[ƒ^‚Ìæ“¾
-extern	float	GetFloat( char *pt );												//	ƒtƒ[ƒgŒ^ƒf[ƒ^‚Ìæ“¾
-extern	double	GetDouble( char *pt );												//	ƒ_ƒuƒ‹Œ^ƒf[ƒ^‚Ìæ“¾
-extern	bool	LoadFileDialog( char *Filter, char *Ext, char *Title, char *Path );	//	ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“ƒ_ƒCƒAƒƒO•\¦
-extern	bool	SaveFileDialog( char *Filter, char *Ext, char *Title, char *Path );	//	ƒtƒ@ƒCƒ‹ƒZ[ƒuƒ_ƒCƒAƒƒO•\¦
-extern	double	GetRot( double x1, double y1, double x2, double y2 );				//	Šp“xæ“¾
-extern	double	GetDistance( double x1, double y1, double x2, double y2 );			//	‹——£æ“¾
+extern	long	LoadFile( char *FileName, char *LoadBuf );							//	ãƒ•ã‚¡ã‚¤ãƒ«ãƒ­ãƒ¼ãƒ‰
+extern	long	SaveFile( char *FileName, char *SaveBuf, long Size );				//	ãƒ•ã‚¡ã‚¤ãƒ«ã‚»ãƒ¼ãƒ–
+extern	void	PathToName( char *Path, char *FileName);							//	ãƒ‘ã‚¹ã‹ã‚‰ãƒ•ã‚¡ã‚¤ãƒ«åå–å¾—
+extern	void	PathToOpt( char *Path, char *FileName );							//	ãƒ‘ã‚¹ã‹ã‚‰æ‹¡å¼µå­å–å¾—
+extern	void	PathToDir( char *Path, char *Dir );									//	ãƒ‘ã‚¹ã‹ã‚‰ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå–å¾—
+extern	void	PathChange( char *NewPath, char *BakupPath );						//	ãƒ‘ã‚¹å¤‰æ›´
+extern	long	Secret( char *FileName );											//	æš—å·åŒ–
+extern	void	SaveSecret( char *FileName, char *SaveFileName );					//	æš—å·ãƒ•ã‚¡ã‚¤ãƒ«ä¿å­˜
+extern	long	AntiSecret( char *SecretFile, char *FileName );						//	è§£èª­
+extern	void	SetShort( short Dat, char *pt );									//	ã‚·ãƒ§ãƒ¼ãƒˆå‹ã‚’è¨­å®š
+extern	void	SetLong( long Dat, char *pt );										//	ãƒ­ãƒ³ã‚°å‹ã‚’è¨­å®š
+extern	void	SetFloat( float Dat, char *pt );									//	ãƒ•ãƒ­ãƒ¼ãƒˆå‹ã‚’è¨­å®š
+extern	void	SetDouble( double Dat, char *pt );									//	ãƒ€ãƒ–ãƒ«å‹ã‚’ã‚’è¨­å®š
+extern	short	GetShort( char *pt );												//	ã‚·ãƒ§ãƒ¼ãƒˆå‹ãƒ‡ãƒ¼ã‚¿ã®å–å¾—
+extern	long	GetLong( char *pt );												//	ãƒ­ãƒ³ã‚°å‹ãƒ‡ãƒ¼ã‚¿ã®å–å¾—
+extern	float	GetFloat( char *pt );												//	ãƒ•ãƒ­ãƒ¼ãƒˆå‹ãƒ‡ãƒ¼ã‚¿ã®å–å¾—
+extern	double	GetDouble( char *pt );												//	ãƒ€ãƒ–ãƒ«å‹ãƒ‡ãƒ¼ã‚¿ã®å–å¾—
+extern	bool	LoadFileDialog( char *Filter, char *Ext, char *Title, char *Path );	//	ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³ãƒ€ã‚¤ã‚¢ãƒ­ã‚°è¡¨ç¤º
+extern	bool	SaveFileDialog( char *Filter, char *Ext, char *Title, char *Path );	//	ãƒ•ã‚¡ã‚¤ãƒ«ã‚»ãƒ¼ãƒ–ãƒ€ã‚¤ã‚¢ãƒ­ã‚°è¡¨ç¤º
+extern	double	GetRot( double x1, double y1, double x2, double y2 );				//	è§’åº¦å–å¾—
+extern	double	GetDistance( double x1, double y1, double x2, double y2 );			//	è·é›¢å–å¾—
 extern	void	CorrectRot( double &Rot );
-extern	double	RadToDeg( double Rot );												//	ƒ‰ƒWƒAƒ“‚ğƒfƒOƒŠ[‚É•ÏŠ·
-extern	double	DegToRad( double Rot );												//	ƒfƒOƒŠ[‚ğƒ‰ƒWƒAƒ“‚É•ÏŠ·
-extern	double	GetMoveX( double Speed, double Rot );								//	ˆÚ“®—Êæ“¾(X)
-extern	double	GetMoveY( double Speed, double Rot );								//	ˆÚ“®—Êæ“¾(Y)
+extern	double	RadToDeg( double Rot );												//	ãƒ©ã‚¸ã‚¢ãƒ³ã‚’ãƒ‡ã‚°ãƒªãƒ¼ã«å¤‰æ›
+extern	double	DegToRad( double Rot );												//	ãƒ‡ã‚°ãƒªãƒ¼ã‚’ãƒ©ã‚¸ã‚¢ãƒ³ã«å¤‰æ›
+extern	double	GetMoveX( double Speed, double Rot );								//	ç§»å‹•é‡å–å¾—(X)
+extern	double	GetMoveY( double Speed, double Rot );								//	ç§»å‹•é‡å–å¾—(Y)
 extern	void	MaxMin( double& Target, double Max, double Min );
 extern	void	MaxMin( long& Target, long Max, long Min );
 extern	ULong	ToDec( const char *Target );

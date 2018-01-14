@@ -1,18 +1,18 @@
 /******************************************************************************/
-//	ƒQ[ƒ€ƒƒCƒ“
-//		ƒwƒbƒ_ƒtƒ@ƒCƒ‹
+//	ã‚²ãƒ¼ãƒ ãƒ¡ã‚¤ãƒ³
+//		ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 #ifndef	__GameMain_H__
 #define	__GameMain_H__
 
 //----------------------------------------------------------------------------//
-//	’è‹`
+//	å®šç¾©
 //----------------------------------------------------------------------------//
 enum
 {
 	/////////////////////////////////////////////////
-	//	ƒQ[ƒ€ƒ‚[ƒh
+	//	ã‚²ãƒ¼ãƒ ãƒ¢ãƒ¼ãƒ‰
 	MAIN_MODE_INIT = 0,
 	MAIN_MODE_TITLE_INIT = 10,
 	MAIN_MODE_TITLE_MAIN,
@@ -26,7 +26,7 @@ enum
 	MAIN_MODE_END_MAIN,
 
 	/////////////////////////////////////////////////
-	//	ƒeƒNƒXƒ`ƒƒ”Ô†
+	//	ãƒ†ã‚¯ã‚¹ãƒãƒ£ç•ªå·
 	TEX_GAME_BG	= 0,
 	TEX_GAME_SYSTEM,
 	TEX_GAME_END_TEXT,
@@ -35,7 +35,7 @@ enum
 	TEX_GAME_END_ICON,
 
 	/////////////////////////////////////////////////
-	//	ƒpƒ^[ƒ“”Ô†
+	//	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
 	PAT_GAME_BG = 0,
 	PAT_GAME_TIME = 10,
 	PAT_GAME_GAGE_FRM = 25,
@@ -53,7 +53,7 @@ enum
 	PAT_GAME_SHOT = 120,
 
 	/////////////////////////////////////////////////
-	//	ƒ|ƒŠƒSƒ“”Ô†
+	//	ãƒãƒªã‚´ãƒ³ç•ªå·
 	POL_GAME_BG = 0,
 	POL_GAME_TIME = 10,
 	POL_GAME_GAGE_FRM = 20,
@@ -71,7 +71,7 @@ enum
 	POL_GAME_SHOT = 100,
 
 	/////////////////////////////////////////////////
-	//	ƒIƒuƒWƒFƒNƒg”Ô†
+	//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç•ªå·
 	OBJ_GAME_BG = 0,
 	OBJ_GAME_TIME = 10,
 	OBJ_GAME_GAGE_FRM = 20,
@@ -89,19 +89,19 @@ enum
 	OBJ_GAME_SHOT = 100,
 
 	/////////////////////////////////////////////////
-	//	ƒAƒjƒ”Ô†
+	//	ã‚¢ãƒ‹ãƒ¡ç•ªå·
 
 	/////////////////////////////////////////////////
-	//	ƒ^ƒCƒv
-	OBJ_TYPE_NONE,	//	‚È‚µi‰Šú’lj
-	OBJ_TYPE_BG,	//	”wŒi
-	OBJ_TYPE_SYSTEM,//	ƒVƒXƒeƒ€
-	OBJ_TYPE_RECT,	//	—Ìˆæ
-	OBJ_TYPE_UNIT,	//	ƒ†ƒjƒbƒgiƒvƒŒƒCƒ„[j
-	OBJ_TYPE_SHOT,	//	ƒVƒ‡ƒbƒg
+	//	ã‚¿ã‚¤ãƒ—
+	OBJ_TYPE_NONE,	//	ãªã—ï¼ˆåˆæœŸå€¤ï¼‰
+	OBJ_TYPE_BG,	//	èƒŒæ™¯
+	OBJ_TYPE_SYSTEM,//	ã‚·ã‚¹ãƒ†ãƒ 
+	OBJ_TYPE_RECT,	//	é ˜åŸŸ
+	OBJ_TYPE_UNIT,	//	ãƒ¦ãƒ‹ãƒƒãƒˆï¼ˆãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ï¼‰
+	OBJ_TYPE_SHOT,	//	ã‚·ãƒ§ãƒƒãƒˆ
 
 	/////////////////////////////////////////////////
-	//	‚a‚f‚l•‚r‚d
+	//	ï¼¢ï¼§ï¼­ï¼†ï¼³ï¼¥
 
 	//	BGM
 	BGM_BATTLE = 0,
@@ -121,71 +121,71 @@ enum
 };
 
 /////////////////////////////////////////////////
-//	ƒAƒgƒŠƒrƒ…[ƒg
-#define	OBJ_ATR_NONE			(1<<0)	//	‚È‚µi‰Šú’lj
-#define	OBJ_ATR_UNIT1			(1<<1)	//	ƒ†ƒjƒbƒg‚P
-#define	OBJ_ATR_UNIT2			(1<<2)	//	ƒ†ƒjƒbƒg‚Q
+//	ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
+#define	OBJ_ATR_NONE			(1<<0)	//	ãªã—ï¼ˆåˆæœŸå€¤ï¼‰
+#define	OBJ_ATR_UNIT1			(1<<1)	//	ãƒ¦ãƒ‹ãƒƒãƒˆï¼‘
+#define	OBJ_ATR_UNIT2			(1<<2)	//	ãƒ¦ãƒ‹ãƒƒãƒˆï¼’
 
-#define	OBJ_ATR_SHOT_NORMAL		(1<<3)	//	ƒm[ƒ}ƒ‹ƒVƒ‡ƒbƒg
-#define	OBJ_ATR_SHOT_SPECIAL1	(1<<4)	//	“ÁŽêƒVƒ‡ƒbƒg‚P
-#define	OBJ_ATR_SHOT_SPECIAL2	(1<<5)	//	“ÁŽêƒVƒ‡ƒbƒg‚Q
-#define	OBJ_ATR_SHOT_EXTRA1		(1<<6)	//	EXƒVƒ‡ƒbƒg‚P
-#define	OBJ_ATR_SHOT_EXTRA2		(1<<7)	//	EXƒVƒ‡ƒbƒg‚Q
+#define	OBJ_ATR_SHOT_NORMAL		(1<<3)	//	ãƒŽãƒ¼ãƒžãƒ«ã‚·ãƒ§ãƒƒãƒˆ
+#define	OBJ_ATR_SHOT_SPECIAL1	(1<<4)	//	ç‰¹æ®Šã‚·ãƒ§ãƒƒãƒˆï¼‘
+#define	OBJ_ATR_SHOT_SPECIAL2	(1<<5)	//	ç‰¹æ®Šã‚·ãƒ§ãƒƒãƒˆï¼’
+#define	OBJ_ATR_SHOT_EXTRA1		(1<<6)	//	EXã‚·ãƒ§ãƒƒãƒˆï¼‘
+#define	OBJ_ATR_SHOT_EXTRA2		(1<<7)	//	EXã‚·ãƒ§ãƒƒãƒˆï¼’
 
-#define	OBJ_ATR_SHOT_HOMING1	(1<<8)	//	ƒz[ƒ~ƒ“ƒO1
-#define	OBJ_ATR_SHOT_HOMING2	(1<<9)	//	ƒz[ƒ~ƒ“ƒO2
-#define	OBJ_ATR_SHOT_HOMING3	(1<<10)	//	ƒz[ƒ~ƒ“ƒO3
-#define	OBJ_ATR_SHOT_HOMING4	(1<<11)	//	ƒz[ƒ~ƒ“ƒO4
-#define	OBJ_ATR_SHOT_HOMING5	(1<<12)	//	ƒz[ƒ~ƒ“ƒO5
+#define	OBJ_ATR_SHOT_HOMING1	(1<<8)	//	ãƒ›ãƒ¼ãƒŸãƒ³ã‚°1
+#define	OBJ_ATR_SHOT_HOMING2	(1<<9)	//	ãƒ›ãƒ¼ãƒŸãƒ³ã‚°2
+#define	OBJ_ATR_SHOT_HOMING3	(1<<10)	//	ãƒ›ãƒ¼ãƒŸãƒ³ã‚°3
+#define	OBJ_ATR_SHOT_HOMING4	(1<<11)	//	ãƒ›ãƒ¼ãƒŸãƒ³ã‚°4
+#define	OBJ_ATR_SHOT_HOMING5	(1<<12)	//	ãƒ›ãƒ¼ãƒŸãƒ³ã‚°5
 
-#define	OBJ_ATR_SHOT_HOMING		(1<<13)	//	ƒz[ƒ~ƒ“ƒO
-#define	OBJ_ATR_SHOT_SET_UP		(1<<14)	//	Ý’uŽ®
-#define	OBJ_ATR_SHOT_SPLINE		(1<<15)	//	ƒXƒvƒ‰ƒCƒ“
+#define	OBJ_ATR_SHOT_HOMING		(1<<13)	//	ãƒ›ãƒ¼ãƒŸãƒ³ã‚°
+#define	OBJ_ATR_SHOT_SET_UP		(1<<14)	//	è¨­ç½®å¼
+#define	OBJ_ATR_SHOT_SPLINE		(1<<15)	//	ã‚¹ãƒ—ãƒ©ã‚¤ãƒ³
 
-#define	OBJ_ATR_ROT_NONE		(1<<16)	//	‰ñ“]‚È‚µ
-#define	OBJ_ATR_ROT_USE			(1<<17)	//	‰ñ“]‚·‚é
-#define	OBJ_ATR_ROT_CHANGE		(1<<18)	//	Šp“x•ÏX
+#define	OBJ_ATR_ROT_NONE		(1<<16)	//	å›žè»¢ãªã—
+#define	OBJ_ATR_ROT_USE			(1<<17)	//	å›žè»¢ã™ã‚‹
+#define	OBJ_ATR_ROT_CHANGE		(1<<18)	//	è§’åº¦å¤‰æ›´
 
 #define	OBJ_ATR_SHOT_RANK		(OBJ_ATR_SHOT_NORMAL|OBJ_ATR_SHOT_SPECIAL1|OBJ_ATR_SHOT_SPECIAL2|OBJ_ATR_SHOT_EXTRA1|OBJ_ATR_SHOT_EXTRA2)
 #define	OBJ_ATR_SHOT_TYPE		(OBJ_ATR_SHOT_HOMING|OBJ_ATR_SHOT_SET_UP|OBJ_ATR_SHOT_SPLINE)
 #define	OBJ_ATR_ROT_TYPE		(OBJ_ATR_ROT_NONE|OBJ_ATR_ROT_USE|OBJ_ATR_ROT_CHANGE)
 
 /////////////////////////////////////////////////
-//	ƒfƒoƒbƒOƒXƒCƒbƒ`
+//	ãƒ‡ãƒãƒƒã‚°ã‚¹ã‚¤ãƒƒãƒ
 //#define		__DEBUG__
 
 //----------------------------------------------------------------------------//
-//	\‘¢‘Ì
+//	æ§‹é€ ä½“
 //----------------------------------------------------------------------------//
 
 /////////////////////////////////////////////////
-//	ƒVƒXƒeƒ€—p
+//	ã‚·ã‚¹ãƒ†ãƒ ç”¨
 typedef	struct
 {
-	long	main_mode;	//	ƒƒCƒ“ƒ‚[ƒh
+	long	main_mode;	//	ãƒ¡ã‚¤ãƒ³ãƒ¢ãƒ¼ãƒ‰
 
-	short	stage_no;	//	ƒXƒe[ƒW”Ô†
-	short	win;		//	ŸŽÒ”Ô†i0:ƒvƒŒƒCƒ„[‚PA1:ƒvƒŒƒCƒ„[‚QA2:ƒhƒ[j
+	short	stage_no;	//	ã‚¹ãƒ†ãƒ¼ã‚¸ç•ªå·
+	short	win;		//	å‹è€…ç•ªå·ï¼ˆ0:ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ï¼‘ã€1:ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ï¼’ã€2:ãƒ‰ãƒ­ãƒ¼ï¼‰
 
-	short	time;		//	í“¬‚ÌŽžŠÔ
+	short	time;		//	æˆ¦é—˜ã®æ™‚é–“
 
-	long	frame_ct;	//	ƒtƒŒ[ƒ€ƒJƒEƒ“ƒ^
-	u_char	buzz_disp;	//	ƒoƒYƒŠ•\Ž¦ƒtƒ‰ƒO
-	u_char	pause_disp;	//	ƒ|[ƒY•\Ž¦ƒtƒ‰ƒO
+	long	frame_ct;	//	ãƒ•ãƒ¬ãƒ¼ãƒ ã‚«ã‚¦ãƒ³ã‚¿
+	u_char	buzz_disp;	//	ãƒã‚ºãƒªè¡¨ç¤ºãƒ•ãƒ©ã‚°
+	u_char	pause_disp;	//	ãƒãƒ¼ã‚ºè¡¨ç¤ºãƒ•ãƒ©ã‚°
 
-	long	life[2];	//	ƒ‰ƒCƒti‰Šú‰»—pj
+	long	life[2];	//	ãƒ©ã‚¤ãƒ•ï¼ˆåˆæœŸåŒ–ç”¨ï¼‰
 }SYSTEM_TBL;
 
 #endif	//	__GameMain_H__
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 
-//	ƒVƒXƒeƒ€
+//	ã‚·ã‚¹ãƒ†ãƒ 
 extern	SYSTEM_TBL	SYS;
 
 //----------------------------------------------------------------------------//
-//	ƒvƒƒgƒ^ƒCƒvéŒ¾
+//	ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 //----------------------------------------------------------------------------//
 extern	long	HitCheck( double x1, double y1, double r1, double x2, double y2, double r2 );

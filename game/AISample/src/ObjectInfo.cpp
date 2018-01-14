@@ -1,10 +1,10 @@
 /******************************************************************************/
-//	�I�u�W�F�N�g���t�@�C��
-//		�\�[�X�t�@�C��
+//	オブジェクト情報ファイル
+//		ソースファイル
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	�C���N���[�h
+//	インクルード
 //----------------------------------------------------------------------------//
 #include	"./Dx9Lib/Dx9Lib.h"
 #include	"./Dx9LibAnm.h"
@@ -15,11 +15,11 @@
 
 
 /******************************************************************************/
-//	�R���X�g���N�^
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				�Ȃ�
+//	コンストラクタ
+//		戻り値：
+//				なし
+//		引数：
+//				なし
 /******************************************************************************/
 CObjectInfo::CObjectInfo()
 {
@@ -27,51 +27,51 @@ CObjectInfo::CObjectInfo()
 }
 
 /******************************************************************************/
-//	�f�X�g���N�^
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				�Ȃ�
+//	デストラクタ
+//		戻り値：
+//				なし
+//		引数：
+//				なし
 /******************************************************************************/
 CObjectInfo::~CObjectInfo()
 {
 }
 
 /******************************************************************************/
-//	�I�u�W�F�N�g�ݒ�
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				pat_no		�p�^�[���ԍ�
-//				x,y,z		���W
-//				type		�^�C�v
-//				atr			�A�g���r���[�g
+//	オブジェクト設定
+//		戻り値：
+//				なし
+//		引数：
+//				pat_no		パターン番号
+//				x,y,z		座標
+//				type		タイプ
+//				atr			アトリビュート
 /******************************************************************************/
 void	CObjectInfo::Set( long PatNo,
 						 double PosX, double PosY, double PosZ,
 						 ULong Type,
 						 ULong Atr )
 {
-	//	�t���O
+	//	フラグ
 	m_Info.Disp = ON;
 
-	//	�ԍ�
+	//	番号
 	m_Info.PolNo = GetPolygonNo();
 	m_Info.PatNo = PatNo;
 
-	//	���W
+	//	座標
 	m_Info.PosX = PosX;
 	m_Info.PosY = PosY;
 	m_Info.PosZ = PosZ;
 
-	//	����
+	//	属性
 	m_Info.Type = Type;
 	m_Info.Atr = Atr;
 
-	//	���蔻��
+	//	当り判定
 	m_Info.HitRect = 0;
 
-	//	���̑�
+	//	その他
 	m_Info.Scale = 1.0;
 	m_Info.RotRad = m_Info.RotDeg = 0;
 	m_Info.Rot = 0;
@@ -80,7 +80,7 @@ void	CObjectInfo::Set( long PatNo,
 	m_Info.DeadCt = 0;
 	m_Info.Ct = 0;
 
-	//	�|���S���Z�b�g
+	//	ポリゴンセット
 	SetPolygonPat( m_Info.PolNo, PatNo, PosX,PosY,PosZ, ATR_NONE );
 }
 
@@ -93,12 +93,12 @@ void	CObjectInfo::Set(long Width, long Height,
 }
 
 /******************************************************************************/
-//	�I�u�W�F�N�g�̕\�����W�Z�b�g
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				obj_no		�I�u�W�F�N�g�ԍ�
-//				x,y,z		�\�����W
+//	オブジェクトの表示座標セット
+//		戻り値：
+//				なし
+//		引数：
+//				obj_no		オブジェクト番号
+//				x,y,z		表示座標
 /******************************************************************************/
 void	CObjectInfo::SetPos( double PosX, double PosY, double PosZ )
 {
@@ -113,12 +113,12 @@ void	CObjectInfo::SetPos( double PosX, double PosY, double PosZ )
 }
 
 /******************************************************************************/
-//	���S���W�̃Z�b�g
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				obj_no		�I�u�W�F�N�g�ԍ�
-//				cx,cy		���S���W
+//	中心座標のセット
+//		戻り値：
+//				なし
+//		引数：
+//				obj_no		オブジェクト番号
+//				cx,cy		中心座標
 /******************************************************************************/
 void	CObjectInfo::SetCenter( short CenterX, short CenterY )
 {
@@ -131,12 +131,12 @@ void	CObjectInfo::SetCenter( short CenterX, short CenterY )
 }
 
 /******************************************************************************/
-//	�g�嗦�̃Z�b�g
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				obj_no	�I�u�W�F�N�g�ԍ�
-//				scale	�g�嗦
+//	拡大率のセット
+//		戻り値：
+//				なし
+//		引数：
+//				obj_no	オブジェクト番号
+//				scale	拡大率
 /******************************************************************************/
 void	CObjectInfo::SetScale( double Scale )
 {
@@ -146,12 +146,12 @@ void	CObjectInfo::SetScale( double Scale )
 }
 
 /******************************************************************************/
-//	�ړ��ʃZ�b�g
-//		�߂�l�G
-//				�Ȃ�
-//		�����F
-//				obj_no	�I�u�W�F�N�g�ԍ�
-//				mx,my	�ړ���
+//	移動量セット
+//		戻り値；
+//				なし
+//		引数：
+//				obj_no	オブジェクト番号
+//				mx,my	移動量
 /******************************************************************************/
 void	CObjectInfo::SetTransfer( double MoveX, double MoveY )
 {
@@ -160,12 +160,12 @@ void	CObjectInfo::SetTransfer( double MoveX, double MoveY )
 }
 
 /******************************************************************************/
-//	�I�u�W�F�N�g�A�j���Z�b�g
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				anm_no		�A�j���ԍ�
-//				flag		�t���O
+//	オブジェクトアニメセット
+//		戻り値：
+//				なし
+//		引数：
+//				anm_no		アニメ番号
+//				flag		フラグ
 /******************************************************************************/
 void	CObjectInfo::SetAnm( long AnmNo, long LoopFlag )
 {
@@ -174,15 +174,15 @@ void	CObjectInfo::SetAnm( long AnmNo, long LoopFlag )
 }
 
 /******************************************************************************/
-//	�I�u�W�F�N�g�ړ�
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				*obj	�I�u�W�F�N�g�̃A�h���X
+//	オブジェクト移動
+//		戻り値：
+//				なし
+//		引数：
+//				*obj	オブジェクトのアドレス
 /******************************************************************************/
 void	CObjectInfo::Move( void )
 {
-	//	���W�̃o�b�N�A�b�v
+	//	座標のバックアップ
 	this->PosBackup();
 
 	m_Info.PosX += m_Info.MoveX;
@@ -210,52 +210,52 @@ void	CObjectInfo::Move( void )
 			break;
 	}
 
-	//	�N���b�s���O
+	//	クリッピング
 	this->Clipping(Rect);
 }
 
 /******************************************************************************/
-//	�I�u�W�F�N�g�o��
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				*obj	�I�u�W�F�N�g�̃A�h���X
+//	オブジェクト出現
+//		戻り値：
+//				なし
+//		引数：
+//				*obj	オブジェクトのアドレス
 /******************************************************************************/
 void	CObjectInfo::Disp( void )
 {
-	//	�ԍ�
+	//	番号
 	long PatNo = m_Info.PatNo;
 	long PolNo = m_Info.PolNo;
 
-	//	���W
+	//	座標
 	double PosX = m_Info.PosX;
 	double PosY = m_Info.PosY;
 	double PosZ = m_Info.PosZ;
 
-	//	���W�̃o�b�N�A�b�v
+	//	座標のバックアップ
 	this->PosBackup();
 
-	//	�|���S���ăZ�b�g
+	//	ポリゴン再セット
 	SetPolygonPat( PolNo, PatNo, PosX,PosY,PosZ, ATR_NONE );
 
 	POL[ PolNo ].Disp = m_Info.Disp;
 
-	//	�g�嗦
+	//	拡大率
 	SetPolygonScale( PolNo, m_Info.Scale );
 
-	//	�p�x
+	//	角度
 	POL[ PolNo ].Rot = m_Info.Rot;
 
-	//	���S���W
+	//	中心座標
 	SetPolygonCenter( PolNo, m_Info.CenterX, m_Info.CenterY );
 }
 
 /******************************************************************************/
-//	�I�u�W�F�N�g�N���b�s���O
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				*obj	�I�u�W�F�N�g�̃A�h���X
+//	オブジェクトクリッピング
+//		戻り値：
+//				なし
+//		引数：
+//				*obj	オブジェクトのアドレス
 /******************************************************************************/
 long	CObjectInfo::Clipping( RECT Rect )
 {
@@ -301,11 +301,11 @@ long	CObjectInfo::Clipping( RECT Rect )
 }
 
 /******************************************************************************/
-//	���W�o�b�N�A�b�v
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				*obj	�I�u�W�F�N�g�̃A�h���X
+//	座標バックアップ
+//		戻り値：
+//				なし
+//		引数：
+//				*obj	オブジェクトのアドレス
 /******************************************************************************/
 void	CObjectInfo::PosBackup( void )
 {
@@ -315,11 +315,11 @@ void	CObjectInfo::PosBackup( void )
 }
 
 /******************************************************************************/
-//	���W�����ɖ߂�
-//		�߂�l�F
-//				�Ȃ�
-//		�����F
-//				*obj	�I�u�W�F�N�g�̃A�h���X
+//	座標を元に戻す
+//		戻り値：
+//				なし
+//		引数：
+//				*obj	オブジェクトのアドレス
 /******************************************************************************/
 void	CObjectInfo::PosRestore( void )
 {

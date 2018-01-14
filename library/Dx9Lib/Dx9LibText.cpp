@@ -1,26 +1,26 @@
 /******************************************************************************/
-//	DirectX9ƒ‰ƒCƒuƒ‰ƒŠ
-//		ƒeƒLƒXƒg
+//	DirectX9ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+//		ãƒ†ã‚­ã‚¹ãƒˆ
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #include	"./Dx9Lib.h"
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 ST_TextInfo			TXT[TXT_MAX];
 
 
 
 /******************************************************************************/
-//	–¼‘O	F	ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-//	à–¾	F	‚È‚µ
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+//	èª¬æ˜Ž	ï¼š	ãªã—
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 CDx9LibText::CDx9LibText()
 {
@@ -29,11 +29,11 @@ CDx9LibText::CDx9LibText()
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒfƒXƒgƒ‰ƒNƒ^
-//	à–¾	F	‚È‚µ
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+//	èª¬æ˜Ž	ï¼š	ãªã—
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 CDx9LibText::~CDx9LibText()
 {
@@ -41,15 +41,15 @@ CDx9LibText::~CDx9LibText()
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒeƒLƒXƒgƒfƒoƒCƒX‰Šú‰»
-//	à–¾	F	ƒfƒoƒCƒX‚Ì‰Šú‰»‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ†ã‚­ã‚¹ãƒˆãƒ‡ãƒã‚¤ã‚¹åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ãƒ‡ãƒã‚¤ã‚¹ã®åˆæœŸåŒ–ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibText::InitDevice( void )
 {
-	//	ƒtƒHƒ“ƒg‚ÌÝ’è
+	//	ãƒ•ã‚©ãƒ³ãƒˆã®è¨­å®š
 	D3DXFONT_DESC	FontDesc;
 	FontDesc.Height = FONT_SIZE;
 	FontDesc.Width = 0;
@@ -60,24 +60,24 @@ void	CDx9LibText::InitDevice( void )
 	FontDesc.OutputPrecision = OUT_DEFAULT_PRECIS;
 	FontDesc.Quality = DEFAULT_QUALITY;
 	FontDesc.PitchAndFamily = DEFAULT_PITCH | FF_DONTCARE;
-	strcpy_s( FontDesc.FaceName, LF_FACESIZE, "‚l‚r ƒSƒVƒbƒN" );
+	strcpy_s( FontDesc.FaceName, LF_FACESIZE, "ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯" );
 
-	// ƒtƒHƒ“ƒgƒfƒoƒCƒX‚Ìì¬
+	// ãƒ•ã‚©ãƒ³ãƒˆãƒ‡ãƒã‚¤ã‚¹ã®ä½œæˆ
 	D3DXCreateFontIndirect(
 		g_lpD3DDev,
 		&FontDesc,
 		&m_lpFont );
 
-	//	ƒXƒvƒ‰ƒCƒgì¬
+	//	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆä½œæˆ
 	D3DXCreateSprite( g_lpD3DDev, &m_lpTxtSprite );
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒeƒLƒXƒg‘S‰Šú‰»
-//	à–¾	F	ƒeƒLƒXƒg\‘¢‘Ì‚Ì‘S‰Šú‰»‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ†ã‚­ã‚¹ãƒˆå…¨åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ãƒ†ã‚­ã‚¹ãƒˆæ§‹é€ ä½“ã®å…¨åˆæœŸåŒ–ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibText::InitAll( void )
 {
@@ -88,11 +88,11 @@ void	CDx9LibText::InitAll( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒeƒLƒXƒg‰Šú‰»
-//	à–¾	F	ƒeƒLƒXƒg\‘¢‘Ì‚Ì‰Šú‰»‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	TextNo		ƒeƒLƒXƒg”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ†ã‚­ã‚¹ãƒˆåˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ãƒ†ã‚­ã‚¹ãƒˆæ§‹é€ ä½“ã®åˆæœŸåŒ–ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	TextNo		ãƒ†ã‚­ã‚¹ãƒˆç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibText::Init( long TextNo )
 {
@@ -101,21 +101,21 @@ void	CDx9LibText::Init( long TextNo )
 		return;
 	}
 
-	//	ƒtƒ‰ƒO
+	//	ãƒ•ãƒ©ã‚°
 	TXT[ TextNo ].Disp = OFF;
 	TXT[ TextNo ].Use = OFF;
 
-	//	À•WŒn
+	//	åº§æ¨™ç³»
 	TXT[ TextNo ].PosX = 0;
 	TXT[ TextNo ].PosY = 0;
 	TXT[ TextNo ].CenterX = 0;
 	TXT[ TextNo ].CenterY = 0;
 
-	//	•\Ž¦ƒTƒCƒY
+	//	è¡¨ç¤ºã‚µã‚¤ã‚º
 	TXT[ TextNo ].Width = g_WindowWidth;
 	TXT[ TextNo ].Height = g_WindowHeight;
 
-	//	ŠeF¬•ª‚Ì‰Šú‰»
+	//	å„è‰²æˆåˆ†ã®åˆæœŸåŒ–
 	TXT[ TextNo ].A = 255;
 	TXT[ TextNo ].R = 255;
 	TXT[ TextNo ].G = 255;
@@ -128,16 +128,16 @@ void	CDx9LibText::Init( long TextNo )
 	TXT[ TextNo ].Step = -1;
 	TXT[ TextNo ].State = 0;
 
-	//	Ši”[—p•¶Žš—ñ
+	//	æ ¼ç´ç”¨æ–‡å­—åˆ—
 	ZeroMemory( &TXT[ TextNo ].Str, sizeof(TXT[ TextNo ].Str) );
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒeƒLƒXƒg‘S•\Ž¦
-//	à–¾	F	ƒeƒLƒXƒg‚Ì•\Ž¦‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ†ã‚­ã‚¹ãƒˆå…¨è¡¨ç¤º
+//	èª¬æ˜Ž	ï¼š	ãƒ†ã‚­ã‚¹ãƒˆã®è¡¨ç¤ºã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibText::DispAll( void )
 {
@@ -167,20 +167,20 @@ void	CDx9LibText::DispAll( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒeƒLƒXƒgƒZƒbƒg
-//	à–¾	F	ƒeƒLƒXƒg‚ðƒZƒbƒg‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	TextNo		ƒeƒLƒXƒg”Ô†
-//				[IN]double	PosX		•\Ž¦À•WX
-//				[IN]double	PosY		•\Ž¦À•WY
-//				[IN]UChar	A			ƒAƒ‹ƒtƒ@
-//				[IN]UChar	R			Ô¬•ª
-//				[IN]UChar	G			—Î¬•ª
-//				[IN]UChar	B			Â¬•ª
-//				[IN]char	*str		“o˜^‚·‚é•¶Žš—ñ
-//				[IN]UChar	Atr			ƒAƒgƒŠƒrƒ…[ƒg
-//				[IN]long	Speed		•\Ž¦‘¬“x
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ†ã‚­ã‚¹ãƒˆã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ãƒ†ã‚­ã‚¹ãƒˆã‚’ã‚»ãƒƒãƒˆã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	TextNo		ãƒ†ã‚­ã‚¹ãƒˆç•ªå·
+//				[IN]double	PosX		è¡¨ç¤ºåº§æ¨™X
+//				[IN]double	PosY		è¡¨ç¤ºåº§æ¨™Y
+//				[IN]UChar	A			ã‚¢ãƒ«ãƒ•ã‚¡
+//				[IN]UChar	R			èµ¤æˆåˆ†
+//				[IN]UChar	G			ç·‘æˆåˆ†
+//				[IN]UChar	B			é’æˆåˆ†
+//				[IN]char	*str		ç™»éŒ²ã™ã‚‹æ–‡å­—åˆ—
+//				[IN]UChar	Atr			ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
+//				[IN]long	Speed		è¡¨ç¤ºé€Ÿåº¦
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibText::Set(long TextNo,
 						 double PosX, double PosY,
@@ -218,11 +218,11 @@ void	CDx9LibText::Set(long TextNo,
 }
 
 /******************************************************************************/
-//	–¼‘O	F	•\Ž¦•ÏX
-//	à–¾	F	ƒeƒLƒXƒg‚Ì•\Ž¦‚ð•ÏX‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]UChar	Flag	•\Ž¦ƒtƒ‰ƒO
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	è¡¨ç¤ºå¤‰æ›´
+//	èª¬æ˜Ž	ï¼š	ãƒ†ã‚­ã‚¹ãƒˆã®è¡¨ç¤ºã‚’å¤‰æ›´ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]UChar	Flag	è¡¨ç¤ºãƒ•ãƒ©ã‚°
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibText::ChangeDisp( UChar Flag )
 {
@@ -241,15 +241,15 @@ void	CDx9LibText::ChangeDisp( long TextNo, UChar Flag )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒJƒ‰[ƒZƒbƒg
-//	à–¾	F	ƒeƒLƒXƒg‚ÌF•ÏX
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	TextNo		ƒeƒLƒXƒg”Ô†
-//				[IN]UChar	A			ƒAƒ‹ƒtƒ@
-//				[IN]UChar	R			Ô¬•ª
-//				[IN]UChar	G			—Î¬•ª
-//				[IN]UChar	B			Â¬•ª
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚«ãƒ©ãƒ¼ã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ãƒ†ã‚­ã‚¹ãƒˆã®è‰²å¤‰æ›´
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	TextNo		ãƒ†ã‚­ã‚¹ãƒˆç•ªå·
+//				[IN]UChar	A			ã‚¢ãƒ«ãƒ•ã‚¡
+//				[IN]UChar	R			èµ¤æˆåˆ†
+//				[IN]UChar	G			ç·‘æˆåˆ†
+//				[IN]UChar	B			é’æˆåˆ†
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibText::SetColor( long TextNo, UChar A, UChar R, UChar G, UChar B )
 {
@@ -265,13 +265,13 @@ void	CDx9LibText::SetColor( long TextNo, UChar A, UChar R, UChar G, UChar B )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	•\Ž¦À•WÝ’è
-//	à–¾	F	•\Ž¦À•W‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	TextNo		ƒeƒLƒXƒg”Ô†
-//				[IN]double	PosX		•\Ž¦À•WX
-//				[IN]double	PosY		•\Ž¦À•WY
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	è¡¨ç¤ºåº§æ¨™è¨­å®š
+//	èª¬æ˜Ž	ï¼š	è¡¨ç¤ºåº§æ¨™ã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	TextNo		ãƒ†ã‚­ã‚¹ãƒˆç•ªå·
+//				[IN]double	PosX		è¡¨ç¤ºåº§æ¨™X
+//				[IN]double	PosY		è¡¨ç¤ºåº§æ¨™Y
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibText::SetPos( long TextNo, double PosX, double PosY )
 {
@@ -285,11 +285,11 @@ void	CDx9LibText::SetPos( long TextNo, double PosX, double PosY )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	’†SÀ•WÝ’è
-//	à–¾	F	’†SÀ•W‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	TextNo		ƒeƒLƒXƒg”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ä¸­å¿ƒåº§æ¨™è¨­å®š
+//	èª¬æ˜Ž	ï¼š	ä¸­å¿ƒåº§æ¨™ã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	TextNo		ãƒ†ã‚­ã‚¹ãƒˆç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibText::SetCenter( long TextNo )
 {
@@ -302,7 +302,7 @@ void	CDx9LibText::SetCenter( long TextNo )
 		return;
 	}
 
-	//	€”õ
+	//	æº–å‚™
 	len = (long)strlen( TXT[ TextNo ].Str );
 	pt = (char*)TXT[ TextNo ].Str;
 	max = 0;
@@ -312,13 +312,13 @@ void	CDx9LibText::SetCenter( long TextNo )
 		uc = *pt;
 		if( (uc<128) || (uc>=160) )
 		{
-			//	”¼Šp
+			//	åŠè§’
 			max ++;
 			pt++;
 		}
 		else
 		{
-			//	‘SŠp
+			//	å…¨è§’
 			max += 2;
 			pt += 2;
 		}
@@ -329,13 +329,13 @@ void	CDx9LibText::SetCenter( long TextNo )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	•\Ž¦—ÌˆæÝ’è
-//	à–¾	F	•\Ž¦—Ìˆæ‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	TextNo		ƒeƒLƒXƒg”Ô†
-//				[IN]short	Witdh		‰¡ƒTƒCƒY
-//				[IN]short	Height		cƒTƒCƒY
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	è¡¨ç¤ºé ˜åŸŸè¨­å®š
+//	èª¬æ˜Ž	ï¼š	è¡¨ç¤ºé ˜åŸŸã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	TextNo		ãƒ†ã‚­ã‚¹ãƒˆç•ªå·
+//				[IN]short	Witdh		æ¨ªã‚µã‚¤ã‚º
+//				[IN]short	Height		ç¸¦ã‚µã‚¤ã‚º
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibText::SetRect( long TextNo, long Width, long Height )
 {
@@ -349,12 +349,12 @@ void	CDx9LibText::SetRect( long TextNo, long Width, long Height )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒf[ƒ^ƒRƒs[
-//	à–¾	F	ƒf[ƒ^‚ðƒRƒs[‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	TextNo		ƒeƒLƒXƒg”Ô†
-//				[IN]long	CopyNo		ƒRƒs[Œ³ƒeƒLƒXƒg”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ‡ãƒ¼ã‚¿ã‚³ãƒ”ãƒ¼
+//	èª¬æ˜Ž	ï¼š	ãƒ‡ãƒ¼ã‚¿ã‚’ã‚³ãƒ”ãƒ¼ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	TextNo		ãƒ†ã‚­ã‚¹ãƒˆç•ªå·
+//				[IN]long	CopyNo		ã‚³ãƒ”ãƒ¼å…ƒãƒ†ã‚­ã‚¹ãƒˆç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibText::CopyData( long TextNo, long CopyNo )
 {
@@ -367,12 +367,12 @@ void	CDx9LibText::CopyData( long TextNo, long CopyNo )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ^ƒCƒ}ƒZƒbƒg
-//	à–¾	F	ƒ^ƒCƒ}‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	TextNo		ƒeƒLƒXƒg”Ô†
-//				[IN]long	Time		•\Ž¦ƒtƒŒ[ƒ€”
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¿ã‚¤ãƒžã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ã‚¿ã‚¤ãƒžã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	TextNo		ãƒ†ã‚­ã‚¹ãƒˆç•ªå·
+//				[IN]long	Time		è¡¨ç¤ºãƒ•ãƒ¬ãƒ¼ãƒ æ•°
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibText::SetTimer( long TextNo, long Time )
 {
@@ -385,11 +385,11 @@ void	CDx9LibText::SetTimer( long TextNo, long Time )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒIƒuƒWƒFƒNƒg‰ð•ú
-//	à–¾	F	ƒIƒuƒWƒFƒNƒg‚Ì‰ð•ú‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆè§£æ”¾
+//	èª¬æ˜Ž	ï¼š	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®è§£æ”¾ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibText::Release()
 {
@@ -398,18 +398,18 @@ void	CDx9LibText::Release()
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒeƒLƒXƒg•\Ž¦
-//	à–¾	F	ƒeƒLƒXƒg‚Ì•\Ž¦‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	TextNo		ƒeƒLƒXƒg”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ†ã‚­ã‚¹ãƒˆè¡¨ç¤º
+//	èª¬æ˜Ž	ï¼š	ãƒ†ã‚­ã‚¹ãƒˆã®è¡¨ç¤ºã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	TextNo		ãƒ†ã‚­ã‚¹ãƒˆç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibText::Disp( long TextNo )
 {
 	long	len,format;
 	RECT	rect;
 
-	//	ƒfƒtƒHƒ‹ƒgFÝ’è
+	//	ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆè‰²è¨­å®š
 	D3DCOLOR color
 		= D3DCOLOR_ARGB(TXT[TextNo].A,TXT[TextNo].R,TXT[TextNo].G,TXT[TextNo].B);
 
@@ -420,28 +420,28 @@ void	CDx9LibText::Disp( long TextNo )
 	rect.top = (long)( TXT[TextNo ].PosY - (TXT[TextNo].CenterY) );
 	rect.bottom = TXT[TextNo].Height;
 
-	// ƒNƒŠƒbƒsƒ“ƒO
+	// ã‚¯ãƒªãƒƒãƒ”ãƒ³ã‚°
 	if( (rect.right < 1) || (rect.left >= TXT[TextNo].Width)
 	|| (rect.bottom < 1) || (rect.top >= TXT[TextNo].Height) )
 	{
 		return;
 	}
 
-	// ¶’[•â³
+	// å·¦ç«¯è£œæ­£
 	if( rect.left < 0 )
 	{
 		rect.left = 0;
-		format |= DT_RIGHT;	// ‰E‘µ‚¦
+		format |= DT_RIGHT;	// å³æƒãˆ
 	}
 
-	// ã’[•â³
+	// ä¸Šç«¯è£œæ­£
 	if( rect.top < 0 )
 	{
 		rect.top = 0;
-		format |= DT_BOTTOM | DT_SINGLELINE;	// ‰º‘µ‚¦A‚Ps
+		format |= DT_BOTTOM | DT_SINGLELINE;	// ä¸‹æƒãˆã€ï¼‘è¡Œ
 	}
 
-	//	•¶Žš—ñ‚©‚çh[#h‚ðŒŸõ‚·‚é
+	//	æ–‡å­—åˆ—ã‹ã‚‰â€[#â€ã‚’æ¤œç´¢ã™ã‚‹
 	char	*pTok = strstr( TXT[TextNo].Str, "[#" );
 	if( pTok == NULL )
 	{
@@ -457,7 +457,7 @@ void	CDx9LibText::Disp( long TextNo )
 					TXT[TextNo].Step ++;
 					if( TXT[TextNo].Str[TXT[TextNo].Step] < 128 || TXT[TextNo].Str[TXT[TextNo].Step]>= 160 )
 					{
-						//	”¼Šp‚È‚Ì‚Å‰½‚à‚µ‚È‚¢
+						//	åŠè§’ãªã®ã§ä½•ã‚‚ã—ãªã„
 					}
 					else
 					{
@@ -475,7 +475,7 @@ void	CDx9LibText::Disp( long TextNo )
 			TXT[TextNo].State = ON;
 		}
 
-		// ƒfƒoƒCƒXã‚ÉA®Œ`‚µ‚½ ANSI ƒeƒLƒXƒg‚ð•`‰æ‚·‚é
+		// ãƒ‡ãƒã‚¤ã‚¹ä¸Šã«ã€æ•´å½¢ã—ãŸ ANSI ãƒ†ã‚­ã‚¹ãƒˆã‚’æç”»ã™ã‚‹
 		m_lpFont->DrawText(NULL, TXT[TextNo].Str,
 			//-1,
 			TXT[TextNo].Step,
@@ -485,14 +485,14 @@ void	CDx9LibText::Disp( long TextNo )
 	else
 	{
 		string	TargetStr = TXT[TextNo].Str;
-		//	•¶Žš—ñ•ªŠ„
+		//	æ–‡å­—åˆ—åˆ†å‰²
 		vector<string>	SplitStr = SplitText(TargetStr, "[");
 		vector<string>::iterator	Ite;
 		long Pos = (long)TXT[TextNo].PosX;
 
 		for( Ite=SplitStr.begin(); Ite!=SplitStr.end(); Ite++ )
 		{
-			//	Ä“x•¶Žš—ñ•ªŠ„
+			//	å†åº¦æ–‡å­—åˆ—åˆ†å‰²
 			vector<string>	SplitStr2 = SplitText( *(Ite), "]" );
 			vector<string>::iterator	Ite2;
 			string	DispStr;
@@ -517,7 +517,7 @@ void	CDx9LibText::Disp( long TextNo )
 				}
 				else if( Ite2->find_first_of("#") != Ite2->npos )
 				{
-					//	u#00000000v`u#FFFFFFFFv‚ð”­Œ©
+					//	ã€Œ#00000000ã€ã€œã€Œ#FFFFFFFFã€ã‚’ç™ºè¦‹
 					color = ToDec( Ite2->c_str() );
 				}
 				else

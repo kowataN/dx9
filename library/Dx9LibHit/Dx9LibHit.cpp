@@ -1,36 +1,36 @@
 /******************************************************************************/
-//	“–‚½‚è”»’èƒ‰ƒCƒuƒ‰ƒŠ
-//		ƒ\[ƒXƒtƒ@ƒCƒ‹
+//	å½“ãŸã‚Šåˆ¤å®šãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+//		ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #include	"./Dx9Lib/Dx9Lib.h"
 #include	"./Dx9LibHit.h"
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 
-//	“–‚½‚è”»’è—p\‘¢‘Ì
+//	å½“ãŸã‚Šåˆ¤å®šç”¨æ§‹é€ ä½“
 ST_HitData	HIT[HIT_MAX];
 
-//	“Ç‚Ýž‚Ý—p\‘¢‘Ì
+//	èª­ã¿è¾¼ã¿ç”¨æ§‹é€ ä½“
 ST_HitLoad	HLT[HIT_MAX];
 
-//	ƒpƒX
+//	ãƒ‘ã‚¹
 char	HitFilePath[MAX_PATH];
 
 
 
 /******************************************************************************/
-//	–¼‘O	F	ƒqƒbƒgƒf[ƒ^‰Šú‰»
-//	à–¾	F	ƒqƒbƒg\‘¢‘Ì‚Ì‰Šú‰»‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	HitNo		ƒqƒbƒg”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ’ãƒƒãƒˆãƒ‡ãƒ¼ã‚¿åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ãƒ’ãƒƒãƒˆæ§‹é€ ä½“ã®åˆæœŸåŒ–ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	HitNo		ãƒ’ãƒƒãƒˆç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	InitHit( long HitNo )
 {
@@ -54,11 +54,11 @@ void	InitHit( long HitNo )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒqƒbƒgƒf[ƒ^‘S‰Šú‰»
-//	à–¾	F	ƒqƒbƒg\‘¢‘Ì‚Ì‘S‰Šú‰»‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ’ãƒƒãƒˆãƒ‡ãƒ¼ã‚¿å…¨åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ãƒ’ãƒƒãƒˆæ§‹é€ ä½“ã®å…¨åˆæœŸåŒ–ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	InitHitAll( void )
 {
@@ -71,13 +71,13 @@ void	InitHitAll( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒqƒbƒgƒtƒ@ƒCƒ‹“Ç‚Ýž‚Ý
-//	à–¾	F	ƒqƒbƒgƒtƒ@ƒCƒ‹‚Ì“Ç‚Ýž‚Ý‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]char	*FileName	ƒqƒbƒgƒtƒ@ƒCƒ‹–¼
-//				[OUT]char	*LoadBuf	“Ç‚Ýž‚Ýæ‚Ìƒoƒbƒtƒ@
-//				[IN]long	HitNo		ƒqƒbƒg”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ’ãƒƒãƒˆãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿
+//	èª¬æ˜Ž	ï¼š	ãƒ’ãƒƒãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿è¾¼ã¿ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]char	*FileName	ãƒ’ãƒƒãƒˆãƒ•ã‚¡ã‚¤ãƒ«å
+//				[OUT]char	*LoadBuf	èª­ã¿è¾¼ã¿å…ˆã®ãƒãƒƒãƒ•ã‚¡
+//				[IN]long	HitNo		ãƒ’ãƒƒãƒˆç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	LoadHitData( char *FileName, char *LoadBuf, long HitNo )
 {
@@ -91,15 +91,15 @@ void	LoadHitData( char *FileName, char *LoadBuf, long HitNo )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒqƒbƒgƒZƒbƒg
-//	à–¾	F	ƒqƒbƒgƒf[ƒ^‚ÌÝ’è‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	AnmNo		ƒZƒbƒg‚·‚éƒAƒjƒ”Ô†
-//				[IN]long	HitNo		“–‚½‚è”»’è”Ô†
-//				[IN]long	FileNo		ƒtƒ@ƒCƒ‹”Ô†
-//				[IN]long	HitDataNo	“–‚½‚è”»’è‚Ìƒf[ƒ^”Ô†
-//				[IN]UChar	Flag		ƒtƒ‰ƒOi0F’âŽ~A1Fƒ‹[ƒvj
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ’ãƒƒãƒˆã‚»ãƒƒãƒˆ
+//	èª¬æ˜Ž	ï¼š	ãƒ’ãƒƒãƒˆãƒ‡ãƒ¼ã‚¿ã®è¨­å®šã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	AnmNo		ã‚»ãƒƒãƒˆã™ã‚‹ã‚¢ãƒ‹ãƒ¡ç•ªå·
+//				[IN]long	HitNo		å½“ãŸã‚Šåˆ¤å®šç•ªå·
+//				[IN]long	FileNo		ãƒ•ã‚¡ã‚¤ãƒ«ç•ªå·
+//				[IN]long	HitDataNo	å½“ãŸã‚Šåˆ¤å®šã®ãƒ‡ãƒ¼ã‚¿ç•ªå·
+//				[IN]UChar	Flag		ãƒ•ãƒ©ã‚°ï¼ˆ0ï¼šåœæ­¢ã€1ï¼šãƒ«ãƒ¼ãƒ—ï¼‰
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	SetHitData(long AnmNo,
 				   long HitNo,
@@ -125,13 +125,13 @@ void	SetHitData(long AnmNo,
 }
 
 /******************************************************************************/
-//	–¼‘O	F	“–‚½‚è”»’è
-//	à–¾	F	“–‚è”»’è‚ðs‚¤
-//	–ß‚è’l	F	short	”»’èŒ‹‰Ê	0(–¢ÚG)
-//									1(ÚG)
-//	ˆø”	F	[IN]long	HitNo1	“–‚½‚è”»’è—Ìˆæ‚P
-//				[IN]long	HitNo2	“–‚½‚è”»’è—Ìˆæ‚Q
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	å½“ãŸã‚Šåˆ¤å®š
+//	èª¬æ˜Ž	ï¼š	å½“ã‚Šåˆ¤å®šã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	short	åˆ¤å®šçµæžœ	0(æœªæŽ¥è§¦)
+//									1(æŽ¥è§¦)
+//	å¼•æ•°	ï¼š	[IN]long	HitNo1	å½“ãŸã‚Šåˆ¤å®šé ˜åŸŸï¼‘
+//				[IN]long	HitNo2	å½“ãŸã‚Šåˆ¤å®šé ˜åŸŸï¼’
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 short	CheackHit( long HitNo1, long HitNo2 )
 {
@@ -149,21 +149,21 @@ short	CheackHit( long HitNo1, long HitNo2 )
 		return	Ret;
 	}
 
-	//	no1‚Ì—Ìˆæ
+	//	no1ã®é ˜åŸŸ
 	long PolNo1 = HIT[ HitNo1 ].PolNo;
 	x1 = (short)g_LibPol.GetInfo( PolNo1 ).PosX + HIT[ HitNo1 ].AREA.PosX[ 0 ];
 	y1 = (short)g_LibPol.GetInfo( PolNo1 ).PosY + HIT[ HitNo1 ].AREA.PosY[ 0 ];
 	x2 = (short)g_LibPol.GetInfo( PolNo1 ).PosX + HIT[ HitNo1 ].AREA.PosX[ 1 ];
 	y2 = (short)g_LibPol.GetInfo( PolNo1 ).PosY + HIT[ HitNo1 ].AREA.PosY[ 1 ];
 
-	//	no2‚Ì—Ìˆæ
+	//	no2ã®é ˜åŸŸ
 	long PolNo2 = HIT[ HitNo2 ].PolNo;
 	x3 = (short)g_LibPol.GetInfo( PolNo2 ).PosX + HIT[ HitNo2 ].AREA.PosX[ 0 ];
 	y3 = (short)g_LibPol.GetInfo( PolNo2 ).PosY + HIT[ HitNo2 ].AREA.PosY[ 0 ];
 	x4 = (short)g_LibPol.GetInfo( PolNo2 ).PosX + HIT[ HitNo2 ].AREA.PosX[ 1 ];
 	y4 = (short)g_LibPol.GetInfo( PolNo2 ).PosY + HIT[ HitNo2 ].AREA.PosY[ 1 ];
 
-	//	ÚG”»’è
+	//	æŽ¥è§¦åˆ¤å®š
 	if( ( x1 <= x4 ) && ( x2 >= x3 )
 	&& ( y1 <= y4 ) && ( y2 >= y3 ) )
 	{
@@ -174,12 +174,12 @@ short	CheackHit( long HitNo1, long HitNo2 )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	“–‚½‚è”»’è•\Ž¦
-//	à–¾	F	“–‚è”»’è—Ìˆæ‚ð•\Ž¦‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	HitNo		“–‚½‚è”»’è”Ô†
-//				[IN]long	DispPolNo	ƒ|ƒŠƒSƒ“”Ô†
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	å½“ãŸã‚Šåˆ¤å®šè¡¨ç¤º
+//	èª¬æ˜Ž	ï¼š	å½“ã‚Šåˆ¤å®šé ˜åŸŸã‚’è¡¨ç¤ºã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	HitNo		å½“ãŸã‚Šåˆ¤å®šç•ªå·
+//				[IN]long	DispPolNo	ãƒãƒªã‚´ãƒ³ç•ªå·
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	DispHit( long HitNo, long DispPolNo )
 {
@@ -196,7 +196,7 @@ void	DispHit( long HitNo, long DispPolNo )
 	px = g_LibPol.GetInfo( PolNo ).PosX + HIT[ HitNo ].AREA.PosX[0];
 	py = g_LibPol.GetInfo( PolNo ).PosY + HIT[ HitNo ].AREA.PosY[0];
 
-	//	‰¡ƒTƒCƒY
+	//	æ¨ªã‚µã‚¤ã‚º
 	if( HIT[ HitNo ].AREA.PosX[0] > HIT[ HitNo ].AREA.PosX[1] )
 	{
 		w = HIT[ HitNo ].AREA.PosX[0] - HIT[ HitNo ].AREA.PosX[1];
@@ -206,7 +206,7 @@ void	DispHit( long HitNo, long DispPolNo )
 		w = HIT[ HitNo ].AREA.PosX[1] - HIT[ HitNo ].AREA.PosX[0];
 	}
 
-	//	cƒTƒCƒY
+	//	ç¸¦ã‚µã‚¤ã‚º
 	if( HIT[ HitNo ].AREA.PosY[0] > HIT[ HitNo ].AREA.PosY[1] )
 	{
 		h = HIT[ HitNo ].AREA.PosY[0] - HIT[ HitNo ].AREA.PosY[1];
@@ -228,11 +228,11 @@ void	DispHit( long HitNo, long DispPolNo )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	“–‚½‚è”»’è‘S•\Ž¦
-//	à–¾	F	“–‚è”»’è—Ìˆæ‚ð‘S‚Ä•\Ž¦‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	PolNo	ƒ|ƒŠƒSƒ“”Ô†iÅ’á”j
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	å½“ãŸã‚Šåˆ¤å®šå…¨è¡¨ç¤º
+//	èª¬æ˜Ž	ï¼š	å½“ã‚Šåˆ¤å®šé ˜åŸŸã‚’å…¨ã¦è¡¨ç¤ºã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	PolNo	ãƒãƒªã‚´ãƒ³ç•ªå·ï¼ˆæœ€ä½Žæ•°ï¼‰
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	DispHitAll( long PolNo )
 {
@@ -244,14 +244,14 @@ void	DispHitAll( long PolNo )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	“–‚½‚è”»’èƒf[ƒ^•\Ž¦
-//	à–¾	F	“–‚è”»’èƒf[ƒ^‚ð•\Ž¦‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	HitNo	“–‚½‚è”»’è”Ô†
-//				[IN]long	TextNo	•\Ž¦‚ÉŽg‚¤ƒeƒLƒXƒg”Ô†
-//				[IN]double	PosX	•\Ž¦À•WX
-//				[IN]double	PosY	•\Ž¦À•WY
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	å½“ãŸã‚Šåˆ¤å®šãƒ‡ãƒ¼ã‚¿è¡¨ç¤º
+//	èª¬æ˜Ž	ï¼š	å½“ã‚Šåˆ¤å®šãƒ‡ãƒ¼ã‚¿ã‚’è¡¨ç¤ºã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	HitNo	å½“ãŸã‚Šåˆ¤å®šç•ªå·
+//				[IN]long	TextNo	è¡¨ç¤ºã«ä½¿ã†ãƒ†ã‚­ã‚¹ãƒˆç•ªå·
+//				[IN]double	PosX	è¡¨ç¤ºåº§æ¨™X
+//				[IN]double	PosY	è¡¨ç¤ºåº§æ¨™Y
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	DispHitData( long HitNo, long TextNo, double PosX, double PosY )
 {
@@ -278,5 +278,5 @@ void	DispHitData( long HitNo, long TextNo, double PosX, double PosY )
 	}
 
 	sprintf_s( TXT[ TextNo ].Str, MAX_PATH,
-		"¶ã“_(%d,%d)@‰E‰º“_(%d,%d)@ƒTƒCƒY(%d,%d)", x1,y1, x2,y2, w,h );
+		"å·¦ä¸Šç‚¹(%d,%d)ã€€å³ä¸‹ç‚¹(%d,%d)ã€€ã‚µã‚¤ã‚º(%d,%d)", x1,y1, x2,y2, w,h );
 }

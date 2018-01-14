@@ -1,38 +1,38 @@
 /******************************************************************************/
-//	DirectX9ƒ‰ƒCƒuƒ‰ƒŠ
-//		ƒCƒ“ƒvƒbƒg
+//	DirectX9ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+//		ã‚¤ãƒ³ãƒ—ãƒƒãƒˆ
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #include	"./Dx9Lib.h"
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
-LPDIRECTINPUT8			g_DInput;				//	ƒCƒ“ƒvƒbƒgƒIƒuƒWƒFƒNƒg
-LPDIRECTINPUTDEVICE8	g_DIDevJoy[JOY_MAX];	//	ƒWƒ‡ƒCƒXƒeƒBƒbƒN—pƒfƒoƒCƒX
-ST_MouseInfo			MOUSE;					//	ƒ}ƒEƒX
-ST_KeybordInfo			KEY;					//	ƒL[ƒ{[ƒh
-ST_JoystickInfo			JOY[JOY_MAX];			//	ƒWƒ‡ƒCƒXƒeƒBƒbƒN
-long					g_JoyNo;				//	ƒWƒ‡ƒCƒXƒeƒBƒbƒN—ñ‹“—p
+LPDIRECTINPUT8			g_DInput;				//	ã‚¤ãƒ³ãƒ—ãƒƒãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+LPDIRECTINPUTDEVICE8	g_DIDevJoy[JOY_MAX];	//	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ç”¨ãƒ‡ãƒã‚¤ã‚¹
+ST_MouseInfo			MOUSE;					//	ãƒžã‚¦ã‚¹
+ST_KeybordInfo			KEY;					//	ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰
+ST_JoystickInfo			JOY[JOY_MAX];			//	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯
+long					g_JoyNo;				//	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯åˆ—æŒ™ç”¨
 
 
 
 /******************************************************************************/
-//	–¼‘O	F	ƒWƒ‡ƒCƒXƒeƒBƒbƒN—ñ‹“
-//	à–¾	F	ƒWƒ‡ƒCƒXƒeƒBƒbƒN‚ð—ñ‹“‚·‚é
-//	–ß‚è’l	F	BOOL	ˆ—Œ‹‰Ê	DIENUM_CONTINUE(ÛŒŸõ)
-//									DIENUM_STOP(’âŽ~)
-//	ˆø”	F	[IN]LPDIDEVICEINSTANCE	pdidInstance	ƒCƒ“ƒvƒbƒgƒfƒoƒCƒX
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯åˆ—æŒ™
+//	èª¬æ˜Ž	ï¼š	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã‚’åˆ—æŒ™ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	BOOL	å‡¦ç†çµæžœ	DIENUM_CONTINUE(éš›æ¤œç´¢)
+//									DIENUM_STOP(åœæ­¢)
+//	å¼•æ•°	ï¼š	[IN]LPDIDEVICEINSTANCE	pdidInstance	ã‚¤ãƒ³ãƒ—ãƒƒãƒˆãƒ‡ãƒã‚¤ã‚¹
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 BOOL CALLBACK	EnumJoysticksCallback( LPDIDEVICEINSTANCE pdidInstance, LPVOID )
 {
 	HRESULT	hr;
 
-	//	—ñ‹“‚µ‚½ƒWƒ‡ƒCƒXƒeƒBƒbƒN‚Ö‚ÌƒCƒ“ƒ^[ƒtƒF[ƒX‚ðŽæ“¾
+	//	åˆ—æŒ™ã—ãŸã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã¸ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å–å¾—
 	hr = g_DInput->CreateDevice( pdidInstance->guidInstance, &g_DIDevJoy[g_JoyNo], NULL );
 	if( hr == DI_OK )
 	{
@@ -51,11 +51,11 @@ BOOL CALLBACK	EnumJoysticksCallback( LPDIDEVICEINSTANCE pdidInstance, LPVOID )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-//	à–¾	F	‚È‚µ
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+//	èª¬æ˜Ž	ï¼š	ãªã—
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 CDx9LibInput::CDx9LibInput()
 {
@@ -69,11 +69,11 @@ CDx9LibInput::CDx9LibInput()
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒfƒXƒgƒ‰ƒNƒ^
-//	à–¾	F	‚È‚µ
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+//	èª¬æ˜Ž	ï¼š	ãªã—
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 CDx9LibInput::~CDx9LibInput()
 {
@@ -81,19 +81,19 @@ CDx9LibInput::~CDx9LibInput()
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒCƒ“ƒvƒbƒg‚Ì‰Šú‰»
-//	à–¾	F	ƒCƒ“ƒvƒbƒgƒfƒoƒCƒX‚Ì‰Šú‰»‚ðs‚¤
-//	–ß‚è’l	F	bool	ˆ—Œ‹‰Ê	true(¬Œ÷)
-//									false(Ž¸”s)
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¤ãƒ³ãƒ—ãƒƒãƒˆã®åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ã‚¤ãƒ³ãƒ—ãƒƒãƒˆãƒ‡ãƒã‚¤ã‚¹ã®åˆæœŸåŒ–ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	bool	å‡¦ç†çµæžœ	true(æˆåŠŸ)
+//									false(å¤±æ•—)
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 bool	CDx9LibInput::Initialize( HINSTANCE hInst )
 {
-	LOG_WRITE( TypeDebugLog, "DirectInput‚Ì‰Šú‰»ŠJŽn" );
+	LOG_WRITE( TypeDebugLog, "DirectInputã®åˆæœŸåŒ–é–‹å§‹" );
 	HRESULT	hr;
 
-	//	ƒIƒuƒWƒFƒNƒg‚Ìì¬
+	//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä½œæˆ
 	hr = DirectInput8Create(
 		hInst, DIRECTINPUT_VERSION,
 		IID_IDirectInput8,
@@ -101,55 +101,55 @@ bool	CDx9LibInput::Initialize( HINSTANCE hInst )
 		NULL );
 	if( FAILED(hr) )
 	{
-		//	‰Šú‰»Ž¸”s
-		LOG_WRITE( TypeErrLog, "DirectInput8ƒIƒuƒWƒFƒNƒg‚Ìì¬‚ÉŽ¸”s" );
-		DXTRACE_ERR( "DirectInput8ƒIƒuƒWƒFƒNƒg‚Ìì¬‚ÉŽ¸”s", hr );
+		//	åˆæœŸåŒ–å¤±æ•—
+		LOG_WRITE( TypeErrLog, "DirectInput8ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä½œæˆã«å¤±æ•—" );
+		DXTRACE_ERR( "DirectInput8ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä½œæˆã«å¤±æ•—", hr );
 		return	false;
 	}
 
 	////////////////////////////////////
-	//	Šeƒf[ƒ^‚Ì‰Šú‰»
+	//	å„ãƒ‡ãƒ¼ã‚¿ã®åˆæœŸåŒ–
 	this->InitMouse();
 	this->InitKeybord();
 	this->InitJoystick();
 
 	////////////////////////////////////
-	//	ƒ}ƒEƒXƒfƒoƒCƒX‚Ì‰Šú‰»
+	//	ãƒžã‚¦ã‚¹ãƒ‡ãƒã‚¤ã‚¹ã®åˆæœŸåŒ–
 	if( !this->InitMouseDevice() )
 	{
-		return	false;		//	Ž¸”s
+		return	false;		//	å¤±æ•—
 	}
 
 	////////////////////////////////////
-	//	ƒL[ƒ{[ƒhƒfƒoƒCƒX‚Ì‰Šú‰»
+	//	ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ãƒ‡ãƒã‚¤ã‚¹ã®åˆæœŸåŒ–
 	if( !this->InitKeyboardDevice() )
 	{
-		return	false;		//	Ž¸”s
+		return	false;		//	å¤±æ•—
 	}
 
 	////////////////////////////////////
-	//	ƒWƒ‡ƒCƒXƒeƒBƒbƒNƒfƒoƒCƒX‚Ì‰Šú‰»
+	//	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ãƒ‡ãƒã‚¤ã‚¹ã®åˆæœŸåŒ–
 	if( JOY_USE )
 	{
 		this->InitJoystickDevice();
 	}
 
 	////////////////////////////////////
-	//	ƒ}ƒEƒX•\Ž¦Ý’è
+	//	ãƒžã‚¦ã‚¹è¡¨ç¤ºè¨­å®š
 	ShowCursor( g_ShowCursor );
 
-	LOG_WRITE( TypeDebugLog, "DirectInput‚Ì‰Šú‰»I—¹" );
+	LOG_WRITE( TypeDebugLog, "DirectInputã®åˆæœŸåŒ–çµ‚äº†" );
 
-	//	‰Šú‰»¬Œ÷
+	//	åˆæœŸåŒ–æˆåŠŸ
 	return	true;
 }
 
 /******************************************************************************/
-//	–¼‘O	F	“ü—ÍŠJŽn
-//	à–¾	F	“ü—Í‚ðŠJŽn‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	å…¥åŠ›é–‹å§‹
+//	èª¬æ˜Ž	ï¼š	å…¥åŠ›ã‚’é–‹å§‹ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibInput::InputAcquire( void )
 {
@@ -169,11 +169,11 @@ void	CDx9LibInput::InputAcquire( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	“ü—ÍI—¹
-//	à–¾	F	“ü—Í‚ðI—¹‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	å…¥åŠ›çµ‚äº†
+//	èª¬æ˜Ž	ï¼š	å…¥åŠ›ã‚’çµ‚äº†ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibInput::InputUnacquire( void )
 {
@@ -200,11 +200,11 @@ void	CDx9LibInput::InputUnacquire( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒCƒ“ƒvƒbƒgƒf[ƒ^Žæ“¾
-//	à–¾	F	ƒCƒ“ƒvƒbƒgƒf[ƒ^‚ðŽæ“¾‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]short	Active	ƒAƒNƒeƒBƒuƒtƒ‰ƒO
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¤ãƒ³ãƒ—ãƒƒãƒˆãƒ‡ãƒ¼ã‚¿å–å¾—
+//	èª¬æ˜Ž	ï¼š	ã‚¤ãƒ³ãƒ—ãƒƒãƒˆãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]short	Active	ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãƒ•ãƒ©ã‚°
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibInput::GetInputData( short Active )
 {
@@ -217,11 +217,11 @@ void	CDx9LibInput::GetInputData( short Active )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒWƒ‡ƒCƒXƒeƒBƒbƒN”Žæ“¾
-//	à–¾	F	ƒWƒ‡ƒCƒXƒeƒBƒbƒN”‚ðŽæ“¾‚·‚é
-//	–ß‚è’l	F	long	ƒWƒ‡ƒCƒXƒeƒBƒbƒN”
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯æ•°å–å¾—
+//	èª¬æ˜Ž	ï¼š	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯æ•°ã‚’å–å¾—ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	long	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯æ•°
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 long CDx9LibInput::GetJoyNo( void )
 {
@@ -229,11 +229,11 @@ long CDx9LibInput::GetJoyNo( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒWƒ‡ƒCƒXƒeƒBƒbƒN”Ý’è
-//	à–¾	F	ƒWƒ‡ƒCƒXƒeƒBƒbƒN”‚ðÝ’è‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	[IN]long	JouNo	ƒWƒ‡ƒCƒXƒeƒBƒbƒN”
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯æ•°è¨­å®š
+//	èª¬æ˜Ž	ï¼š	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯æ•°ã‚’è¨­å®šã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	[IN]long	JouNo	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯æ•°
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void CDx9LibInput::SetJoyNo( long JoyNo )
 {
@@ -241,11 +241,11 @@ void CDx9LibInput::SetJoyNo( long JoyNo )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒWƒ‡ƒCƒXƒeƒBƒbƒNŽg—pƒtƒ‰ƒOŽæ“¾
-//	à–¾	F	ƒWƒ‡ƒCƒXƒeƒBƒbƒNŽg—pƒtƒ‰ƒO‚ðŽæ“¾‚·‚é
-//	–ß‚è’l	F	long	ƒWƒ‡ƒCƒXƒeƒBƒbƒNŽg—pƒtƒ‰ƒO
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ä½¿ç”¨ãƒ•ãƒ©ã‚°å–å¾—
+//	èª¬æ˜Ž	ï¼š	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ä½¿ç”¨ãƒ•ãƒ©ã‚°ã‚’å–å¾—ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	long	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ä½¿ç”¨ãƒ•ãƒ©ã‚°
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 long CDx9LibInput::GetJoyUseFlag( void )
 {
@@ -253,72 +253,72 @@ long CDx9LibInput::GetJoyUseFlag( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒCƒ“ƒvƒbƒgƒfƒoƒCƒXŠJ•ú
-//	à–¾	F	ƒfƒoƒCƒX‚ðŠJ•ú‚·‚é
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	G	‚È‚µ
+//	åå‰	ï¼š	ã‚¤ãƒ³ãƒ—ãƒƒãƒˆãƒ‡ãƒã‚¤ã‚¹é–‹æ”¾
+//	èª¬æ˜Ž	ï¼š	ãƒ‡ãƒã‚¤ã‚¹ã‚’é–‹æ”¾ã™ã‚‹
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼›	ãªã—
 /******************************************************************************/
 void	CDx9LibInput::Release( void )
 {
 	this->InputUnacquire();
 
-	//	ƒWƒ‡ƒCƒXƒeƒBƒbƒN—pƒfƒoƒCƒX‚Ì‰ð•ú
+	//	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ç”¨ãƒ‡ãƒã‚¤ã‚¹ã®è§£æ”¾
 	for( int i=0; i<JOY_MAX; i++ )
 	{
 		SAFE_RELEASE(g_DIDevJoy[i]);
 	}
 
-	//	ƒL[ƒ{[ƒh—pƒfƒoƒCƒX‚Ì‰ð•ú
+	//	ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ç”¨ãƒ‡ãƒã‚¤ã‚¹ã®è§£æ”¾
 	SAFE_RELEASE(m_DIDevKey);
 
-	//	ƒ}ƒEƒX—pƒfƒoƒCƒX‚Ì‰ð•ú
+	//	ãƒžã‚¦ã‚¹ç”¨ãƒ‡ãƒã‚¤ã‚¹ã®è§£æ”¾
 	SAFE_RELEASE(m_DIDevMs);
 
-	//	ƒCƒ“ƒvƒbƒgƒIƒuƒWƒFƒNƒg‚Ì‰ð•ú
+	//	ã‚¤ãƒ³ãƒ—ãƒƒãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®è§£æ”¾
 	SAFE_RELEASE(g_DInput);
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ}ƒEƒX—pƒfƒoƒCƒX‰Šú‰»
-//	à–¾	F	ƒ}ƒEƒX—pƒfƒoƒCƒX‚Ì‰Šú‰»‚ðs‚¤
-//	–ß‚è’l	F	BOOL	ˆ—Œ‹‰Ê	TRUE(¬Œ÷)
-//									FALSE(Ž¸”s)
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒžã‚¦ã‚¹ç”¨ãƒ‡ãƒã‚¤ã‚¹åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ãƒžã‚¦ã‚¹ç”¨ãƒ‡ãƒã‚¤ã‚¹ã®åˆæœŸåŒ–ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	BOOL	å‡¦ç†çµæžœ	TRUE(æˆåŠŸ)
+//									FALSE(å¤±æ•—)
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 BOOL	CDx9LibInput::InitMouseDevice( void )
 {
 	HRESULT	hr;
 
-	//	ƒfƒoƒCƒXEƒIƒuƒWƒFƒNƒg‚Ìì¬
+	//	ãƒ‡ãƒã‚¤ã‚¹ãƒ»ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä½œæˆ
 	hr = g_DInput->CreateDevice( GUID_SysMouse, &m_DIDevMs, NULL );
 	if( FAILED(hr) )
 	{
-		LOG_WRITE( TypeErrLog, "ƒ}ƒEƒX‚ÌƒfƒoƒCƒXEƒIƒuƒWƒFƒNƒg‚Ìì¬‚ÉŽ¸”s" );
-		DXTRACE_ERR( "ƒ}ƒEƒX‚ÌƒfƒoƒCƒXEƒIƒuƒWƒFƒNƒg‚Ìì¬‚ÉŽ¸”s", hr );
+		LOG_WRITE( TypeErrLog, "ãƒžã‚¦ã‚¹ã®ãƒ‡ãƒã‚¤ã‚¹ãƒ»ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä½œæˆã«å¤±æ•—" );
+		DXTRACE_ERR( "ãƒžã‚¦ã‚¹ã®ãƒ‡ãƒã‚¤ã‚¹ãƒ»ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä½œæˆã«å¤±æ•—", hr );
 		return	FALSE;
 	}
 
-	//	ƒf[ƒ^ƒtƒH[ƒ}ƒbƒg‚ÌÝ’è
+	//	ãƒ‡ãƒ¼ã‚¿ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆã®è¨­å®š
 	hr = m_DIDevMs->SetDataFormat( &c_dfDIMouse2 );
 	if( FAILED(hr) )
 	{
-		LOG_WRITE( TypeErrLog, "ƒ}ƒEƒX‚Ìƒf[ƒ^ƒtƒH[ƒ}ƒbƒg‚ÉŽ¸”s" );
-		DXTRACE_ERR( "ƒ}ƒEƒX‚Ìƒf[ƒ^ƒtƒH[ƒ}ƒbƒg‚ÉŽ¸”s", hr );
+		LOG_WRITE( TypeErrLog, "ãƒžã‚¦ã‚¹ã®ãƒ‡ãƒ¼ã‚¿ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆã«å¤±æ•—" );
+		DXTRACE_ERR( "ãƒžã‚¦ã‚¹ã®ãƒ‡ãƒ¼ã‚¿ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆã«å¤±æ•—", hr );
 		return	FALSE;
 	}
 
-	//	ƒ‚[ƒh‚ÌÝ’è
+	//	ãƒ¢ãƒ¼ãƒ‰ã®è¨­å®š
 	hr = m_DIDevMs->SetCooperativeLevel( g_hWnd, DISCL_NONEXCLUSIVE | DISCL_FOREGROUND );
 	if( FAILED(hr) )
 	{
-		LOG_WRITE( TypeErrLog, "ƒ}ƒEƒX‚Ìƒ‚[ƒh‚ÌÝ’è‚ÉŽ¸”s" );
-		DXTRACE_ERR( "ƒ}ƒEƒX‚Ìƒ‚[ƒh‚ÌÝ’è‚ÉŽ¸”s", hr );
+		LOG_WRITE( TypeErrLog, "ãƒžã‚¦ã‚¹ã®ãƒ¢ãƒ¼ãƒ‰ã®è¨­å®šã«å¤±æ•—" );
+		DXTRACE_ERR( "ãƒžã‚¦ã‚¹ã®ãƒ¢ãƒ¼ãƒ‰ã®è¨­å®šã«å¤±æ•—", hr );
 		return	FALSE;
 	}
 
-	//	Ž²ƒ‚[ƒh‚ÌÝ’è
+	//	è»¸ãƒ¢ãƒ¼ãƒ‰ã®è¨­å®š
 	DIPROPDWORD	dipropMs;
 	dipropMs.diph.dwSize		= sizeof( dipropMs );
 	dipropMs.diph.dwHeaderSize	= sizeof( dipropMs.diph );
@@ -326,24 +326,24 @@ BOOL	CDx9LibInput::InitMouseDevice( void )
 	dipropMs.diph.dwHow			= DIPH_DEVICE;
 	dipropMs.dwData				= DIPROPAXISMODE_REL;
 
-	//	ƒfƒoƒCƒX‚ÌƒvƒƒpƒeƒB‚ÌÝ’è
+	//	ãƒ‡ãƒã‚¤ã‚¹ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®è¨­å®š
 	hr = m_DIDevMs->SetProperty( DIPROP_AXISMODE, &dipropMs.diph );
 	if( FAILED(hr) )
 	{
-		LOG_WRITE( TypeErrLog, "ƒ}ƒEƒX‚ÌŽ²ƒ‚[ƒh‚ÌÝ’è‚ÉŽ¸”s" );
-		DXTRACE_ERR( "ƒ}ƒEƒX‚ÌŽ²ƒ‚[ƒh‚ÌÝ’è‚ÉŽ¸”s",hr );
+		LOG_WRITE( TypeErrLog, "ãƒžã‚¦ã‚¹ã®è»¸ãƒ¢ãƒ¼ãƒ‰ã®è¨­å®šã«å¤±æ•—" );
+		DXTRACE_ERR( "ãƒžã‚¦ã‚¹ã®è»¸ãƒ¢ãƒ¼ãƒ‰ã®è¨­å®šã«å¤±æ•—",hr );
 		return	FALSE;
 	}
 
-	//	ƒoƒbƒtƒ@ƒŠƒ“ƒOEƒf[ƒ^‚ðŽæ“¾
+	//	ãƒãƒƒãƒ•ã‚¡ãƒªãƒ³ã‚°ãƒ»ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—
 	dipropMs.dwData = DIDEVICE_BUFFERSIZE;
 
-	//	ƒfƒoƒCƒX‚ÌƒvƒƒpƒeƒB‚ÌÝ’è
+	//	ãƒ‡ãƒã‚¤ã‚¹ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®è¨­å®š
 	hr = m_DIDevMs->SetProperty( DIPROP_BUFFERSIZE, &dipropMs.diph );
 	if( FAILED(hr) )
 	{
-		LOG_WRITE( TypeErrLog, "ƒ}ƒEƒX‚Ìƒoƒbƒtƒ@EƒTƒCƒY‚ÌÝ’è‚ÉŽ¸”s" );
-		DXTRACE_ERR( "ƒ}ƒEƒX‚Ìƒoƒbƒtƒ@EƒTƒCƒY‚ÌÝ’è‚ÉŽ¸”s", hr );
+		LOG_WRITE( TypeErrLog, "ãƒžã‚¦ã‚¹ã®ãƒãƒƒãƒ•ã‚¡ãƒ»ã‚µã‚¤ã‚ºã®è¨­å®šã«å¤±æ•—" );
+		DXTRACE_ERR( "ãƒžã‚¦ã‚¹ã®ãƒãƒƒãƒ•ã‚¡ãƒ»ã‚µã‚¤ã‚ºã®è¨­å®šã«å¤±æ•—", hr );
 		return	FALSE;
 	}
 
@@ -351,45 +351,45 @@ BOOL	CDx9LibInput::InitMouseDevice( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒL[ƒ{[ƒh—pƒfƒoƒCƒX‰Šú‰»
-//	à–¾	F	ƒL[ƒ{[ƒh—pƒfƒoƒCƒX‚Ì‰Šú‰»‚ðs‚¤
-//	–ß‚è’l	F	BOOL	ˆ—Œ‹‰Ê	TRUE(¬Œ÷)
-//									FALSE(Ž¸”s)
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ç”¨ãƒ‡ãƒã‚¤ã‚¹åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ç”¨ãƒ‡ãƒã‚¤ã‚¹ã®åˆæœŸåŒ–ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	BOOL	å‡¦ç†çµæžœ	TRUE(æˆåŠŸ)
+//									FALSE(å¤±æ•—)
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 BOOL	CDx9LibInput::InitKeyboardDevice( void )
 {
 	HRESULT	hr;
 
-	//	ƒfƒoƒCƒXEƒIƒuƒWƒFƒNƒg‚ðì¬
+	//	ãƒ‡ãƒã‚¤ã‚¹ãƒ»ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆ
 	hr = g_DInput->CreateDevice( GUID_SysKeyboard, &m_DIDevKey, NULL );
 	if( FAILED(hr) )
 	{
-		LOG_WRITE( TypeErrLog, "ƒL[ƒ{[ƒh‚ÌƒfƒoƒCƒXEƒIƒuƒWƒFƒNƒg‚Ìì¬‚ÉŽ¸”s" );
-		DXTRACE_ERR( "ƒL[ƒ{[ƒh‚ÌƒfƒoƒCƒXEƒIƒuƒWƒFƒNƒg‚Ìì¬‚ÉŽ¸”s", hr );
+		LOG_WRITE( TypeErrLog, "ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®ãƒ‡ãƒã‚¤ã‚¹ãƒ»ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä½œæˆã«å¤±æ•—" );
+		DXTRACE_ERR( "ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®ãƒ‡ãƒã‚¤ã‚¹ãƒ»ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä½œæˆã«å¤±æ•—", hr );
 		return	FALSE;
 	}
 
-	//	ƒf[ƒ^Œ`Ž®‚ðÝ’è
+	//	ãƒ‡ãƒ¼ã‚¿å½¢å¼ã‚’è¨­å®š
 	hr = m_DIDevKey->SetDataFormat( &c_dfDIKeyboard );
 	if( FAILED(hr) )
 	{
-		LOG_WRITE( TypeErrLog, "ƒL[ƒ{[ƒh‚Ìƒf[ƒ^ƒtƒH[ƒ}ƒbƒg‚ÉŽ¸”s" );
-		DXTRACE_ERR( "ƒL[ƒ{[ƒh‚Ìƒf[ƒ^ƒtƒH[ƒ}ƒbƒg‚ÉŽ¸”s", hr );
+		LOG_WRITE( TypeErrLog, "ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®ãƒ‡ãƒ¼ã‚¿ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆã«å¤±æ•—" );
+		DXTRACE_ERR( "ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®ãƒ‡ãƒ¼ã‚¿ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆã«å¤±æ•—", hr );
 		return	FALSE;
 	}
 
-	//	ƒ‚[ƒh‚ðÝ’è
+	//	ãƒ¢ãƒ¼ãƒ‰ã‚’è¨­å®š
 	hr = m_DIDevKey->SetCooperativeLevel( g_hWnd, DISCL_NONEXCLUSIVE | DISCL_FOREGROUND );
 	if( FAILED(hr) )
 	{
-		LOG_WRITE( TypeErrLog, "ƒL[ƒ{[ƒh‚Ìƒ‚[ƒhÝ’è‚ÉŽ¸”s" );
-		DXTRACE_ERR( "ƒL[ƒ{[ƒh‚Ìƒ‚[ƒhÝ’è‚ÉŽ¸”s", hr );
+		LOG_WRITE( TypeErrLog, "ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®ãƒ¢ãƒ¼ãƒ‰è¨­å®šã«å¤±æ•—" );
+		DXTRACE_ERR( "ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®ãƒ¢ãƒ¼ãƒ‰è¨­å®šã«å¤±æ•—", hr );
 		return	FALSE;
 	}
 
-	//	ƒoƒbƒtƒ@ƒŠƒ“ƒO‚ðÝ’è
+	//	ãƒãƒƒãƒ•ã‚¡ãƒªãƒ³ã‚°ã‚’è¨­å®š
 	DIPROPDWORD	dipropKey;
 	dipropKey.diph.dwSize		= sizeof( dipropKey );
 	dipropKey.diph.dwHeaderSize	= sizeof( dipropKey.diph );
@@ -397,12 +397,12 @@ BOOL	CDx9LibInput::InitKeyboardDevice( void )
 	dipropKey.diph.dwHow		= DIPH_DEVICE;
 	dipropKey.dwData			= DIDEVICE_BUFFERSIZE;
 
-	//	ƒfƒoƒCƒX‚ÌƒvƒƒpƒeƒB‚ÌÝ’è
+	//	ãƒ‡ãƒã‚¤ã‚¹ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®è¨­å®š
 	hr = m_DIDevKey->SetProperty( DIPROP_BUFFERSIZE, &dipropKey.diph );
 	if( FAILED(hr) )
 	{
-		LOG_WRITE( TypeErrLog, "ƒL[ƒ{[ƒh‚Ìƒoƒbƒtƒ@ƒŠƒ“ƒOÝ’è‚ÉŽ¸”s" );
-		DXTRACE_ERR( "ƒL[ƒ{[ƒh‚Ìƒoƒbƒtƒ@ƒŠƒ“ƒOÝ’è‚ÉŽ¸”s", hr );
+		LOG_WRITE( TypeErrLog, "ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®ãƒãƒƒãƒ•ã‚¡ãƒªãƒ³ã‚°è¨­å®šã«å¤±æ•—" );
+		DXTRACE_ERR( "ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®ãƒãƒƒãƒ•ã‚¡ãƒªãƒ³ã‚°è¨­å®šã«å¤±æ•—", hr );
 		return	FALSE;
 	}
 
@@ -410,12 +410,12 @@ BOOL	CDx9LibInput::InitKeyboardDevice( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒWƒ‡ƒCƒXƒeƒBƒbƒN—pƒfƒoƒCƒX‰Šú‰»
-//	à–¾	F	ƒWƒ‡ƒCƒXƒeƒBƒbƒN—pƒfƒoƒCƒX‚Ì‰Šú‰»‚ðs‚¤
-//	–ß‚è’l	F	BOOL	ˆ—Œ‹‰Ê	TRUE(¬Œ÷)
-//									FALSE(Ž¸”s)
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ç”¨ãƒ‡ãƒã‚¤ã‚¹åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ç”¨ãƒ‡ãƒã‚¤ã‚¹ã®åˆæœŸåŒ–ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	BOOL	å‡¦ç†çµæžœ	TRUE(æˆåŠŸ)
+//									FALSE(å¤±æ•—)
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 BOOL	CDx9LibInput::InitJoystickDevice( void )
 {
@@ -430,14 +430,14 @@ BOOL	CDx9LibInput::InitJoystickDevice( void )
 		g_DIDevJoy[i] = NULL;
 	}
 
-	//@ƒfƒoƒCƒX‚ð—ñ‹“‚µ‚Äì¬
+	//ã€€ãƒ‡ãƒã‚¤ã‚¹ã‚’åˆ—æŒ™ã—ã¦ä½œæˆ
 	g_DInput->EnumDevices(
 		DI8DEVCLASS_GAMECTRL,
 		(LPDIENUMDEVICESCALLBACK)EnumJoysticksCallback,
 		NULL,
 		DIEDFL_ATTACHEDONLY );
 
-	//	Ý’è
+	//	è¨­å®š
 	for( i=0; i<JOY_MAX; i++ )
 	{
 		if( JOY[ i ].Use == OFF )
@@ -447,16 +447,16 @@ BOOL	CDx9LibInput::InitJoystickDevice( void )
 
 		JOY[ i ].Use = OFF;
 
-		//	ƒf[ƒ^Œ`Ž®‚ðÝ’è
+		//	ãƒ‡ãƒ¼ã‚¿å½¢å¼ã‚’è¨­å®š
 		hr = g_DIDevJoy[i]->SetDataFormat( &c_dfDIJoystick );
 		if( hr != DI_OK )
 		{
-			//	Ž¸”s
+			//	å¤±æ•—
 			SAFE_RELEASE( g_DIDevJoy[ i ] );
 			continue;
 		}
 
-		//	ƒ‚[ƒh‚ÌÝ’è
+		//	ãƒ¢ãƒ¼ãƒ‰ã®è¨­å®š
 		hr = g_DIDevJoy[i]->SetCooperativeLevel(
 			g_hWnd, DISCL_NONEXCLUSIVE | DISCL_FOREGROUND );
 		if( hr != DI_OK )
@@ -465,7 +465,7 @@ BOOL	CDx9LibInput::InitJoystickDevice( void )
 			continue;
 		}
 
-		//	Ž²ƒ‚[ƒh‚ðÝ’è
+		//	è»¸ãƒ¢ãƒ¼ãƒ‰ã‚’è¨­å®š
 		dipropJoy.diph.dwSize		= sizeof( dipropJoy );
 		dipropJoy.diph.dwHeaderSize	= sizeof( dipropJoy.diph );
 		dipropJoy.diph.dwObj		= DIJOFS_X;
@@ -473,7 +473,7 @@ BOOL	CDx9LibInput::InitJoystickDevice( void )
 		dipropJoy.lMin				= -256;
 		dipropJoy.lMax				= 256;
 
-		//	ƒfƒoƒCƒX‚ÌƒvƒƒpƒeƒB‚ÌÝ’è
+		//	ãƒ‡ãƒã‚¤ã‚¹ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®è¨­å®š
 		hr = g_DIDevJoy[i]->SetProperty( DIPROP_RANGE, &dipropJoy.diph );
 		dipropJoy.diph.dwObj = DIJOFS_Y;
 		hr |= g_DIDevJoy[i]->SetProperty( DIPROP_RANGE, &dipropJoy.diph );
@@ -483,7 +483,7 @@ BOOL	CDx9LibInput::InitJoystickDevice( void )
 			continue;
 		}
 
-		//	ƒ{ƒ^ƒ“”Žæ“¾
+		//	ãƒœã‚¿ãƒ³æ•°å–å¾—
 		m_DICaps.dwSize = sizeof(DIDEVCAPS);
 		hr = g_DIDevJoy[i]->GetCapabilities(&m_DICaps);
 		if( FAILED(hr) )
@@ -493,7 +493,7 @@ BOOL	CDx9LibInput::InitJoystickDevice( void )
 		}
 		JOY[ i ].ButtonMax = m_DICaps.dwButtons - 4;
 
-		//	“ü—ÍŠJŽn
+		//	å…¥åŠ›é–‹å§‹
 		hr = g_DIDevJoy[i]->Acquire();
 		JOY[ i ].Use = ON;
 	}
@@ -508,28 +508,28 @@ BOOL	CDx9LibInput::InitJoystickDevice( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ}ƒEƒX—p\‘¢‘Ì‰Šú‰»
-//	à–¾	F	ƒ}ƒEƒX—p\‘¢‘Ì‚Ì‰Šú‰»‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒžã‚¦ã‚¹ç”¨æ§‹é€ ä½“åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ãƒžã‚¦ã‚¹ç”¨æ§‹é€ ä½“ã®åˆæœŸåŒ–ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibInput::InitMouse( void )
 {
-	//	ƒ}ƒEƒX‚ÌÀ•W
+	//	ãƒžã‚¦ã‚¹ã®åº§æ¨™
 	GetCursorPos( &m_MousePoint );
 	MOUSE.PosX = (short)m_MousePoint.x;
 	MOUSE.PosY = (short)m_MousePoint.y;
 
-	//	ƒoƒbƒNƒAƒbƒvÀ•W
+	//	ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—åº§æ¨™
 	MOUSE.PosXBk = MOUSE.PosX;
 	MOUSE.PosYBk = MOUSE.PosY;
 
-	//	ˆÚ“®—Ê
+	//	ç§»å‹•é‡
 	MOUSE.MoveX = 0;
 	MOUSE.MoveY = 0;
 
-	//	ƒ{ƒ^ƒ“‚Ì‰Šú‰»
+	//	ãƒœã‚¿ãƒ³ã®åˆæœŸåŒ–
 	for( int i=0; i<3; i++ )
 	{
 		MOUSE.Trg[ i ] = OFF;
@@ -537,11 +537,11 @@ void	CDx9LibInput::InitMouse( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒL[ƒ{[ƒh—p\‘¢‘Ì‰Šú‰»
-//	à–¾	F	ƒL[ƒ{[ƒh—p\‘¢‘Ì‚Ì‰Šú‰»‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ç”¨æ§‹é€ ä½“åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ç”¨æ§‹é€ ä½“ã®åˆæœŸåŒ–ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibInput::InitKeybord( void )
 {
@@ -555,11 +555,11 @@ void	CDx9LibInput::InitKeybord( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒWƒ‡ƒCƒXƒeƒBƒbƒN—p\‘¢‘Ì‰Šú‰»
-//	à–¾	F	ƒWƒ‡ƒCƒXƒeƒBƒbƒN—p\‘¢‘Ì‚Ì‰Šú‰»‚ðs‚¤
-//	–ß‚è’l	F	‚È‚µ
-//	ˆø”	F	‚È‚µ
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ç”¨æ§‹é€ ä½“åˆæœŸåŒ–
+//	èª¬æ˜Ž	ï¼š	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ç”¨æ§‹é€ ä½“ã®åˆæœŸåŒ–ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	ãªã—
+//	å¼•æ•°	ï¼š	ãªã—
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 void	CDx9LibInput::InitJoystick( void )
 {
@@ -575,16 +575,16 @@ void	CDx9LibInput::InitJoystick( void )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒ}ƒEƒXƒf[ƒ^Žæ“¾
-//	à–¾	F	ƒ}ƒEƒXƒf[ƒ^‚ÌŽæ“¾‚ðs‚¤
-//	–ß‚è’l	F	BOOL	ˆ—Œ‹‰Ê	TRUE(¬Œ÷)
-//									FALSE(Ž¸”s)
-//	ˆø”	F	[IN]short	Active	ƒAƒNƒeƒBƒuƒtƒ‰ƒO
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ãƒžã‚¦ã‚¹ãƒ‡ãƒ¼ã‚¿å–å¾—
+//	èª¬æ˜Ž	ï¼š	ãƒžã‚¦ã‚¹ãƒ‡ãƒ¼ã‚¿ã®å–å¾—ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	BOOL	å‡¦ç†çµæžœ	TRUE(æˆåŠŸ)
+//									FALSE(å¤±æ•—)
+//	å¼•æ•°	ï¼š	[IN]short	Active	ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãƒ•ãƒ©ã‚°
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 BOOL	CDx9LibInput::GetMouseData( short Active )
 {
-	//	ŠeÀ•W‚ÌƒoƒbƒNƒAƒbƒv
+	//	å„åº§æ¨™ã®ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—
 	MOUSE.PosXBk = MOUSE.PosX;
 	MOUSE.PosYBk = MOUSE.PosY;
 
@@ -593,14 +593,14 @@ BOOL	CDx9LibInput::GetMouseData( short Active )
 		HRESULT	hr;
 		DIMOUSESTATE2	dims;
 
-		//	ƒfƒoƒCƒX‚©‚ç’¼Úƒf[ƒ^‚ÌŽæ“¾
+		//	ãƒ‡ãƒã‚¤ã‚¹ã‹ã‚‰ç›´æŽ¥ãƒ‡ãƒ¼ã‚¿ã®å–å¾—
 		hr = m_DIDevMs->GetDeviceState( sizeof(DIMOUSESTATE2), &dims );
 		if( SUCCEEDED(hr) )
 		{
-			//	ƒf[ƒ^‚ÌŽæ“¾‚É¬Œ÷
+			//	ãƒ‡ãƒ¼ã‚¿ã®å–å¾—ã«æˆåŠŸ
 			GetCursorPos( &m_MousePoint );
 
-			//	À•WŠi”[
+			//	åº§æ¨™æ ¼ç´
 			if( g_ScreenMode )
 			{
 				MOUSE.PosX = m_MousePoint.x;
@@ -608,10 +608,10 @@ BOOL	CDx9LibInput::GetMouseData( short Active )
 			}
 			else
 			{
-				//	ƒXƒNƒŠ[ƒ“À•W‚ÅŽæ“¾
+				//	ã‚¹ã‚¯ãƒªãƒ¼ãƒ³åº§æ¨™ã§å–å¾—
 				GetWindowRect( g_hWnd, &MOUSE.Rect );
 
-				//	À•WŠi”[
+				//	åº§æ¨™æ ¼ç´
 				MOUSE.PosX = m_MousePoint.x - MOUSE.Rect.left
 							- GetSystemMetrics( SM_CYDLGFRAME );
 				MOUSE.PosY = m_MousePoint.y - MOUSE.Rect.top
@@ -619,14 +619,14 @@ BOOL	CDx9LibInput::GetMouseData( short Active )
 							- GetSystemMetrics( SM_CYCAPTION );
 			}
 
-			//	ŠeÀ•W‚ÌˆÚ“®—ÊŽæ“¾
+			//	å„åº§æ¨™ã®ç§»å‹•é‡å–å¾—
 			MOUSE.MoveX = MOUSE.PosX - MOUSE.PosXBk;
 			MOUSE.MoveY = MOUSE.PosY - MOUSE.PosYBk;
 
 			for( int i=0; i<3; i++ )
 			{
 				/////////////////////////////////////
-				//	ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½Žž
+				//	ãƒžã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸæ™‚
 				if( dims.rgbButtons[i] & 0x80 )
 				{
 					MOUSE.Trg[ i ]   = ON;
@@ -647,7 +647,7 @@ BOOL	CDx9LibInput::GetMouseData( short Active )
 			}
 
 			/////////////////////////////////////
-			//	ƒzƒC[ƒ‹‚ªã‚ÉƒXƒNƒ[ƒ‹‚³‚ê‚½Žž
+			//	ãƒ›ã‚¤ãƒ¼ãƒ«ãŒä¸Šã«ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã•ã‚ŒãŸæ™‚
 			if( dims.lZ > 10 )
 			{
 				MOUSE.WheelUp = ON;
@@ -657,14 +657,14 @@ BOOL	CDx9LibInput::GetMouseData( short Active )
 					MOUSE.WheelUp = OFF;
 				}
 			}
-			//	ƒXƒNƒ[ƒ‹I—¹
+			//	ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«çµ‚äº†
 			else
 			{
 				MOUSE.WheelUp = MOUSE.WheelUpCt = OFF;
 			}
 
 			/////////////////////////////////////
-			//	ƒzƒC[ƒ‹‚ª‰º‚ÉƒXƒNƒ[ƒ‹‚³‚ê‚½Žž
+			//	ãƒ›ã‚¤ãƒ¼ãƒ«ãŒä¸‹ã«ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã•ã‚ŒãŸæ™‚
 			if( dims.lZ < -10 )
 			{
 				MOUSE.WheelDown = ON;
@@ -674,7 +674,7 @@ BOOL	CDx9LibInput::GetMouseData( short Active )
 					MOUSE.WheelDown = OFF;
 				}
 			}
-			//	ƒXƒNƒ[ƒ‹I—¹
+			//	ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«çµ‚äº†
 			else
 			{
 				MOUSE.WheelDown = MOUSE.WheelDownCt = OFF;
@@ -682,7 +682,7 @@ BOOL	CDx9LibInput::GetMouseData( short Active )
 		}
 		else if( Active && hr == DIERR_INPUTLOST )
 		{
-			//	“ü—ÍŠJŽn
+			//	å…¥åŠ›é–‹å§‹
 			m_DIDevMs->Acquire();
 		}
 	}
@@ -690,12 +690,12 @@ BOOL	CDx9LibInput::GetMouseData( short Active )
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒL[ƒ{[ƒhƒf[ƒ^Žæ“¾
-//	à–¾	F	ƒL[ƒ{[ƒhƒf[ƒ^‚ÌŽæ“¾‚ðs‚¤
-//	–ß‚è’l	F	BOOL	ˆ—Œ‹‰Ê	TRUE(¬Œ÷)
-//									FALSE(Ž¸”s)
-//	ˆø”	F	[IN]short	Active	ƒAƒNƒeƒBƒuƒtƒ‰ƒO
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ãƒ‡ãƒ¼ã‚¿å–å¾—
+//	èª¬æ˜Ž	ï¼š	ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ãƒ‡ãƒ¼ã‚¿ã®å–å¾—ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	BOOL	å‡¦ç†çµæžœ	TRUE(æˆåŠŸ)
+//									FALSE(å¤±æ•—)
+//	å¼•æ•°	ï¼š	[IN]short	Active	ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãƒ•ãƒ©ã‚°
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 BOOL	CDx9LibInput::GetKeybordData( short Active )
 {
@@ -704,17 +704,17 @@ BOOL	CDx9LibInput::GetKeybordData( short Active )
 	BYTE	KeyState[256];
 	int	i;
 
-	//	ƒfƒoƒCƒX‚©‚ç’¼Úƒf[ƒ^‚ÌŽæ“¾
+	//	ãƒ‡ãƒã‚¤ã‚¹ã‹ã‚‰ç›´æŽ¥ãƒ‡ãƒ¼ã‚¿ã®å–å¾—
 	hr = m_DIDevKey->GetDeviceState( 256, KeyState );
 	if( SUCCEEDED(hr) )
 	{
-		//	ƒf[ƒ^‚ÌŽæ“¾‚É¬Œ÷
+		//	ãƒ‡ãƒ¼ã‚¿ã®å–å¾—ã«æˆåŠŸ
 		for( i=0; i<256; i++ )
 		{
 			if( KeyState[i] & 0x80 )
 			{
 				/////////////////////////////////////
-				//	ƒL[‚ª‰Ÿ‚³‚ê‚½Žž
+				//	ã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸæ™‚
 				KEY.Flag	  = ON;
 				KEY.Trg[ i ]  = ON;
 				KEY.Push[ i ] = ON;
@@ -723,7 +723,7 @@ BOOL	CDx9LibInput::GetKeybordData( short Active )
 			else
 			{
 				/////////////////////////////////////
-				//	ƒL[‚ª—£‚³‚ê‚½Žž
+				//	ã‚­ãƒ¼ãŒé›¢ã•ã‚ŒãŸæ™‚
 				KEY.Flag	  = OFF;
 				KEY.Trg[ i ]  = OFF;
 				KEY.Push[ i ] = OFF;
@@ -738,19 +738,19 @@ BOOL	CDx9LibInput::GetKeybordData( short Active )
 	}
 	else if( Active && hr == DIERR_INPUTLOST )
 	{
-		//	“ü—ÍŠJŽn
+		//	å…¥åŠ›é–‹å§‹
 		m_DIDevKey->Acquire();
 	}
 	return	TRUE;
 }
 
 /******************************************************************************/
-//	–¼‘O	F	ƒWƒ‡ƒCƒXƒeƒBƒbƒNƒf[ƒ^Žæ“¾
-//	à–¾	F	ƒWƒ‡ƒCƒXƒeƒBƒbƒNƒf[ƒ^Žæ“¾‚ðs‚¤
-//	–ß‚è’l	F	BOOL	ˆ—Œ‹‰Ê	TRUE(¬Œ÷)
-//									FALSE(Ž¸”s)
-//	ˆø”	F	[IN]short	Active	ƒAƒNƒeƒBƒuƒtƒ‰ƒO
-//	”õl	F	‚È‚µ
+//	åå‰	ï¼š	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ãƒ‡ãƒ¼ã‚¿å–å¾—
+//	èª¬æ˜Ž	ï¼š	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ãƒ‡ãƒ¼ã‚¿å–å¾—ã‚’è¡Œã†
+//	æˆ»ã‚Šå€¤	ï¼š	BOOL	å‡¦ç†çµæžœ	TRUE(æˆåŠŸ)
+//									FALSE(å¤±æ•—)
+//	å¼•æ•°	ï¼š	[IN]short	Active	ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãƒ•ãƒ©ã‚°
+//	å‚™è€ƒ	ï¼š	ãªã—
 /******************************************************************************/
 BOOL	CDx9LibInput::GetJoystickData( short Active )
 {
@@ -765,26 +765,26 @@ BOOL	CDx9LibInput::GetJoystickData( short Active )
 			continue;
 		}
 
-		//	Œ»Ý‚Ìó‘Ô‚ðŽæ“¾
+		//	ç¾åœ¨ã®çŠ¶æ…‹ã‚’å–å¾—
 		hr = g_DIDevJoy[no]->Poll();
 		if( FAILED(hr) )
 		{
-			//	“ü—ÍŠJŽn
+			//	å…¥åŠ›é–‹å§‹
 			if( Active && hr == DIERR_INPUTLOST )
 			{
 				hr = g_DIDevJoy[no]->Acquire();
 			}
 		}
 
-		//	ƒfƒoƒCƒX‚Ì’¼Úƒf[ƒ^‚ðŽæ“¾‚·‚é
+		//	ãƒ‡ãƒã‚¤ã‚¹ã®ç›´æŽ¥ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹
 		hr = g_DIDevJoy[no]->GetDeviceState( sizeof(DIJOYSTATE), &dijs );
 		if( hr == DI_OK )
 		{
 			////////////////////////////////////////////////////////////////////
-			//	ƒvƒbƒVƒ…
+			//	ãƒ—ãƒƒã‚·ãƒ¥
 
 			//////////////////////////////////
-			//	ã
+			//	ä¸Š
 			if( dijs.lY < -128 )
 			{
 				JOY[ no ].Trg[ JOY_UP ] = ON;
@@ -793,14 +793,14 @@ BOOL	CDx9LibInput::GetJoystickData( short Active )
 			}
 			else
 			{
-				//	—£‚³‚ê‚½Žž
+				//	é›¢ã•ã‚ŒãŸæ™‚
 				JOY[ no ].Trg[ JOY_UP ] = OFF;
 				JOY[ no ].Push[ JOY_UP ] = OFF;
 				JOY[ no ].Count[ JOY_UP ] = 0;
 			}
 
 			//////////////////////////////////
-			//	‰º
+			//	ä¸‹
 			if( dijs.lY > 0 )
 			{
 				JOY[ no ].Trg[ JOY_DOWN ] = ON;
@@ -809,14 +809,14 @@ BOOL	CDx9LibInput::GetJoystickData( short Active )
 			}
 			else
 			{
-				//	—£‚³‚ê‚½Žž
+				//	é›¢ã•ã‚ŒãŸæ™‚
 				JOY[ no ].Trg[ JOY_DOWN ] = OFF;
 				JOY[ no ].Push[ JOY_DOWN ] = OFF;
 				JOY[ no ].Count[ JOY_DOWN ] = 0;
 			}
 
 			//////////////////////////////////
-			//	¶
+			//	å·¦
 			if( dijs.lX < -128 )
 			{
 				JOY[ no ].Trg[ JOY_LEFT ] = ON;
@@ -825,14 +825,14 @@ BOOL	CDx9LibInput::GetJoystickData( short Active )
 			}
 			else
 			{
-				//	—£‚³‚ê‚½Žž
+				//	é›¢ã•ã‚ŒãŸæ™‚
 				JOY[ no ].Trg[ JOY_LEFT ] = OFF;
 				JOY[ no ].Push[ JOY_LEFT ] = OFF;
 				JOY[ no ].Count[ JOY_LEFT ] = 0;
 			}
 
 			//////////////////////////////////
-			//	‰E
+			//	å³
 			if( dijs.lX > 128 )
 			{
 				JOY[ no ].Trg[ JOY_RIGHT ] = ON;
@@ -841,14 +841,14 @@ BOOL	CDx9LibInput::GetJoystickData( short Active )
 			}
 			else
 			{
-				//	—£‚³‚ê‚½Žž
+				//	é›¢ã•ã‚ŒãŸæ™‚
 				JOY[ no ].Trg[ JOY_RIGHT ] = OFF;
 				JOY[ no ].Push[ JOY_RIGHT ] = OFF;
 				JOY[ no ].Count[ JOY_RIGHT ] = 0;
 			}
 
 			////////////////////////////////////////////////////////////////////
-			//	ƒgƒŠƒK
+			//	ãƒˆãƒªã‚¬
 			for( i=0; i<4; i++ )
 			{
 				if( (JOY[ no ].Count[ i ] > 1) && JOY[ no ].Push[ i ] )
@@ -862,10 +862,10 @@ BOOL	CDx9LibInput::GetJoystickData( short Active )
 			}
 
 			//////////////////////////////////
-			//	Šeƒ{ƒ^ƒ“
+			//	å„ãƒœã‚¿ãƒ³
 			for( i=0; i<BUTTON_MAX-4; i++ )
 			{
-				//	Šeƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½Žž
+				//	å„ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸæ™‚
 				if( dijs.rgbButtons[i] & 0x80 )
 				{
 					JOY[ no ].Trg[ i+4 ] = ON;
@@ -874,7 +874,7 @@ BOOL	CDx9LibInput::GetJoystickData( short Active )
 				}
 				else
 				{
-					//	Šeƒ{ƒ^ƒ“‚ª—£‚³‚ê‚½Žž
+					//	å„ãƒœã‚¿ãƒ³ãŒé›¢ã•ã‚ŒãŸæ™‚
 					JOY[ no ].Trg[ i+4 ] = OFF;
 					JOY[ no ].Push[ i+4 ] = OFF;
 					JOY[ no ].Count[ i+4 ] = OFF;
@@ -892,7 +892,7 @@ BOOL	CDx9LibInput::GetJoystickData( short Active )
 		}
 		else if( Active && hr == DIERR_INPUTLOST )
 		{
-			//	“ü—ÍŠJŽn
+			//	å…¥åŠ›é–‹å§‹
 			g_DIDevJoy[ no ]->Acquire();
 		}
 	}

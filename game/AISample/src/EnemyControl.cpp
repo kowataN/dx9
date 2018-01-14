@@ -1,10 +1,10 @@
 /******************************************************************************/
-//	ƒGƒlƒ~[§Œä
-//		ƒ\[ƒXƒtƒ@ƒCƒ‹
+//	ã‚¨ãƒãƒŸãƒ¼åˆ¶å¾¡
+//		ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 //----------------------------------------------------------------------------//
-//	ƒCƒ“ƒNƒ‹[ƒh
+//	ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
 //----------------------------------------------------------------------------//
 #include	"./Dx9Lib/Dx9Lib.h"
 #include	"./Dx9LibANm.h"
@@ -16,64 +16,64 @@
 #include	"./ShotMng.h"
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 ST_Enemy	ENEMY_INIT =
 {
-//	obj,     ƒTƒCƒY,      ’†SÀ•W, HIT, ƒXƒs[ƒh, ƒVƒ‡ƒbƒg”Ô†
+//	obj,     ã‚µã‚¤ã‚º,      ä¸­å¿ƒåº§æ¨™, HIT, ã‚¹ãƒ”ãƒ¼ãƒ‰, ã‚·ãƒ§ãƒƒãƒˆç•ªå·
 	NOT,NOT, 56,48,40,24, 20,12,    2,   4,        0,0,0,0,0,   1,1, 3
 };
 
 //----------------------------------------------------------------------------//
-//	ƒvƒƒgƒ^ƒCƒvéŒ¾
+//	ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 //----------------------------------------------------------------------------//
 short	CHkPointInCircle( double PosX, double PosY, ST_ObjectInfo MyInfo );
 
 
 
 /******************************************************************************/
-//	ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 CEnemy::CEnemy()
 {
 }
 
 /******************************************************************************/
-//	ƒfƒXƒgƒ‰ƒNƒ^
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 CEnemy::~CEnemy()
 {
 }
 
 /******************************************************************************/
-//	ƒGƒlƒ~[‰Šú‰»
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ã‚¨ãƒãƒŸãƒ¼åˆæœŸåŒ–
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	CEnemy::Init( long ObjNo, long TargetNo, double PosX, double PosY )
 {
 	CObjectMng &Obj = CObjectMng::GetInstance();
 
-	//	”Ô†iƒIƒuƒWƒFƒNƒgAƒpƒ^[ƒ“j
+	//	ç•ªå·ï¼ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€ãƒ‘ã‚¿ãƒ¼ãƒ³ï¼‰
 	m_Info.ObjectNo = ObjNo;
 	m_Info.TargetObjNo = TargetNo;
 	m_Info.PatSize = ENEMY_INIT.PatSize;
 
-	//	’†SÀ•W
+	//	ä¸­å¿ƒåº§æ¨™
 	m_Info.CenterX = ENEMY_INIT.CenterX;
 	m_Info.CenterY = ENEMY_INIT.CenterY;
 
-	//	‚»‚Ì‘¼
+	//	ãã®ä»–
 	m_Info.HitRect = ENEMY_INIT.HitRect;
 	m_Info.Speed = ENEMY_INIT.Speed;
 	m_Info.ShotLv = ENEMY_INIT.ShotLv;
@@ -100,11 +100,11 @@ void	CEnemy::Init( long ObjNo, long TargetNo, double PosX, double PosY )
 }
 
 /******************************************************************************/
-//	ƒGƒlƒ~[ƒƒCƒ“ƒ‹[ƒv
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ã‚¨ãƒãƒŸãƒ¼ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒ—
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	CEnemy::MainLoop( void )
 {
@@ -113,18 +113,18 @@ void	CEnemy::MainLoop( void )
 		return;
 	}
 
-	//	ˆÊ’uæ“¾
+	//	ä½ç½®å–å¾—
 	this->SetPostion();
-	//	‹——£æ“¾
+	//	è·é›¢å–å¾—
 	this->SetDistance();
 
-	//	Œü‚«’²®
+	//	å‘ãèª¿æ•´
 	this->Turn( m_Info.ObjectNo , m_Info.TargetObjNo );
 
 	this->Move();
 	this->Atack();
 
-	//	‚ ‚½‚è”»’è
+	//	ã‚ãŸã‚Šåˆ¤å®š
 	this->HitChk();
 
 #ifdef	_DEBUG
@@ -132,23 +132,23 @@ void	CEnemy::MainLoop( void )
 	ST_ObjectInfo MyInfo = Obj.GetObjectInfo( m_Info.ObjectNo );
 	char	PosStr[_PosMax][16] =
 	{
-		"¶ã","ã","‰Eã",
-		"¶","^’†","‰E",
-		"¶‰º","‰º","‰E‰º",
+		"å·¦ä¸Š","ä¸Š","å³ä¸Š",
+		"å·¦","çœŸä¸­","å³",
+		"å·¦ä¸‹","ä¸‹","å³ä¸‹",
 	};
 	//g_LibText.Set( 100, 0,0, 255,255,0,0, "" );
-	//sprintf_s( TXT[100].Str, "ˆÊ’uF%5s", PosStr[m_Info.Pos] );
+	//sprintf_s( TXT[100].Str, "ä½ç½®ï¼š%5s", PosStr[m_Info.Pos] );
 	//g_LibText.Set( 101, 0,16, 255,255,0,0, "" );
-	//sprintf_s( TXT[101].Str, "‹——£F%f", m_Info.Distance );
+	//sprintf_s( TXT[101].Str, "è·é›¢ï¼š%f", m_Info.Distance );
 	//g_LibText.Set( 102, 0,32, 255,255,0,0, "" );
-	//sprintf_s( TXT[102].Str, "À•Wi%5.2f,%5.2fj", MyInfo.PosX,MyInfo.PosY );
+	//sprintf_s( TXT[102].Str, "åº§æ¨™ï¼ˆ%5.2f,%5.2fï¼‰", MyInfo.PosX,MyInfo.PosY );
 	//g_LibText.Set( 103, 0,48, 255,255,0,0, "" );
-	//sprintf_s( TXT[103].Str, "ˆÚ“®—Êi%5.2f,%5.2fj", MyInfo.MoveX, MyInfo.MoveY );
+	//sprintf_s( TXT[103].Str, "ç§»å‹•é‡ï¼ˆ%5.2f,%5.2fï¼‰", MyInfo.MoveX, MyInfo.MoveY );
 #endif
 }
 
 /******************************************************************************/
-//	’â~ˆ—
+//	åœæ­¢å‡¦ç†
 /******************************************************************************/
 void	CEnemy::Stop( void )
 {
@@ -157,11 +157,11 @@ void	CEnemy::Stop( void )
 }
 
 /******************************************************************************/
-//	ˆÚ“®ˆ—
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	ç§»å‹•å‡¦ç†
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	CEnemy::Move( void )
 {
@@ -178,7 +178,7 @@ void	CEnemy::Move( void )
 }
 
 /******************************************************************************/
-//	UŒ‚ˆ—
+//	æ”»æ’ƒå‡¦ç†
 /******************************************************************************/
 void	CEnemy::Atack( void )
 {
@@ -213,29 +213,29 @@ void	CEnemy::Atack( void )
 }
 
 /******************************************************************************/
-//	“–‚½‚è”»’è
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				‚È‚µ
+//	å½“ãŸã‚Šåˆ¤å®š
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				ãªã—
 /******************************************************************************/
 void	CEnemy::HitChk( void )
 {
 }
 
 /******************************************************************************/
-//	Œü‚«”»’è
-//		–ß‚è’lF
-//				‚È‚µ
-//		ˆø”F
-//				*obj1	ƒIƒuƒWƒFƒNƒg‚ÌƒAƒhƒŒƒXi©•ªj
-//				*obj2	ƒIƒuƒWƒFƒNƒg‚ÌƒAƒhƒŒƒXi‘Šèj
+//	å‘ãåˆ¤å®š
+//		æˆ»ã‚Šå€¤ï¼š
+//				ãªã—
+//		å¼•æ•°ï¼š
+//				*obj1	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¢ãƒ‰ãƒ¬ã‚¹ï¼ˆè‡ªåˆ†ï¼‰
+//				*obj2	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¢ãƒ‰ãƒ¬ã‚¹ï¼ˆç›¸æ‰‹ï¼‰
 /******************************************************************************/
 void	CEnemy::Turn( long ObjNo1, long ObjNo2 )
 {
 	CObjectMng &Obj = CObjectMng::GetInstance();
 
-	//	ˆêŠi”[—p
+	//	ä¸€æ™‚æ ¼ç´ç”¨
 	double	x1,y1,x2,y2;
 	ST_ObjectInfo obj1,obj2;
 
@@ -274,7 +274,7 @@ vector<ST_ObjectInfo> CEnemy::GetShot( void )
 			//continue;
 		}
 
-		//	©•ª‚ÉŒü‚©‚Á‚Ä‚­‚é’e‚ğ”»’è
+		//	è‡ªåˆ†ã«å‘ã‹ã£ã¦ãã‚‹å¼¾ã‚’åˆ¤å®š
 		double RotR = GetRot( Info.PosX,Info.PosY, MyInfo.PosX,MyInfo.PosY );
 		double RotD = RadToDeg( RotR )+90;
 		if( RotD-5 <= Info.RotDeg && Info.RotDeg <= RotD+5 )
@@ -328,7 +328,7 @@ void	CEnemy::SetDistance( void )
 
 void	CEnemy::SetMove( void )
 {
-	//	ˆÚ“®—Ê
+	//	ç§»å‹•é‡
 	double MoveX,MoveY;
 	MoveX = MoveY = 0.0;
 
@@ -336,34 +336,34 @@ void	CEnemy::SetMove( void )
 	ST_ObjectInfo MyInfo = Obj.GetObjectInfo( m_Info.ObjectNo );
 	ST_ObjectInfo Player = Obj.GetObjectInfo( m_Info.TargetObjNo );
 
-	//	©•ª‚ÉŒü‚©‚Á‚Ä‚­‚é’eæ“¾
+	//	è‡ªåˆ†ã«å‘ã‹ã£ã¦ãã‚‹å¼¾å–å¾—
 	vector<ST_ObjectInfo> Shot = this->GetShot();
 	//if( Shot.size() == 0 )
 	{
-		//	©•ª‚ÉŒü‚©‚Á‚Ä‚­‚é’e‚ª‚È‚¢‚Ì‚Åƒ‰ƒ“ƒ_ƒ€ˆÚ“®
+		//	è‡ªåˆ†ã«å‘ã‹ã£ã¦ãã‚‹å¼¾ãŒãªã„ã®ã§ãƒ©ãƒ³ãƒ€ãƒ ç§»å‹•
 		this->SetMovePos( MyInfo, Player, MoveX, MoveY );
 	}
 	//else
 	//{
-	//	//	©•ª‚ÉŒü‚©‚Á‚Ä‚­‚é’e‚ª‚ ‚é‚Ì‚Å‰ñ”ğ
+	//	//	è‡ªåˆ†ã«å‘ã‹ã£ã¦ãã‚‹å¼¾ãŒã‚ã‚‹ã®ã§å›é¿
 	//	this->SetEscape( MyInfo, Shot, MoveX, MoveY );
 	//}
 
 	Obj.SetTransfer( m_Info.ObjectNo, MoveX, MoveY );
 	m_Info.MoveCt = 0;
 
-	//	©‹@‚Æ‚Ì‹——£‚ÅˆÚ“®ŠÔ•ÏX
+	//	è‡ªæ©Ÿã¨ã®è·é›¢ã§ç§»å‹•æ™‚é–“å¤‰æ›´
 	switch( this->GetLange() )
 	{
-		//	‹ß‹——£
+		//	è¿‘è·é›¢
 		case	_LngShort:
 			m_Info.MoveTimer = 10;
 			break;
-		//	’†‹——£
+		//	ä¸­è·é›¢
 		case	_LngMiddle:
 			m_Info.MoveTimer = 20;
 			break;
-		//	‰“‹——£
+		//	é è·é›¢
 		case	_LngLong:
 			m_Info.MoveTimer = 30;
 			break;
@@ -374,7 +374,7 @@ void	CEnemy::SetMovePos( ST_ObjectInfo MyInfo, ST_ObjectInfo Player, double &Mov
 {
 	E_Lange Lange = this->GetLange();
 
-	// ©•ª‚Æ‘Šè‚ÌˆÊ’uŠÖŒW‚ÅˆÚ“®•ûŒü‚ğ”»’è
+	// è‡ªåˆ†ã¨ç›¸æ‰‹ã®ä½ç½®é–¢ä¿‚ã§ç§»å‹•æ–¹å‘ã‚’åˆ¤å®š
 	switch( m_Info.Pos )
 	{
 		case	_PosLeftUp:
@@ -382,7 +382,7 @@ void	CEnemy::SetMovePos( ST_ObjectInfo MyInfo, ST_ObjectInfo Player, double &Mov
 		case	_PosRightUp:
 			if( Lange == _LngShort )
 			{
-				//	‹ß‚¢‚Ì‚Å‘Šè‚Æ‚ÌˆÊ’uŠÖŒW‚ÅˆÚ“®•ûŒüŒˆ’è
+				//	è¿‘ã„ã®ã§ç›¸æ‰‹ã¨ã®ä½ç½®é–¢ä¿‚ã§ç§»å‹•æ–¹å‘æ±ºå®š
 				if( MyInfo.PosX <= Player.PosX )
 				{
 					MoveX = -1;
@@ -396,7 +396,7 @@ void	CEnemy::SetMovePos( ST_ObjectInfo MyInfo, ST_ObjectInfo Player, double &Mov
 			}
 			else
 			{
-				//	‹——£‚ª‚ ‚é‚Ì‚Å©—R‚ÉˆÚ“®
+				//	è·é›¢ãŒã‚ã‚‹ã®ã§è‡ªç”±ã«ç§»å‹•
 				if( rand()%2 )
 				{
 					MoveX = 1;
@@ -422,7 +422,7 @@ void	CEnemy::SetMovePos( ST_ObjectInfo MyInfo, ST_ObjectInfo Player, double &Mov
 		case	_PosRight:
 			if( Lange == _LngShort )
 			{
-				//	‹ß‚¢‚Ì‚Å‘Šè‚Æ‚ÌˆÊ’uŠÖŒW‚ÅˆÚ“®•ûŒüŒˆ’è
+				//	è¿‘ã„ã®ã§ç›¸æ‰‹ã¨ã®ä½ç½®é–¢ä¿‚ã§ç§»å‹•æ–¹å‘æ±ºå®š
 				if( MyInfo.PosX <= Player.PosX )
 				{
 					MoveX = -1;
@@ -434,7 +434,7 @@ void	CEnemy::SetMovePos( ST_ObjectInfo MyInfo, ST_ObjectInfo Player, double &Mov
 			}
 			else
 			{
-				//	‹——£‚ª‚ ‚é‚Ì‚Å©—R‚ÉˆÚ“®
+				//	è·é›¢ãŒã‚ã‚‹ã®ã§è‡ªç”±ã«ç§»å‹•
 				if( rand()%2 )
 				{
 					MoveX = 1;
@@ -460,7 +460,7 @@ void	CEnemy::SetMovePos( ST_ObjectInfo MyInfo, ST_ObjectInfo Player, double &Mov
 		case	_PosRightDown:
 			if( Lange == _LngShort )
 			{
-				//	‹ß‚¢‚Ì‚Å‘Šè‚Æ‚ÌˆÊ’uŠÖŒW‚ÅˆÚ“®•ûŒüŒˆ’è
+				//	è¿‘ã„ã®ã§ç›¸æ‰‹ã¨ã®ä½ç½®é–¢ä¿‚ã§ç§»å‹•æ–¹å‘æ±ºå®š
 				if( MyInfo.PosX <= Player.PosX )
 				{
 					MoveX = -1;
@@ -474,7 +474,7 @@ void	CEnemy::SetMovePos( ST_ObjectInfo MyInfo, ST_ObjectInfo Player, double &Mov
 			}
 			else
 			{
-				//	‹——£‚ª‚ ‚é‚Ì‚Å©—R‚ÉˆÚ“®
+				//	è·é›¢ãŒã‚ã‚‹ã®ã§è‡ªç”±ã«ç§»å‹•
 				if( rand()%2 )
 				{
 					MoveX = 1;
@@ -508,7 +508,7 @@ void	CEnemy::SetEscape( ST_ObjectInfo MyInfo, vector<ST_ObjectInfo> Shot, double
 	{
 		E_Lange Lange = this->GetLange( MyInfo.PosX, MyInfo.PosY, (*Ite).PosX, (*Ite).PosY );
 
-		//	‹ß‹——£‚Ì’e‚©‚çˆ—‚·‚é
+		//	è¿‘è·é›¢ã®å¼¾ã‹ã‚‰å‡¦ç†ã™ã‚‹
 		MoveX = -GetMoveX( 2, MyInfo.RotRad );
 		MoveY = GetMoveY( 2, MyInfo.RotRad );
 	}
@@ -528,25 +528,25 @@ void	CEnemy::LoopMove( void )
 	}
 }
 
-//	ƒvƒŒƒC‚â[‚Æ‚Ì‹——£ŠÖŒW‚ğæ“¾
+//	ãƒ—ãƒ¬ã‚¤ã‚„ãƒ¼ã¨ã®è·é›¢é–¢ä¿‚ã‚’å–å¾—
 E_Lange	CEnemy::GetLange( void )
 {
 	E_Lange Ret = _LngMiddle;
 
-	//	©‹@‚Æ‚Ì‹——£‚ÅˆÚ“®ŠÔ•ÏX
+	//	è‡ªæ©Ÿã¨ã®è·é›¢ã§ç§»å‹•æ™‚é–“å¤‰æ›´
 	if( m_Info.Distance <= 100 )
 	{
-		//	‹ß‹——£
+		//	è¿‘è·é›¢
 		Ret = _LngShort;
 	}
 	else if( 100 < m_Info.Distance && m_Info.Distance <= 200 )
 	{
-		//	’†‹——£
+		//	ä¸­è·é›¢
 		Ret = _LngMiddle;
 	}
 	else
 	{
-		//	‰“‹——£
+		//	é è·é›¢
 		Ret = _LngLong;
 	}
 
@@ -558,27 +558,27 @@ E_Lange	CEnemy::GetLange( double PosX1, double PosY1, double PosX2, double PosY2
 	E_Lange Ret = _LngMiddle;
 	double Dis = GetDistance( PosX1,PosY1, PosX2,PosY2 );
 
-	//	©‹@‚Æ‚Ì‹——£‚ÅˆÚ“®ŠÔ•ÏX
+	//	è‡ªæ©Ÿã¨ã®è·é›¢ã§ç§»å‹•æ™‚é–“å¤‰æ›´
 	if( Dis <= 100 )
 	{
-		//	‹ß‹——£
+		//	è¿‘è·é›¢
 		Ret = _LngShort;
 	}
 	else if( 100 < Dis && Dis <= 200 )
 	{
-		//	’†‹——£
+		//	ä¸­è·é›¢
 		Ret = _LngMiddle;
 	}
 	else
 	{
-		//	‰“‹——£
+		//	é è·é›¢
 		Ret = _LngLong;
 	}
 
 	return Ret;
 }
 
-//	‰~‚Ì’†‚É“_‚ª‚ ‚é‚©”»’è
+//	å††ã®ä¸­ã«ç‚¹ãŒã‚ã‚‹ã‹åˆ¤å®š
 short	CHkPointInCircle( double PosX, double PosY, ST_ObjectInfo MyInfo )
 {
 	double	dx = PosX - MyInfo.PosX;

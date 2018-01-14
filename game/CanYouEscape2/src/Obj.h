@@ -1,82 +1,82 @@
 /******************************************************************************/
-//	ƒIƒuƒWƒFƒNƒg—pƒtƒ@ƒCƒ‹
-//		ƒ\[ƒXƒtƒ@ƒCƒ‹
+//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”¨ãƒ•ã‚¡ã‚¤ãƒ«
+//		ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 #ifndef	__Obj_H__
 #define	__Obj_H__
 
 //----------------------------------------------------------------------------//
-//	’è‹`
+//	å®šç¾©
 //----------------------------------------------------------------------------//
-#define	OBJ_MAX		5000	//	ƒIƒuƒWƒFƒNƒgÅ‘å”
+#define	OBJ_MAX		5000	//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆæœ€å¤§æ•°
 
 //----------------------------------------------------------------------------//
-//	\‘¢‘Ì
+//	æ§‹é€ ä½“
 //----------------------------------------------------------------------------//
 
 /////////////////////////////////////////////////
-//	ƒIƒuƒWƒFƒNƒgŠÇ—\‘¢‘Ì
+//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç®¡ç†æ§‹é€ ä½“
 typedef	struct
 {
-	//	ƒtƒ‰ƒO
-	u_char	use;			//	g—pƒtƒ‰ƒO
-	u_char	disp;			//	•\¦ƒtƒ‰ƒO
-	u_char	buzz;			//	ƒoƒYƒŠƒtƒ‰ƒO
+	//	ãƒ•ãƒ©ã‚°
+	u_char	use;			//	ä½¿ç”¨ãƒ•ãƒ©ã‚°
+	u_char	disp;			//	è¡¨ç¤ºãƒ•ãƒ©ã‚°
+	u_char	buzz;			//	ãƒã‚ºãƒªãƒ•ãƒ©ã‚°
 
-	//	”Ô†
-	long	pol_no;			//	ƒ|ƒŠƒSƒ“”Ô†
-	long	pat_no;			//	ƒpƒ^[ƒ“”Ô†
-	long	anm_no;			//	ƒAƒjƒŠÇ—”Ô†
+	//	ç•ªå·
+	long	pol_no;			//	ãƒãƒªã‚´ãƒ³ç•ªå·
+	long	pat_no;			//	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
+	long	anm_no;			//	ã‚¢ãƒ‹ãƒ¡ç®¡ç†ç•ªå·
 
-	//	À•WŒn
-	double	px,py,pz;		//	•\¦À•W
-	double	bx,by,bz;		//	•\¦À•WiƒoƒbƒNƒAƒbƒvj
-	double	mx,my;			//	ˆÚ“®—Ê
-	short	cx,cy;			//	’†SÀ•W
+	//	åº§æ¨™ç³»
+	double	px,py,pz;		//	è¡¨ç¤ºåº§æ¨™
+	double	bx,by,bz;		//	è¡¨ç¤ºåº§æ¨™ï¼ˆãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ï¼‰
+	double	mx,my;			//	ç§»å‹•é‡
+	short	cx,cy;			//	ä¸­å¿ƒåº§æ¨™
 
-	//	‘®«Œn
-	u_long	type;			//	ƒ^ƒCƒvƒtƒ‰ƒO(‹@‘ÌAƒVƒ‡ƒbƒgA‚»‚Ì‘¼)
-	u_long	atr;			//	ƒAƒgƒŠƒrƒ…[ƒg(©‹@A©ƒVƒ‡ƒbƒg)
+	//	å±æ€§ç³»
+	u_long	type;			//	ã‚¿ã‚¤ãƒ—ãƒ•ãƒ©ã‚°(æ©Ÿä½“ã€ã‚·ãƒ§ãƒƒãƒˆã€ãã®ä»–)
+	u_long	atr;			//	ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ(è‡ªæ©Ÿã€è‡ªã‚·ãƒ§ãƒƒãƒˆ)
 
-	//	“–‚½‚è”»’è
-	short	hit_rect;		//	“–‚½‚è”»’è
-	short	buzz_rect;		//	ƒoƒYƒŠ”»’è
+	//	å½“ãŸã‚Šåˆ¤å®š
+	short	hit_rect;		//	å½“ãŸã‚Šåˆ¤å®š
+	short	buzz_rect;		//	ãƒã‚ºãƒªåˆ¤å®š
 
-	//	‚»‚Ì‘¼
-	double	scale;			//	Šg‘å—¦
-	double	rot_r,rot_d;	//	Œü‚«(ƒ‰ƒWƒAƒ“AƒfƒtƒŠ[)
-	double	rot;			//	Šp“x
-	double	speed;			//	ˆÚ“®‘¬“x
-	short	dead;			//	Á–Åƒtƒ‰ƒO(0:¶‘¶A1:Á–ÅA2:“_–Å)
+	//	ãã®ä»–
+	double	scale;			//	æ‹¡å¤§ç‡
+	double	rot_r,rot_d;	//	å‘ã(ãƒ©ã‚¸ã‚¢ãƒ³ã€ãƒ‡ãƒ•ãƒªãƒ¼)
+	double	rot;			//	è§’åº¦
+	double	speed;			//	ç§»å‹•é€Ÿåº¦
+	short	dead;			//	æ¶ˆæ»…ãƒ•ãƒ©ã‚°(0:ç”Ÿå­˜ã€1:æ¶ˆæ»…ã€2:ç‚¹æ»…)
 
-	short	disp_ct;		//	ƒJƒEƒ“ƒ^iuseƒtƒ‰ƒO‚ªON‚É‚È‚Á‚Ä‚©‚ç‚ÌŠÔj
-	short	dead_ct;		//	Á–ÅƒJƒEƒ“ƒ^
-	long	ct;				//	”Ä—pƒJƒEƒ“ƒ^
+	short	disp_ct;		//	ã‚«ã‚¦ãƒ³ã‚¿ï¼ˆuseãƒ•ãƒ©ã‚°ãŒONã«ãªã£ã¦ã‹ã‚‰ã®æ™‚é–“ï¼‰
+	short	dead_ct;		//	æ¶ˆæ»…ã‚«ã‚¦ãƒ³ã‚¿
+	long	ct;				//	æ±ç”¨ã‚«ã‚¦ãƒ³ã‚¿
 }OBJ_TBL;
 
 #endif	//	__Obj_H__
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 extern	OBJ_TBL	OBJ[OBJ_MAX];
 
 //----------------------------------------------------------------------------//
-//	ƒvƒƒgƒ^ƒCƒvéŒ¾
+//	ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 //----------------------------------------------------------------------------//
-extern	void	ObjInitAll( void );				//	ƒIƒuƒWƒFƒNƒg‘S‰Šú‰»
-extern	void	ObjInit( long no );				//	ƒIƒuƒWƒFƒNƒg‰Šú‰»
-extern	void	ObjSet( long obj_no, long pol_no, long pat_no, double x, double y, double z, u_long type, u_long atr );	//	ƒIƒuƒWƒFƒNƒgİ’è
-extern	void	ObjPosSet( long obj_no, double x, double y, double z );		//	•\¦À•WƒZƒbƒg
-extern	void	ObjCenterSet( long obj_no, short cx, short cy );	//	’†SÀ•W‚ÌƒZƒbƒg
-extern	void	ObjScaleSet( long obj_no, double scall );			//	Šg‘å—¦‚ÌƒZƒbƒg
-extern	void	ObjAnmSet( long obj_no, long anm_no, long flag );	//	ƒIƒuƒWƒFƒNƒgƒAƒjƒƒZƒbƒg
-extern	void	ObjMove( void );				//	ƒIƒuƒWƒFƒNƒg‘SˆÚ“®
-extern	void	ObjMoveLoop( OBJ_TBL *obj );	//	ƒIƒuƒWƒFƒNƒgˆÚ“®
-extern	void	ObjDispAll( void );				//	ƒIƒuƒWƒFƒNƒg‘SoŒ»
-extern	void	ObjDisp( OBJ_TBL *obj );		//	ƒIƒuƒWƒFƒNƒgoŒ»
-extern	long	ObjClipping( long no );	//	ƒIƒuƒWƒFƒNƒgƒNƒŠƒbƒsƒ“ƒO
-extern	void	ObjPosBackUp( OBJ_TBL *obj );	//	À•WƒoƒbƒNƒAƒbƒv
-extern	void	ObjPosRet( OBJ_TBL *obj );		//	À•W‚ğŒ³‚É–ß‚·
-extern	long	ObjGetNo( long no );			//	‹ó‚«”Ô†æ“¾
+extern	void	ObjInitAll( void );				//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆå…¨åˆæœŸåŒ–
+extern	void	ObjInit( long no );				//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆåˆæœŸåŒ–
+extern	void	ObjSet( long obj_no, long pol_no, long pat_no, double x, double y, double z, u_long type, u_long atr );	//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆè¨­å®š
+extern	void	ObjPosSet( long obj_no, double x, double y, double z );		//	è¡¨ç¤ºåº§æ¨™ã‚»ãƒƒãƒˆ
+extern	void	ObjCenterSet( long obj_no, short cx, short cy );	//	ä¸­å¿ƒåº§æ¨™ã®ã‚»ãƒƒãƒˆ
+extern	void	ObjScaleSet( long obj_no, double scall );			//	æ‹¡å¤§ç‡ã®ã‚»ãƒƒãƒˆ
+extern	void	ObjAnmSet( long obj_no, long anm_no, long flag );	//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¢ãƒ‹ãƒ¡ã‚»ãƒƒãƒˆ
+extern	void	ObjMove( void );				//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆå…¨ç§»å‹•
+extern	void	ObjMoveLoop( OBJ_TBL *obj );	//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç§»å‹•
+extern	void	ObjDispAll( void );				//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆå…¨å‡ºç¾
+extern	void	ObjDisp( OBJ_TBL *obj );		//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆå‡ºç¾
+extern	long	ObjClipping( long no );	//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒªãƒƒãƒ”ãƒ³ã‚°
+extern	void	ObjPosBackUp( OBJ_TBL *obj );	//	åº§æ¨™ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—
+extern	void	ObjPosRet( OBJ_TBL *obj );		//	åº§æ¨™ã‚’å…ƒã«æˆ»ã™
+extern	long	ObjGetNo( long no );			//	ç©ºãç•ªå·å–å¾—

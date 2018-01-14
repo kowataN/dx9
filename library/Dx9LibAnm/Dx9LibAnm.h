@@ -1,105 +1,105 @@
 /******************************************************************************/
-//	ƒAƒjƒƒ‰ƒCƒuƒ‰ƒŠ
-//		ƒwƒbƒ_ƒtƒ@ƒCƒ‹
+//	ã‚¢ãƒ‹ãƒ¡ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+//		ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 #ifndef	__Dx9LibAnm_H__
 #define	__Dx9LibAnm_H__
 
 //----------------------------------------------------------------------------//
-//	’è‹`
+//	å®šç¾©
 //----------------------------------------------------------------------------//
 
-//	ƒAƒjƒÅ‘å”
+//	ã‚¢ãƒ‹ãƒ¡æœ€å¤§æ•°
 #define	ANM_MAX		100
 
-//	ƒtƒ‰ƒO
+//	ãƒ•ãƒ©ã‚°
 enum
 {
-	ANM_LOOP = 0,	//	ƒ‹[ƒv
-	ANM_STOP,		//	’âŽ~
-	ANM_END,		//	I—¹
+	ANM_LOOP = 0,	//	ãƒ«ãƒ¼ãƒ—
+	ANM_STOP,		//	åœæ­¢
+	ANM_END,		//	çµ‚äº†
 };
 
-//	ŠeƒCƒ“ƒfƒbƒNƒXƒTƒCƒY
+//	å„ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚µã‚¤ã‚º
 #define	PAT_INDEX_SIZE		(2+2+2+2)
 #define	ANM_INDEX_SIZE		(4+8+8+8+8+8+4+8+8+8+8+2)
 
 //----------------------------------------------------------------------------//
-//	\‘¢‘Ì
+//	æ§‹é€ ä½“
 //----------------------------------------------------------------------------//
 
 ////////////////////////////////////////
-//	ƒAƒjƒƒeƒNƒXƒ`ƒƒƒf[ƒ^
+//	ã‚¢ãƒ‹ãƒ¡ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ‡ãƒ¼ã‚¿
 typedef	struct
 {
-	long	TextureNo;					//	ƒeƒNƒXƒ`ƒƒ”Ô†
-	char	FileName[MAX_PATH];			//	ƒtƒ@ƒCƒ‹–¼
+	long	TextureNo;					//	ãƒ†ã‚¯ã‚¹ãƒãƒ£ç•ªå·
+	char	FileName[MAX_PATH];			//	ãƒ•ã‚¡ã‚¤ãƒ«å
 }ST_AnmTexture;
 
 ////////////////////////////////////////
-//	ƒAƒjƒƒpƒ^[ƒ“ƒf[ƒ^—p\‘¢‘Ì
+//	ã‚¢ãƒ‹ãƒ¡ãƒ‘ã‚¿ãƒ¼ãƒ³ãƒ‡ãƒ¼ã‚¿ç”¨æ§‹é€ ä½“
 typedef	struct
 {
-	long	TextureNo;					//	ƒeƒNƒXƒ`ƒƒ”Ô†
-	short	PosX,PosY;					//	Ø‚èŽæ‚èŠJŽnÀ•W
-	short	Width,Height;				//	ƒTƒCƒY
+	long	TextureNo;					//	ãƒ†ã‚¯ã‚¹ãƒãƒ£ç•ªå·
+	short	PosX,PosY;					//	åˆ‡ã‚Šå–ã‚Šé–‹å§‹åº§æ¨™
+	short	Width,Height;				//	ã‚µã‚¤ã‚º
 }ST_AnmPattern;
 
 ////////////////////////////////////////
-//	ƒAƒjƒ[ƒVƒ‡ƒ“—pƒtƒŒ[ƒ€\‘¢‘Ì
+//	ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ç”¨ãƒ•ãƒ¬ãƒ¼ãƒ æ§‹é€ ä½“
 typedef	struct
 {
-	long	PatNo;						//	ƒpƒ^[ƒ“”Ô†
-	double	CorrectX;					//	•â³À•W‚w
-	double	CorrectY;					//	•â³À•W‚x
-	double	ScaleX;						//	Šg‘å—¦‚w
-	double	ScaleY;						//	Šg‘å—¦‚x
-	double	Rot;						//	‰ñ“]Šp“x
-	long	Time;						//	•\Ž¦ƒtƒŒ[ƒ€”
-	double	A;							//	•s“§–¾“x
-	double	R,G,B;						//	ŠeF¬•ª
-	short	Rev;						//	”½“]ƒtƒ‰ƒO
+	long	PatNo;						//	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
+	double	CorrectX;					//	è£œæ­£åº§æ¨™ï¼¸
+	double	CorrectY;					//	è£œæ­£åº§æ¨™ï¼¹
+	double	ScaleX;						//	æ‹¡å¤§çŽ‡ï¼¸
+	double	ScaleY;						//	æ‹¡å¤§çŽ‡ï¼¹
+	double	Rot;						//	å›žè»¢è§’åº¦
+	long	Time;						//	è¡¨ç¤ºãƒ•ãƒ¬ãƒ¼ãƒ æ•°
+	double	A;							//	ä¸é€æ˜Žåº¦
+	double	R,G,B;						//	å„è‰²æˆåˆ†
+	short	Rev;						//	åè»¢ãƒ•ãƒ©ã‚°
 }ST_AnmFrame;
 
 ////////////////////////////////////////
-//	ƒAƒjƒ[ƒVƒ‡ƒ“—p\‘¢‘Ì
+//	ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ç”¨æ§‹é€ ä½“
 typedef	struct
 {
-	UChar			Use;				//	Žg—pƒtƒ‰ƒO
-	UChar			Flag;				//	ƒtƒ‰ƒOi0:ƒ‹[ƒvA1:’âŽ~A2:I—¹j
-	UChar			State;				//	ó‘Ôi0:’âŽ~A1:Ä¶’†j
+	UChar			Use;				//	ä½¿ç”¨ãƒ•ãƒ©ã‚°
+	UChar			Flag;				//	ãƒ•ãƒ©ã‚°ï¼ˆ0:ãƒ«ãƒ¼ãƒ—ã€1:åœæ­¢ã€2:çµ‚äº†ï¼‰
+	UChar			State;				//	çŠ¶æ…‹ï¼ˆ0:åœæ­¢ã€1:å†ç”Ÿä¸­ï¼‰
 
-	long			FileNo;				//	“Ç‚Ýž‚ñ‚¾ƒtƒ@ƒCƒ‹”Ô†
-	long			FrameMax;			//	ƒtƒŒ[ƒ€‚ÌÅ‘å”
-	long			FrmNo;				//	ƒtƒŒ[ƒ€”Ô†
-	long			DataNo;				//	ƒAƒjƒƒf[ƒ^”Ô†
+	long			FileNo;				//	èª­ã¿è¾¼ã‚“ã ãƒ•ã‚¡ã‚¤ãƒ«ç•ªå·
+	long			FrameMax;			//	ãƒ•ãƒ¬ãƒ¼ãƒ ã®æœ€å¤§æ•°
+	long			FrmNo;				//	ãƒ•ãƒ¬ãƒ¼ãƒ ç•ªå·
+	long			DataNo;				//	ã‚¢ãƒ‹ãƒ¡ãƒ‡ãƒ¼ã‚¿ç•ªå·
 
-	long			PolygonNo;			//	ƒ|ƒŠƒSƒ“”Ô†
-	long			PatNo;				//	ƒpƒ^[ƒ“”Ô†
+	long			PolygonNo;			//	ãƒãƒªã‚´ãƒ³ç•ªå·
+	long			PatNo;				//	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
 
-	ST_AnmFrame		FRM;				//	ƒtƒŒ[ƒ€ƒf[ƒ^(ƒJƒŒƒ“ƒgƒf[ƒ^)
-	ST_AnmPattern	PAT;				//	ƒpƒ^[ƒ“ƒf[ƒ^(ƒJƒŒƒ“ƒgƒf[ƒ^)
+	ST_AnmFrame		FRM;				//	ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ‡ãƒ¼ã‚¿(ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ãƒ¼ã‚¿)
+	ST_AnmPattern	PAT;				//	ãƒ‘ã‚¿ãƒ¼ãƒ³ãƒ‡ãƒ¼ã‚¿(ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ãƒ¼ã‚¿)
 
-	long			TimeCt;				//	ƒ^ƒCƒ€ƒJƒEƒ“ƒ^
+	long			TimeCt;				//	ã‚¿ã‚¤ãƒ ã‚«ã‚¦ãƒ³ã‚¿
 
-	UShort			Atr;				//	ƒAƒgƒŠƒrƒ…[ƒg
-	char			*AnmAddr;			//	ƒAƒjƒƒf[ƒ^‚ÌƒAƒhƒŒƒX
+	UShort			Atr;				//	ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
+	char			*AnmAddr;			//	ã‚¢ãƒ‹ãƒ¡ãƒ‡ãƒ¼ã‚¿ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 }ST_AnmData;
 
 #endif	//	__Dx9LibAnm_H__
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 
-//	ƒAƒjƒ[ƒVƒ‡ƒ“—p\‘¢‘Ì
+//	ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ç”¨æ§‹é€ ä½“
 extern	ST_AnmData	ANM[ANM_MAX];
 extern	char		AnmFilePath[MAX_PATH];
 extern	char		AnmFileName[MAX_PATH];
 
 //----------------------------------------------------------------------------//
-//	ƒvƒƒgƒ^ƒCƒvéŒ¾
+//	ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 //----------------------------------------------------------------------------//
 extern	void	InitAnmAll( void );
 extern	void	InitAnm( long AnmNo );

@@ -1,42 +1,42 @@
 /******************************************************************************/
-//	DirectX9ƒ‰ƒCƒuƒ‰ƒŠ
-//		ƒXƒvƒ‰ƒCƒg
+//	DirectX9ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+//		ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆ
 /******************************************************************************/
 
 #ifndef	__Dx9LibSprite_H__
 #define	__Dx9LibSprite_H__
 
 //----------------------------------------------------------------------------//
-//	\‘¢‘Ì
+//	æ§‹é€ ä½“
 //----------------------------------------------------------------------------//
 
-//	ƒXƒvƒ‰ƒCƒg—p\‘¢‘Ì
+//	ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆç”¨æ§‹é€ ä½“
 typedef	struct
 {
-	UChar	Use;						//	g—pƒtƒ‰ƒO
-	UChar	Disp;						//	•\¦ƒtƒ‰ƒO
-	long	PatNo;						//	ƒpƒ^[ƒ“”Ô†
-	long	Width,Height;				//	ƒTƒCƒY
-	long	CenterX,CenterY;			//	’†SÀ•W
-	UChar	A;							//	ƒAƒ‹ƒtƒ@
-	UChar	R,G,B;						//	ŠeF¬•ª
-	double	PosX,PosY,PosZ;				//	•\¦À•W
-	double	MoveX,MoveY;				//	ˆÚ“®—Ê
-	double	PosXBk,PosYBk;				//	•\¦À•W‚ÌƒoƒbƒNƒAƒbƒv
-	double	ScaleX,ScaleY;				//	ƒXƒP[ƒ‹
-	double	Rot;						//	Šp“x
-	UShort	Atr;						//	ƒAƒgƒŠƒrƒ…[ƒg
+	UChar	Use;						//	ä½¿ç”¨ãƒ•ãƒ©ã‚°
+	UChar	Disp;						//	è¡¨ç¤ºãƒ•ãƒ©ã‚°
+	long	PatNo;						//	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
+	long	Width,Height;				//	ã‚µã‚¤ã‚º
+	long	CenterX,CenterY;			//	ä¸­å¿ƒåº§æ¨™
+	UChar	A;							//	ã‚¢ãƒ«ãƒ•ã‚¡
+	UChar	R,G,B;						//	å„è‰²æˆåˆ†
+	double	PosX,PosY,PosZ;				//	è¡¨ç¤ºåº§æ¨™
+	double	MoveX,MoveY;				//	ç§»å‹•é‡
+	double	PosXBk,PosYBk;				//	è¡¨ç¤ºåº§æ¨™ã®ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—
+	double	ScaleX,ScaleY;				//	ã‚¹ã‚±ãƒ¼ãƒ«
+	double	Rot;						//	è§’åº¦
+	UShort	Atr;						//	ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 }ST_SpriteInfo;
 
 #endif	//	__Dx9LibSprite_H__
 
 //----------------------------------------------------------------------------//
-//	ƒOƒ[ƒoƒ‹•Ï”
+//	ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 //----------------------------------------------------------------------------//
 extern	ST_SpriteInfo		SP[SP_MAX];
 
 //----------------------------------------------------------------------------//
-//	ƒvƒƒgƒ^ƒCƒvéŒ¾
+//	ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 //----------------------------------------------------------------------------//
 extern	void	CreateSpriteDevice( void );
 extern	void	InitSpriteAll( void );

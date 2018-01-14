@@ -1,69 +1,69 @@
 /******************************************************************************/
-//	ƒIƒuƒWƒFƒNƒgŠÇ—ƒtƒ@ƒCƒ‹
-//		ƒwƒbƒ_ƒtƒ@ƒCƒ‹
+//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç®¡ç†ãƒ•ã‚¡ã‚¤ãƒ«
+//		ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 /******************************************************************************/
 
 #ifndef	__ObjectMng_H__
 #define	__ObjectMng_H__
 
 //----------------------------------------------------------------------------//
-//	’è‹`
+//	å®šç¾©
 //----------------------------------------------------------------------------//
 #define	OBJ_MAX	5000
 
 enum E_ObjectType
 {
-	_ObjTypeNone,	//	‚È‚µi‰Šú’lj
-	_ObjTypeBG,		//	”wŒi
-	_ObjTypeSystem,	//	ƒVƒXƒeƒ€
-	_ObjTypeRect,	//	—Ìˆæ
-	_ObjTypePlayer,	//	ƒvƒŒƒCƒ„[
-	_ObjTypeEnemy,	//	“G
-	_ObjTypeShot,	//	ƒVƒ‡ƒbƒg
+	_ObjTypeNone,	//	ãªã—ï¼ˆåˆæœŸå€¤ï¼‰
+	_ObjTypeBG,		//	èƒŒæ™¯
+	_ObjTypeSystem,	//	ã‚·ã‚¹ãƒ†ãƒ 
+	_ObjTypeRect,	//	é ˜åŸŸ
+	_ObjTypePlayer,	//	ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼
+	_ObjTypeEnemy,	//	æ•µ
+	_ObjTypeShot,	//	ã‚·ãƒ§ãƒƒãƒˆ
 };
 
 //----------------------------------------------------------------------------//
-//	\‘¢‘Ì
+//	æ§‹é€ ä½“
 //----------------------------------------------------------------------------//
 
-//	ƒIƒuƒWƒFƒNƒgŠÇ—\‘¢‘Ì
+//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç®¡ç†æ§‹é€ ä½“
 typedef	struct
 {
-	//	ƒtƒ‰ƒO
-	UChar	Use;					//	Žg—pƒtƒ‰ƒO
-	UChar	Disp;					//	•\Ž¦ƒtƒ‰ƒO
-	long	LoopFlag;				//	ƒAƒjƒƒ‹[ƒvƒtƒ‰ƒO
+	//	ãƒ•ãƒ©ã‚°
+	UChar	Use;					//	ä½¿ç”¨ãƒ•ãƒ©ã‚°
+	UChar	Disp;					//	è¡¨ç¤ºãƒ•ãƒ©ã‚°
+	long	LoopFlag;				//	ã‚¢ãƒ‹ãƒ¡ãƒ«ãƒ¼ãƒ—ãƒ•ãƒ©ã‚°
 
-	//	”Ô†
-	long	PatNo;					//	ƒpƒ^[ƒ“”Ô†
-	long	PolNo;					//	ƒ|ƒŠƒSƒ“”Ô†
-	long	AnmNo;					//	ƒAƒjƒŠÇ—”Ô†
+	//	ç•ªå·
+	long	PatNo;					//	ãƒ‘ã‚¿ãƒ¼ãƒ³ç•ªå·
+	long	PolNo;					//	ãƒãƒªã‚´ãƒ³ç•ªå·
+	long	AnmNo;					//	ã‚¢ãƒ‹ãƒ¡ç®¡ç†ç•ªå·
 
-	//	À•WŒn
-	double	PosX,PosY,PosZ;			//	•\Ž¦À•W
-	double	PosXBk,PosYBk,PosZBk;	//	ƒoƒbƒNƒAƒbƒvÀ•W
-	double	MoveX,MoveY;			//	ˆÚ“®—Ê
-	short	CenterX,CenterY;		//	’†SÀ•W
+	//	åº§æ¨™ç³»
+	double	PosX,PosY,PosZ;			//	è¡¨ç¤ºåº§æ¨™
+	double	PosXBk,PosYBk,PosZBk;	//	ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—åº§æ¨™
+	double	MoveX,MoveY;			//	ç§»å‹•é‡
+	short	CenterX,CenterY;		//	ä¸­å¿ƒåº§æ¨™
 
-	//	‘®«Œn
-	ULong	Type;					//	ƒ^ƒCƒvƒtƒ‰ƒO(‹@‘ÌAƒVƒ‡ƒbƒgA‚»‚Ì‘¼)
-	ULong	Atr;					//	ƒAƒgƒŠƒrƒ…[ƒg(Ž©‹@AŽ©ƒVƒ‡ƒbƒg)
+	//	å±žæ€§ç³»
+	ULong	Type;					//	ã‚¿ã‚¤ãƒ—ãƒ•ãƒ©ã‚°(æ©Ÿä½“ã€ã‚·ãƒ§ãƒƒãƒˆã€ãã®ä»–)
+	ULong	Atr;					//	ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ(è‡ªæ©Ÿã€è‡ªã‚·ãƒ§ãƒƒãƒˆ)
 
-	short	HitRect;				//	“–‚½‚è”»’è
+	short	HitRect;				//	å½“ãŸã‚Šåˆ¤å®š
 
-	//	‚»‚Ì‘¼
-	double	Scale;					//	Šg‘å—¦
-	double	RotRad,RotDeg;			//	Œü‚«(ƒ‰ƒWƒAƒ“AƒfƒOƒŠ[)
-	double	Speed;					//	ˆÚ“®‘¬“x
-	short	Dead;					//	Á–Åƒtƒ‰ƒO(0:¶‘¶A1:Á–ÅA2:“_–Å)
+	//	ãã®ä»–
+	double	Scale;					//	æ‹¡å¤§çŽ‡
+	double	RotRad,RotDeg;			//	å‘ã(ãƒ©ã‚¸ã‚¢ãƒ³ã€ãƒ‡ã‚°ãƒªãƒ¼)
+	double	Speed;					//	ç§»å‹•é€Ÿåº¦
+	short	Dead;					//	æ¶ˆæ»…ãƒ•ãƒ©ã‚°(0:ç”Ÿå­˜ã€1:æ¶ˆæ»…ã€2:ç‚¹æ»…)
 
-	short	DispCt;					//	ƒJƒEƒ“ƒ^iuseƒtƒ‰ƒO‚ªON‚É‚È‚Á‚Ä‚©‚ç‚ÌŽžŠÔj
-	short	DeadCt;					//	Á–ÅƒJƒEƒ“ƒ^
-	long	Ct;						//	”Ä—pƒJƒEƒ“ƒ^
+	short	DispCt;					//	ã‚«ã‚¦ãƒ³ã‚¿ï¼ˆuseãƒ•ãƒ©ã‚°ãŒONã«ãªã£ã¦ã‹ã‚‰ã®æ™‚é–“ï¼‰
+	short	DeadCt;					//	æ¶ˆæ»…ã‚«ã‚¦ãƒ³ã‚¿
+	long	Ct;						//	æ±Žç”¨ã‚«ã‚¦ãƒ³ã‚¿
 }ST_ObjectInfo;
 
 //----------------------------------------------------------------------------//
-//	ƒNƒ‰ƒX
+//	ã‚¯ãƒ©ã‚¹
 //----------------------------------------------------------------------------//
 class	CObjectMng
 {
